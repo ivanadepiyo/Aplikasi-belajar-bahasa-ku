@@ -1,0 +1,3696 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AKU BISA - User Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f5f7fb;
+
+    color: #172033;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 235px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #1464cb,
+            #0a438f
+        );
+
+    color: white;
+
+    padding: 17px 12px;
+
+    overflow-y: auto;
+
+    z-index: 100;
+}
+
+
+/* BRAND */
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 7px 18px;
+}
+
+
+.brand-logo {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #1260c4;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+.brand h2 {
+
+    font-size: 14px;
+
+    margin-bottom: 3px;
+}
+
+
+.brand span {
+
+    font-size: 7px;
+
+    color: #d7e7ff;
+}
+
+
+/* =====================================================
+   USER MINI PROFILE
+===================================================== */
+
+.user-mini {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px;
+
+    margin-bottom: 14px;
+
+    background: rgba(255,255,255,.08);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 11px;
+}
+
+
+.avatar {
+
+    width: 37px;
+    height: 37px;
+
+    border-radius: 50%;
+
+    background: #edf4ff;
+
+    color: #1260c4;
+
+    display: grid;
+
+    place-items: center;
+
+    font-weight: 800;
+
+    font-size: 10px;
+}
+
+
+.user-mini strong {
+
+    display: block;
+
+    font-size: 10px;
+}
+
+
+.user-mini small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 8px;
+
+    color: #d6e6ff;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.navigation {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.nav-item {
+
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    color: #dceaff;
+
+    padding: 9px 10px;
+
+    border-radius: 8px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    font-size: 10px;
+
+    transition: .2s;
+}
+
+
+.nav-item span {
+
+    width: 17px;
+
+    text-align: center;
+}
+
+
+.nav-item:hover {
+
+    background: rgba(255,255,255,.12);
+
+    color: white;
+}
+
+
+.nav-item.active {
+
+    background: white;
+
+    color: #1260c4;
+
+    font-weight: 700;
+}
+
+
+/* SUPPORT */
+
+.support-button {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 13px 7px;
+
+    background: transparent;
+
+    color: #dceaff;
+
+    border: none;
+
+    border-top: 1px solid rgba(255,255,255,.15);
+
+    text-align: left;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main-content {
+
+    margin-left: 235px;
+
+    min-height: 100vh;
+
+    padding: 0 28px 40px;
+}
+
+
+/* =====================================================
+   TOPBAR
+===================================================== */
+
+.topbar {
+
+    height: 68px;
+
+    border-bottom: 1px solid #e4e8ef;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+
+.search-box {
+
+    width: 390px;
+
+    height: 38px;
+
+    background: white;
+
+    border: 1px solid #dfe4ec;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 11px;
+
+    color: #8c96a7;
+}
+
+
+.search-box input {
+
+    width: 100%;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 11px;
+}
+
+
+.top-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.top-button {
+
+    width: 37px;
+    height: 37px;
+
+    border: 1px solid #e0e5ed;
+
+    background: white;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+
+.top-button i {
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: #ed5a70;
+
+    border-radius: 50%;
+
+    right: 7px;
+    top: 6px;
+}
+
+
+.top-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.top-user strong {
+
+    display: block;
+
+    font-size: 10px;
+}
+
+
+.top-user small {
+
+    display: block;
+
+    font-size: 8px;
+
+    color: #8a94a5;
+
+    margin-top: 3px;
+}
+
+
+.avatar.small {
+
+    width: 32px;
+    height: 32px;
+}
+
+
+.mobile-menu {
+
+    display: none;
+
+    border: none;
+
+    background: white;
+
+    padding: 9px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page {
+
+    padding-top: 24px;
+}
+
+
+.welcome {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 18px;
+}
+
+
+.eyebrow {
+
+    color: #1461c2;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .5px;
+}
+
+
+.welcome h1 {
+
+    font-size: 24px;
+
+    margin: 6px 0;
+}
+
+
+.muted {
+
+    color: #8993a5;
+
+    font-size: 10px;
+}
+
+
+.date {
+
+    background: white;
+
+    border: 1px solid #e1e6ee;
+
+    padding: 8px 11px;
+
+    border-radius: 9px;
+
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+}
+
+
+.stat {
+
+    background: white;
+
+    border: 1px solid #e1e6ee;
+
+    border-radius: 13px;
+
+    padding: 15px;
+
+    position: relative;
+}
+
+
+.stat small {
+
+    color: #7f899a;
+
+    font-size: 9px;
+}
+
+
+.stat strong {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin: 8px 0 5px;
+}
+
+
+.stat label {
+
+    color: #299b68;
+
+    font-size: 8px;
+}
+
+
+.stat-icon {
+
+    position: absolute;
+
+    right: 13px;
+    top: 13px;
+
+    width: 31px;
+    height: 31px;
+
+    background: #edf4ff;
+
+    color: #1461c2;
+
+    border-radius: 9px;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+/* =====================================================
+   GRID
+===================================================== */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,2fr)
+        minmax(280px,.9fr);
+
+    gap: 16px;
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.panel {
+
+    background: white;
+
+    border: 1px solid #e1e6ee;
+
+    border-radius: 13px;
+
+    padding: 18px;
+}
+
+
+.section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
+
+.section-title h2 {
+
+    font-size: 13px;
+}
+
+
+.section-title p {
+
+    margin-top: 4px;
+
+    color: #8993a5;
+
+    font-size: 9px;
+}
+
+
+.link-button {
+
+    background: none;
+
+    border: none;
+
+    color: #1764c2;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   COURSE
+===================================================== */
+
+.course {
+
+    display: grid;
+
+    grid-template-columns: 210px 1fr;
+
+    overflow: hidden;
+
+    padding: 0;
+
+    margin-bottom: 20px;
+}
+
+
+.course-cover {
+
+    min-height: 190px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4dddd,
+            #dcecff
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.course-cover .flag {
+
+    font-size: 58px;
+}
+
+
+.course-cover small {
+
+    font-size: 8px;
+
+    font-weight: 800;
+}
+
+
+.course-content {
+
+    padding: 18px;
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    background: #e7f6ef;
+
+    color: #168258;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.course-content h3 {
+
+    font-size: 16px;
+
+    margin: 10px 0 6px;
+}
+
+
+.course-content p {
+
+    font-size: 9px;
+
+    color: #7d8799;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 13px;
+
+    font-size: 8px;
+}
+
+
+.progress {
+
+    height: 7px;
+
+    background: #e9edf3;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-top: 6px;
+}
+
+
+.progress span {
+
+    display: block;
+
+    height: 100%;
+
+    background: #1764c2;
+
+    border-radius: 20px;
+}
+
+
+.meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin: 12px 0;
+
+    color: #7f899a;
+
+    font-size: 8px;
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+.primary-button,
+.secondary-button {
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.primary-button {
+
+    background: #1764c2;
+
+    color: white;
+}
+
+
+.secondary-button {
+
+    background: #edf4ff;
+
+    color: #1764c2;
+}
+
+
+/* =====================================================
+   RECOMMENDATION
+===================================================== */
+
+.recommendations {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 11px;
+}
+
+
+.recommendation {
+
+    overflow: hidden;
+
+    padding: 0;
+}
+
+
+.recommendation-cover {
+
+    height: 92px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 44px;
+
+    background: #edf3fc;
+}
+
+
+.recommendation-content {
+
+    padding: 11px;
+}
+
+
+.recommendation-content small {
+
+    color: #1764c2;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+.recommendation-content h3 {
+
+    font-size: 10px;
+
+    margin: 5px 0;
+}
+
+
+.recommendation-content p {
+
+    color: #8993a5;
+
+    font-size: 8px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =====================================================
+   TARGET
+===================================================== */
+
+.target {
+
+    text-align: center;
+}
+
+
+.target-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    text-align: left;
+}
+
+
+.target-header h2 {
+
+    font-size: 13px;
+}
+
+
+.streak {
+
+    background: #fff2dc;
+
+    color: #a86b00;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    font-size: 8px;
+}
+
+
+.progress-ring {
+
+    width: 118px;
+
+    height: 118px;
+
+    margin: 17px auto;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(
+            #1764c2 0 70%,
+            #e8edf4 70%
+        );
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+}
+
+
+.progress-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 88px;
+
+    height: 88px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+
+.progress-ring div {
+
+    position: relative;
+}
+
+
+.progress-ring b {
+
+    display: block;
+
+    font-size: 20px;
+}
+
+
+.progress-ring small {
+
+    font-size: 8px;
+
+    color: #8993a5;
+}
+
+
+.full-button {
+
+    width: 100%;
+
+    margin-top: 12px;
+}
+
+
+/* =====================================================
+   QUICK ACCESS
+===================================================== */
+
+.quick-access {
+
+    margin-top: 13px;
+}
+
+
+.quick-access h2 {
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+
+.quick-item {
+
+    width: 100%;
+
+    border: none;
+
+    border-bottom: 1px solid #edf0f4;
+
+    background: white;
+
+    padding: 12px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+.quick-icon {
+
+    width: 31px;
+
+    height: 31px;
+
+    background: #edf4ff;
+
+    color: #1764c2;
+
+    border-radius: 8px;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+.quick-item-content {
+
+    flex: 1;
+}
+
+
+.quick-item-content b {
+
+    display: block;
+
+    font-size: 9px;
+}
+
+
+.quick-item-content small {
+
+    font-size: 7px;
+
+    color: #8993a5;
+}
+
+
+/* =====================================================
+   GENERIC PAGE
+===================================================== */
+
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 18px;
+}
+
+
+.page-header h1 {
+
+    font-size: 24px;
+
+    margin: 6px 0;
+}
+
+
+.page-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 13px;
+}
+
+
+.feature-card {
+
+    background: white;
+
+    border: 1px solid #e1e6ee;
+
+    border-radius: 13px;
+
+    padding: 18px;
+}
+
+
+.feature-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    background: #edf4ff;
+
+    border-radius: 12px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 25px;
+
+    margin-bottom: 13px;
+}
+
+
+.feature-card h3 {
+
+    font-size: 12px;
+
+    margin-bottom: 7px;
+}
+
+
+.feature-card p {
+
+    color: #8993a5;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.settings-form {
+
+    max-width: 650px;
+
+    display: grid;
+
+    gap: 13px;
+}
+
+
+.form-field {
+
+    display: grid;
+
+    gap: 5px;
+}
+
+
+.form-field label {
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+.form-field input,
+.form-field select {
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #dfe4ec;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast {
+
+    position: fixed;
+
+    z-index: 1000;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    background: #172033;
+
+    color: white;
+
+    padding: 12px 16px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+
+    display: none;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    background: rgba(0,0,0,.55);
+
+    display: none;
+
+    place-items: center;
+
+    padding: 20px;
+}
+
+
+.modal.show {
+
+    display: grid;
+}
+
+
+.modal-content {
+
+    position: relative;
+
+    width: min(560px,100%);
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+
+.modal-close {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 6px;
+
+    border: none;
+
+    background: none;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark {
+
+    background: #101521;
+
+    color: #eaf0fa;
+}
+
+
+body.dark .topbar {
+
+    border-color: #293346;
+}
+
+
+body.dark .panel,
+body.dark .stat,
+body.dark .feature-card,
+body.dark .search-box,
+body.dark .top-button,
+body.dark .quick-item,
+body.dark .modal-content {
+
+    background: #171e2c;
+
+    color: #eaf0fa;
+
+    border-color: #293346;
+}
+
+
+body.dark .course-cover {
+
+    background: #222c3d;
+}
+
+
+body.dark .progress {
+
+    background: #30394a;
+}
+
+
+body.dark .progress-ring::before {
+
+    background: #171e2c;
+}
+
+
+body.dark .muted,
+body.dark .course-content p,
+body.dark .feature-card p {
+
+    color: #aab5c7;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px) {
+
+    .sidebar {
+
+        width: 72px;
+    }
+
+    .brand div,
+    .user-mini div:not(.avatar),
+    .nav-item,
+    .support-button span {
+
+        font-size: 0;
+    }
+
+    .brand,
+    .user-mini {
+
+        justify-content: center;
+    }
+
+    .nav-item {
+
+        justify-content: center;
+    }
+
+    .main-content {
+
+        margin-left: 72px;
+    }
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:720px) {
+
+    .sidebar {
+
+        width: 0;
+
+        padding: 0;
+
+        overflow: hidden;
+    }
+
+    .sidebar.open {
+
+        width: 235px;
+
+        padding: 17px 12px;
+    }
+
+    .sidebar.open .brand div,
+    .sidebar.open .user-mini div:not(.avatar),
+    .sidebar.open .nav-item,
+    .sidebar.open .support-button span {
+
+        font-size: initial;
+    }
+
+    .main-content {
+
+        margin-left: 0;
+
+        padding:
+            0 14px
+            30px;
+    }
+
+    .mobile-menu {
+
+        display: block;
+    }
+
+    .topbar {
+
+        height: 61px;
+    }
+
+    .search-box {
+
+        flex: 1;
+
+        width: auto;
+    }
+
+    .top-user div:last-child {
+
+        display: none;
+    }
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .dashboard-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .course {
+
+        grid-template-columns: 1fr;
+    }
+
+    .course-cover {
+
+        min-height: 130px;
+    }
+
+    .recommendations,
+    .page-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .page-header {
+
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-logo">✦</div>
+
+        <div>
+            <h2>AKU BISA</h2>
+            <span>LANGUAGE LEARNING</span>
+        </div>
+    </div>
+
+
+    <!-- USER PROFILE -->
+
+    <div class="user-mini">
+
+        <div class="avatar">
+            AP
+        </div>
+
+        <div>
+            <strong>Ayah Premium</strong>
+            <small>Level 18 • 4.250 poin</small>
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navigation">
+
+        <button class="nav-item active" data-page="dashboard">
+            <span>⌂</span>
+            Dashboard
+        </button>
+
+        <button class="nav-item" data-page="languages">
+            <span>◈</span>
+            Semua Bahasa
+        </button>
+
+        <button class="nav-item" data-page="courses">
+            <span>▣</span>
+            Kursus Saya
+        </button>
+
+        <button class="nav-item" data-page="materials">
+            <span>▤</span>
+            Materi
+        </button>
+
+        <button class="nav-item" data-page="practice">
+            <span>◎</span>
+            Latihan
+        </button>
+
+        <button class="nav-item" data-page="quiz">
+            <span>✓</span>
+            Quiz
+        </button>
+
+        <button class="nav-item" data-page="listening">
+            <span>◌</span>
+            Listening
+        </button>
+
+        <button class="nav-item" data-page="speaking">
+            <span>♬</span>
+            Speaking
+        </button>
+
+        <button class="nav-item" data-page="achievement">
+            <span>★</span>
+            Achievement
+        </button>
+
+        <button class="nav-item" data-page="certificate">
+            <span>▱</span>
+            Sertifikat
+        </button>
+
+        <button class="nav-item" data-page="community">
+            <span>♧</span>
+            Community
+        </button>
+
+        <button class="nav-item" data-page="profile">
+            <span>♙</span>
+            Profil
+        </button>
+
+        <button class="nav-item" data-page="settings">
+            <span>⚙</span>
+            Pengaturan
+        </button>
+
+        <button class="nav-item" data-page="premium">
+            <span>♛</span>
+            Premium
+        </button>
+
+    </nav>
+
+
+    <button class="support-button" id="supportButton">
+        ?
+        <span>Bantuan & Dukungan</span>
+    </button>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            ☰
+        </button>
+
+
+        <div class="search-box">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Cari bahasa, kursus, materi..."
+            >
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button class="top-button" id="notificationButton">
+                🔔
+                <i></i>
+            </button>
+
+            <button class="top-button" id="themeButton">
+                ☾
+            </button>
+
+            <div class="top-user">
+
+                <div class="avatar small">
+                    AP
+                </div>
+
+                <div>
+                    <strong>Ayah Premium</strong>
+                    <small>Premium</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         PAGE CONTENT
+    ================================================= -->
+
+    <section id="pageContent">
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div id="toast" class="toast">
+    Berhasil!
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <button class="modal-close" id="modalClose">
+            ×
+        </button>
+
+        <div id="modalBody"></div>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+/* =====================================================
+   AKU BISA USER APPLICATION
+===================================================== */
+
+
+/* =====================================================
+   GLOBAL STATE
+===================================================== */
+
+const appState = {
+
+    currentPage: "dashboard",
+
+    darkMode: false,
+
+    search: ""
+
+};
+
+
+/* =====================================================
+   PAGE DATA
+===================================================== */
+
+const pageData = {
+
+    languages: {
+
+        title: "Semua Bahasa",
+
+        description:
+            "Pilih bahasa yang ingin kamu pelajari.",
+
+        items: [
+
+            ["🇯🇵", "Bahasa Jepang", "Pemula • 24 materi"],
+
+            ["🇬🇧", "Bahasa Inggris", "Beginner • 30 materi"],
+
+            ["🇰🇷", "Bahasa Korea", "Pemula • 20 materi"],
+
+            ["🇨🇳", "Bahasa Mandarin", "Pemula • 22 materi"],
+
+            ["🇩🇪", "Bahasa Jerman", "Pemula • 18 materi"],
+
+            ["🇫🇷", "Bahasa Prancis", "Pemula • 18 materi"]
+
+        ]
+
+    },
+
+
+    courses: {
+
+        title: "Kursus Saya",
+
+        description:
+            "Kelola semua kursus yang sedang kamu pelajari.",
+
+        items: [
+
+            ["📘", "Bahasa Jepang — Dasar", "Progress 72%"],
+
+            ["📗", "Bahasa Inggris — Beginner", "Progress 60%"],
+
+            ["📕", "Bahasa Korea — Pemula", "Progress 40%"]
+
+        ]
+
+    },
+
+
+    materials: {
+
+        title: "Materi",
+
+        description:
+            "Pelajari materi sesuai bahasa dan level.",
+
+        items: [
+
+            ["📖", "Pengenalan Diri", "Bahasa Jepang • Dasar"],
+
+            ["あ", "Hiragana Dasar", "Bahasa Jepang • Dasar"],
+
+            ["💬", "Percakapan Sehari-hari", "Bahasa Inggris"],
+
+            ["文", "Grammar N5", "Bahasa Jepang • Dasar"]
+
+        ]
+
+    },
+
+
+    practice: {
+
+        title: "Latihan",
+
+        description:
+            "Tingkatkan kemampuanmu melalui latihan.",
+
+        items: [
+
+            ["🎯", "Kosakata Dasar", "30 soal"],
+
+            ["🧩", "Grammar N5", "20 soal"],
+
+            ["💬", "Percakapan", "25 soal"],
+
+            ["📝", "Kanji Pemula", "15 soal"]
+
+        ]
+
+    },
+
+
+    quiz: {
+
+        title: "Quiz",
+
+        description:
+            "Uji kemampuan dan kumpulkan poin.",
+
+        items: [
+
+            ["✓", "Quiz Kosakata Dasar", "10 soal"],
+
+            ["✓", "Quiz Grammar N5", "20 soal"],
+
+            ["✓", "Quiz Kanji Pemula", "15 soal"]
+
+        ]
+
+    },
+
+
+    listening: {
+
+        title: "Listening",
+
+        description:
+            "Latih kemampuan memahami percakapan.",
+
+        items: [
+
+            ["🎧", "Percakapan Perkenalan", "12:45"],
+
+            ["🎧", "Percakapan Restoran", "09:20"],
+
+            ["🎧", "Stasiun Kereta", "11:10"]
+
+        ]
+
+    },
+
+
+    speaking: {
+
+        title: "Speaking",
+
+        description:
+            "Latih pengucapan dan kemampuan berbicara.",
+
+        items: [
+
+            ["🎙️", "Perkenalan Diri", "45 detik"],
+
+            ["🎙️", "Memesan Makanan", "60 detik"],
+
+            ["🎙️", "Berbelanja", "50 detik"]
+
+        ]
+
+    },
+
+
+    achievement: {
+
+        title: "Achievement",
+
+        description:
+            "Lihat pencapaian yang telah kamu raih.",
+
+        items: [
+
+            ["🏆", "Belajar Konsisten", "7 hari berturut-turut"],
+
+            ["🔥", "Streak Master", "12 hari"],
+
+            ["🎯", "Target Harian", "30 menit"],
+
+            ["📚", "Pembaca Aktif", "50 materi"]
+
+        ]
+
+    },
+
+
+    certificate: {
+
+        title: "Sertifikat",
+
+        description:
+            "Sertifikat hasil pembelajaran kamu.",
+
+        items: [
+
+            ["📜", "Bahasa Jepang — Dasar", "Nilai 92"],
+
+            ["📜", "Bahasa Inggris — Beginner", "Nilai 88"]
+
+        ]
+
+    },
+
+
+    community: {
+
+        title: "Community",
+
+        description:
+            "Bergabung dengan komunitas pembelajar bahasa.",
+
+        items: [
+
+            ["👥", "Forum Bahasa Jepang", "1.240 anggota"],
+
+            ["💬", "Tantangan 30 Hari", "850 peserta"],
+
+            ["🌟", "Belajar Bersama", "420 anggota"]
+
+        ]
+
+    },
+
+
+    profile: {
+
+        title: "Profil",
+
+        description:
+            "Kelola profil dan statistik akun.",
+
+        items: [
+
+            ["👤", "Ayah Premium", "Premium aktif"],
+
+            ["⏱️", "128 Jam", "Total waktu belajar"],
+
+            ["🔥", "12 Hari", "Streak saat ini"]
+
+        ]
+
+    },
+
+
+    premium: {
+
+        title: "Premium",
+
+        description:
+            "Nikmati seluruh fitur Premium AKU BISA.",
+
+        items: [
+
+            ["♛", "18 Bulan", "Rp59.000"],
+
+            ["♛", "12 Bulan", "Rp299.000"],
+
+            ["♛", "Premium Aktif", "Semua fitur tersedia"]
+
+        ]
+
+    }
+
+};
+
+
+/* =====================================================
+   DOM ELEMENT
+===================================================== */
+
+const pageContent =
+    document.getElementById("pageContent");
+
+const toastElement =
+    document.getElementById("toast");
+
+const modal =
+    document.getElementById("modal");
+
+const modalBody =
+    document.getElementById("modalBody");
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message) {
+
+    toastElement.textContent = message;
+
+    toastElement.style.display = "block";
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer =
+        setTimeout(() => {
+
+            toastElement.style.display = "none";
+
+        }, 2200);
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+function openModal(title, content) {
+
+    modalBody.innerHTML = `
+
+        <h2 style="margin-bottom:15px">
+            ${title}
+        </h2>
+
+        ${content}
+
+    `;
+
+    modal.classList.add("show");
+}
+
+
+function closeModal() {
+
+    modal.classList.remove("show");
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function renderDashboard() {
+
+    pageContent.innerHTML = `
+
+        <div class="page">
+
+            <div class="welcome">
+
+                <div>
+
+                    <span class="eyebrow">
+                        SELAMAT DATANG KEMBALI 👋
+                    </span>
+
+                    <h1>
+                        Hai, Ayah Premium!
+                    </h1>
+
+                    <p class="muted">
+                        Lanjutkan perjalanan belajar
+                        bahasa hari ini.
+                    </p>
+
+                </div>
+
+                <div class="date">
+
+                    ${new Date().toLocaleDateString(
+                        "id-ID",
+                        {
+                            weekday: "long",
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats">
+
+                ${createStat(
+                    "◷",
+                    "Total Belajar",
+                    "128",
+                    "jam",
+                    "+12% dari bulan lalu"
+                )}
+
+                ${createStat(
+                    "▣",
+                    "Kursus Selesai",
+                    "12",
+                    "",
+                    "2 kursus bulan ini"
+                )}
+
+                ${createStat(
+                    "★",
+                    "Achievement",
+                    "24",
+                    "",
+                    "3 badge baru"
+                )}
+
+                ${createStat(
+                    "♛",
+                    "Poin Saya",
+                    "4.250",
+                    "",
+                    "+350 minggu ini"
+                )}
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div>
+
+                    <!-- CURRENT COURSE -->
+
+                    <div class="section-title">
+
+                        <div>
+
+                            <h2>
+                                Lanjutkan Belajar
+                            </h2>
+
+                            <p>
+                                Terakhir kamu belajar
+                                di sini
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="link-button"
+                            onclick="navigate('courses')"
+                        >
+                            Lihat Semua →
+                        </button>
+
+                    </div>
+
+
+                    <div class="panel course">
+
+                        <div class="course-cover">
+
+                            <div class="flag">
+                                🇯🇵
+                            </div>
+
+                            <small>
+                                BAHASA JEPANG
+                            </small>
+
+                            <b>
+                                Dasar
+                            </b>
+
+                        </div>
+
+
+                        <div class="course-content">
+
+                            <span class="badge">
+                                SEDANG BERJALAN
+                            </span>
+
+                            <h3>
+                                Bahasa Jepang — Dasar
+                            </h3>
+
+                            <p>
+                                Pelajari hiragana,
+                                kosakata dasar,
+                                percakapan,
+                                dan tata bahasa Jepang.
+                            </p>
+
+
+                            <div class="progress-row">
+
+                                <span>
+                                    Progress Belajar
+                                </span>
+
+                                <b>
+                                    72%
+                                </b>
+
+                            </div>
+
+
+                            <div class="progress">
+
+                                <span
+                                    style="width:72%"
+                                ></span>
+
+                            </div>
+
+
+                            <div class="meta">
+
+                                <span>
+                                    ◷ 18 jam belajar
+                                </span>
+
+                                <span>
+                                    ▣ 24 materi
+                                </span>
+
+                                <span>
+                                    ★ Level Pemula
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                class="primary-button"
+                                onclick="continueCourse()"
+                            >
+                                Lanjutkan Belajar →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RECOMMENDATION -->
+
+                    <div class="section-title">
+
+                        <div>
+
+                            <h2>
+                                Rekomendasi Untukmu
+                            </h2>
+
+                            <p>
+                                Kursus pilihan berdasarkan
+                                minatmu
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="link-button"
+                            onclick="navigate('languages')"
+                        >
+                            Lihat Semua →
+                        </button>
+
+                    </div>
+
+
+                    <div class="recommendations">
+
+                        ${createRecommendation(
+                            "🇬🇧",
+                            "ENGLISH",
+                            "English Beginner"
+                        )}
+
+                        ${createRecommendation(
+                            "🇰🇷",
+                            "KOREA",
+                            "Hangeul Dasar"
+                        )}
+
+                        ${createRecommendation(
+                            "🇯🇵",
+                            "JAPANESE",
+                            "Japanese Conversation"
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div>
+
+
+                    <!-- TARGET -->
+
+                    <div class="panel target">
+
+                        <div class="target-header">
+
+                            <div>
+
+                                <h2>
+                                    Target Harian
+                                </h2>
+
+                                <p class="muted">
+                                    Jangan putus streak-mu!
+                                </p>
+
+                            </div>
+
+                            <span class="streak">
+                                🔥 12 hari
+                            </span>
+
+                        </div>
+
+
+                        <div class="progress-ring">
+
+                            <div>
+
+                                <b>70%</b>
+
+                                <small>
+                                    Target
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <strong>
+                            21 / 30 menit
+                        </strong>
+
+                        <p class="muted">
+                            9 menit lagi untuk
+                            menyelesaikan target
+                        </p>
+
+
+                        <button
+                            class="primary-button full-button"
+                            onclick="navigate('practice')"
+                        >
+                            Mulai Latihan
+                        </button>
+
+                    </div>
+
+
+                    <!-- QUICK ACCESS -->
+
+                    <div class="panel quick-access">
+
+                        <h2>
+                            Akses Cepat
+                        </h2>
+
+
+                        ${createQuick(
+                            "✓",
+                            "Quiz Kosakata",
+                            "Uji kemampuanmu",
+                            "quiz"
+                        )}
+
+                        ${createQuick(
+                            "◌",
+                            "Listening",
+                            "Latih kemampuan mendengar",
+                            "listening"
+                        )}
+
+                        ${createQuick(
+                            "♬",
+                            "Speaking",
+                            "Latih kemampuan berbicara",
+                            "speaking"
+                        )}
+
+                    </div>
+
+
+                    <!-- ACHIEVEMENT -->
+
+                    <div
+                        class="panel"
+                        style="margin-top:13px"
+                    >
+
+                        <h2>
+                            Achievement Terbaru
+                        </h2>
+
+                        <div
+                            style="
+                            display:flex;
+                            gap:9px;
+                            margin:15px 0;
+                            "
+                        >
+
+                            <span>🏆</span>
+                            <span>🔥</span>
+                            <span>🎯</span>
+                            <span>📚</span>
+
+                        </div>
+
+                        <b>
+                            Belajar Konsisten
+                        </b>
+
+                        <p class="muted">
+                            7 hari berturut-turut
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+/* =====================================================
+   STAT CARD
+===================================================== */
+
+function createStat(
+    icon,
+    title,
+    number,
+    unit,
+    description
+) {
+
+    return `
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ${icon}
+            </div>
+
+            <small>
+                ${title}
+            </small>
+
+            <strong>
+                ${number}
+                <small>${unit}</small>
+            </strong>
+
+            <label>
+                ${description}
+            </label>
+
+        </div>
+
+    `;
+}
+
+
+/* =====================================================
+   RECOMMENDATION
+===================================================== */
+
+function createRecommendation(
+    icon,
+    language,
+    title
+) {
+
+    return `
+
+        <article class="panel recommendation">
+
+            <div class="recommendation-cover">
+
+                ${icon}
+
+            </div>
+
+            <div class="recommendation-content">
+
+                <small>
+                    ${language}
+                </small>
+
+                <h3>
+                    ${title}
+                </h3>
+
+                <p>
+                    Pemula • 20 materi
+                </p>
+
+                <button
+                    class="secondary-button"
+                    onclick="startCourse('${title}')"
+                >
+                    Mulai
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+}
+
+
+/* =====================================================
+   QUICK ACCESS
+===================================================== */
+
+function createQuick(
+    icon,
+    title,
+    description,
+    page
+) {
+
+    return `
+
+        <button
+            class="quick-item"
+            onclick="navigate('${page}')"
+        >
+
+            <span class="quick-icon">
+                ${icon}
+            </span>
+
+            <span class="quick-item-content">
+
+                <b>
+                    ${title}
+                </b>
+
+                <small>
+                    ${description}
+                </small>
+
+            </span>
+
+            <strong>
+                →
+            </strong>
+
+        </button>
+
+    `;
+}
+
+
+/* =====================================================
+   GENERIC PAGE
+===================================================== */
+
+function renderGeneric(page) {
+
+    const data = pageData[page];
+
+    if (!data) {
+
+        renderDashboard();
+
+        return;
+
+    }
+
+
+    pageContent.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        AKU BISA
+                    </span>
+
+                    <h1>
+                        ${data.title}
+                    </h1>
+
+                    <p class="muted">
+                        ${data.description}
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="pagePrimaryAction('${page}')"
+                >
+                    + Mulai
+                </button>
+
+            </div>
+
+
+            <div class="page-grid">
+
+                ${data.items.map(
+                    (item, index) => `
+
+                    <article
+                        class="feature-card"
+                    >
+
+                        <div class="feature-icon">
+
+                            ${item[0]}
+
+                        </div>
+
+                        <h3>
+                            ${item[1]}
+                        </h3>
+
+                        <p>
+                            ${item[2]}
+                        </p>
+
+                        <button
+                            class="primary-button"
+                            onclick="openItem(
+                                '${page}',
+                                ${index}
+                            )"
+                        >
+                            ${getButtonText(page)}
+                        </button>
+
+                    </article>
+
+                `
+                ).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+}
+
+
+/* =====================================================
+   BUTTON TEXT
+===================================================== */
+
+function getButtonText(page) {
+
+    if (page === "certificate") {
+
+        return "Lihat Sertifikat";
+
+    }
+
+    if (page === "premium") {
+
+        return "Pilih Paket";
+
+    }
+
+    if (page === "profile") {
+
+        return "Edit";
+
+    }
+
+    if (page === "achievement") {
+
+        return "Lihat";
+
+    }
+
+    if (
+        page === "quiz" ||
+        page === "practice"
+    ) {
+
+        return "Mulai";
+
+    }
+
+    return "Buka";
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function navigate(page) {
+
+    appState.currentPage = page;
+
+
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.page === page
+            );
+
+        });
+
+
+    if (page === "dashboard") {
+
+        renderDashboard();
+
+    } else {
+
+        renderGeneric(page);
+
+    }
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+
+    document
+        .getElementById("sidebar")
+        .classList.remove("open");
+}
+
+
+/* =====================================================
+   COURSE
+===================================================== */
+
+function continueCourse() {
+
+    openModal(
+
+        "Bahasa Jepang — Dasar",
+
+        `
+
+        <p class="muted">
+            Selamat datang kembali.
+            Mari lanjutkan materi terakhir.
+        </p>
+
+        <br>
+
+        <h3>
+            Bab 1 — Pengenalan Diri
+        </h3>
+
+        <br>
+
+        <div class="progress">
+
+            <span style="width:72%"></span>
+
+        </div>
+
+        <p class="muted">
+            Progress 72%
+        </p>
+
+        <br>
+
+        <button
+            class="primary-button"
+            onclick="
+                showToast('Materi dimulai ✓');
+                closeModal();
+            "
+        >
+            Mulai Materi
+        </button>
+
+        `
+
+    );
+
+}
+
+
+function startCourse(name) {
+
+    showToast(
+        `${name} berhasil ditambahkan ✓`
+    );
+
+}
+
+
+/* =====================================================
+   ITEM ACTION
+===================================================== */
+
+function openItem(page, index) {
+
+    const data = pageData[page];
+
+    const item = data.items[index];
+
+    if (!item) return;
+
+
+    /* QUIZ */
+
+    if (
+        page === "quiz" ||
+        page === "practice"
+    ) {
+
+        openQuiz(item[1]);
+
+        return;
+
+    }
+
+
+    /* LISTENING */
+
+    if (page === "listening") {
+
+        openListening(item[1]);
+
+        return;
+
+    }
+
+
+    /* SPEAKING */
+
+    if (page === "speaking") {
+
+        openSpeaking(item[1]);
+
+        return;
+
+    }
+
+
+    /* CERTIFICATE */
+
+    if (page === "certificate") {
+
+        openCertificate(item[1]);
+
+        return;
+
+    }
+
+
+    /* PREMIUM */
+
+    if (page === "premium") {
+
+        openPremium(item[1]);
+
+        return;
+
+    }
+
+
+    showToast(
+        `${item[1]} dibuka ✓`
+    );
+
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function openQuiz(title) {
+
+    openModal(
+
+        title,
+
+        `
+
+        <p class="muted">
+            Jawab pertanyaan berikut.
+        </p>
+
+        <br>
+
+        <h3>
+            Apa arti "watashi"
+            dalam bahasa Jepang?
+        </h3>
+
+        <br>
+
+        <button
+            class="secondary-button full-button"
+            onclick="quizAnswer(true)"
+        >
+            A. Saya
+        </button>
+
+        <button
+            class="secondary-button full-button"
+            onclick="quizAnswer(false)"
+        >
+            B. Kamu
+        </button>
+
+        <button
+            class="secondary-button full-button"
+            onclick="quizAnswer(false)"
+        >
+            C. Dia
+        </button>
+
+        <button
+            class="secondary-button full-button"
+            onclick="quizAnswer(false)"
+        >
+            D. Kami
+        </button>
+
+        `
+
+    );
+
+}
+
+
+function quizAnswer(correct) {
+
+    if (correct) {
+
+        showToast(
+            "Jawaban benar! +100 poin 🎉"
+        );
+
+        closeModal();
+
+    } else {
+
+        showToast(
+            "Jawaban belum tepat."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LISTENING
+===================================================== */
+
+function openListening(title) {
+
+    openModal(
+
+        title,
+
+        `
+
+        <p class="muted">
+            Dengarkan audio dan pilih jawaban
+            yang sesuai.
+        </p>
+
+        <br>
+
+        <div
+            style="
+            padding:35px;
+            background:#edf4ff;
+            border-radius:12px;
+            text-align:center;
+            font-size:45px;
+            "
+        >
+            ▶️
+        </div>
+
+        <br>
+
+        <button
+            class="primary-button full-button"
+            onclick="
+                showToast('Audio diputar ▶');
+            "
+        >
+            ▶ Putar Audio
+        </button>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   SPEAKING
+===================================================== */
+
+function openSpeaking(title) {
+
+    openModal(
+
+        title,
+
+        `
+
+        <p class="muted">
+            Ucapkan kalimat berikut.
+        </p>
+
+        <br>
+
+        <h3>
+            はじめまして、
+            よろしくお願いします。
+        </h3>
+
+        <br>
+
+        <button
+            class="primary-button"
+            onclick="
+                showToast('Mikrofon aktif 🎙️');
+            "
+        >
+            🎙️ Mulai Rekam
+        </button>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   CERTIFICATE
+===================================================== */
+
+function openCertificate(title) {
+
+    openModal(
+
+        "Sertifikat",
+
+        `
+
+        <div
+            style="
+            border:5px double #d3af37;
+            padding:30px;
+            text-align:center;
+            "
+        >
+
+            <h2>
+                SERTIFIKAT
+            </h2>
+
+            <br>
+
+            <p>
+                Diberikan kepada
+            </p>
+
+            <h2>
+                Ayah Premium
+            </h2>
+
+            <br>
+
+            <p>
+                ${title}
+            </p>
+
+            <br>
+
+            <strong>
+                Nilai: 92
+            </strong>
+
+        </div>
+
+        <br>
+
+        <button
+            class="primary-button"
+            onclick="
+                showToast('Sertifikat siap dicetak');
+            "
+        >
+            Cetak Sertifikat
+        </button>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   PREMIUM
+===================================================== */
+
+function openPremium(title) {
+
+    openModal(
+
+        "Premium AKU BISA",
+
+        `
+
+        <h3>
+            ${title}
+        </h3>
+
+        <br>
+
+        <p class="muted">
+            Dapatkan akses kursus premium,
+            materi eksklusif, sertifikat,
+            statistik lengkap dan fitur tambahan.
+        </p>
+
+        <br>
+
+        <button
+            class="primary-button"
+            onclick="
+                showToast('Paket dipilih ✓');
+                closeModal();
+            "
+        >
+            Lanjutkan
+        </button>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   PRIMARY PAGE ACTION
+===================================================== */
+
+function pagePrimaryAction(page) {
+
+    if (page === "quiz") {
+
+        openQuiz(
+            "Quiz Kosakata Dasar"
+        );
+
+        return;
+
+    }
+
+
+    if (page === "practice") {
+
+        openQuiz(
+            "Latihan Kosakata"
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        `Fitur ${page} siap digunakan ✓`
+    );
+
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+function renderSettings() {
+
+    pageContent.innerHTML = `
+
+        <div class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        AKUN
+                    </span>
+
+                    <h1>
+                        Pengaturan
+                    </h1>
+
+                    <p class="muted">
+                        Kelola preferensi akun.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="saveSettings()"
+                >
+                    Simpan
+                </button>
+
+            </div>
+
+
+            <div class="panel settings-form">
+
+                <div class="form-field">
+
+                    <label>
+                        Nama
+                    </label>
+
+                    <input
+                        value="Ayah Premium"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        value="ayahpremium@example.com"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Bahasa Aplikasi
+                    </label>
+
+                    <select>
+
+                        <option>
+                            Bahasa Indonesia
+                        </option>
+
+                        <option>
+                            English
+                        </option>
+
+                        <option>
+                            日本語
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <b>
+                        🔔 Notifikasi Pembelajaran
+                    </b>
+
+                    <p class="muted">
+                        Aktifkan pengingat belajar.
+                    </p>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <b>
+                        🔥 Pengingat Streak
+                    </b>
+
+                    <p class="muted">
+                        Jangan sampai streak terputus.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+function saveSettings() {
+
+    showToast(
+        "Pengaturan berhasil disimpan ✓"
+    );
+
+}
+
+
+/* =====================================================
+   NOTIFICATION
+===================================================== */
+
+function showNotifications() {
+
+    openModal(
+
+        "Notifikasi",
+
+        `
+
+        <p>
+            🔔 Target harian hampir selesai.
+        </p>
+
+        <hr>
+
+        <p>
+            🏆 Achievement baru tersedia.
+        </p>
+
+        <hr>
+
+        <p>
+            📚 Materi baru Bahasa Jepang tersedia.
+        </p>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   SUPPORT
+===================================================== */
+
+function showSupport() {
+
+    openModal(
+
+        "Bantuan & Dukungan",
+
+        `
+
+        <p class="muted">
+            Selamat datang di pusat bantuan
+            AKU BISA.
+        </p>
+
+        <br>
+
+        <button
+            class="secondary-button full-button"
+            onclick="
+                showToast('Panduan dibuka');
+                closeModal();
+            "
+        >
+            📖 Panduan Penggunaan
+        </button>
+
+        <button
+            class="secondary-button full-button"
+            onclick="
+                showToast('Pesan dukungan dibuat');
+                closeModal();
+            "
+        >
+            💬 Hubungi Dukungan
+        </button>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function toggleTheme() {
+
+    appState.darkMode =
+        !appState.darkMode;
+
+    document.body.classList.toggle(
+        "dark",
+        appState.darkMode
+    );
+
+
+    showToast(
+        appState.darkMode
+            ? "Mode gelap aktif"
+            : "Mode terang aktif"
+    );
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function searchApplication() {
+
+    const keyword =
+        document
+            .getElementById("searchInput")
+            .value
+            .trim();
+
+
+    if (!keyword) return;
+
+
+    appState.search = keyword;
+
+
+    openModal(
+
+        "Pencarian",
+
+        `
+
+        <p>
+            Hasil pencarian untuk:
+        </p>
+
+        <br>
+
+        <h3>
+            "${keyword}"
+        </h3>
+
+        <br>
+
+        <p class="muted">
+            Sistem pencarian siap dihubungkan
+            dengan database Firebase atau REST API.
+        </p>
+
+        `
+
+    );
+
+}
+
+
+/* =====================================================
+   EVENT LISTENERS
+===================================================== */
+
+
+/* Navigation */
+
+document
+    .querySelectorAll(".nav-item")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                navigate(
+                    button.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+/* Mobile menu */
+
+document
+    .getElementById("mobileMenu")
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById("sidebar")
+                .classList.toggle("open");
+
+        }
+    );
+
+
+/* Notification */
+
+document
+    .getElementById("notificationButton")
+    .addEventListener(
+        "click",
+        showNotifications
+    );
+
+
+/* Theme */
+
+document
+    .getElementById("themeButton")
+    .addEventListener(
+        "click",
+        toggleTheme
+    );
+
+
+/* Support */
+
+document
+    .getElementById("supportButton")
+    .addEventListener(
+        "click",
+        showSupport
+    );
+
+
+/* Search */
+
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                searchApplication();
+
+            }
+
+        }
+    );
+
+
+/* Modal close */
+
+document
+    .getElementById("modalClose")
+    .addEventListener(
+        "click",
+        closeModal
+    );
+
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === modal
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+function initializeApplication() {
+
+    renderDashboard();
+
+}
+
+
+/* START APP */
+
+initializeApplication();
+</script>
+
+</body>
+</html>

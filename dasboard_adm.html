@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>AKU BISA — Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+  <style>
+ *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f5f7fb;color:#172033}.layout{min-height:100vh}.sidebar{position:fixed;left:0;top:0;bottom:0;width:232px;padding:17px 12px;background:linear-gradient(180deg,#5029b7,#4020a0);color:#fff;overflow-y:auto;z-index:20}.brand{display:flex;gap:10px;align-items:center;padding:4px 8px 18px}.brand>span{background:#fff;color:#4b27ad;border-radius:7px;padding:5px 8px;font-weight:800}.brand b{font-size:15px;display:block}.brand small,.admin-card small,.admin-profile small{display:block;color:#cfc5f5;font-size:9px;margin-top:3px}.admin-card{display:flex;gap:9px;align-items:center;padding:10px;background:#ffffff18;border:1px solid #ffffff18;border-radius:10px;margin-bottom:13px}.admin-avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#e8e0ff;color:#4a27ad;font-weight:800;font-size:11px}.admin-card b{font-size:11px}.sidebar nav{display:flex;flex-direction:column;gap:3px}.sidebar nav button{border:0;background:transparent;color:#e4dcff;border-radius:8px;padding:9px 10px;display:flex;align-items:center;gap:9px;text-align:left;font-size:11px;cursor:pointer}.sidebar nav button:hover,.sidebar nav button.active{background:#fff;color:#4824a8}.sidebar nav em{margin-left:auto;font-size:8px;font-style:normal;opacity:.8}.main{margin-left:232px;padding:21px 30px;min-height:100vh}.topbar{height:62px;display:flex;align-items:center;justify-content:space-between;margin-bottom:19px}.title-area{display:flex;align-items:center;gap:12px}.title-area h1{font-size:20px;margin:0}.title-area p{font-size:10px;color:#8992a3;margin:5px 0 0}.hamburger{display:none;border:0;background:#fff;border-radius:8px;padding:8px}.actions{display:flex;align-items:center;gap:9px}.round{width:37px;height:37px;border:1px solid #e1e6ef;border-radius:9px;background:#fff;cursor:pointer;position:relative}.notification i{position:absolute;width:7px;height:7px;border-radius:50%;background:#ed5a70;right:8px;top:8px}.admin-profile{display:flex;align-items:center;gap:8px;padding-left:5px}.admin-avatar.small{width:34px;height:34px}.admin-profile b{font-size:10px}.admin-profile small{color:#7d8799}.hero{background:linear-gradient(120deg,#eef1ff,#fff);border:1px solid #e2e6f5;border-radius:16px;padding:22px;display:flex;justify-content:space-between;align-items:center}.hero h2{margin:0 0 6px;font-size:22px}.hero p{color:#778196;font-size:12px;margin:0}.hero-art{font-size:55px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:15px 0}.card{background:#fff;border:1px solid #e5e9f0;border-radius:13px;padding:17px;box-shadow:0 4px 14px #182b5b08}.stat{position:relative}.stat .icon{position:absolute;right:15px;top:15px;width:34px;height:34px;border-radius:9px;background:#eef0ff;display:grid;place-items:center;color:#5530b8}.stat small{color:#8791a2;font-size:10px}.stat strong{display:block;font-size:24px;margin:8px 0}.delta{font-size:9px;color:#1da267}.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 0 11px}.section-head h3{font-size:14px;margin:0}.btn{border:0;background:#5430c0;color:#fff;border-radius:8px;padding:9px 13px;font-size:10px;font-weight:600;cursor:pointer}.btn.light{background:#eef0ff;color:#4e2cb4}.dashboard-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.chart{height:245px;display:flex;align-items:end;gap:10px;padding:15px 5px 4px}.bar-wrap{height:100%;flex:1;display:flex;align-items:end;justify-content:center;gap:4px}.bar{width:10px;background:#7554d2;border-radius:5px 5px 2px 2px;min-height:8px}.bar.alt{background:#b4a3ed}.bar-label{font-size:8px;color:#8992a3}.donut{width:155px;height:155px;border-radius:50%;background:conic-gradient(#5430c0 0 39%,#45a7e8 39% 62%,#f1bd45 62% 80%,#e87491 80%);margin:18px auto;display:grid;place-items:center}.donut:after{content:"";width:90px;height:90px;border-radius:50%;background:#fff}.legend{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:9px;color:#667085}.legend span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:2px;background:#5430c0;margin-right:5px}.table-wrap{overflow:auto}.table{border-collapse:collapse;width:100%}.table th,.table td{padding:11px 8px;border-bottom:1px solid #edf0f5;text-align:left;font-size:10px;white-space:nowrap}.table th{color:#7a8497;background:#fafbfe}.user-cell{display:flex;gap:8px;align-items:center}.mini{width:29px;height:29px;border-radius:50%;background:#e8e0ff;color:#5530b8;display:grid;place-items:center;font-size:8px;font-weight:800}.status{padding:4px 7px;border-radius:20px;font-size:8px}.status.active{background:#e7f8ef;color:#18865a}.status.pending{background:#fff5dc;color:#a66b00}.status.block{background:#ffe9ec;color:#c84254}.page-toolbar{display:flex;gap:9px;align-items:center;margin-bottom:14px;flex-wrap:wrap}.search{padding:10px 12px;border:1px solid #dfe4ec;border-radius:9px;background:#fff;min-width:230px;font-size:11px}.filter{padding:10px;border:1px solid #dfe4ec;border-radius:9px;background:#fff;font-size:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.course-card h3{font-size:13px}.course-card .cover{height:90px;border-radius:10px;background:linear-gradient(135deg,#e1eaff,#c7d6ff);display:grid;place-items:center;font-size:35px}.progress{height:6px;background:#edf0f5;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:#5832c1}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:5px}.field label{font-size:10px;font-weight:600}.field input,.field select,.field textarea{border:1px solid #dfe4ec;border-radius:8px;padding:10px;font-size:10px;background:#fff}.field textarea{min-height:110px;resize:vertical}.full{grid-column:1/-1}.metric-list{display:grid;gap:10px}.metric{display:flex;justify-content:space-between;padding:11px;border-bottom:1px solid #edf0f5;font-size:10px}.empty{text-align:center;padding:45px;color:#8892a3}.toast{position:fixed;right:22px;bottom:22px;background:#172033;color:#fff;padding:12px 17px;border-radius:9px;display:none;z-index:50;font-size:11px}.modal{display:none;position:fixed;inset:0;background:#0007;z-index:40;place-items:center;padding:20px}.modal.show{display:grid}.modal-box{background:#fff;border-radius:15px;width:min(620px,100%);padding:23px;position:relative}.close{position:absolute;right:12px;top:8px;border:0;background:none;font-size:24px;cursor:pointer}@media(max-width:950px){.sidebar{width:68px}.brand div,.admin-card div:not(.admin-avatar),.sidebar nav button span,.sidebar nav em{display:none}.brand{justify-content:center}.admin-card{justify-content:center}.sidebar nav button{justify-content:center}.main{margin-left:68px}.stats{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:1fr}.grid3{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.sidebar{width:0;padding:0;overflow:hidden}.sidebar.open{width:232px;padding:17px 12px}.sidebar.open .brand div,.sidebar.open .admin-card div:not(.admin-avatar),.sidebar.open nav button span,.sidebar.open nav em{display:block}.sidebar.open .brand{justify-content:flex-start}.sidebar.open .admin-card{justify-content:flex-start}.sidebar.open nav button{justify-content:flex-start}.main{margin-left:0;padding:14px}.hamburger{display:block}.admin-profile div:last-child{display:none}.stats,.grid3{grid-template-columns:1fr}.hero-art{display:none}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.search{min-width:170px;width:100%}}
+ </style>
+
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span>✦</span><div><b>AKU BISA</b><small>ADMIN PANEL</small></div></div>
+    <div class="admin-card"><div class="admin-avatar">AD</div><div><b>Admin Utama</b><small>Administrator</small></div></div>
+    <nav id="nav">
+      <button class="active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+      <button data-page="users">♙ <span>Pengguna</span><em id="userBadge">1.240</em></button>
+      <button data-page="languages">◈ <span>Bahasa</span></button>
+      <button data-page="levels">◆ <span>Level</span></button>
+      <button data-page="courses">▣ <span>Kursus</span></button>
+      <button data-page="materials">▤ <span>Materi</span></button>
+      <button data-page="practice">◉ <span>Latihan</span></button>
+      <button data-page="quiz">✓ <span>Quiz</span></button>
+      <button data-page="listening">◌ <span>Listening</span></button>
+      <button data-page="speaking">♬ <span>Speaking</span></button>
+      <button data-page="achievement">★ <span>Achievement</span></button>
+      <button data-page="certificate">▱ <span>Sertifikat</span></button>
+      <button data-page="community">♧ <span>Community</span></button>
+      <button data-page="premium">♛ <span>Premium</span></button>
+      <button data-page="broadcast">◉ <span>Pemberitahuan</span></button>
+      <button data-page="reports">▥ <span>Laporan & Analitik</span></button>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="title-area">
+        <button class="hamburger" id="menuBtn">☰</button>
+        <div><h1 id="pageTitle">Dashboard Admin</h1><p id="dateText"></p></div>
+      </div>
+      <div class="actions">
+        <button class="round" id="searchBtn">⌕</button>
+        <button class="round notification" id="notifyBtn">♧<i></i></button>
+        <div class="admin-profile"><div class="admin-avatar small">AD</div><div><b>Admin Utama</b><small>Administrator</small></div></div>
+      </div>
+    </header>
+    <section id="content"></section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script>
+const data={
+users:[
+["AD","Ayah Premium","ayahpremium@email.com","Jepang","Aktif","24 Hari"],
+["BS","Budi Santoso","budi@email.com","Inggris","Aktif","18 Hari"],
+["RN","Rina Novita","rina@email.com","Korea","Aktif","12 Hari"],
+["DS","Dewi Sari","dewi@email.com","Jepang","Pending","2 Hari"],
+["AM","Andi Maulana","andi@email.com","Inggris","Aktif","31 Hari"]
+],
+languages:[["🇯🇵","Bahasa Jepang","1.240","75%"],["🇬🇧","Bahasa Inggris","3.420","82%"],["🇰🇷","Bahasa Korea","980","64%"],["🇨🇳","Bahasa Mandarin","760","58%"],["🇩🇪","Bahasa Jerman","420","51%"],["🇫🇷","Bahasa Prancis","510","47%"]],
+courses:[["🇯🇵","Bahasa Jepang - Dasar","1.240","75%"],["🇬🇧","Bahasa Inggris - Beginner","2.110","60%"],["🇰🇷","Bahasa Korea - Pemula","780","40%"]]
+};
+const pages={
+dashboard:{title:"Dashboard Admin",render:dashboard},
+users:{title:"Manajemen Pengguna",render:users},
+languages:{title:"Manajemen Bahasa",render:languages},
+levels:{title:"Manajemen Level",render:levels},
+courses:{title:"Manajemen Kursus",render:courses},
+materials:{title:"Manajemen Materi",render:materials},
+practice:{title:"Manajemen Latihan",render:simpleTable("Latihan",["Nama Latihan","Kategori","Soal","Status"],["Kosakata Dasar","Kosakata","20","Aktif"],["Grammar N5","Grammar","30","Aktif"],["Percakapan Sehari-hari","Speaking","20","Aktif"],["TOEFL Listening","Listening","40","Draft"])},
+quiz:{title:"Manajemen Quiz",render:simpleTable("Quiz",["Judul","Bahasa","Jumlah Soal","Kesulitan"],["Kosakata Dasar","Jepang","20","Mudah"],["Grammar N5","Jepang","30","Menengah"],["Daily Conversation","Inggris","25","Menengah"])},
+listening:{title:"Manajemen Listening",render:simpleTable("Listening",["Materi","Bahasa","Durasi","Status"],["Percakapan Restoran","Jepang","02:45","Aktif"],["Daily Conversation","Inggris","03:10","Aktif"],["TOPIK Listening","Korea","04:20","Draft"])},
+speaking:{title:"Manajemen Speaking",render:simpleTable("Speaking",["Materi","Bahasa","Penilaian","Status"],["Perkenalan Diri","Jepang","AI Score","Aktif"],["Daily Talk","Inggris","AI Score","Aktif"])},
+achievement:{title:"Manajemen Achievement",render:simpleTable("Achievement",["Badge","Target","Peraih","Status"],["🏅 Pemula","7 Hari","420","Aktif"],["🔥 Konsisten","30 Hari","186","Aktif"],["🌟 Master","50 Jam","72","Aktif"],["🎯 Mahir","Level 18","45","Aktif"])},
+certificate:{title:"Manajemen Sertifikat",render:simpleTable("Sertifikat",["Nama","Kursus","Tanggal","Status"],["Ayah Premium","Bahasa Jepang - Dasar","01/09/2026","Terbit"],["Budi Santoso","Inggris Beginner","31/08/2026","Terbit"])},
+community:{title:"Manajemen Community",render:simpleTable("Community",["Pengguna","Postingan","Komentar","Status"],["Santoso_90","Belajar bahasa Jepang","12","Aktif"],["Rina_88","Tips listening JLPT","8","Aktif"],["DwiPutri","Belajar bersama","21","Ditinjau"])},
+premium:{title:"Manajemen Premium",render:premium},
+broadcast:{title:"Pemberitahuan",render:broadcast},
+reports:{title:"Laporan & Analitik",render:reports}
+};
+function stat(title,value,icon,delta="+12%"){return `<div class="card stat"><div class="icon">${icon}</div><small>${title}</small><strong>${value}</strong><span class="delta">${delta} dari bulan lalu</span></div>`}
+function dashboard(){return `<div class="hero"><div><h2>Selamat Datang, Admin 👋</h2><p>Pantau aktivitas aplikasi AKU BISA dan kelola seluruh konten pembelajaran dari satu tempat.</p></div><div class="hero-art">📊</div></div><div class="stats">${stat("Total Pengguna","1.240","♙","+8,4%")}${stat("Pengguna Aktif","860","◉","+12,1%")}${stat("Kursus","50","▣","+5,0%")}${stat("Total Poin","4.250","★","+16,2%")}</div><div class="dashboard-grid"><div class="card"><div class="section-head"><h3>Aktivitas Pengguna</h3><button class="btn light" onclick="go('reports')">Lihat Laporan</button></div><div class="chart">${[44,66,52,82,60,92,73].map((v,i)=>`<div class="bar-wrap"><div><div class="bar" style="height:${v*1.7}px"></div><div class="bar-label">${["Sen","Sel","Rab","Kam","Jum","Sab","Min"][i]}</div></div><div><div class="bar alt" style="height:${v*1.1}px"></div></div></div>`).join("")}</div></div><div class="card"><div class="section-head"><h3>Distribusi Bahasa</h3></div><div class="donut"></div><div class="legend"><span>Jepang 39%</span><span>Inggris 23%</span><span>Korea 18%</span><span>Lainnya 20%</span></div></div></div><div class="section-head"><h3>Pengguna Terbaru</h3><button class="btn" onclick="go('users')">Kelola Pengguna</button></div><div class="card table-wrap"><table class="table"><thead><tr><th>Pengguna</th><th>Bahasa</th><th>Status</th><th>Aktivitas</th><th>Aksi</th></tr></thead><tbody>${data.users.slice(0,4).map(userRow).join("")}</tbody></table></div>`}
+function userRow(u){return `<tr><td><div class="user-cell"><div class="mini">${u[0]}</div><div><b>${u[1]}</b><br><small>${u[2]}</small></div></div></td><td>${u[3]}</td><td><span class="status ${u[4]==="Aktif"?"active":"pending"}">${u[4]}</span></td><td>${u[5]}</td><td><button class="btn light" onclick="viewUser('${u[1]}')">Detail</button></td></tr>`}
+function users(){return `<div class="page-toolbar"><input class="search" id="userSearch" placeholder="Cari nama atau email..." oninput="filterUsers()"><select class="filter" id="userFilter" onchange="filterUsers()"><option>Semua Status</option><option>Aktif</option><option>Pending</option></select><button class="btn" onclick="openAddUser()">+ Tambah Pengguna</button></div><div class="card table-wrap"><table class="table"><thead><tr><th>Pengguna</th><th>Bahasa</th><th>Status</th><th>Streak</th><th>Aksi</th></tr></thead><tbody id="userRows">${data.users.map(userRow).join("")}</tbody></table></div>`}
+function languages(){return `<div class="page-toolbar"><input class="search" placeholder="Cari bahasa..." oninput="filterCards(this.value)"><button class="btn" onclick="openLanguage()">+ Tambah Bahasa</button></div><div class="grid3" id="languageGrid">${data.languages.map(x=>`<div class="card course-card filter-item" data-name="${x[1].toLowerCase()}"><div class="cover">${x[0]}</div><h3>${x[1]}</h3><p class="muted">${x[2]} pengguna</p><div class="progress"><span style="width:${x[3]}"></span></div><small>Rata-rata penyelesaian ${x[3]}</small><br><button class="btn light" style="margin-top:10px" onclick="toast('Bahasa ${x[1]} dibuka')">Kelola</button></div>`).join("")}</div>`}
+function levels(){return `<div class="page-toolbar"><button class="btn" onclick="openLevel()">+ Tambah Level</button></div><div class="card"><table class="table"><thead><tr><th>Level</th><th>Nama</th><th>Target Poin</th><th>Pengguna</th><th>Status</th></tr></thead><tbody>${[["1","Pemula","0","410"],["5","Dasar","500","280"],["10","Menengah","1.500","190"],["15","Lanjutan","3.000","95"],["18","Mahir","4.000","45"]].map(x=>`<tr><td>${x[0]}</td><td><b>${x[1]}</b></td><td>${x[2]}</td><td>${x[3]}</td><td><span class="status active">Aktif</span></td></tr>`).join("")}</tbody></table></div>`}
+function courses(){return `<div class="page-toolbar"><input class="search" placeholder="Cari kursus..." oninput="filterCards(this.value)"><button class="btn" onclick="openCourse()">+ Tambah Kursus</button></div><div class="grid3">${data.courses.map(x=>`<div class="card course-card filter-item" data-name="${x[1].toLowerCase()}"><div class="cover">${x[0]}</div><h3>${x[1]}</h3><p class="muted">${x[2]} peserta</p><div class="progress"><span style="width:${x[3]}"></span></div><small>Progress rata-rata ${x[3]}</small><div style="margin-top:12px"><button class="btn light" onclick="toast('Kursus dikelola')">Kelola</button></div></div>`).join("")}</div>`}
+function materials(){return `<div class="page-toolbar"><input class="search" placeholder="Cari materi..."><button class="btn" onclick="openMaterial()">+ Tambah Materi</button></div>${simpleTable("Daftar Materi",["Materi","Kursus","Jenis","Status"],["Pengenalan Diri","Jepang - Dasar","Video + PDF","Aktif"],["Kosakata N5","Jepang - Dasar","Kartu","Aktif"],["Grammar Dasar","Inggris Beginner","Video","Aktif"],["Listening Restaurant","Jepang - Dasar","Audio","Draft"])()}`}
+function simpleTable(title,headers,...rows){return ()=>`<div class="page-toolbar"><input class="search" placeholder="Cari ${title.toLowerCase()}..."><button class="btn" onclick="openGeneric('${title}')">+ Tambah ${title}</button></div><div class="card table-wrap"><table class="table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join("")}<th>Aksi</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map((v,i)=>`<td>${i===r.length-1?`<span class="status ${v==="Aktif"||v==="Terbit"?"active":v==="Draft"||v==="Ditinjau"?"pending":"active"}">${v}</span>`:v}</td>`).join("")}<td><button class="btn light" onclick="toast('Data diedit')">Edit</button></td></tr>`).join("")}</tbody></table></div>`}
+function premium(){return `<div class="stats">${stat("Member Premium","240","♛","+18%")}${stat("Pendapatan","Rp18,4 Jt","▣","+12%")}${stat("Konversi","19,4%","↗","+3,2%")}${stat("Renewal","82%","✓","+4,1%")}</div><div class="grid3"><div class="card"><h3>12 Bulan</h3><h2>Rp299.000</h2><p class="muted">185 pelanggan</p><button class="btn" onclick="openGeneric('Paket Premium')">Kelola</button></div><div class="card"><h3>18 Bulan</h3><h2>Rp59.000</h2><p class="muted">55 pelanggan</p><button class="btn" onclick="openGeneric('Paket Premium')">Kelola</button></div></div>`}
+function broadcast(){return `<div class="card form-grid"><div class="field"><label>Judul Notifikasi</label><input placeholder="Contoh: Materi baru tersedia"></div><div class="field"><label>Target</label><select><option>Semua Pengguna</option><option>Member Premium</option><option>Bahasa Jepang</option></select></div><div class="field full"><label>Pesan</label><textarea placeholder="Tulis pesan pemberitahuan..."></textarea></div><div class="full"><button class="btn" onclick="toast('Notifikasi berhasil dijadwalkan')">Kirim Pemberitahuan</button></div></div>`}
+function reports(){return `<div class="stats">${stat("DAU","860","◉","+12%")}${stat("MAU","1.090","◉","+9%")}${stat("Completion","68%","✓","+5%")}${stat("Retensi","74%","↗","+4%")}</div><div class="card"><div class="section-head"><h3>Ringkasan Analitik</h3><button class="btn light" onclick="toast('Laporan CSV dibuat')">Export CSV</button></div><div class="metric-list">${["Pengguna baru minggu ini|184","Kursus paling populer|Bahasa Jepang - Dasar","Latihan selesai|5.060","Quiz selesai|3.840","Jam belajar|1.280 jam","Sertifikat diterbitkan|328"].map(x=>{let a=x.split("|");return `<div class="metric"><b>${a[0]}</b><span>${a[1]}</span></div>`}).join("")}</div></div>`}
+function go(page){document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));document.getElementById("pageTitle").textContent=pages[page].title;document.getElementById("content").innerHTML=pages[page].render();document.getElementById("sidebar").classList.remove("open");window.scrollTo(0,0)}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";clearTimeout(window.timer);window.timer=setTimeout(()=>t.style.display="none",2200)}
+function openModal(title,body){document.getElementById("modalContent").innerHTML=`<h2 style="margin-top:0">${title}</h2>${body}`;document.getElementById("modal").classList.add("show")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function viewUser(n){openModal("Detail Pengguna",`<p><b>${n}</b></p><p class="muted">Aktivitas, kursus, progress, poin, sertifikat, dan riwayat belajar.</p><button class="btn" onclick="closeModal()">Tutup</button>`)}
+function openAddUser(){openModal("Tambah Pengguna",`<div class="form-grid"><div class="field"><label>Nama</label><input id="newName"></div><div class="field"><label>Email</label><input id="newEmail"></div><div class="field full"><button class="btn" onclick="addUser()">Simpan Pengguna</button></div></div>`)}
+function addUser(){let n=document.getElementById("newName").value||"Pengguna Baru",e=document.getElementById("newEmail").value||"email@email.com";data.users.unshift(["NB",n,e,"Jepang","Aktif","0 Hari"]);closeModal();go("users");toast("Pengguna berhasil ditambahkan ✓")}
+function openLanguage(){openGeneric("Bahasa")}
+function openLevel(){openGeneric("Level")}
+function openCourse(){openGeneric("Kursus")}
+function openMaterial(){openGeneric("Materi")}
+function openGeneric(title){openModal("Tambah "+title,`<div class="form-grid"><div class="field"><label>Nama</label><input placeholder="Nama ${title}"></div><div class="field"><label>Status</label><select><option>Aktif</option><option>Draft</option></select></div><div class="field full"><label>Deskripsi</label><textarea placeholder="Deskripsi..."></textarea></div><div class="full"><button class="btn" onclick="closeModal();toast('${title} berhasil disimpan ✓')">Simpan</button></div></div>`)}
+function filterCards(q){q=q.toLowerCase();document.querySelectorAll(".filter-item").forEach(x=>x.style.display=x.dataset.name.includes(q)?"block":"none")}
+function filterUsers(){let q=document.getElementById("userSearch").value.toLowerCase(),f=document.getElementById("userFilter").value;document.querySelectorAll("#userRows tr").forEach((tr,i)=>{let u=data.users[i];tr.style.display=((u[1]+u[2]).toLowerCase().includes(q)&&(f==="Semua Status"||u[4]===f))?"table-row":"none"})}
+document.querySelectorAll("#nav button").forEach(b=>b.onclick=()=>go(b.dataset.page));
+document.getElementById("menuBtn").onclick=()=>document.getElementById("sidebar").classList.toggle("open");
+document.getElementById("searchBtn").onclick=()=>toast("Pencarian admin siap digunakan");
+document.getElementById("notifyBtn").onclick=()=>toast("3 notifikasi baru");
+document.getElementById("dateText").textContent=new Intl.DateTimeFormat("id-ID",{dateStyle:"full"}).format(new Date());
+go("dashboard");
+</script>
+</body>
+</html>
