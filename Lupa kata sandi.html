@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lupa Password - AKU BISA</title>
+
+    <link rel="stylesheet" href="lupa-password.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+<style>
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --primary-light: #eef2ff;
+
+    --text: #111827;
+    --text-secondary: #6b7280;
+
+    --border: #d1d5db;
+    --background: #f5f7ff;
+
+    --success: #15803d;
+    --success-bg: #f0fdf4;
+
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
+}
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(79, 70, 229, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(99, 102, 241, 0.10),
+            transparent 35%
+        ),
+        var(--background);
+
+    color: var(--text);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.forgot-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+}
+
+/* =========================================
+   CARD
+========================================= */
+
+.forgot-card {
+    width: 100%;
+    max-width: 460px;
+
+    background: #ffffff;
+
+    border: 1px solid rgba(229, 231, 235, 0.8);
+
+    border-radius: 24px;
+
+    padding: 42px 40px;
+
+    box-shadow:
+        0 20px 50px rgba(31, 41, 55, 0.08),
+        0 4px 12px rgba(31, 41, 55, 0.04);
+
+    animation: cardAppear 0.5s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-bottom: 28px;
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #4f46e5
+        );
+
+    font-size: 19px;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.25);
+}
+
+.logo-text {
+    font-size: 23px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.logo-text span {
+    color: var(--primary);
+}
+
+/* =========================================
+   FORGOT ICON
+========================================= */
+
+.forgot-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 27px;
+
+    position: relative;
+}
+
+.forgot-icon::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -7px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(79, 70, 229, 0.12);
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.7px;
+
+    margin-bottom: 12px;
+}
+
+.description {
+    text-align: center;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #9ca3af;
+
+    font-size: 16px;
+
+    pointer-events: none;
+
+    transition: 0.2s;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 52px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 0 16px 0 45px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: var(--text);
+
+    background: #ffffff;
+
+    transition:
+        border 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.input-wrapper input::placeholder {
+    color: #9ca3af;
+}
+
+.input-wrapper input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(79, 70, 229, 0.10);
+
+    background: #ffffff;
+}
+
+.input-wrapper:focus-within i {
+    color: var(--primary);
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error-message {
+    display: block;
+
+    color: var(--danger);
+
+    font-size: 12px;
+
+    margin-top: 7px;
+
+    min-height: 16px;
+}
+
+.input-error {
+    border-color: var(--danger) !important;
+
+    background: var(--danger-bg) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(220, 38, 38, 0.08) !important;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.reset-button {
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #4f46e5
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.22);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
+}
+
+.reset-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 12px 24px rgba(79, 70, 229, 0.28);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+}
+
+.reset-button:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-spinner {
+    width: 17px;
+    height: 17px;
+
+    border: 2px solid rgba(255, 255, 255, 0.35);
+
+    border-top-color: white;
+
+    border-radius: 50%;
+
+    display: none;
+
+    animation: spin 0.7s linear infinite;
+}
+
+.loading .loading-spinner {
+    display: inline-block;
+}
+
+.loading #buttonText {
+    display: none;
+}
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    gap: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    animation: messageAppear 0.3s ease;
+}
+
+.message.show {
+    display: flex;
+}
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success */
+
+.success-message {
+    background: var(--success-bg);
+
+    border: 1px solid #bbf7d0;
+
+    color: var(--success);
+}
+
+.success-message p {
+    margin-top: 3px;
+
+    color: #166534;
+}
+
+/* Error */
+
+.error-box {
+    background: var(--danger-bg);
+
+    border: 1px solid #fecaca;
+
+    color: var(--danger);
+}
+
+.error-box p {
+    margin-top: 3px;
+
+    color: #991b1b;
+}
+
+.message-icon {
+    font-size: 18px;
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   BACK LOGIN
+========================================= */
+
+.back-login {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 26px;
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.back-login:hover {
+    color: var(--primary-dark);
+
+    gap: 11px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    margin-top: 24px;
+
+    text-align: center;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 520px) {
+
+    .forgot-page {
+        padding: 20px 15px;
+    }
+
+    .forgot-card {
+        padding: 32px 24px;
+
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .logo {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .forgot-card {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .forgot-icon {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <main class="forgot-page">
+
+        <section class="forgot-card">
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="logo-text">
+                    <span>AKU</span> BISA
+                </div>
+            </div>
+
+            <!-- Icon -->
+            <div class="forgot-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <!-- Heading -->
+            <h1>Lupa Password?</h1>
+
+            <p class="description">
+                Jangan khawatir. Masukkan email yang terdaftar
+                pada akun AKU BISA dan kami akan mengirimkan
+                link untuk mengatur ulang password Anda.
+            </p>
+
+            <!-- Form -->
+            <form id="forgotPasswordForm" novalidate>
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Masukkan email Anda"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+                    <small id="emailError" class="error-message"></small>
+
+                </div>
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="reset-button"
+                    id="resetButton"
+                >
+                    <span id="buttonText">
+                        Kirim Link Reset Password
+                    </span>
+
+                    <span
+                        id="loadingSpinner"
+                        class="loading-spinner"
+                    ></span>
+                </button>
+
+            </form>
+
+            <!-- Success Message -->
+            <div
+                id="successMessage"
+                class="message success-message"
+            >
+                <div class="message-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <div>
+                    <strong>Email berhasil dikirim!</strong>
+
+                    <p>
+                        Silakan periksa kotak masuk email Anda
+                        dan ikuti link untuk mengatur ulang password.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div
+                id="generalError"
+                class="message error-box"
+            >
+                <div class="message-icon">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <div>
+                    <strong>Terjadi kesalahan</strong>
+
+                    <p id="generalErrorText">
+                        Silakan coba kembali.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Back Login -->
+            <a href="login.html" class="back-login">
+                <i class="fa-solid fa-arrow-left"></i>
+                Kembali ke Login
+            </a>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            © <span id="currentYear"></span> AKU BISA.
+            Semua hak dilindungi.
+        </footer>
+
+    </main>
+
+
+    <script>
+/* =========================================
+   LUPA PASSWORD - AKU BISA
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("forgotPasswordForm");
+
+    const emailInput = document.getElementById("email");
+
+    const emailError = document.getElementById("emailError");
+
+    const resetButton = document.getElementById("resetButton");
+
+    const buttonText = document.getElementById("buttonText");
+
+    const successMessage =
+        document.getElementById("successMessage");
+
+    const generalError =
+        document.getElementById("generalError");
+
+    const generalErrorText =
+        document.getElementById("generalErrorText");
+
+    const currentYear =
+        document.getElementById("currentYear");
+
+
+    /* =========================================
+       TAHUN OTOMATIS
+    ========================================= */
+
+    currentYear.textContent = new Date().getFullYear();
+
+
+    /* =========================================
+       VALIDASI EMAIL
+    ========================================= */
+
+    function isValidEmail(email) {
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        return emailPattern.test(email);
+    }
+
+
+    /* =========================================
+       HAPUS ERROR
+    ========================================= */
+
+    function clearMessages() {
+
+        emailError.textContent = "";
+
+        emailInput.classList.remove("input-error");
+
+        successMessage.classList.remove("show");
+
+        generalError.classList.remove("show");
+    }
+
+
+    /* =========================================
+       VALIDASI FORM
+    ========================================= */
+
+    function validateEmail() {
+
+        const email =
+            emailInput.value.trim();
+
+        if (email === "") {
+
+            emailError.textContent =
+                "Email wajib diisi.";
+
+            emailInput.classList.add("input-error");
+
+            return false;
+        }
+
+        if (!isValidEmail(email)) {
+
+            emailError.textContent =
+                "Format email tidak valid.";
+
+            emailInput.classList.add("input-error");
+
+            return false;
+        }
+
+        emailError.textContent = "";
+
+        emailInput.classList.remove("input-error");
+
+        return true;
+    }
+
+
+    /* =========================================
+       VALIDASI SAAT MENGETIK
+    ========================================= */
+
+    emailInput.addEventListener("input", () => {
+
+        if (
+            emailInput.classList.contains("input-error")
+        ) {
+            validateEmail();
+        }
+
+        successMessage.classList.remove("show");
+
+        generalError.classList.remove("show");
+    });
+
+
+    /* =========================================
+       SUBMIT FORM
+    ========================================= */
+
+    form.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        clearMessages();
+
+        /* Validasi */
+
+        if (!validateEmail()) {
+
+            emailInput.focus();
+
+            return;
+        }
+
+
+        /* Ambil email */
+
+        const email =
+            emailInput.value.trim();
+
+
+        /* Loading */
+
+        resetButton.disabled = true;
+
+        resetButton.classList.add("loading");
+
+        buttonText.textContent =
+            "Mengirim...";
+
+
+        try {
+
+            /*
+             * SIMULASI PENGIRIMAN EMAIL
+             *
+             * Bagian ini nantinya dapat diganti
+             * dengan Firebase Authentication.
+             */
+
+            await simulateRequest();
+
+
+            /* Berhasil */
+
+            successMessage.classList.add("show");
+
+
+            /* Reset input */
+
+            emailInput.value = "";
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            generalErrorText.textContent =
+                "Link reset password gagal dikirim. Silakan coba kembali.";
+
+            generalError.classList.add("show");
+
+        } finally {
+
+            /* Hentikan loading */
+
+            resetButton.disabled = false;
+
+            resetButton.classList.remove("loading");
+
+            buttonText.textContent =
+                "Kirim Link Reset Password";
+        }
+
+    });
+
+
+    /* =========================================
+       SIMULASI REQUEST
+    ========================================= */
+
+    function simulateRequest() {
+
+        return new Promise((resolve) => {
+
+            setTimeout(() => {
+
+                resolve();
+
+            }, 1500);
+
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```
