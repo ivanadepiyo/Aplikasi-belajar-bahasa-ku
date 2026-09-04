@@ -118,6 +118,28 @@ document.getElementById("searchBtn").onclick=()=>toast("Pencarian admin siap dig
 document.getElementById("notifyBtn").onclick=()=>toast("3 notifikasi baru");
 document.getElementById("dateText").textContent=new Intl.DateTimeFormat("id-ID",{dateStyle:"full"}).format(new Date());
 go("dashboard");
+
+   const savedUser =
+        sessionStorage.getItem("akuBisaUser") ||
+        localStorage.getItem("akuBisaUser");
+
+    if (!savedUser) {
+
+        window.location.href = "login.html";
+
+    } else {
+
+        const user = JSON.parse(savedUser);
+
+        if (user.role !== "user") {
+
+            window.location.href = "login.html";
+
+        }
+
+        console.log("User login:", user);
+
+    }
 </script>
 </body>
 </html>
