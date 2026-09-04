@@ -3690,6 +3690,27 @@ function initializeApplication() {
 /* START APP */
 
 initializeApplication();
+     const savedUser =
+        sessionStorage.getItem("akuBisaUser") ||
+        localStorage.getItem("akuBisaUser");
+
+    if (!savedUser) {
+
+        window.location.href = "Login.html";
+
+    } else {
+
+        const user = JSON.parse(savedUser);
+
+        if (user.role !== "user") {
+
+            window.location.href = "Login.html";
+
+        }
+
+        console.log("User login:", user);
+
+    }
 </script>
 
 </body>
