@@ -2027,72 +2027,38 @@
                         <!-- =================================================
                              USERNAME / EMAIL
                         ================================================== -->
+<div class="form-group">
 
-                        <div class="form-group">
+    <!-- 1. Atribut 'for' disamakan dengan ID input (emailInput) -->
+    <label for="emailInput">
+        Email atau Username
+    </label>
 
-                            <label for="username">
-                                Email atau Username
-                            </label>
+    <div class="input-wrapper">
 
+        <!-- Ikon User -->
+        <span class="input-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20 C4 16 7 14 12 14 C17 14 20 16 20 20" />
+            </svg>
+        </span>
 
-                            <div class="input-wrapper">
+        <!-- Input Username (Sudah Sinkron dengan ID emailInput) -->
+        <input
+            type="text"
+            id="emailInput"
+            name="username"
+            placeholder="Masukkan email atau username"
+            autocomplete="username"
+        >
 
+    </div>
 
-                                <!-- Ikon User -->
+    <!-- 2. ID pesan error diubah agar sesuai dengan konteks emailInput -->
+    <span id="emailError" class="error-message"></span>
 
-                                <span
-                                    class="input-icon"
-                                    aria-hidden="true"
-                                >
-
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                    >
-
-                                        <circle
-                                            cx="12"
-                                            cy="8"
-                                            r="4"
-                                        />
-
-                                        <path
-                                            d="
-                                                M4 20
-                                                C4 16
-                                                7 14
-                                                12 14
-                                                C17 14
-                                                20 16
-                                                20 20
-                                            "
-                                        />
-
-                                    </svg>
-
-                                </span>
-
-
-                                <!-- Input Username -->
-
-                                <input
-    type="text"
-    id="emailInput"
-    name="username"
-    placeholder="Masukkan email atau username"
-    autocomplete="username"
->
-
-                            </div>
-
-
-                            <!-- Pesan Error -->
-
-                            <span
-                                id="usernameError"
-                                class="error-message"
-                            ></span>
-
-                        </div>
+</div>
 
 
                         <!-- =================================================
@@ -2586,39 +2552,41 @@
                    01. MENGAMBIL ELEMENT HTML
                 ================================================== */
 
-                const loginForm =
-                    document.getElementById("loginForm");
+ const loginForm =
+    document.getElementById("loginForm");
 
-                const usernameInput =
-                    document.getElementById("username");
+// 1. DISUAIKAN: Mengambil ID 'emailInput' sesuai HTML baru Anda
+const usernameInput =
+    document.getElementById("emailInput");
 
-                const passwordInput =
-                    document.getElementById("password");
+// 2. PASTIKAN: Mengambil ID 'passwordInput' sesuai HTML form Anda
+const passwordInput =
+    document.getElementById("passwordInput");
 
-                const togglePassword =
-                    document.getElementById("togglePassword");
+const togglePassword =
+    document.getElementById("togglePassword");
 
-                const forgotPassword =
-                    document.getElementById("forgotPassword");
+const forgotPassword =
+    document.getElementById("forgotPassword");
 
-                const googleLogin =
-                    document.getElementById("googleLogin");
+const googleLogin =
+    document.getElementById("googleLogin");
 
-                const facebookLogin =
-                    document.getElementById("facebookLogin");
+const facebookLogin =
+    document.getElementById("facebookLogin");
 
-                const registerButton =
-                    document.getElementById("registerButton");
+const registerButton =
+    document.getElementById("registerButton");
 
-                const usernameError =
-                    document.getElementById("usernameError");
+// 3. DISUAIKAN: Mengambil ID 'emailError' sesuai HTML baru Anda
+const usernameError =
+    document.getElementById("emailError");
 
-                const passwordError =
-                    document.getElementById("passwordError");
+const passwordError =
+    document.getElementById("passwordError");
 
-                const formMessage =
-                    document.getElementById("formMessage");
-
+const formMessage =
+    document.getElementById("formMessage");
 
                 /* =================================================
                    02. FUNGSI BANTUAN
@@ -2849,7 +2817,7 @@ loginForm.addEventListener('submit', function(event) {
 
         // Beri jeda 1.5 detik agar user bisa membaca pesannya, lalu pindah halaman
         setTimeout(function() {
-            window.location.href = 'dasboard_user.html'; 
+            window.location.href = 'user/dasboard_user.html'; 
         }, 1500); 
 
     // 2. Cek jika yang login adalah ADMIN
@@ -2858,7 +2826,7 @@ loginForm.addEventListener('submit', function(event) {
         showSuccessMessage("Login Admin berhasil divalidasi."); 
 
         setTimeout(function() {
-            window.location.href = 'dasboard_adm.html';
+            window.location.href = 'admin/dasboard_adm.html';
         }, 1500);
 
     // 3. Jika salah
@@ -2882,7 +2850,7 @@ forgotPassword.addEventListener("click", function (event) {
 
     // 3. Beri jeda 2 detik, lalu pindah ke halaman lupa-password.html
     setTimeout(function() {
-        window.location.href = 'lupa-password.html';
+        window.location.href = 'Lupa kata sandi.html';
     }, 2000); 
 
 });
