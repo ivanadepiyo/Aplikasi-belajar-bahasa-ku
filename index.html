@@ -38,7 +38,9 @@
       <a href="#testimoni">Testimoni</a>
       <a href="#faq">FAQ</a>
     </nav>
-
+    
+<button id="btnMasuk">Masuk</button>
+<button id="btnDaftar">Daftar Sekarang</button>
 
 
     <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
@@ -168,7 +170,7 @@
   <section class="cta">
     <div class="container cta-box reveal">
       <div><span>🚀 WAKTUNYA MULAI</span><h2>Siap Menguasai Bahasa Baru?</h2><p>Mulai perjalanan belajarmu bersama AKU BISA hari ini.</p></div>
-      <a class="btn btn-white btn-large" href="register.html">Daftar Gratis <span>→</span></a>
+      <a class="btn btn-white btn-large" href="daftar.html">Daftar Gratis <span>→</span></a>
     </div>
   </section>
 
@@ -201,6 +203,22 @@
 </div>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  
+// 1. Jalur link untuk tombol Masuk menuju ke halaman Login.html
+const btnMasuk = document.getElementById('btnMasuk');
+if (btnMasuk) {
+    btnMasuk.addEventListener('click', function() {
+        window.location.href = 'Login.html';
+    });
+}
+
+// 2. Jalur link untuk tombol Daftar Sekarang menuju ke halaman daftar.html
+const btnDaftar = document.getElementById('btnDaftar');
+if (btnDaftar) {
+    btnDaftar.addEventListener('click', function() {
+        window.location.href = 'daftar.html';
+    });
+}
 
     /* =====================================================
        01. MENU MOBILE
