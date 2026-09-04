@@ -2874,7 +2874,7 @@ loginForm.addEventListener('submit', function(event) {
 
         // Beri jeda 1.5 detik agar user bisa membaca pesannya, lalu pindah halaman
         setTimeout(function() {
-            window.location.href = 'user/dashboard.html'; 
+            window.location.href = 'dasboard_user.html'; 
         }, 1500); 
 
     // 2. Cek jika yang login adalah ADMIN
@@ -2883,7 +2883,7 @@ loginForm.addEventListener('submit', function(event) {
         showSuccessMessage("Login Admin berhasil divalidasi."); 
 
         setTimeout(function() {
-            window.location.href = 'admin/dashboard.html';
+            window.location.href = 'dasboard_adm.html';
         }, 1500);
 
     // 3. Jika salah
