@@ -2309,12 +2309,11 @@
 
 
                     <!-- Lupa Password -->
-
-                    <button
-                        type="button"
-                        id="forgotPassword"
-                        class="forgot-button"
-                    >
+                          <a
+        href="lupa-password.html"
+        id="forgotPassword"
+        class="forgot-button"
+    >
                         Lupa password?
                     </button>
 
@@ -2602,8 +2601,8 @@
                     Belum punya akun?
                 </span>
 
-                <button
-                    type="button"
+                <a
+                    href="daftar.html"
                     id="registerButton"
                     aria-label="Daftar akun baru"
                 >
@@ -2647,6 +2646,21 @@
         "DOMContentLoaded",
         function () {
 
+"use strict";
+     const users = [
+    {
+        username: "admin",
+        email: "admin@akubisa.com",
+        password: "Admin123",
+        role: "admin"
+    },
+    {
+        username: "ivan",
+        email: "ivan@akubisa.com",
+        password: "User123",
+        role: "user"
+    }
+];
 
             /* =================================================
                01. MENGAMBIL ELEMENT HTML
@@ -2928,8 +2942,65 @@
 
                     const password =
                         passwordInput.value;
+const account = users.find(function (user) {
+
+    return (
+        (
+            user.username.toLowerCase() === username.toLowerCase()
+        )
+        ||
+        (
+            user.email.toLowerCase() === username.toLowerCase()
+        )
+    )
+    &&
+    user.password === password;
+
+});
+               const loginSession = {
+    username: account.username,
+    email: account.email,
+    role: account.role
+};
+
+if (rememberMe && rememberMe.checked) {
+
+    localStorage.setItem(
+        "akuBisaUser",
+        JSON.stringify(loginSession)
+    );
+
+} else {
+
+    sessionStorage.setItem(
+        "akuBisaUser",
+        JSON.stringify(loginSession)
+    );
+
+}
 
 
+if (account.role === "admin") {
+
+    window.location.href = "dasboard-adm.html";
+
+}
+else if (account.role === "user") {
+
+    window.location.href = "dasboard-user.html";
+
+}
+}
+if (account.role === "admin") {
+
+    window.location.href = "dasboard-adm.html";
+
+}
+else if (account.role === "user") {
+
+    window.location.href = "dasboard-user.html";
+
+}
                     /* -----------------------------------------
                        Status validasi
                     ------------------------------------------ */
@@ -3008,24 +3079,6 @@
 
 
             /* =================================================
-               08. LUPA PASSWORD
-            ================================================== */
-
-            forgotPassword.addEventListener(
-                "click",
-                function () {
-
-                    clearMessages();
-
-                    showInfoMessage(
-                        "Fitur reset password belum terhubung."
-                    );
-
-                }
-            );
-
-
-            /* =================================================
                09. LOGIN GOOGLE
             ================================================== */
 
@@ -3059,25 +3112,6 @@
 
                 }
             );
-
-
-            /* =================================================
-               11. DAFTAR SEKARANG
-            ================================================== */
-
-            registerButton.addEventListener(
-                "click",
-                function () {
-
-                    clearMessages();
-
-                    showInfoMessage(
-                        "Halaman pendaftaran belum terhubung."
-                    );
-
-                }
-            );
-
 
         }
     );
