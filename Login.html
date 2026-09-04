@@ -2327,41 +2327,19 @@
                              15. TOMBOL MASUK
                         ================================================== -->
 
-                        <button
-                            type="submit"
-                            id="loginButton"
-                            class="login-button"
-                        >
+                    <form id="loginForm"> 
+    
+    <input type="email" id="emailInput" placeholder="Masukkan Email" required>
+    <input type="password" id="passwordInput" placeholder="Masukkan Password" required>
 
-                            <span>
-                                Masuk
-                            </span>
-
-
-                            <!-- Ikon Panah -->
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <path
-                                    d="M5 12H19"
-                                />
-
-                                <path
-                                    d="
-                                        M13 6
-                                        L19 12
-                                        L13 18
-                                    "
-                                />
-
-                            </svg>
-
-                        </button>
-
-
+    <button type="submit" id="loginButton" class="login-button">
+        <span>Masuk</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12H19" />
+            <path d="M13 6 L19 12 L13 18" />
+        </svg>
+    </button>
+</form>
                         <!-- =================================================
                              16. PESAN FORM
                         ================================================== -->
@@ -2880,32 +2858,59 @@
                            BELUM TERHUBUNG FIREBASE
                         ============================================== */
 
-                        showSuccessMessage(
-                            "Login berhasil divalidasi."
-                        );
+                    const loginForm = document.getElementById('loginForm');
 
-                    }
-                );
+loginForm.addEventListener('submit', function(event) {
+    event.preventDefault(); 
 
+    const email = document.getElementById('emailInput').value;
+    const password = document.getElementById('passwordInput').value;
+
+    // 1. Cek jika yang login adalah USER biasa
+    if (email === "user@mail.com" && password === "user123") {
+        
+        // Jalankan fungsi pesan sukses bawaan Anda
+        showSuccessMessage("Login berhasil divalidasi."); 
+
+        // Beri jeda 1.5 detik agar user bisa membaca pesannya, lalu pindah halaman
+        setTimeout(function() {
+            window.location.href = 'user/dashboard.html'; 
+        }, 1500); 
+
+    // 2. Cek jika yang login adalah ADMIN
+    } else if (email === "admin@mail.com" && password === "admin123") {
+        
+        showSuccessMessage("Login Admin berhasil divalidasi."); 
+
+        setTimeout(function() {
+            window.location.href = 'admin/dashboard.html';
+        }, 1500);
+
+    // 3. Jika salah
+    } else {
+        alert("Gunakan email: user@mail.com atau admin@mail.com untuk mencoba masuk!");
+    }
+});
 
                 /* =================================================
                    07. LUPA PASSWORD
                 ================================================== */
+forgotPassword.addEventListener("click", function (event) {
+    
+    // 1. Tahan dulu perpindahan halaman otomatis dari HTML
+    event.preventDefault();
 
-                forgotPassword.addEventListener(
-                    "click",
-                    function () {
+    clearMessages();
 
-                        clearMessages();
+    // 2. Munculkan pesan info bawaan Anda
+    showInfoMessage("Fitur reset password belum terhubung.");
 
-                        showInfoMessage(
-                            "Fitur reset password belum terhubung."
-                        );
+    // 3. Beri jeda 2 detik, lalu pindah ke halaman lupa-password.html
+    setTimeout(function() {
+        window.location.href = 'lupa-password.html';
+    }, 2000); 
 
-                    }
-                );
-
-
+});
                 /* =================================================
                    08. LOGIN GOOGLE
                 ================================================== */
