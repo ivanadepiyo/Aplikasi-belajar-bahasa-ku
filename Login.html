@@ -2,10 +2,6 @@
 <html lang="id">
 
 <head>
-    <!-- =====================================================
-         01. INFORMASI DASAR
-    ====================================================== -->
-
     <meta charset="UTF-8">
 
     <meta
@@ -19,11 +15,6 @@
     >
 
     <title>AKU BISA - Login</title>
-
-
-    <!-- =====================================================
-         02. FONT
-    ====================================================== -->
 
     <link
         rel="preconnect"
@@ -41,24 +32,7 @@
         rel="stylesheet"
     >
 
-
-    <!-- =====================================================
-         03. CSS
-         Semua CSS berada di dalam file HTML ini
-    ====================================================== -->
-
     <style>
-
-        /* =====================================================
-           AKU BISA
-           LOGIN PAGE
-           CSS
-        ====================================================== */
-
-
-        /* =====================================================
-           01. ROOT / VARIABEL WARNA
-        ====================================================== */
 
         :root {
             --primary-blue: #1764D8;
@@ -2619,119 +2593,372 @@
          Semua JavaScript berada di file HTML ini
     ====================================================== -->
 
-    <script>
+<script>
 
-        /* =====================================================
-           AKU BISA
-           LOGIN PAGE
-           VANILLA JAVASCRIPT
-        ====================================================== */
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
+    /* =====================================================
+       AKU BISA
+       LOGIN PAGE
+       VANILLA JAVASCRIPT
+       CLEAN & FIXED VERSION
+    ====================================================== */
 
 
-                /* =================================================
-                   01. MENGAMBIL ELEMENT HTML
-                ================================================== */
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
 
-                const loginForm =
-                    document.getElementById("loginForm");
-
-                const usernameInput =
-                    document.getElementById("username");
-
-                const passwordInput =
-                    document.getElementById("password");
-
-                const togglePassword =
-                    document.getElementById("togglePassword");
-
-                const forgotPassword =
-                    document.getElementById("forgotPassword");
-
-                const googleLogin =
-                    document.getElementById("googleLogin");
-
-                const facebookLogin =
-                    document.getElementById("facebookLogin");
-
-                const registerButton =
-                    document.getElementById("registerButton");
-
-                const usernameError =
-                    document.getElementById("usernameError");
-
-                const passwordError =
-                    document.getElementById("passwordError");
-
-                const formMessage =
-                    document.getElementById("formMessage");
+            "use strict";
 
 
-                /* =================================================
-                   02. FUNGSI BANTUAN
-                ================================================== */
+            /* =================================================
+               01. DATA AKUN DUMMY
+               ================================================== */
 
-                function clearMessages() {
+            /*
+             * Data akun dummy untuk simulasi login
+             * sebelum Firebase dihubungkan.
+             */
+
+            const dummyAccount = {
+                username: "user@gmail.com",
+                password: "password123"
+            };
+
+
+            /* =================================================
+               02. MENGAMBIL ELEMENT HTML
+               ================================================== */
+
+            const loginForm =
+                document.getElementById("loginForm") ||
+                document.querySelector("form");
+
+
+            const usernameInput =
+                document.getElementById("username");
+
+
+            const passwordInput =
+                document.getElementById("password");
+
+
+            const togglePassword =
+                document.getElementById("togglePassword");
+
+
+            const forgotPassword =
+                document.getElementById("forgotPassword");
+
+
+            const googleLogin =
+                document.getElementById("googleLogin");
+
+
+            const facebookLogin =
+                document.getElementById("facebookLogin");
+
+
+            const registerButton =
+                document.getElementById("registerButton");
+
+
+            const usernameError =
+                document.getElementById("usernameError");
+
+
+            const passwordError =
+                document.getElementById("passwordError");
+
+
+            const formMessage =
+                document.getElementById("formMessage");
+
+
+
+            /* =================================================
+               03. FUNGSI BANTUAN
+               ================================================== */
+
+
+            /*
+             * Membersihkan seluruh pesan.
+             */
+
+            function clearMessages() {
+
+                if (usernameError) {
 
                     usernameError.textContent = "";
 
+                    usernameError.style.color = "";
+
+                    usernameError.className = "";
+
+                }
+
+
+                if (passwordError) {
+
                     passwordError.textContent = "";
+
+                    passwordError.style.color = "";
+
+                    passwordError.className = "";
+
+                }
+
+
+                if (formMessage) {
 
                     formMessage.textContent = "";
 
                     formMessage.className =
                         "form-message";
+
+                }
+
+            }
+
+
+
+            /*
+             * Menampilkan pesan informasi.
+             */
+
+            function showInfoMessage(message) {
+
+                if (!formMessage) {
+                    return;
                 }
 
 
-                function showInfoMessage(message) {
+                formMessage.textContent =
+                    message;
 
-                    formMessage.textContent =
-                        message;
 
-                    formMessage.className =
-                        "form-message info";
+                formMessage.className =
+                    "form-message info";
+
+            }
+
+
+
+            /*
+             * Menampilkan pesan berhasil.
+             */
+
+            function showSuccessMessage(message) {
+
+                if (!formMessage) {
+                    return;
                 }
 
 
-                function showSuccessMessage(message) {
+                formMessage.textContent =
+                    message;
 
-                    formMessage.textContent =
-                        message;
 
-                    formMessage.className =
-                        "form-message success";
+                formMessage.className =
+                    "form-message success";
+
+            }
+
+
+
+            /*
+             * Menampilkan pesan error umum.
+             */
+
+            function showErrorMessage(message) {
+
+                if (!formMessage) {
+                    return;
                 }
 
 
-                /* =================================================
-                   03. SHOW / HIDE PASSWORD
-                ================================================== */
+                formMessage.textContent =
+                    message;
+
+
+                formMessage.className =
+                    "form-message error";
+
+            }
+
+
+
+            /* =================================================
+               04. VALIDASI FORMAT GMAIL
+               ================================================== */
+
+
+            function validateGmail(input) {
+
+                /*
+                 * Pastikan username/email tidak kosong.
+                 */
+
+                if (input === "") {
+
+                    if (usernameError) {
+
+                        usernameError.textContent =
+                            "Email atau username wajib diisi.";
+
+                    }
+
+                    return false;
+
+                }
+
+
+
+                /*
+                 * Regex Gmail.
+                 */
+
+                const gmailRegex =
+                    /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
+
+
+
+                /*
+                 * Periksa format Gmail.
+                 */
+
+                if (!gmailRegex.test(input)) {
+
+                    if (usernameError) {
+
+                        usernameError.textContent =
+                            "Harus menggunakan alamat Gmail yang valid (contoh: nama@gmail.com).";
+
+                    }
+
+                    return false;
+
+                }
+
+
+
+                return true;
+
+            }
+
+
+
+            /* =================================================
+               05. VALIDASI PASSWORD
+               ================================================== */
+
+
+            function validatePassword(input) {
+
+                /*
+                 * Password tidak boleh kosong.
+                 */
+
+                if (input === "") {
+
+                    if (passwordError) {
+
+                        passwordError.textContent =
+                            "Password wajib diisi.";
+
+                    }
+
+                    return false;
+
+                }
+
+
+
+                /*
+                 * Password minimal 6 karakter.
+                 */
+
+                if (input.length < 6) {
+
+                    if (passwordError) {
+
+                        passwordError.textContent =
+                            "Password minimal terdiri dari 6 karakter.";
+
+                    }
+
+                    return false;
+
+                }
+
+
+
+                return true;
+
+            }
+
+
+
+            /* =================================================
+               06. SHOW / HIDE PASSWORD
+               ================================================== */
+
+
+            if (
+                togglePassword &&
+                passwordInput
+            ) {
 
                 togglePassword.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        /*
+                         * Mencegah tombol melakukan
+                         * submit form apabila berada
+                         * di dalam form.
+                         */
+
+                        event.preventDefault();
+
+
+                        /*
+                         * Cek apakah password sedang
+                         * tersembunyi.
+                         */
 
                         const isPassword =
                             passwordInput.type === "password";
 
 
+
                         if (isPassword) {
+
+                            /*
+                             * Tampilkan password.
+                             */
 
                             passwordInput.type =
                                 "text";
+
+
+                            /*
+                             * Tambahkan class visible.
+                             */
 
                             togglePassword.classList.add(
                                 "visible"
                             );
 
+
+                            /*
+                             * Accessibility.
+                             */
+
                             togglePassword.setAttribute(
                                 "aria-label",
                                 "Sembunyikan password"
                             );
+
 
                             togglePassword.setAttribute(
                                 "aria-pressed",
@@ -2740,166 +2967,363 @@
 
                         } else {
 
+                            /*
+                             * Sembunyikan password.
+                             */
+
                             passwordInput.type =
                                 "password";
+
+
+                            /*
+                             * Hapus class visible.
+                             */
 
                             togglePassword.classList.remove(
                                 "visible"
                             );
+
+
+                            /*
+                             * Accessibility.
+                             */
 
                             togglePassword.setAttribute(
                                 "aria-label",
                                 "Tampilkan password"
                             );
 
+
                             togglePassword.setAttribute(
                                 "aria-pressed",
                                 "false"
                             );
+
                         }
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   04. VALIDASI USERNAME SAAT MENGETIK
-                ================================================== */
+
+
+            /* =================================================
+               07. VALIDASI USERNAME SAAT MENGETIK
+               ================================================== */
+
+
+            if (usernameInput) {
 
                 usernameInput.addEventListener(
                     "input",
                     function () {
 
-                        if (
-                            usernameInput.value.trim() !== ""
-                        ) {
+                        /*
+                         * Hapus error ketika user
+                         * mulai memperbaiki input.
+                         */
 
-                            usernameError.textContent = "";
+                        if (usernameError) {
+
+                            usernameError.textContent =
+                                "";
+
+                            usernameError.style.color =
+                                "";
+
+                        }
+
+
+                        /*
+                         * Hapus pesan umum.
+                         */
+
+                        if (formMessage) {
+
+                            formMessage.textContent =
+                                "";
+
+                            formMessage.className =
+                                "form-message";
+
                         }
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   05. VALIDASI PASSWORD SAAT MENGETIK
-                ================================================== */
+
+
+            /* =================================================
+               08. VALIDASI PASSWORD SAAT MENGETIK
+               ================================================== */
+
+
+            if (passwordInput) {
 
                 passwordInput.addEventListener(
                     "input",
                     function () {
 
-                        if (
-                            passwordInput.value.trim() !== ""
-                        ) {
+                        /*
+                         * Hapus error password
+                         * ketika user mengetik ulang.
+                         */
 
-                            passwordError.textContent = "";
+                        if (passwordError) {
+
+                            passwordError.textContent =
+                                "";
+
+                            passwordError.style.color =
+                                "";
+
+                        }
+
+
+                        /*
+                         * Hapus pesan umum.
+                         */
+
+                        if (formMessage) {
+
+                            formMessage.textContent =
+                                "";
+
+                            formMessage.className =
+                                "form-message";
+
                         }
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   06. PROSES LOGIN
-                ================================================== */
+
+
+            /* =================================================
+               09. PROSES LOGIN
+               ================================================== */
+
+
+            if (loginForm) {
 
                 loginForm.addEventListener(
                     "submit",
                     function (event) {
 
-                        /* Mencegah refresh halaman */
+                        /*
+                         * Mencegah halaman reload.
+                         */
 
                         event.preventDefault();
 
 
-                        /* Bersihkan pesan */
+
+                        /*
+                         * Bersihkan pesan sebelumnya.
+                         */
 
                         clearMessages();
 
 
-                        /* Ambil data */
+
+                        /* -----------------------------------------
+                           AMBIL DATA INPUT
+                        ------------------------------------------ */
+
 
                         const username =
-                            usernameInput.value.trim();
+                            usernameInput
+                                ? usernameInput.value.trim()
+                                : "";
+
+
+
+                        /*
+                         * Password tidak menggunakan trim()
+                         * agar spasi dalam password tidak
+                         * diubah secara otomatis.
+                         */
 
                         const password =
-                            passwordInput.value.trim();
+                            passwordInput
+                                ? passwordInput.value
+                                : "";
 
 
-                        /* Status validasi */
 
-                        let isValid = true;
-
-
-                        /* =============================================
+                        /* -----------------------------------------
                            VALIDASI USERNAME
-                        ============================================== */
-
-                        if (username === "") {
-
-                            usernameError.textContent =
-                                "Silakan masukkan email atau username.";
-
-                            isValid = false;
-                        }
+                        ------------------------------------------ */
 
 
-                        /* =============================================
+                        const isUsernameValid =
+                            validateGmail(username);
+
+
+
+                        /* -----------------------------------------
                            VALIDASI PASSWORD
-                        ============================================== */
-
-                        if (password === "") {
-
-                            passwordError.textContent =
-                                "Silakan masukkan password.";
-
-                            isValid = false;
-                        }
+                        ------------------------------------------ */
 
 
-                        /* =============================================
-                           JIKA VALIDASI GAGAL
-                        ============================================== */
+                        const isPasswordValid =
+                            validatePassword(password);
 
-                        if (!isValid) {
 
-                            if (username === "") {
+
+                        /* -----------------------------------------
+                           JIKA USERNAME TIDAK VALID
+                        ------------------------------------------ */
+
+
+                        if (!isUsernameValid) {
+
+                            if (usernameInput) {
 
                                 usernameInput.focus();
 
-                            } else if (password === "") {
-
-                                passwordInput.focus();
                             }
 
                             return;
+
                         }
 
 
-                        /* =============================================
-                           LOGIN BERHASIL DIVALIDASI
-                           
-                           BELUM TERHUBUNG FIREBASE
-                        ============================================== */
 
-                        showSuccessMessage(
-                            "Login berhasil divalidasi."
-                        );
+                        /* -----------------------------------------
+                           JIKA PASSWORD TIDAK VALID
+                        ------------------------------------------ */
+
+
+                        if (!isPasswordValid) {
+
+                            if (passwordInput) {
+
+                                passwordInput.focus();
+
+                            }
+
+                            return;
+
+                        }
+
+
+
+                        /* -----------------------------------------
+                           SIMULASI CEK AKUN
+                        ------------------------------------------ */
+
+
+                        if (
+                            username ===
+                                dummyAccount.username
+                            &&
+                            password ===
+                                dummyAccount.password
+                        ) {
+
+                            /*
+                             * Login berhasil.
+                             */
+
+                            if (usernameError) {
+
+                                usernameError.style.color =
+                                    "green";
+
+
+                                usernameError.textContent =
+                                    "Login berhasil! Selamat datang.";
+
+                            }
+
+
+                            /*
+                             * Pesan umum juga digunakan
+                             * apabila element tersedia.
+                             */
+
+                            if (formMessage) {
+
+                                showSuccessMessage(
+                                    "Login berhasil! Selamat datang."
+                                );
+
+                            }
+
+                        } else {
+
+                            /*
+                             * Username/password salah.
+                             */
+
+                            if (usernameError) {
+
+                                usernameError.style.color =
+                                    "";
+
+
+                                usernameError.textContent =
+                                    "Email atau password yang Anda masukkan salah.";
+
+                            }
+
+
+                            /*
+                             * Fokus kembali ke password.
+                             */
+
+                            if (passwordInput) {
+
+                                passwordInput.focus();
+
+                            }
+
+                        }
 
                     }
                 );
 
+            }
 
-                /* =================================================
-                   07. LUPA PASSWORD
-                ================================================== */
+
+
+            /* =================================================
+               10. LUPA PASSWORD
+               ================================================== */
+
+
+            if (forgotPassword) {
 
                 forgotPassword.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        /*
+                         * Mencegah link melakukan
+                         * navigasi default.
+                         */
+
+                        event.preventDefault();
+
+
+
+                        /*
+                         * Bersihkan pesan lama.
+                         */
 
                         clearMessages();
+
+
+
+                        /*
+                         * Fitur belum terhubung Firebase.
+                         */
 
                         showInfoMessage(
                             "Fitur reset password belum terhubung."
@@ -2908,16 +3332,40 @@
                     }
                 );
 
+            }
 
-                /* =================================================
-                   08. LOGIN GOOGLE
-                ================================================== */
+
+
+            /* =================================================
+               11. LOGIN GOOGLE
+               ================================================== */
+
+
+            if (googleLogin) {
 
                 googleLogin.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        /*
+                         * Mencegah aksi default.
+                         */
+
+                        event.preventDefault();
+
+
+
+                        /*
+                         * Bersihkan pesan.
+                         */
 
                         clearMessages();
+
+
+
+                        /*
+                         * Informasi sementara.
+                         */
 
                         showInfoMessage(
                             "Login dengan Google belum terhubung."
@@ -2926,16 +3374,40 @@
                     }
                 );
 
+            }
 
-                /* =================================================
-                   09. LOGIN FACEBOOK
-                ================================================== */
+
+
+            /* =================================================
+               12. LOGIN FACEBOOK
+               ================================================== */
+
+
+            if (facebookLogin) {
 
                 facebookLogin.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        /*
+                         * Mencegah aksi default.
+                         */
+
+                        event.preventDefault();
+
+
+
+                        /*
+                         * Bersihkan pesan.
+                         */
 
                         clearMessages();
+
+
+
+                        /*
+                         * Informasi sementara.
+                         */
 
                         showInfoMessage(
                             "Login dengan Facebook belum terhubung."
@@ -2944,16 +3416,40 @@
                     }
                 );
 
+            }
 
-                /* =================================================
-                   10. DAFTAR SEKARANG
-                ================================================== */
+
+
+            /* =================================================
+               13. DAFTAR SEKARANG
+               ================================================== */
+
+
+            if (registerButton) {
 
                 registerButton.addEventListener(
                     "click",
-                    function () {
+                    function (event) {
+
+                        /*
+                         * Mencegah aksi default.
+                         */
+
+                        event.preventDefault();
+
+
+
+                        /*
+                         * Bersihkan pesan.
+                         */
 
                         clearMessages();
+
+
+
+                        /*
+                         * Informasi sementara.
+                         */
 
                         showInfoMessage(
                             "Halaman pendaftaran belum terhubung."
@@ -2962,11 +3458,97 @@
                     }
                 );
 
+            }
+
+
+
+            /* =================================================
+               14. STATUS / DEBUG ELEMENT
+               ================================================== */
+
+
+            /*
+             * Bagian ini hanya memberikan peringatan
+             * di Console jika element HTML belum ditemukan.
+             *
+             * Tidak membuat aplikasi berhenti.
+             */
+
+
+            if (!loginForm) {
+
+                console.warn(
+                    "AKU BISA: Form login (#loginForm) tidak ditemukan."
+                );
 
             }
-        );
 
-    </script>
+
+
+            if (!usernameInput) {
+
+                console.warn(
+                    "AKU BISA: Input username (#username) tidak ditemukan."
+                );
+
+            }
+
+
+
+            if (!passwordInput) {
+
+                console.warn(
+                    "AKU BISA: Input password (#password) tidak ditemukan."
+                );
+
+            }
+
+
+
+            if (!togglePassword) {
+
+                console.warn(
+                    "AKU BISA: Tombol toggle password (#togglePassword) tidak ditemukan."
+                );
+
+            }
+
+
+
+            if (!usernameError) {
+
+                console.warn(
+                    "AKU BISA: Element username error (#usernameError) tidak ditemukan."
+                );
+
+            }
+
+
+
+            if (!passwordError) {
+
+                console.warn(
+                    "AKU BISA: Element password error (#passwordError) tidak ditemukan."
+                );
+
+            }
+
+
+
+            /* =================================================
+               15. STATUS LOGIN SYSTEM
+               ================================================== */
+
+
+            console.log(
+                "AKU BISA: Login JavaScript berhasil dimuat."
+            );
+
+
+        }
+    );
+
+</script>
 
 
 </body>
