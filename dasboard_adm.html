@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>AKU BISA — Admin Dashboard</title>
 
-  <script>
+<script>
   if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
-    alert("Anda harus login sebagai Admin terlebih dahulu!");
-    window.location.href = "../Login.html"; 
+    alert("Akses ditolak! Anda harus login sebagai Admin.");
+    window.location.href = "Login.html"; // Dihapus ../ nya
+  }
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = "Login.html"; // Dihapus ../ nya
   }
 </script>
   
