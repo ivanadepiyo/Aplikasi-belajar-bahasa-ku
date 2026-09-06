@@ -1103,6 +1103,7 @@ if (loginForm) {
     const password = passwordInput.value.trim();
     let isValid = true;
 
+    // Validasi Input Kosong
     if (username === "") {
       usernameError.textContent = "Silakan masukkan email atau username.";
       isValid = false;
@@ -1113,13 +1114,22 @@ if (loginForm) {
       isValid = false;
     }
 
-    if (!isValid) return;
+    if (!isValid) {
+      if (username === "") {
+        usernameInput.focus();
+      } else if (password === "") {
+        passwordInput.focus();
+      }
+      return;
+    }
 
-    // HAPUS SESI LAMA AGAR TIDAK BENTROK
+    // Bersihkan sesi lama terlebih dahulu
     localStorage.clear();
 
+    // Simulasi Kredensial Pengujian
     if (username === "admin@123" && password === "adminyos.125") {
       showSuccessMessage("Login Admin berhasil! Mengalihkan...");
+
       localStorage.setItem("userRole", "admin");
       localStorage.setItem("isLoggedIn", "true");
 
@@ -1129,6 +1139,7 @@ if (loginForm) {
 
     } else if (username === "user@123" && password === "useryos.125") {
       showSuccessMessage("Login User berhasil! Mengalihkan...");
+
       localStorage.setItem("userRole", "user");
       localStorage.setItem("isLoggedIn", "true");
 
