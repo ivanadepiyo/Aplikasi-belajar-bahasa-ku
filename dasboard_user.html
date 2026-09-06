@@ -6,10 +6,15 @@
 
     <title>AKU BISA - User Dashboard</title>
 
-    <script>
+<script>
   if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "user") {
-    alert("Anda harus login terlebih dahulu!");
-    window.location.href = "../Login.html"; 
+    alert("Akses ditolak! Anda harus login terlebih dahulu.");
+    window.location.href = "Login.html"; // Dihapus ../ nya
+  }
+
+  function logout() {
+    localStorage.clear();
+    window.location.href = "Login.html"; // Dihapus ../ nya
   }
 </script>
     
