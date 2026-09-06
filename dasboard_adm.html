@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>AKU BISA — Admin Dashboard</title>
 
-<script>
-  // Cek apakah user belum login ATAU role bukan admin
-  if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
-    alert("Akses ditolak! Anda harus login sebagai Admin.");
-    window.location.href = "Login.html";
-  }
+<!-- Script Proteksi Admin -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      const userRole = localStorage.getItem("userRole");
 
-  function logout() {
-    localStorage.clear();
-    window.location.href = "Login.html";
-  }
-</script>
+      if (isLoggedIn !== "true" || userRole !== "admin") {
+        alert("Akses ditolak! Anda harus login sebagai Admin.");
+        window.location.href = "Login.html";
+      }
+    });
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "Login.html";
+    }
+  </script>
 
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
