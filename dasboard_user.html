@@ -6,24 +6,6 @@
 
     <title>AKU BISA - User Dashboard</title>
 
-<!-- Script Proteksi User -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const isLoggedIn = localStorage.getItem("isLoggedIn");
-      const userRole = localStorage.getItem("userRole");
-
-      if (isLoggedIn !== "true" || userRole !== "user") {
-        alert("Akses ditolak! Anda harus login terlebih dahulu.");
-        window.location.href = "Login.html";
-      }
-    });
-
-    function logout() {
-      localStorage.clear();
-      window.location.href = "Login.html";
-    }
-  </script>
-    
      <link rel="stylesheet" href="style.css">
 <style>
 * {
@@ -3741,6 +3723,21 @@ initializeApplication();
     // 2. Alihkan kembali ke halaman login
     window.location.href = "../Login.html";
   }
+
+     document.addEventListener("DOMContentLoaded", function () {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      const userRole = localStorage.getItem("userRole");
+
+      if (isLoggedIn !== "true" || userRole !== "user") {
+        alert("Akses ditolak! Anda harus login terlebih dahulu.");
+        window.location.href = "Login.html";
+      }
+    });
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "Login.html";
+    }
     
 </script>
 
