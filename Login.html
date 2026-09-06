@@ -1123,40 +1123,37 @@ if (loginForm) {
       return;
     }
 
+    // Bersihkan sesi lama terlebih dahulu
+    localStorage.clear();
+
     // Simulasi Kredensial Pengujian
     if (username === "admin@123" && password === "adminyos.125") {
       showSuccessMessage("Login Admin berhasil! Mengalihkan...");
 
-      // Simpan status session simulasi di localStorage
       localStorage.setItem("userRole", "admin");
       localStorage.setItem("isLoggedIn", "true");
 
-      // Redirect ke Dashboard Admin
       setTimeout(function () {
         window.location.href = "dasboard_adm.html";
-      }, 1000);
+      }, 500);
 
     } else if (username === "user@123" && password === "useryos.125") {
       showSuccessMessage("Login User berhasil! Mengalihkan...");
 
-      // Simpan status session simulasi di localStorage
       localStorage.setItem("userRole", "user");
       localStorage.setItem("isLoggedIn", "true");
 
-      // Redirect ke Dashboard User
       setTimeout(function () {
         window.location.href = "dasboard_user.html";
-      }, 1000);
+      }, 500);
 
     } else {
-      // Pesan kesalahan disesuaikan dengan password baru
-      formMessage.textContent = "Username atau password salah! (Gunakan: admin@123 / adminyos.125 atau user@123 / useryos.125)";
+      formMessage.textContent = "Username atau password salah!";
       formMessage.className = "form-message";
       formMessage.style.color = "var(--error)";
     }
   });
 }
-
       // 07. LUPA PASSWORD
       if (forgotPassword) {
         forgotPassword.addEventListener("click", function () {
