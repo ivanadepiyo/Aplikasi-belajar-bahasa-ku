@@ -6,16 +6,17 @@
   <title>AKU BISA — Admin Dashboard</title>
 
 <script>
-    if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
-      alert("Akses ditolak! Anda harus login sebagai Admin.");
-      window.location.href = "Login.html";
-    }
+  // Cek apakah user belum login ATAU role bukan admin
+  if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
+    alert("Akses ditolak! Anda harus login sebagai Admin.");
+    window.location.href = "Login.html";
+  }
 
-    function logout() {
-      localStorage.clear();
-      window.location.href = "Login.html";
-    }
-  </script>
+  function logout() {
+    localStorage.clear();
+    window.location.href = "Login.html";
+  }
+</script>
   
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
