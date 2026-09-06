@@ -1101,59 +1101,53 @@ if (loginForm) {
 
     const username = usernameInput.value.trim().toLowerCase();
     const password = passwordInput.value.trim();
-    let isValid = true;
 
     // Validasi Input Kosong
-    if (username === "") {
-      usernameError.textContent = "Silakan masukkan email atau username.";
-      isValid = false;
-    }
-
-    if (password === "") {
-      passwordError.textContent = "Silakan masukkan password.";
-      isValid = false;
-    }
-
-    if (!isValid) {
+    if (username === "" || password === "") {
       if (username === "") {
+        usernameError.textContent = "Silakan masukkan email atau username.";
         usernameInput.focus();
-      } else if (password === "") {
+      } else {
+        passwordError.textContent = "Silakan masukkan password.";
         passwordInput.focus();
       }
       return;
     }
 
-    // Bersihkan sesi lama terlebih dahulu
+    // Bersihkan sesi lama sebelum menyimpan sesi baru
     localStorage.clear();
 
-    // Simulasi Kredensial Pengujian
+    // Login Admin
     if (username === "admin@123" && password === "adminyos.125") {
       showSuccessMessage("Login Admin berhasil! Mengalihkan...");
-
-      localStorage.setItem("userRole", "admin");
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userRole", "admin");
 
       setTimeout(function () {
         window.location.href = "dasboard_adm.html";
-      }, 500);
+      }, 300);
 
-    } else if (username === "user@123" && password === "useryos.125") {
+    } 
+    // Login User
+    else if (username === "user@123" && password === "useryos.125") {
       showSuccessMessage("Login User berhasil! Mengalihkan...");
-
-      localStorage.setItem("userRole", "user");
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("userRole", "user");
 
       setTimeout(function () {
         window.location.href = "dasboard_user.html";
-      }, 500);
+      }, 300);
 
-    } else {
+    } 
+    // Kredensial Salah
+    else {
       formMessage.textContent = "Username atau password salah!";
       formMessage.className = "form-message";
       formMessage.style.color = "var(--error)";
     }
   });
 }
+      
       // 07. LUPA PASSWORD
       if (forgotPassword) {
         forgotPassword.addEventListener("click", function () {
