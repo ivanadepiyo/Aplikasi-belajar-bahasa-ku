@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>AKU BISA — Admin Dashboard</title>
+
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
+    alert("Anda harus login sebagai Admin terlebih dahulu!");
+    window.location.href = "../Login.html"; 
+  }
+</script>
+  
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
