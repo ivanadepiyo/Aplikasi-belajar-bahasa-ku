@@ -5,24 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>AKU BISA — Admin Dashboard</title>
 
-<!-- Script Proteksi Admin -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const isLoggedIn = localStorage.getItem("isLoggedIn");
-      const userRole = localStorage.getItem("userRole");
-
-      if (isLoggedIn !== "true" || userRole !== "admin") {
-        alert("Akses ditolak! Anda harus login sebagai Admin.");
-        window.location.href = "Login.html";
-      }
-    });
-
-    function logout() {
-      localStorage.clear();
-      window.location.href = "Login.html";
-    }
-  </script>
-
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,6 +157,21 @@ go("dashboard");
     // 2. Alihkan kembali ke halaman login
     window.location.href = "../Login.html";
   }
+
+      document.addEventListener("DOMContentLoaded", function () {
+      const isLoggedIn = localStorage.getItem("isLoggedIn");
+      const userRole = localStorage.getItem("userRole");
+
+      if (isLoggedIn !== "true" || userRole !== "admin") {
+        alert("Akses ditolak! Anda harus login sebagai Admin.");
+        window.location.href = "Login.html";
+      }
+    });
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = "Login.html";
+    }
 </script>
 </body>
 </html>
