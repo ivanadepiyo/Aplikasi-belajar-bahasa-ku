@@ -1094,8 +1094,7 @@
       }
 
       // 06. PROSES LOGIN
-    // 06. PROSES LOGIN (SIMULASI TANPA FIREBASE)
-      if (loginForm) {
+  if (loginForm) {
         loginForm.addEventListener("submit", function (event) {
           event.preventDefault();
           clearMessages();
@@ -1132,7 +1131,7 @@
             localStorage.setItem("userRole", "admin");
             localStorage.setItem("isLoggedIn", "true");
 
-            // Redirect ke Dashboard Admin
+            // Redirect ke Dashboard Admin (tanpa folder admin/)
             setTimeout(function () {
               window.location.href = "dasboard_adm.html";
             }, 1000);
@@ -1144,14 +1143,14 @@
             localStorage.setItem("userRole", "user");
             localStorage.setItem("isLoggedIn", "true");
 
-            // Redirect ke Dashboard User
+            // Redirect ke Dashboard User (tanpa folder user/)
             setTimeout(function () {
               window.location.href = "dasboard_user.html";
             }, 1000);
 
           } else {
-            // Jika kredensial salah
-            formMessage.textContent = "Username atau password salah! (Gunakan: admin/admin123 atau user/user123)";
+            // Jika kredensial salah (Pesan disesuaikan dengan username @123)
+            formMessage.textContent = "Username atau password salah! (Gunakan: admin@123 / admin123 atau user@123 / user123)";
             formMessage.className = "form-message";
             formMessage.style.color = "var(--error)";
           }
