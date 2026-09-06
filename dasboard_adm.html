@@ -44,6 +44,16 @@
       <button data-page="premium">♛ <span>Premium</span></button>
       <button data-page="broadcast">◉ <span>Pemberitahuan</span></button>
       <button data-page="reports">▥ <span>Laporan & Analitik</span></button>
+      <!-- Menu Keluar dengan CSS Inline -->
+<a href="javascript:void(0)" 
+   onclick="logout()" 
+   class="nav-item logout-btn" 
+   style="cursor: pointer; color: #ff4d4f; transition: background-color 0.2s;"
+   onmouseover="this.style.backgroundColor='rgba(255, 77, 79, 0.1)'"
+   onmouseout="this.style.backgroundColor='transparent'">
+  <i class="icon-logout"></i> <!-- Sesuaikan class icon jika ada -->
+  <span>Keluar</span>
+</a>
     </nav>
   </aside>
 
@@ -148,6 +158,13 @@ go("dashboard");
         console.log("User login:", user);
 
     }
+  function logout() {
+    // 1. Hapus semua data sesi di localStorage
+    localStorage.clear();
+    
+    // 2. Alihkan kembali ke halaman login
+    window.location.href = "../Login.html";
+  }
 </script>
 </body>
 </html>
