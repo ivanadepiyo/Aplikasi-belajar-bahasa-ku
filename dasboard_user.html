@@ -7,8 +7,8 @@
     <title>AKU BISA - User Dashboard</title>
 
 <script>
-    if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "user") {
-      alert("Akses ditolak! Anda harus login terlebih dahulu.");
+    if (localStorage.getItem("isLoggedIn") !== "true" || localStorage.getItem("userRole") !== "admin") {
+      alert("Akses ditolak! Anda harus login sebagai Admin.");
       window.location.href = "Login.html";
     }
 
