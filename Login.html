@@ -1,3556 +1,1195 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="AKU BISA - Aplikasi Kreatif Untuk Bisa Semua Bahasa"
-    >
-
-    <title>AKU BISA - Login</title>
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-    <style>
-
-        :root {
-            --primary-blue: #1764D8;
-            --button-blue: #1976E8;
-            --dark-blue: #153B63;
-
-            --background-blue: #EEF6FF;
-            --white: #FFFFFF;
-
-            --text-gray: #66768A;
-            --placeholder-gray: #AEB7C2;
-
-            --border-gray: #DDE3EA;
-
-            --illustration-blue: #76B6D8;
-
-            --yellow: #F5B82E;
-
-            --success: #218838;
-            --error: #D83B3B;
-
-            --card-shadow:
-                0 10px 35px rgba(30, 70, 110, 0.10);
-
-            --button-shadow:
-                0 5px 12px rgba(25, 118, 232, 0.18);
-
-            --transition: 0.2s ease;
-        }
-
-
-        /* =====================================================
-           02. RESET
-        ====================================================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-
-            width: 100%;
-            min-height: 100vh;
-
-            font-family:
-                "Poppins",
-                Arial,
-                sans-serif;
-
-            background-color: var(--white);
-
-            color: var(--dark-blue);
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        button {
-            border: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-
-        /* =====================================================
-           03. HALAMAN UTAMA
-        ====================================================== */
-
-        .page {
-            width: 100%;
-            min-height: 100vh;
-
-            padding-bottom: 25px;
-        }
-
-
-        /* =====================================================
-           04. CONTAINER UTAMA
-        ====================================================== */
-
-        .main-container {
-            width: 95%;
-            max-width: 1450px;
-
-            min-height: 890px;
-
-            margin: 55px auto 0 auto;
-
-            background-color:
-                var(--background-blue);
-
-            border-radius: 28px;
-
-            display: flex;
-
-            overflow: hidden;
-        }
-
-
-        /* =====================================================
-           05. BAGIAN KIRI / BRANDING
-        ====================================================== */
-
-        .branding-section {
-            position: relative;
-
-            width: 50%;
-            min-height: 890px;
-
-            padding:
-                75px 40px 40px 40px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            text-align: center;
-
-            overflow: hidden;
-        }
-
-
-        /* =====================================================
-           06. LOGO
-        ====================================================== */
-
-        .logo-area {
-            position: relative;
-
-            z-index: 5;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 8px;
-        }
-
-
-        /* =====================================================
-           07. IKON WISUDA
-        ====================================================== */
-
-        .graduation-icon {
-            width: 75px;
-            height: 75px;
-
-            flex-shrink: 0;
-
-            position: relative;
-
-            top: -5px;
-
-            color:
-                var(--primary-blue);
-        }
-
-        .graduation-icon svg {
-            width: 100%;
-            height: 100%;
-
-            display: block;
-        }
-
-
-        /* =====================================================
-           08. JUDUL AKU BISA
-        ====================================================== */
-
-        .logo-area h1 {
-            margin: 0;
-
-            color:
-                var(--primary-blue);
-
-            font-size: 72px;
-
-            font-weight: 800;
-
-            letter-spacing: -2px;
-
-            line-height: 1;
-        }
-
-
-        /* =====================================================
-           09. TAGLINE
-        ====================================================== */
-
-        .tagline {
-            position: relative;
-
-            z-index: 5;
-
-            margin:
-                12px 0 0 0;
-
-            color:
-                var(--text-gray);
-
-            font-size: 21px;
-
-            font-weight: 400;
-
-            line-height: 1.4;
-
-            text-align: center;
-        }
-
-
-        /* =====================================================
-           10. FOTO PELAJAR
-        ====================================================== */
-
-        .student-photo {
-            position: relative;
-
-            z-index: 4;
-
-            width: 90%;
-
-            max-width: 650px;
-
-            margin-top: 40px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-        .student-photo img {
-            width: 100%;
-
-            height: auto;
-
-            object-fit: contain;
-        }
-
-
-        /* =====================================================
-           11. ORNAMEN
-        ====================================================== */
-
-        .decorations {
-            position: absolute;
-
-            inset: 0;
-
-            z-index: 1;
-
-            pointer-events: none;
-        }
-
-        .decoration {
-            position: absolute;
-
-            color:
-                var(--illustration-blue);
-
-            opacity: 0.65;
-
-            user-select: none;
-        }
-
-
-        /* =====================================================
-           12. PLUS
-        ====================================================== */
-
-        .decoration-plus {
-            top: 220px;
-            left: 35px;
-
-            font-size: 34px;
-
-            font-weight: 500;
-        }
-
-
-        /* =====================================================
-           13. BINTANG
-        ====================================================== */
-
-        .decoration-star {
-            top: 410px;
-            left: 50px;
-
-            font-size: 38px;
-        }
-
-
-        /* =====================================================
-           14. GLOBE
-        ====================================================== */
-
-        .decoration-globe {
-            top: 510px;
-            left: 70px;
-
-            width: 45px;
-            height: 45px;
-        }
-
-        .decoration-globe svg {
-            width: 100%;
-            height: 100%;
-
-            fill: none;
-
-            stroke:
-                currentColor;
-
-            stroke-width: 1.5;
-
-            stroke-linecap: round;
-
-            stroke-linejoin: round;
-        }
-
-
-        /* =====================================================
-           15. BUKU
-        ====================================================== */
-
-        .decoration-book {
-            top: 350px;
-            left: 100px;
-
-            width: 40px;
-            height: 40px;
-        }
-
-        .decoration-book svg {
-            width: 100%;
-            height: 100%;
-
-            fill: none;
-
-            stroke:
-                currentColor;
-
-            stroke-width: 1.5;
-
-            stroke-linecap: round;
-
-            stroke-linejoin: round;
-        }
-
-
-        /* =====================================================
-           16. HURUF A
-        ====================================================== */
-
-        .decoration-a {
-            top: 350px;
-            right: 80px;
-
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border:
-                2px solid currentColor;
-
-            border-radius: 9px;
-
-            font-size: 23px;
-
-            font-weight: 600;
-
-            transform:
-                rotate(7deg);
-        }
-
-
-        /* =====================================================
-           17. POLA TITIK
-        ====================================================== */
-
-        .decoration-dots {
-            top: 45px;
-            right: 70px;
-
-            width: 95px;
-            height: 75px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(5, 6px);
-
-            grid-auto-rows: 6px;
-
-            gap: 10px;
-
-            opacity: 0.45;
-        }
-
-        .decoration-dots i {
-            width: 5px;
-            height: 5px;
-
-            display: block;
-
-            background:
-                var(--illustration-blue);
-
-            border-radius: 50%;
-        }
-
-
-        /* =====================================================
-           18. LINGKARAN
-        ====================================================== */
-
-        .decoration-circle {
-            right: 50px;
-            bottom: 180px;
-
-            width: 20px;
-            height: 20px;
-
-            background:
-                var(--illustration-blue);
-
-            border-radius: 50%;
-
-            opacity: 0.75;
-        }
-
-
-        /* =====================================================
-           19. BINTANG KECIL
-        ====================================================== */
-
-        .decoration-small-star {
-            right: 105px;
-            bottom: 250px;
-
-            font-size: 25px;
-        }
-
-
-        /* =====================================================
-           20. PLUS KECIL
-        ====================================================== */
-
-        .decoration-small-plus {
-            right: 35px;
-            top: 205px;
-
-            font-size: 27px;
-        }
-
-
-        /* =====================================================
-           21. LINGKARAN KECIL
-        ====================================================== */
-
-        .decoration-small-circle {
-            left: 35px;
-            bottom: 275px;
-
-            width: 12px;
-            height: 12px;
-
-            border:
-                2px solid
-                var(--illustration-blue);
-
-            border-radius: 50%;
-        }
-
-
-        /* =====================================================
-           22. BAGIAN LOGIN
-        ====================================================== */
-
-        .login-section {
-            width: 50%;
-
-            padding:
-                25px 35px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-
-        /* =====================================================
-           23. LOGIN CARD
-        ====================================================== */
-
-        .login-card {
-            width: 600px;
-
-            max-width: 100%;
-
-            min-height: 850px;
-
-            padding:
-                60px 65px;
-
-            background:
-                var(--white);
-
-            border-radius: 32px;
-
-            box-shadow:
-                var(--card-shadow);
-        }
-
-
-        /* =====================================================
-           24. HEADER LOGIN
-        ====================================================== */
-
-        .login-header {
-            text-align: center;
-        }
-
-        .login-header h2 {
-            margin:
-                0 0 10px 0;
-
-            color:
-                var(--dark-blue);
-
-            font-size: 34px;
-
-            font-weight: 700;
-
-            line-height: 1.2;
-        }
-
-        .login-header p {
-            margin:
-                0 0 45px 0;
-
-            color:
-                var(--text-gray);
-
-            font-size: 19px;
-
-            font-weight: 400;
-
-            line-height: 1.4;
-        }
-
-
-        /* =====================================================
-           25. FORM GROUP
-        ====================================================== */
-
-        .form-group {
-            width: 100%;
-        }
-
-        .password-group {
-            margin-top: 25px;
-        }
-
-        .form-group label {
-            display: block;
-
-            margin-bottom: 10px;
-
-            color:
-                var(--dark-blue);
-
-            font-size: 17px;
-
-            font-weight: 600;
-
-            line-height: 1.4;
-        }
-
-
-        /* =====================================================
-           26. INPUT WRAPPER
-        ====================================================== */
-
-        .input-wrapper {
-            position: relative;
-
-            width: 100%;
-            height: 68px;
-
-            display: flex;
-
-            align-items: center;
-        }
-
-
-        /* =====================================================
-           27. INPUT
-        ====================================================== */
-
-        .input-wrapper input {
-            width: 100%;
-            height: 68px;
-
-            padding:
-                0 58px;
-
-            background:
-                var(--white);
-
-            border:
-                1.5px solid
-                var(--border-gray);
-
-            border-radius: 13px;
-
-            outline: none;
-
-            color:
-                var(--dark-blue);
-
-            font-size: 16px;
-
-            font-weight: 400;
-
-            transition:
-                border-color
-                var(--transition),
-
-                box-shadow
-                var(--transition);
-        }
-
-        .input-wrapper input::placeholder {
-            color:
-                var(--placeholder-gray);
-
-            opacity: 1;
-        }
-
-        .input-wrapper input:focus {
-            border-color:
-                var(--button-blue);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(25, 118, 232, 0.10);
-        }
-
-
-        /* =====================================================
-           28. INPUT ICON
-        ====================================================== */
-
-        .input-icon {
-            position: absolute;
-
-            left: 20px;
-
-            width: 22px;
-            height: 22px;
-
-            z-index: 2;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            color:
-                #66717F;
-
-            pointer-events: none;
-        }
-
-        .input-icon svg {
-            width: 22px;
-            height: 22px;
-
-            fill: none;
-
-            stroke:
-                currentColor;
-
-            stroke-width: 1.7;
-
-            stroke-linecap: round;
-
-            stroke-linejoin: round;
-        }
-
-
-        /* =====================================================
-           29. TOGGLE PASSWORD
-        ====================================================== */
-
-        .password-toggle {
-            position: absolute;
-
-            top: 50%;
-            right: 17px;
-
-            width: 30px;
-            height: 30px;
-
-            padding: 4px;
-
-            transform:
-                translateY(-50%);
-
-            background:
-                transparent;
-
-            color:
-                #66717F;
-
-            cursor: pointer;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            z-index: 3;
-        }
-
-        .password-toggle svg {
-            width: 21px;
-            height: 21px;
-
-            fill: none;
-
-            stroke:
-                currentColor;
-
-            stroke-width: 1.7;
-
-            stroke-linecap: round;
-
-            stroke-linejoin: round;
-        }
-
-        .password-toggle .eye-closed {
-            display: none;
-        }
-
-        .password-toggle.visible .eye-open {
-            display: none;
-        }
-
-        .password-toggle.visible .eye-closed {
-            display: block;
-        }
-
-        .password-toggle:hover {
-            color:
-                var(--dark-blue);
-        }
-
-
-        /* =====================================================
-           30. ERROR MESSAGE
-        ====================================================== */
-
-        .error-message {
-            display: block;
-
-            min-height: 20px;
-
-            margin-top: 6px;
-
-            color:
-                var(--error);
-
-            font-size: 13px;
-
-            font-weight: 500;
-
-            line-height: 1.4;
-        }
-
-
-        /* =====================================================
-           31. FORM OPTIONS
-        ====================================================== */
-
-        .form-options {
-            margin-top: 12px;
-
-            margin-bottom: 28px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-        }
-
-
-        /* =====================================================
-           32. INGAT SAYA
-        ====================================================== */
-
-        .remember-label {
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-
-            margin: 0;
-
-            color:
-                var(--text-gray);
-
-            font-size: 16px;
-
-            font-weight: 400;
-
-            cursor: pointer;
-        }
-
-        .remember-label input {
-            width: 22px;
-            height: 22px;
-
-            margin: 0;
-
-            accent-color:
-                var(--button-blue);
-
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           33. LUPA PASSWORD
-        ====================================================== */
-
-        .forgot-button {
-            padding: 0;
-
-            background:
-                transparent;
-
-            color:
-                var(--button-blue);
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition:
-                color
-                var(--transition);
-        }
-
-        .forgot-button:hover {
-            color:
-                #145FC2;
-
-            text-decoration: underline;
-        }
-
-
-        /* =====================================================
-           34. TOMBOL MASUK
-        ====================================================== */
-
-        .login-button {
-            width: 100%;
-            height: 66px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            background:
-                var(--button-blue);
-
-            color:
-                var(--white);
-
-            border-radius: 13px;
-
-            box-shadow:
-                var(--button-shadow);
-
-            font-size: 19px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition:
-                background
-                var(--transition),
-
-                transform
-                var(--transition),
-
-                box-shadow
-                var(--transition);
-        }
-
-        .login-button svg {
-            width: 24px;
-            height: 24px;
-
-            fill: none;
-
-            stroke:
-                currentColor;
-
-            stroke-width: 1.8;
-
-            stroke-linecap: round;
-
-            stroke-linejoin: round;
-        }
-
-        .login-button:hover {
-            background:
-                #145FC2;
-
-            transform:
-                translateY(-1px);
-
-            box-shadow:
-                0 7px 16px
-                rgba(25, 118, 232, 0.25);
-        }
-
-        .login-button:active {
-            transform:
-                translateY(0);
-        }
-
-
-        /* =====================================================
-           35. PESAN FORM
-        ====================================================== */
-
-        .form-message {
-            min-height: 25px;
-
-            margin-top: 12px;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            font-weight: 500;
-
-            line-height: 1.4;
-        }
-
-        .form-message.success {
-            color:
-                var(--success);
-        }
-
-        .form-message.info {
-            color:
-                var(--button-blue);
-        }
-
-
-        /* =====================================================
-           36. SEPARATOR
-        ====================================================== */
-
-        .separator {
-            width: 100%;
-
-            margin:
-                35px 0 25px 0;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 16px;
-        }
-
-        .separator span {
-            height: 1px;
-
-            flex: 1;
-
-            background:
-                #E2E7ED;
-        }
-
-        .separator p {
-            margin: 0;
-
-            flex-shrink: 0;
-
-            color:
-                #7B8794;
-
-            font-size: 16px;
-
-            font-weight: 400;
-        }
-
-
-        /* =====================================================
-           37. LOGIN SOSIAL
-        ====================================================== */
-
-        .social-login {
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 25px;
-        }
-
-
-        /* =====================================================
-           38. TOMBOL SOSIAL
-        ====================================================== */
-
-        .social-button {
-            height: 60px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 10px;
-
-            background:
-                var(--white);
-
-            border:
-                1.5px solid
-                var(--border-gray);
-
-            border-radius: 13px;
-
-            color:
-                #46576A;
-
-            font-size: 16px;
-
-            font-weight: 500;
-
-            cursor: pointer;
-
-            transition:
-                border-color
-                var(--transition),
-
-                background
-                var(--transition);
-        }
-
-        .social-button:hover {
-            border-color:
-                #B8C5D2;
-
-            background:
-                #FAFCFE;
-        }
-
-        .social-button svg {
-            width: 23px;
-            height: 23px;
-
-            flex-shrink: 0;
-        }
-
-
-        /* =====================================================
-           39. AREA PENDAFTARAN
-        ====================================================== */
-
-        .register-area {
-            margin-top: 38px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 4px;
-
-            color:
-                var(--text-gray);
-
-            font-size: 16px;
-
-            font-weight: 400;
-
-            text-align: center;
-        }
-
-        .register-area button {
-            padding: 0;
-
-            background:
-                transparent;
-
-            color:
-                var(--button-blue);
-
-            font-size: 16px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-        }
-
-        .register-area button:hover {
-            color:
-                #145FC2;
-
-            text-decoration: underline;
-        }
-
-
-        /* =====================================================
-           40. FOOTER
-        ====================================================== */
-
-        footer {
-            margin-top: 30px;
-
-            text-align: center;
-
-            color:
-                #7C8793;
-
-            font-size: 15px;
-
-            font-weight: 400;
-        }
-
-
-        /* =====================================================
-           41. ACCESSIBILITY
-        ====================================================== */
-
-        button:focus-visible,
-        input:focus-visible {
-            outline:
-                3px solid
-                rgba(25, 118, 232, 0.20);
-
-            outline-offset: 2px;
-        }
-
-
-        /* =====================================================
-           42. TABLET
-        ====================================================== */
-
-        @media (
-            min-width: 768px
-        ) and (
-            max-width: 1199px
-        ) {
-
-            .main-container {
-                width: 96%;
-
-                margin-top: 35px;
-
-                min-height: 820px;
-
-                border-radius: 25px;
-            }
-
-            .branding-section {
-                min-height: 820px;
-
-                padding:
-                    55px 25px 25px 25px;
-            }
-
-            .logo-area h1 {
-                font-size: 55px;
-            }
-
-            .graduation-icon {
-                width: 62px;
-                height: 62px;
-            }
-
-            .tagline {
-                font-size: 17px;
-            }
-
-            .student-photo {
-                width: 95%;
-
-                margin-top: 30px;
-            }
-
-            .login-section {
-                padding: 20px;
-            }
-
-            .login-card {
-                min-height: 790px;
-
-                padding: 45px;
-            }
-
-            .login-header h2 {
-                font-size: 30px;
-            }
-
-            .login-header p {
-                font-size: 17px;
-
-                margin-bottom: 35px;
-            }
-
-            .form-group label {
-                font-size: 16px;
-            }
-
-            .input-wrapper,
-            .input-wrapper input {
-                height: 62px;
-            }
-
-            .login-button {
-                height: 62px;
-            }
-
-            .separator {
-                margin-top: 28px;
-            }
-
-            .social-login {
-                gap: 15px;
-            }
-
-            .decoration-globe {
-                left: 30px;
-            }
-
-            .decoration-book {
-                left: 55px;
-            }
-
-            .decoration-a {
-                right: 35px;
-            }
-
-            .decoration-dots {
-                right: 35px;
-            }
-        }
-
-
-        /* =====================================================
-           43. MOBILE
-        ====================================================== */
-
-        @media (
-            max-width: 767px
-        ) {
-
-            body {
-                overflow-x: hidden;
-            }
-
-            .page {
-                padding-bottom: 0;
-            }
-
-            .main-container {
-                width: 100%;
-
-                min-height: auto;
-
-                margin: 0;
-
-                border-radius: 0;
-
-                flex-direction: column;
-
-                overflow: visible;
-            }
-
-
-            /* Branding */
-
-            .branding-section {
-                width: 100%;
-
-                min-height: auto;
-
-                padding:
-                    40px 20px 20px 20px;
-            }
-
-
-            /* Logo */
-
-            .logo-area {
-                gap: 4px;
-            }
-
-            .logo-area h1 {
-                font-size: 42px;
-
-                letter-spacing: -1.5px;
-            }
-
-            .graduation-icon {
-                width: 46px;
-                height: 46px;
-
-                top: -4px;
-            }
-
-
-            /* Tagline */
-
-            .tagline {
-                max-width: 350px;
-
-                margin-top: 10px;
-
-                font-size: 15px;
-            }
-
-
-            /* Foto */
-
-            .student-photo {
-                width: 100%;
-
-                max-width: 500px;
-
-                margin-top: 25px;
-            }
-
-
-            /* Dekorasi */
-
-            .decoration-plus,
-            .decoration-star,
-            .decoration-globe,
-            .decoration-book,
-            .decoration-a,
-            .decoration-small-star {
-                display: none;
-            }
-
-            .decoration-dots {
-                top: 25px;
-
-                right: 20px;
-
-                transform:
-                    scale(0.7);
-
-                transform-origin:
-                    top right;
-            }
-
-            .decoration-circle {
-                right: 20px;
-
-                bottom: 40px;
-
-                width: 15px;
-                height: 15px;
-            }
-
-            .decoration-small-plus {
-                right: 18px;
-
-                top: 120px;
-
-                font-size: 22px;
-            }
-
-            .decoration-small-circle {
-                left: 20px;
-
-                bottom: 90px;
-            }
-
-
-            /* Login Section */
-
-            .login-section {
-                width: 100%;
-
-                padding: 20px;
-            }
-
-
-            /* Login Card */
-
-            .login-card {
-                width: 100%;
-
-                min-height: auto;
-
-                padding:
-                    35px 25px;
-
-                border-radius: 24px;
-            }
-
-
-            /* Header */
-
-            .login-header h2 {
-                font-size: 28px;
-            }
-
-            .login-header p {
-                margin-bottom: 32px;
-
-                font-size: 16px;
-            }
-
-
-            /* Label */
-
-            .form-group label {
-                font-size: 16px;
-            }
-
-
-            /* Input */
-
-            .input-wrapper,
-            .input-wrapper input {
-                height: 60px;
-            }
-
-            .input-wrapper input {
-                padding-left: 54px;
-
-                padding-right: 52px;
-
-                font-size: 15px;
-            }
-
-            .input-icon {
-                left: 18px;
-            }
-
-            .password-toggle {
-                right: 14px;
-            }
-
-
-            /* Options */
-
-            .form-options {
-                margin-top: 10px;
-
-                gap: 10px;
-            }
-
-            .remember-label {
-                gap: 7px;
-
-                font-size: 14px;
-            }
-
-            .remember-label input {
-                width: 20px;
-                height: 20px;
-            }
-
-            .forgot-button {
-                font-size: 14px;
-            }
-
-
-            /* Login Button */
-
-            .login-button {
-                height: 60px;
-
-                font-size: 17px;
-            }
-
-
-            /* Separator */
-
-            .separator {
-                margin:
-                    30px 0 22px 0;
-
-                gap: 10px;
-            }
-
-            .separator p {
-                font-size: 14px;
-            }
-
-
-            /* Social Login */
-
-            .social-login {
-                grid-template-columns:
-                    1fr;
-
-                gap: 12px;
-            }
-
-            .social-button {
-                height: 58px;
-            }
-
-
-            /* Register */
-
-            .register-area {
-                margin-top: 30px;
-
-                flex-wrap: wrap;
-
-                font-size: 14px;
-            }
-
-            .register-area button {
-                font-size: 14px;
-            }
-
-
-            /* Footer */
-
-            footer {
-                margin-top: 0;
-
-                padding: 20px;
-
-                font-size: 13px;
-            }
-        }
-
-
-        /* =====================================================
-           44. MOBILE KECIL
-        ====================================================== */
-
-        @media (
-            max-width: 400px
-        ) {
-
-            .branding-section {
-                padding-top: 30px;
-            }
-
-            .logo-area h1 {
-                font-size: 37px;
-            }
-
-            .graduation-icon {
-                width: 42px;
-                height: 42px;
-            }
-
-            .tagline {
-                font-size: 14px;
-            }
-
-            .login-section {
-                padding: 14px;
-            }
-
-            .login-card {
-                padding:
-                    30px 20px;
-            }
-
-            .login-header h2 {
-                font-size: 25px;
-            }
-
-            .login-header p {
-                font-size: 15px;
-            }
-
-            .form-options {
-                align-items: flex-start;
-            }
-
-            .remember-label span,
-            .forgot-button {
-                font-size: 13px;
-            }
-
-            .separator p {
-                font-size: 13px;
-            }
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AKU BISA - Aplikasi Kreatif Untuk Bisa Semua Bahasa">
+  <title>AKU BISA - Login</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* 01. ROOT / VARIABEL WARNA */
+    :root {
+      --primary-blue: #1764D8;
+      --button-blue: #1976E8;
+      --dark-blue: #153863;
+      --background-blue: #EEF6FF;
+      --white: #FFFFFF;
+      --text-gray: #66768A;
+      --placeholder-gray: #AEB7C2;
+      --border-gray: #DDE3EA;
+      --illustration-blue: #76B6D8;
+      --yellow: #F5B82E;
+      --success: #218838;
+      --error: #D83B3B;
+      --card-shadow: 0 10px 35px rgba(30, 70, 110, 0.10);
+      --button-shadow: 0 5px 12px rgba(25, 118, 232, 0.18);
+      --transition: 0.2s ease;
+    }
+
+    /* 02. RESET */
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100vh;
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--dark-blue);
+    }
+    button, input {
+      font-family: inherit;
+    }
+    button {
+      border: none;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* 03. HALAMAN UTAMA */
+    .page {
+      width: 100%;
+      min-height: 100vh;
+      padding-bottom: 25px;
+    }
+
+    /* 04. CONTAINER UTAMA */
+    .main-container {
+      width: 95%;
+      max-width: 1450px;
+      min-height: 890px;
+      margin: 55px auto 0 auto;
+      background-color: var(--background-blue);
+      border-radius: 28px;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* 05. BRANDING SECTION */
+    .branding-section {
+      position: relative;
+      width: 50%;
+      min-height: 890px;
+      padding: 75px 40px 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* 06. LOGO */
+    .logo-area {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .graduation-icon {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      position: relative;
+      top: -5px;
+      color: var(--primary-blue);
+    }
+    .graduation-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .logo-area h1 {
+      margin: 0;
+      color: var(--primary-blue);
+      font-size: 72px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    /* 09. TAGLINE */
+    .tagline {
+      position: relative;
+      z-index: 5;
+      margin: 12px 0 0 0;
+      color: var(--text-gray);
+      font-size: 21px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    /* 10. FOTO PELAJAR */
+    .student-photo {
+      position: relative;
+      z-index: 4;
+      width: 90%;
+      max-width: 650px;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .student-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* 11. ORNAMEN / DEKORASI */
+    .decorations {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .decoration {
+      position: absolute;
+      color: var(--illustration-blue);
+      opacity: 0.65;
+      user-select: none;
+    }
+    .decoration-plus {
+      top: 220px;
+      left: 35px;
+      font-size: 34px;
+      font-weight: 500;
+    }
+    .decoration-star {
+      top: 410px;
+      left: 50px;
+      font-size: 38px;
+    }
+    .decoration-globe {
+      top: 510px;
+      left: 70px;
+      width: 45px;
+      height: 45px;
+    }
+    .decoration-globe svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .decoration-book {
+      top: 350px;
+      left: 100px;
+      width: 40px;
+      height: 40px;
+    }
+    .decoration-book svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .decoration-a {
+      top: 350px;
+      right: 80px;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid currentColor;
+      border-radius: 9px;
+      font-size: 23px;
+      font-weight: 600;
+      transform: rotate(7deg);
+    }
+    .decoration-dots {
+      top: 45px;
+      right: 70px;
+      width: 95px;
+      height: 75px;
+      display: grid;
+      grid-template-columns: repeat(5, 6px);
+      grid-auto-rows: 6px;
+      gap: 10px;
+      opacity: 0.45;
+    }
+    .decoration-dots i {
+      width: 5px;
+      height: 5px;
+      display: block;
+      background: var(--illustration-blue);
+      border-radius: 50%;
+    }
+    .decoration-circle {
+      right: 50px;
+      bottom: 180px;
+      width: 20px;
+      height: 20px;
+      background: var(--illustration-blue);
+      border-radius: 50%;
+      opacity: 0.75;
+    }
+    .decoration-small-star {
+      right: 105px;
+      bottom: 250px;
+      font-size: 25px;
+    }
+    .decoration-small-plus {
+      right: 35px;
+      top: 205px;
+      font-size: 27px;
+    }
+    .decoration-small-circle {
+      left: 35px;
+      bottom: 275px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--illustration-blue);
+      border-radius: 50%;
+    }
+
+    /* 22. LOGIN SECTION */
+    .login-section {
+      width: 50%;
+      padding: 25px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      width: 600px;
+      max-width: 100%;
+      min-height: 850px;
+      padding: 60px 65px;
+      background: var(--white);
+      border-radius: 32px;
+      box-shadow: var(--card-shadow);
+    }
+    .login-header {
+      text-align: center;
+    }
+    .login-header h2 {
+      margin: 0 0 10px 0;
+      color: var(--dark-blue);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .login-header p {
+      margin: 0 0 45px 0;
+      color: var(--text-gray);
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* FORM GROUP */
+    .form-group {
+      width: 100%;
+    }
+    .password-group {
+      margin-top: 25px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--dark-blue);
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+      height: 68px;
+      display: flex;
+      align-items: center;
+    }
+    .input-wrapper input {
+      width: 100%;
+      height: 68px;
+      padding: 0 58px;
+      background: var(--white);
+      border: 1.5px solid var(--border-gray);
+      border-radius: 13px;
+      outline: none;
+      color: var(--dark-blue);
+      font-size: 16px;
+      font-weight: 400;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .input-wrapper input::placeholder {
+      color: var(--placeholder-gray);
+      opacity: 1;
+    }
+    .input-wrapper input:focus {
+      border-color: var(--button-blue);
+      box-shadow: 0 0 0 3px rgba(25, 118, 232, 0.10);
+    }
+    .input-icon {
+      position: absolute;
+      left: 20px;
+      width: 22px;
+      height: 22px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #66717F;
+      pointer-events: none;
+    }
+    .input-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* PASSWORD TOGGLE */
+    .password-toggle {
+      position: absolute;
+      top: 50%;
+      right: 17px;
+      width: 30px;
+      height: 30px;
+      padding: 4px;
+      transform: translateY(-50%);
+      background: transparent;
+      color: #66717F;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+    }
+    .password-toggle svg {
+      width: 21px;
+      height: 21px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .password-toggle .eye-closed {
+      display: none;
+    }
+    .password-toggle.visible .eye-open {
+      display: none;
+    }
+    .password-toggle.visible .eye-closed {
+      display: block;
+    }
+    .password-toggle:hover {
+      color: var(--dark-blue);
+    }
+
+    .error-message {
+      display: block;
+      min-height: 20px;
+      margin-top: 6px;
+      color: var(--error);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* FORM OPTIONS */
+    .form-options {
+      margin-top: 12px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+    .remember-label {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0;
+      color: var(--text-gray);
+      font-size: 16px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+    .remember-label input {
+      width: 22px;
+      height: 22px;
+      margin: 0;
+      accent-color: var(--button-blue);
+      cursor: pointer;
+    }
+    .forgot-button {
+      padding: 0;
+      background: transparent;
+      color: var(--button-blue);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+    .forgot-button:hover {
+      color: #145FC2;
+      text-decoration: underline;
+    }
+
+    /* LOGIN BUTTON */
+    .login-button {
+      width: 100%;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--button-blue);
+      color: var(--white);
+      border-radius: 13px;
+      box-shadow: var(--button-shadow);
+      font-size: 19px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .login-button svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .login-button:hover {
+      background: #145FC2;
+      transform: translateY(-1px);
+      box-shadow: 0 7px 16px rgba(25, 118, 232, 0.25);
+    }
+    .login-button:active {
+      transform: translateY(0);
+    }
+
+    .form-message {
+      min-height: 25px;
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .form-message.success {
+      color: var(--success);
+    }
+    .form-message.info {
+      color: var(--button-blue);
+    }
+
+    /* SEPARATOR */
+    .separator {
+      width: 100%;
+      margin: 35px 0 25px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .separator span {
+      height: 1px;
+      flex: 1;
+      background: #E2E7ED;
+    }
+    .separator p {
+      margin: 0;
+      flex-shrink: 0;
+      color: #788794;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* SOCIAL LOGIN */
+    .social-login {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .social-button {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1.5px solid var(--border-gray);
+      border-radius: 13px;
+      color: #46576A;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .social-button:hover {
+      border-color: #B8C5D2;
+      background: #FAFCFE;
+    }
+    .social-button svg {
+      width: 23px;
+      height: 23px;
+      flex-shrink: 0;
+    }
+
+    /* REGISTER AREA */
+    .register-area {
+      margin-top: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-gray);
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+    }
+    .register-area button {
+      padding: 0;
+      background: transparent;
+      color: var(--button-blue);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .register-area button:hover {
+      color: #145FC2;
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: #7C8793;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    button:focus-visible, input:focus-visible {
+      outline: 3px solid rgba(25, 118, 232, 0.20);
+      outline-offset: 2px;
+    }
+
+    /* MEDIA QUERIES - TABLET */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .main-container {
+        width: 96%;
+        margin-top: 35px;
+        min-height: 820px;
+        border-radius: 25px;
+      }
+      .branding-section {
+        min-height: 820px;
+        padding: 55px 25px 25px 25px;
+      }
+      .logo-area h1 {
+        font-size: 55px;
+      }
+      .graduation-icon {
+        width: 62px;
+        height: 62px;
+      }
+      .tagline {
+        font-size: 17px;
+      }
+      .student-photo {
+        width: 95%;
+        margin-top: 30px;
+      }
+      .login-section {
+        padding: 20px;
+      }
+      .login-card {
+        min-height: 790px;
+        padding: 45px;
+      }
+      .login-header h2 {
+        font-size: 30px;
+      }
+      .login-header p {
+        font-size: 17px;
+        margin-bottom: 35px;
+      }
+      .form-group label {
+        font-size: 16px;
+      }
+      .input-wrapper, .input-wrapper input {
+        height: 62px;
+      }
+      .login-button {
+        height: 62px;
+      }
+      .separator {
+        margin-top: 28px;
+      }
+      .social-login {
+        gap: 15px;
+      }
+      .decoration-globe {
+        left: 30px;
+      }
+      .decoration-book {
+        left: 55px;
+      }
+      .decoration-a {
+        right: 35px;
+      }
+      .decoration-dots {
+        right: 35px;
+      }
+    }
+
+    /* MEDIA QUERIES - MOBILE */
+    @media (max-width: 767px) {
+      body {
+        overflow-x: hidden;
+      }
+      .page {
+        padding-bottom: 0;
+      }
+      .main-container {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        border-radius: 0;
+        flex-direction: column;
+        overflow: visible;
+      }
+      .branding-section {
+        width: 100%;
+        min-height: auto;
+        padding: 40px 20px 20px 20px;
+      }
+      .logo-area {
+        gap: 4px;
+      }
+      .logo-area h1 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+      }
+      .graduation-icon {
+        width: 46px;
+        height: 46px;
+        top: -4px;
+      }
+      .tagline {
+        max-width: 350px;
+        margin-top: 10px;
+        font-size: 15px;
+      }
+      .student-photo {
+        width: 100%;
+        max-width: 500px;
+        margin-top: 25px;
+      }
+      .decoration-plus, .decoration-star, .decoration-globe, .decoration-book, .decoration-a, .decoration-small-star {
+        display: none;
+      }
+      .decoration-dots {
+        top: 25px;
+        right: 20px;
+        transform: scale(0.7);
+        transform-origin: top right;
+      }
+      .decoration-circle {
+        right: 20px;
+        bottom: 40px;
+        width: 15px;
+        height: 15px;
+      }
+      .decoration-small-plus {
+        right: 18px;
+        top: 120px;
+        font-size: 22px;
+      }
+      .decoration-small-circle {
+        left: 20px;
+        bottom: 90px;
+      }
+      .login-section {
+        width: 100%;
+        padding: 20px;
+      }
+      .login-card {
+        width: 100%;
+        min-height: auto;
+        padding: 35px 25px;
+        border-radius: 24px;
+      }
+      .login-header h2 {
+        font-size: 28px;
+      }
+      .login-header p {
+        margin-bottom: 32px;
+        font-size: 16px;
+      }
+      .form-group label {
+        font-size: 16px;
+      }
+      .input-wrapper, .input-wrapper input {
+        height: 60px;
+      }
+      .input-wrapper input {
+        padding-left: 54px;
+        padding-right: 52px;
+        font-size: 15px;
+      }
+      .input-icon {
+        left: 18px;
+      }
+      .password-toggle {
+        right: 14px;
+      }
+      .form-options {
+        margin-top: 10px;
+        gap: 10px;
+      }
+      .remember-label {
+        gap: 7px;
+        font-size: 14px;
+      }
+      .remember-label input {
+        width: 20px;
+        height: 20px;
+      }
+      .forgot-button {
+        font-size: 14px;
+      }
+      .login-button {
+        height: 60px;
+        font-size: 17px;
+      }
+      .separator {
+        margin: 30px 0 22px 0;
+        gap: 10px;
+      }
+      .separator p {
+        font-size: 14px;
+      }
+      .social-login {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .social-button {
+        height: 58px;
+      }
+      .register-area {
+        margin-top: 30px;
+        flex-wrap: wrap;
+        font-size: 14px;
+      }
+      .register-area button {
+        font-size: 14px;
+      }
+      footer {
+        margin-top: 0;
+        padding: 20px;
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .branding-section {
+        padding-top: 30px;
+      }
+      .logo-area h1 {
+        font-size: 37px;
+      }
+      .graduation-icon {
+        width: 42px;
+        height: 42px;
+      }
+      .tagline {
+        font-size: 14px;
+      }
+      .login-section {
+        padding: 14px;
+      }
+      .login-card {
+        padding: 30px 20px;
+      }
+      .login-header h2 {
+        font-size: 25px;
+      }
+      .login-header p {
+        font-size: 15px;
+      }
+      .form-options {
+        align-items: flex-start;
+      }
+      .remember-label span, .forgot-button {
+        font-size: 13px;
+      }
+      .separator p {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
-
-    <!-- =====================================================
-         04. HALAMAN UTAMA
-    ====================================================== -->
-
-    <div class="page">
-
-
-        <!-- =================================================
-             05. CONTAINER UTAMA
-        ================================================== -->
-
-        <main class="main-container">
-
-
-            <!-- =================================================
-                 06. BAGIAN KIRI / BRANDING
-            ================================================== -->
-
-            <section class="branding-section">
-
-
-                <!-- =================================================
-                     ORNAMEN
-                ================================================== -->
-
-                <div
-                    class="decorations"
-                    aria-hidden="true"
-                >
-
-                    <!-- Plus -->
-                    <span class="decoration decoration-plus">
-                        +
-                    </span>
-
-
-                    <!-- Bintang -->
-                    <span class="decoration decoration-star">
-                        ✦
-                    </span>
-
-
-                    <!-- Globe -->
-                    <span class="decoration decoration-globe">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="9"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="4"
-                                ry="9"
-                            />
-
-                            <path d="M3 12h18" />
-
-                            <path d="M5 7h14" />
-
-                            <path d="M5 17h14" />
-
-                        </svg>
-
-                    </span>
-
-
-                    <!-- Buku -->
-                    <span class="decoration decoration-book">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-
-                            <path
-                                d="
-                                    M4 5.5
-                                    C6 4.5 9 4.5 12 6
-                                    V19
-                                    C9 17.5 6 17.5 4 18.5
-                                    Z
-                                "
-                            />
-
-                            <path
-                                d="
-                                    M20 5.5
-                                    C18 4.5 15 4.5 12 6
-                                    V19
-                                    C15 17.5 18 17.5 20 18.5
-                                    Z
-                                "
-                            />
-
-                        </svg>
-
-                    </span>
-
-
-                    <!-- Huruf A -->
-                    <span class="decoration decoration-a">
-                        A
-                    </span>
-
-
-                    <!-- Pola titik -->
-                    <span
-                        class="decoration decoration-dots"
-                    >
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                        <i></i>
-
-                    </span>
-
-
-                    <!-- Lingkaran -->
-                    <span
-                        class="decoration decoration-circle"
-                    ></span>
-
-
-                    <!-- Bintang kecil -->
-                    <span
-                        class="decoration decoration-small-star"
-                    >
-                        ✦
-                    </span>
-
-
-                    <!-- Plus kecil -->
-                    <span
-                        class="decoration decoration-small-plus"
-                    >
-                        +
-                    </span>
-
-
-                    <!-- Lingkaran kecil -->
-                    <span
-                        class="decoration decoration-small-circle"
-                    ></span>
-
-                </div>
-
-
-                <!-- =================================================
-                     07. LOGO AKU BISA
-                ================================================== -->
-
-                <div class="logo-area">
-
-
-                    <!-- Ikon Topi Wisuda -->
-
-                    <div
-                        class="graduation-icon"
-                        aria-hidden="true"
-                    >
-
-                        <svg
-                            viewBox="0 0 100 100"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-
-                            <!-- Atap topi -->
-                            <path
-                                d="
-                                    M10 38
-                                    L50 20
-                                    L90 38
-                                    L50 56
-                                    Z
-                                "
-                                fill="currentColor"
-                            />
-
-
-                            <!-- Tali -->
-                            <path
-                                d="
-                                    M78 43
-                                    V63
-                                "
-                                stroke="currentColor"
-                                stroke-width="5"
-                                stroke-linecap="round"
-                            />
-
-
-                            <!-- Bagian bawah topi -->
-                            <path
-                                d="
-                                    M25 48
-                                    V67
-                                    C25 76 36 82 50 82
-                                    C64 82 75 76 75 67
-                                    V48
-                                "
-                                stroke="currentColor"
-                                stroke-width="5"
-                                stroke-linejoin="round"
-                            />
-
-
-                            <!-- Tassel -->
-                            <circle
-                                cx="78"
-                                cy="66"
-                                r="4"
-                                fill="currentColor"
-                            />
-
-                            <path
-                                d="
-                                    M78 68
-                                    V79
-                                "
-                                stroke="currentColor"
-                                stroke-width="4"
-                                stroke-linecap="round"
-                            />
-
-                        </svg>
-
-                    </div>
-
-
-                    <!-- Judul -->
-
-                    <h1>
-                        AKU BISA
-                    </h1>
-
-                </div>
-
-
-                <!-- =================================================
-                     08. TAGLINE
-                ================================================== -->
-
-                <p class="tagline">
-                    Aplikasi Kreatif Untuk Bisa Semua Bahasa
-                </p>
-
-
-                <!-- =================================================
-                     09. FOTO PELAJAR
-                ================================================== -->
-
-                <div class="student-photo">
-
-                    <img
-                        src="assets/images/student-photo.png"
-                        alt="Ilustrasi empat pelajar"
-                    >
-
-                </div>
-
-
-            </section>
-
-
-            <!-- =================================================
-                 10. BAGIAN KANAN / LOGIN
-            ================================================== -->
-
-            <section class="login-section">
-
-
-                <!-- =================================================
-                     11. LOGIN CARD
-                ================================================== -->
-
-                <div class="login-card">
-
-
-                    <!-- =================================================
-                         12. HEADER LOGIN
-                    ================================================== -->
-
-                    <header class="login-header">
-
-                        <h2>
-                            Selamat Datang Kembali
-                        </h2>
-
-                        <p>
-                            Masuk untuk melanjutkan perjalanan belajarmu.
-                        </p>
-
-                    </header>
-
-
-                    <!-- =================================================
-                         13. FORM LOGIN
-                    ================================================== -->
-
-                    <form
-                        id="loginForm"
-                        novalidate
-                    >
-
-
-                        <!-- =================================================
-                             USERNAME / EMAIL
-                        ================================================== -->
-
-                        <div class="form-group">
-
-                            <label for="username">
-                                Email atau Username
-                            </label>
-
-
-                            <div class="input-wrapper">
-
-
-                                <!-- Ikon User -->
-
-                                <span
-                                    class="input-icon"
-                                    aria-hidden="true"
-                                >
-
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                    >
-
-                                        <circle
-                                            cx="12"
-                                            cy="8"
-                                            r="4"
-                                        />
-
-                                        <path
-                                            d="
-                                                M4 20
-                                                C4 16
-                                                7 14
-                                                12 14
-                                                C17 14
-                                                20 16
-                                                20 20
-                                            "
-                                        />
-
-                                    </svg>
-
-                                </span>
-
-
-                                <!-- Input Username -->
-
-                                <input
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Masukkan email atau username"
-                                    autocomplete="username"
-                                >
-
-                            </div>
-
-
-                            <!-- Pesan Error -->
-
-                            <span
-                                id="usernameError"
-                                class="error-message"
-                            ></span>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             PASSWORD
-                        ================================================== -->
-
-                        <div
-                            class="form-group password-group"
-                        >
-
-                            <label for="password">
-                                Password
-                            </label>
-
-
-                            <div class="input-wrapper">
-
-
-                                <!-- Ikon Lock -->
-
-                                <span
-                                    class="input-icon"
-                                    aria-hidden="true"
-                                >
-
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                    >
-
-                                        <rect
-                                            x="5"
-                                            y="10"
-                                            width="14"
-                                            height="10"
-                                            rx="2"
-                                        />
-
-                                        <path
-                                            d="
-                                                M8 10
-                                                V7
-                                                C8 4.8
-                                                9.8 3
-                                                12 3
-                                                C14.2 3
-                                                16 4.8
-                                                16 7
-                                                V10
-                                            "
-                                        />
-
-                                    </svg>
-
-                                </span>
-
-
-                                <!-- Input Password -->
-
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Masukkan password"
-                                    autocomplete="current-password"
-                                >
-
-
-                                <!-- Tombol Tampilkan Password -->
-
-                                <button
-                                    type="button"
-                                    id="togglePassword"
-                                    class="password-toggle"
-                                    aria-label="Tampilkan password"
-                                    aria-pressed="false"
-                                >
-
-                                    <!-- Mata Terbuka -->
-
-                                    <svg
-                                        class="eye-open"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                    >
-
-                                        <path
-                                            d="
-                                                M2 12
-                                                C4.5 7
-                                                8 5
-                                                12 5
-                                                C16 5
-                                                19.5 7
-                                                22 12
-                                                C19.5 17
-                                                16 19
-                                                12 19
-                                                C8 19
-                                                4.5 17
-                                                2 12Z
-                                            "
-                                        />
-
-                                        <circle
-                                            cx="12"
-                                            cy="12"
-                                            r="3"
-                                        />
-
-                                    </svg>
-
-
-                                    <!-- Mata Tertutup -->
-
-                                    <svg
-                                        class="eye-closed"
-                                        viewBox="0 0 24 24"
-                                        aria-hidden="true"
-                                    >
-
-                                        <path
-                                            d="M3 3L21 21"
-                                        />
-
-                                        <path
-                                            d="
-                                                M10.6 5.3
-                                                C11.05 5.2
-                                                11.5 5.15
-                                                12 5.15
-                                                C16 5.15
-                                                19.5 7.2
-                                                22 12
-                                                C21.1 13.7
-                                                20 15
-                                                18.7 16
-                                            "
-                                        />
-
-                                        <path
-                                            d="
-                                                M6.2 7.2
-                                                C4.5 8.3
-                                                3.1 9.9
-                                                2 12
-                                                C4.5 16.8
-                                                8 18.85
-                                                12 18.85
-                                                C13.7 18.85
-                                                15.3 18.45
-                                                16.8 17.7
-                                            "
-                                        />
-
-                                    </svg>
-
-                                </button>
-
-                            </div>
-
-
-                            <!-- Pesan Error -->
-
-                            <span
-                                id="passwordError"
-                                class="error-message"
-                            ></span>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             14. PILIHAN FORM
-                        ================================================== -->
-
-                        <div class="form-options">
-
-
-                            <!-- Ingat Saya -->
-
-                            <label class="remember-label">
-
-                                <input
-                                    type="checkbox"
-                                    id="rememberMe"
-                                    name="rememberMe"
-                                >
-
-                                <span>
-                                    Ingat saya
-                                </span>
-
-                            </label>
-
-
-                            <!-- Lupa Password -->
-
-                            <button
-                                type="button"
-                                id="forgotPassword"
-                                class="forgot-button"
-                            >
-                                Lupa password?
-                            </button>
-
-                        </div>
-
-
-                        <!-- =================================================
-                             15. TOMBOL MASUK
-                        ================================================== -->
-
-                        <button
-                            type="submit"
-                            id="loginButton"
-                            class="login-button"
-                        >
-
-                            <span>
-                                Masuk
-                            </span>
-
-
-                            <!-- Ikon Panah -->
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <path
-                                    d="M5 12H19"
-                                />
-
-                                <path
-                                    d="
-                                        M13 6
-                                        L19 12
-                                        L13 18
-                                    "
-                                />
-
-                            </svg>
-
-                        </button>
-
-
-                        <!-- =================================================
-                             16. PESAN FORM
-                        ================================================== -->
-
-                        <div
-                            id="formMessage"
-                            class="form-message"
-                            role="status"
-                            aria-live="polite"
-                        ></div>
-
-                    </form>
-
-
-                    <!-- =================================================
-                         17. PEMISAH
-                    ================================================== -->
-
-                    <div class="separator">
-
-                        <span></span>
-
-                        <p>
-                            atau masuk dengan
-                        </p>
-
-                        <span></span>
-
-                    </div>
-
-
-                    <!-- =================================================
-                         18. LOGIN SOSIAL
-                    ================================================== -->
-
-                    <div class="social-login">
-
-
-                        <!-- Google -->
-
-                        <button
-                            type="button"
-                            id="googleLogin"
-                            class="social-button"
-                        >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <path
-                                    fill="#4285F4"
-                                    d="
-                                        M23.49 12.27
-                                        C23.49 11.48
-                                        23.42 10.7
-                                        23.28 9.94
-                                        H12
-                                        V14.4
-                                        H18.48
-                                        C18.2 15.84
-                                        17.38 17.07
-                                        16.08 17.85
-                                        V20.77
-                                        H19.82
-                                        C22.01 18.75
-                                        23.49 15.77
-                                        23.49 12.27Z
-                                    "
-                                />
-
-                                <path
-                                    fill="#34A853"
-                                    d="
-                                        M12 24
-                                        C15.12 24 17.74 22.97
-                                        19.82 20.77
-                                        L16.08 17.85
-                                        C15.04 18.55
-                                        13.72 18.96
-                                        12 18.96
-                                        C8.99 18.96
-                                        6.44 16.92
-                                        5.53 14.18
-                                        H1.67
-                                        V17.19
-                                        C3.74 21.22
-                                        7.62 24
-                                        12 24Z
-                                    "
-                                />
-
-                                <path
-                                    fill="#FBBC05"
-                                    d="
-                                        M5.53 14.18
-                                        C5.29 13.48
-                                        5.16 12.75
-                                        5.16 12
-                                        C5.16 11.25
-                                        5.29 10.52
-                                        5.53 9.82
-                                        V6.81
-                                        H1.67
-                                        C0.61 8.88
-                                        0 10.4
-                                        0 12
-                                        C0 13.6
-                                        0.61 15.12
-                                        1.67 17.19
-                                        L5.53 14.18Z
-                                    "
-                                />
-
-                                <path
-                                    fill="#EA4335"
-                                    d="
-                                        M12 5.04
-                                        C13.69 5.04
-                                        15.2 5.62
-                                        16.39 6.76
-                                        L19.9 3.25
-                                        C17.74 1.23
-                                        15.12 0
-                                        12 0
-                                        C7.62 0
-                                        3.74 2.78
-                                        1.67 6.81
-                                        L5.53 9.82
-                                        C6.44 7.08
-                                        8.99 5.04
-                                        12 5.04Z
-                                    "
-                                />
-
-                            </svg>
-
-                            <span>
-                                Google
-                            </span>
-
-                        </button>
-
-
-                        <!-- Facebook -->
-
-                        <button
-                            type="button"
-                            id="facebookLogin"
-                            class="social-button"
-                        >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="11"
-                                    fill="#1877F2"
-                                />
-
-                                <path
-                                    d="
-                                        M13.5 20
-                                        V13.1
-                                        H15.8
-                                        L16.15 10.4
-                                        H13.5
-                                        V8.7
-                                        C13.5 7.92
-                                        13.72 7.4
-                                        14.82 7.4
-                                        H16.25
-                                        V4.98
-                                        C15.56 4.91
-                                        14.87 4.87
-                                        14.18 4.87
-                                        C11.85 4.87
-                                        10.25 6.29
-                                        10.25 8.86
-                                        V10.4
-                                        H8
-                                        V13.1
-                                        H10.25
-                                        V20
-                                        Z
-                                    "
-                                    fill="#FFFFFF"
-                                />
-
-                            </svg>
-
-                            <span>
-                                Facebook
-                            </span>
-
-                        </button>
-
-                    </div>
-
-
-                    <!-- =================================================
-                         19. DAFTAR
-                    ================================================== -->
-
-                    <div class="register-area">
-
-                        <span>
-                            Belum punya akun?
-                        </span>
-
-                        <button
-                            type="button"
-                            id="registerButton"
-                        >
-                            Daftar sekarang
-                        </button>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-        </main>
-
-
-        <!-- =================================================
-             20. FOOTER
-        ================================================== -->
-
-        <footer>
-
-            <p>
-                © 2026 AKU BISA. Semua hak dilindungi.
-            </p>
-
-        </footer>
-
-
-    </div>
-
-
-    <!-- =====================================================
-         21. JAVASCRIPT
-         Semua JavaScript berada di file HTML ini
-    ====================================================== -->
-
-<script>
-
-    /* =====================================================
-       AKU BISA
-       LOGIN PAGE
-       VANILLA JAVASCRIPT
-       CLEAN & FIXED VERSION
-    ====================================================== */
-
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-            "use strict";
-
-
-            /* =================================================
-               01. DATA AKUN DUMMY
-               ================================================== */
-
-            /*
-             * Data akun dummy untuk simulasi login
-             * sebelum Firebase dihubungkan.
-             */
-
-            const dummyAccount = {
-                username: "user@gmail.com",
-                password: "password123"
-            };
-
-
-            /* =================================================
-               02. MENGAMBIL ELEMENT HTML
-               ================================================== */
-
-            const loginForm =
-                document.getElementById("loginForm") ||
-                document.querySelector("form");
-
-
-            const usernameInput =
-                document.getElementById("username");
-
-
-            const passwordInput =
-                document.getElementById("password");
-
-
-            const togglePassword =
-                document.getElementById("togglePassword");
-
-
-            const forgotPassword =
-                document.getElementById("forgotPassword");
-
-
-            const googleLogin =
-                document.getElementById("googleLogin");
-
-
-            const facebookLogin =
-                document.getElementById("facebookLogin");
-
-
-            const registerButton =
-                document.getElementById("registerButton");
-
-
-            const usernameError =
-                document.getElementById("usernameError");
-
-
-            const passwordError =
-                document.getElementById("passwordError");
-
-
-            const formMessage =
-                document.getElementById("formMessage");
-
-
-
-            /* =================================================
-               03. FUNGSI BANTUAN
-               ================================================== */
-
-
-            /*
-             * Membersihkan seluruh pesan.
-             */
-
-            function clearMessages() {
-
-                if (usernameError) {
-
-                    usernameError.textContent = "";
-
-                    usernameError.style.color = "";
-
-                    usernameError.className = "";
-
-                }
-
-
-                if (passwordError) {
-
-                    passwordError.textContent = "";
-
-                    passwordError.style.color = "";
-
-                    passwordError.className = "";
-
-                }
-
-
-                if (formMessage) {
-
-                    formMessage.textContent = "";
-
-                    formMessage.className =
-                        "form-message";
-
-                }
-
+  <div class="page">
+    <main class="main-container">
+      <!-- BRANDING SECTION -->
+      <section class="branding-section">
+        <!-- ORNAMEN -->
+        <div class="decorations" aria-hidden="true">
+          <span class="decoration decoration-plus">+</span>
+          <span class="decoration decoration-star">★</span>
+          <span class="decoration decoration-globe">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" />
+              <ellipse cx="12" cy="12" rx="4" ry="9" />
+              <path d="M3 12h18" />
+              <path d="M5 7h14" />
+              <path d="M5 17h14" />
+            </svg>
+          </span>
+          <span class="decoration decoration-book">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 5.5 C6 4.5 9 4.5 12 6 V19 C9 17.5 6 17.5 4 18.5 Z" />
+              <path d="M20 5.5 C18 4.5 15 4.5 12 6 V19 C15 17.5 18 17.5 20 18.5 Z" />
+            </svg>
+          </span>
+          <span class="decoration decoration-a">A</span>
+          <span class="decoration decoration-dots">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+          </span>
+          <span class="decoration decoration-circle"></span>
+          <span class="decoration decoration-small-star">+</span>
+          <span class="decoration decoration-small-plus">+</span>
+          <span class="decoration decoration-small-circle"></span>
+        </div>
+
+        <!-- LOGO -->
+        <div class="logo-area">
+          <div class="graduation-icon" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 38 L50 20 L90 38 L50 56 Z" fill="currentColor" />
+              <path d="M78 43 V63" stroke="currentColor" stroke-width="5" stroke-linecap="round" />
+              <path d="M25 48 V67 C25 76 36 82 50 82 C64 82 75 76 75 67 V48" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+              <circle cx="78" cy="66" r="4" fill="currentColor" />
+              <path d="M78 68 V79" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h1>AKU BISA</h1>
+        </div>
+
+        <p class="tagline">Aplikasi Kreatif Untuk Bisa Semua Bahasa</p>
+
+        <div class="student-photo">
+          <img src="assets/images/student-photo.png" alt="Ilustrasi empat pelajar">
+        </div>
+      </section>
+
+      <!-- LOGIN SECTION -->
+      <section class="login-section">
+        <div class="login-card">
+          <header class="login-header">
+            <h2>Selamat Datang Kembali</h2>
+            <p>Masuk untuk melanjutkan perjalanan belajarmu.</p>
+          </header>
+
+          <form id="loginForm" novalidate>
+            <!-- USERNAME / EMAIL -->
+            <div class="form-group">
+              <label for="username">Email atau Username</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 20 C4 16 7 14 12 14 C17 14 20 16 20 20" />
+                  </svg>
+                </span>
+                <input type="text" id="username" name="username" placeholder="Masukkan email atau username" autocomplete="username">
+              </div>
+              <span id="usernameError" class="error-message"></span>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group password-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <rect x="5" y="10" width="14" height="10" rx="2" />
+                    <path d="M8 10 V7 C8 4.8 9.8 3 12 3 C14.2 3 16 4.8 16 7 V10" />
+                  </svg>
+                </span>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" autocomplete="current-password">
+                <button type="button" id="togglePassword" class="password-toggle" aria-label="Tampilkan password" aria-pressed="false">
+                  <svg class="eye-open" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2 12 C4.5 7 8 5 12 5 C16 5 19.5 7 22 12 C19.5 17 16 19 12 19 C8 19 4.5 17 2 12Z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                  <svg class="eye-closed" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 3L21 21" />
+                    <path d="M10.6 5.3 C11.05 5.2 11.5 5.15 12 5.15 C16 5.15 19.5 7.2 22 12 C21.1 13.7 20 15 18.7 16" />
+                    <path d="M6.2 7.2 C4.5 8.3 3.1 9.9 2 12 C4.5 16.8 8 18.85 12 18.85 C13.7 18.85 15.3 18.45 16.8 17.7" />
+                  </svg>
+                </button>
+              </div>
+              <span id="passwordError" class="error-message"></span>
+            </div>
+
+            <!-- FORM OPTIONS -->
+            <div class="form-options">
+              <label class="remember-label">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <span>Ingat saya</span>
+              </label>
+              <button type="button" id="forgotPassword" class="forgot-button">Lupa password?</button>
+            </div>
+
+            <!-- TOMBOL MASUK -->
+            <button type="submit" id="loginButton" class="login-button">
+              <span>Masuk</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12H19" />
+                <path d="M13 6 L19 12 L13 18" />
+              </svg>
+            </button>
+
+            <!-- PESAN FORM -->
+            <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+          </form>
+
+          <!-- PEMISAH -->
+          <div class="separator">
+            <span></span>
+            <p>atau masuk dengan</p>
+            <span></span>
+          </div>
+
+          <!-- LOGIN SOSIAL -->
+          <div class="social-login">
+            <button type="button" id="googleLogin" class="social-button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M23.49 12.27 C23.49 11.48 23.42 10.7 23.28 9.94 H12 V14.4 H18.48 C18.2 15.84 17.38 17.07 16.08 17.85 V20.77 H19.82 C22.01 18.75 23.49 15.77 23.49 12.27Z" />
+                <path fill="#34A853" d="M12 24 C15.12 24 17.74 22.97 19.82 20.77 L16.08 17.85 C15.04 18.55 13.72 18.96 12 18.96 C8.99 18.96 6.44 16.92 5.53 14.18 H1.67 V17.19 C3.74 21.22 7.62 24 12 24Z" />
+                <path fill="#FBBC05" d="M5.53 14.18 C5.29 13.48 5.16 12.75 5.16 12 C5.16 11.25 5.29 10.52 5.53 9.82 V6.81 H1.67 C0.61 8.88 0 10.4 0 12 C0 13.6 0.61 15.12 1.67 17.19 L5.53 14.18Z" />
+                <path fill="#EA4335" d="M12 5.04 C13.69 5.04 15.2 5.62 16.39 6.76 L19.9 3.25 C17.74 1.23 15.12 0 12 0 C7.62 0 3.74 2.78 1.67 6.81 L5.53 9.82 C6.44 7.08 8.99 5.04 12 5.04Z" />
+              </svg>
+              <span>Google</span>
+            </button>
+            <button type="button" id="facebookLogin" class="social-button">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="#1877F2" />
+                <path d="M13.5 20 V13.1 H15.8 L16.15 10.4 H13.5 V8.7 C13.5 7.92 13.72 7.4 14.82 7.4 H16.25 V4.98 C15.56 4.91 14.87 4.87 14.18 4.87 C11.85 4.87 10.25 6.29 10.25 8.86 V10.4 H8 V13.1 H10.25 V20 Z" fill="#FFFFFF" />
+              </svg>
+              <span>Facebook</span>
+            </button>
+          </div>
+
+          <!-- DAFTAR -->
+          <div class="register-area">
+            <span>Belum punya akun?</span>
+            <button type="button" id="registerButton">Daftar sekarang</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>2026 AKU BISA. Semua hak dilindungi.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 01. MENGAMBIL ELEMENT HTML
+      const loginForm = document.getElementById("loginForm");
+      const usernameInput = document.getElementById("username");
+      const passwordInput = document.getElementById("password");
+      const togglePassword = document.getElementById("togglePassword");
+      const forgotPassword = document.getElementById("forgotPassword");
+      const googleLogin = document.getElementById("googleLogin");
+      const facebookLogin = document.getElementById("facebookLogin");
+      const registerButton = document.getElementById("registerButton");
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
+      const formMessage = document.getElementById("formMessage");
+
+      // 02. FUNGSI BANTUAN
+      function clearMessages() {
+        usernameError.textContent = "";
+        passwordError.textContent = "";
+        formMessage.textContent = "";
+        formMessage.className = "form-message";
+      }
+
+      function showInfoMessage(message) {
+        formMessage.textContent = message;
+        formMessage.className = "form-message info";
+      }
+
+      function showSuccessMessage(message) {
+        formMessage.textContent = message;
+        formMessage.className = "form-message success";
+      }
+
+      // 03. SHOW/HIDE PASSWORD
+      if (togglePassword && passwordInput) {
+        togglePassword.addEventListener("click", function () {
+          const isPassword = passwordInput.type === "password";
+          if (isPassword) {
+            passwordInput.type = "text";
+            togglePassword.classList.add("visible");
+            togglePassword.setAttribute("aria-label", "Sembunyikan password");
+            togglePassword.setAttribute("aria-pressed", "true");
+          } else {
+            passwordInput.type = "password";
+            togglePassword.classList.remove("visible");
+            togglePassword.setAttribute("aria-label", "Tampilkan password");
+            togglePassword.setAttribute("aria-pressed", "false");
+          }
+        });
+      }
+
+      // 04. VALIDASI USERNAME SAAT MENGETIK
+      if (usernameInput) {
+        usernameInput.addEventListener("input", function () {
+          if (usernameInput.value.trim() !== "") {
+            usernameError.textContent = "";
+          }
+        });
+      }
+
+      // 05. VALIDASI PASSWORD SAAT MENGETIK
+      if (passwordInput) {
+        passwordInput.addEventListener("input", function () {
+          if (passwordInput.value.trim() !== "") {
+            passwordError.textContent = "";
+          }
+        });
+      }
+
+      // 06. PROSES LOGIN
+    // 06. PROSES LOGIN (SIMULASI TANPA FIREBASE)
+      if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          clearMessages();
+
+          const username = usernameInput.value.trim().toLowerCase();
+          const password = passwordInput.value.trim();
+          let isValid = true;
+
+          // Validasi Input Kosong
+          if (username === "") {
+            usernameError.textContent = "Silakan masukkan email atau username.";
+            isValid = false;
+          }
+
+          if (password === "") {
+            passwordError.textContent = "Silakan masukkan password.";
+            isValid = false;
+          }
+
+          if (!isValid) {
+            if (username === "") {
+              usernameInput.focus();
+            } else if (password === "") {
+              passwordInput.focus();
             }
-
-
-
-            /*
-             * Menampilkan pesan informasi.
-             */
-
-            function showInfoMessage(message) {
-
-                if (!formMessage) {
-                    return;
-                }
-
-
-                formMessage.textContent =
-                    message;
-
-
-                formMessage.className =
-                    "form-message info";
-
-            }
-
-
-
-            /*
-             * Menampilkan pesan berhasil.
-             */
-
-            function showSuccessMessage(message) {
-
-                if (!formMessage) {
-                    return;
-                }
-
-
-                formMessage.textContent =
-                    message;
-
-
-                formMessage.className =
-                    "form-message success";
-
-            }
-
-
-
-            /*
-             * Menampilkan pesan error umum.
-             */
-
-            function showErrorMessage(message) {
-
-                if (!formMessage) {
-                    return;
-                }
-
-
-                formMessage.textContent =
-                    message;
-
-
-                formMessage.className =
-                    "form-message error";
-
-            }
-
-
-
-            /* =================================================
-               04. VALIDASI FORMAT GMAIL
-               ================================================== */
-
-
-            function validateGmail(input) {
-
-                /*
-                 * Pastikan username/email tidak kosong.
-                 */
-
-                if (input === "") {
-
-                    if (usernameError) {
-
-                        usernameError.textContent =
-                            "Email atau username wajib diisi.";
-
-                    }
-
-                    return false;
-
-                }
-
-
-
-                /*
-                 * Regex Gmail.
-                 */
-
-                const gmailRegex =
-                    /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
-
-
-
-                /*
-                 * Periksa format Gmail.
-                 */
-
-                if (!gmailRegex.test(input)) {
-
-                    if (usernameError) {
-
-                        usernameError.textContent =
-                            "Harus menggunakan alamat Gmail yang valid (contoh: nama@gmail.com).";
-
-                    }
-
-                    return false;
-
-                }
-
-
-
-                return true;
-
-            }
-
-
-
-            /* =================================================
-               05. VALIDASI PASSWORD
-               ================================================== */
-
-
-            function validatePassword(input) {
-
-                /*
-                 * Password tidak boleh kosong.
-                 */
-
-                if (input === "") {
-
-                    if (passwordError) {
-
-                        passwordError.textContent =
-                            "Password wajib diisi.";
-
-                    }
-
-                    return false;
-
-                }
-
-
-
-                /*
-                 * Password minimal 6 karakter.
-                 */
-
-                if (input.length < 6) {
-
-                    if (passwordError) {
-
-                        passwordError.textContent =
-                            "Password minimal terdiri dari 6 karakter.";
-
-                    }
-
-                    return false;
-
-                }
-
-
-
-                return true;
-
-            }
-
-
-
-            /* =================================================
-               06. SHOW / HIDE PASSWORD
-               ================================================== */
-
-
-            if (
-                togglePassword &&
-                passwordInput
-            ) {
-
-                togglePassword.addEventListener(
-                    "click",
-                    function (event) {
-
-                        /*
-                         * Mencegah tombol melakukan
-                         * submit form apabila berada
-                         * di dalam form.
-                         */
-
-                        event.preventDefault();
-
-
-                        /*
-                         * Cek apakah password sedang
-                         * tersembunyi.
-                         */
-
-                        const isPassword =
-                            passwordInput.type === "password";
-
-
-
-                        if (isPassword) {
-
-                            /*
-                             * Tampilkan password.
-                             */
-
-                            passwordInput.type =
-                                "text";
-
-
-                            /*
-                             * Tambahkan class visible.
-                             */
-
-                            togglePassword.classList.add(
-                                "visible"
-                            );
-
-
-                            /*
-                             * Accessibility.
-                             */
-
-                            togglePassword.setAttribute(
-                                "aria-label",
-                                "Sembunyikan password"
-                            );
-
-
-                            togglePassword.setAttribute(
-                                "aria-pressed",
-                                "true"
-                            );
-
-                        } else {
-
-                            /*
-                             * Sembunyikan password.
-                             */
-
-                            passwordInput.type =
-                                "password";
-
-
-                            /*
-                             * Hapus class visible.
-                             */
-
-                            togglePassword.classList.remove(
-                                "visible"
-                            );
-
-
-                            /*
-                             * Accessibility.
-                             */
-
-                            togglePassword.setAttribute(
-                                "aria-label",
-                                "Tampilkan password"
-                            );
-
-
-                            togglePassword.setAttribute(
-                                "aria-pressed",
-                                "false"
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               07. VALIDASI USERNAME SAAT MENGETIK
-               ================================================== */
-
-
-            if (usernameInput) {
-
-                usernameInput.addEventListener(
-                    "input",
-                    function () {
-
-                        /*
-                         * Hapus error ketika user
-                         * mulai memperbaiki input.
-                         */
-
-                        if (usernameError) {
-
-                            usernameError.textContent =
-                                "";
-
-                            usernameError.style.color =
-                                "";
-
-                        }
-
-
-                        /*
-                         * Hapus pesan umum.
-                         */
-
-                        if (formMessage) {
-
-                            formMessage.textContent =
-                                "";
-
-                            formMessage.className =
-                                "form-message";
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               08. VALIDASI PASSWORD SAAT MENGETIK
-               ================================================== */
-
-
-            if (passwordInput) {
-
-                passwordInput.addEventListener(
-                    "input",
-                    function () {
-
-                        /*
-                         * Hapus error password
-                         * ketika user mengetik ulang.
-                         */
-
-                        if (passwordError) {
-
-                            passwordError.textContent =
-                                "";
-
-                            passwordError.style.color =
-                                "";
-
-                        }
-
-
-                        /*
-                         * Hapus pesan umum.
-                         */
-
-                        if (formMessage) {
-
-                            formMessage.textContent =
-                                "";
-
-                            formMessage.className =
-                                "form-message";
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               09. PROSES LOGIN
-               ================================================== */
-
-
-            if (loginForm) {
-
-                loginForm.addEventListener(
-                    "submit",
-                    function (event) {
-
-                        /*
-                         * Mencegah halaman reload.
-                         */
-
-                        event.preventDefault();
-
-
-
-                        /*
-                         * Bersihkan pesan sebelumnya.
-                         */
-
-                        clearMessages();
-
-
-
-                        /* -----------------------------------------
-                           AMBIL DATA INPUT
-                        ------------------------------------------ */
-
-
-                        const username =
-                            usernameInput
-                                ? usernameInput.value.trim()
-                                : "";
-
-
-
-                        /*
-                         * Password tidak menggunakan trim()
-                         * agar spasi dalam password tidak
-                         * diubah secara otomatis.
-                         */
-
-                        const password =
-                            passwordInput
-                                ? passwordInput.value
-                                : "";
-
-
-
-                        /* -----------------------------------------
-                           VALIDASI USERNAME
-                        ------------------------------------------ */
-
-
-                        const isUsernameValid =
-                            validateGmail(username);
-
-
-
-                        /* -----------------------------------------
-                           VALIDASI PASSWORD
-                        ------------------------------------------ */
-
-
-                        const isPasswordValid =
-                            validatePassword(password);
-
-
-
-                        /* -----------------------------------------
-                           JIKA USERNAME TIDAK VALID
-                        ------------------------------------------ */
-
-
-                        if (!isUsernameValid) {
-
-                            if (usernameInput) {
-
-                                usernameInput.focus();
-
-                            }
-
-                            return;
-
-                        }
-
-
-
-                        /* -----------------------------------------
-                           JIKA PASSWORD TIDAK VALID
-                        ------------------------------------------ */
-
-
-                        if (!isPasswordValid) {
-
-                            if (passwordInput) {
-
-                                passwordInput.focus();
-
-                            }
-
-                            return;
-
-                        }
-
-
-
-                        /* -----------------------------------------
-                           SIMULASI CEK AKUN
-                        ------------------------------------------ */
-
-
-                        if (
-                            username ===
-                                dummyAccount.username
-                            &&
-                            password ===
-                                dummyAccount.password
-                        ) {
-
-                            /*
-                             * Login berhasil.
-                             */
-
-                            if (usernameError) {
-
-                                usernameError.style.color =
-                                    "green";
-
-
-                                usernameError.textContent =
-                                    "Login berhasil! Selamat datang.";
-
-                            }
-
-
-                            /*
-                             * Pesan umum juga digunakan
-                             * apabila element tersedia.
-                             */
-
-                            if (formMessage) {
-
-                                showSuccessMessage(
-                                    "Login berhasil! Selamat datang."
-                                );
-
-                            }
-
-                        } else {
-
-                            /*
-                             * Username/password salah.
-                             */
-
-                            if (usernameError) {
-
-                                usernameError.style.color =
-                                    "";
-
-
-                                usernameError.textContent =
-                                    "Email atau password yang Anda masukkan salah.";
-
-                            }
-
-
-                            /*
-                             * Fokus kembali ke password.
-                             */
-
-                            if (passwordInput) {
-
-                                passwordInput.focus();
-
-                            }
-
-                        }
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               10. LUPA PASSWORD
-               ================================================== */
-
-
-            if (forgotPassword) {
-
-                forgotPassword.addEventListener(
-                    "click",
-                    function (event) {
-
-                        /*
-                         * Mencegah link melakukan
-                         * navigasi default.
-                         */
-
-                        event.preventDefault();
-
-
-
-                        /*
-                         * Bersihkan pesan lama.
-                         */
-
-                        clearMessages();
-
-
-
-                        /*
-                         * Fitur belum terhubung Firebase.
-                         */
-
-                        showInfoMessage(
-                            "Fitur reset password belum terhubung."
-                        );
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               11. LOGIN GOOGLE
-               ================================================== */
-
-
-            if (googleLogin) {
-
-                googleLogin.addEventListener(
-                    "click",
-                    function (event) {
-
-                        /*
-                         * Mencegah aksi default.
-                         */
-
-                        event.preventDefault();
-
-
-
-                        /*
-                         * Bersihkan pesan.
-                         */
-
-                        clearMessages();
-
-
-
-                        /*
-                         * Informasi sementara.
-                         */
-
-                        showInfoMessage(
-                            "Login dengan Google belum terhubung."
-                        );
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               12. LOGIN FACEBOOK
-               ================================================== */
-
-
-            if (facebookLogin) {
-
-                facebookLogin.addEventListener(
-                    "click",
-                    function (event) {
-
-                        /*
-                         * Mencegah aksi default.
-                         */
-
-                        event.preventDefault();
-
-
-
-                        /*
-                         * Bersihkan pesan.
-                         */
-
-                        clearMessages();
-
-
-
-                        /*
-                         * Informasi sementara.
-                         */
-
-                        showInfoMessage(
-                            "Login dengan Facebook belum terhubung."
-                        );
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               13. DAFTAR SEKARANG
-               ================================================== */
-
-
-            if (registerButton) {
-
-                registerButton.addEventListener(
-                    "click",
-                    function (event) {
-
-                        /*
-                         * Mencegah aksi default.
-                         */
-
-                        event.preventDefault();
-
-
-
-                        /*
-                         * Bersihkan pesan.
-                         */
-
-                        clearMessages();
-
-
-
-                        /*
-                         * Informasi sementara.
-                         */
-
-                        showInfoMessage(
-                            "Halaman pendaftaran belum terhubung."
-                        );
-
-                    }
-                );
-
-            }
-
-
-
-            /* =================================================
-               14. STATUS / DEBUG ELEMENT
-               ================================================== */
-
-
-            /*
-             * Bagian ini hanya memberikan peringatan
-             * di Console jika element HTML belum ditemukan.
-             *
-             * Tidak membuat aplikasi berhenti.
-             */
-
-
-            if (!loginForm) {
-
-                console.warn(
-                    "AKU BISA: Form login (#loginForm) tidak ditemukan."
-                );
-
-            }
-
-
-
-            if (!usernameInput) {
-
-                console.warn(
-                    "AKU BISA: Input username (#username) tidak ditemukan."
-                );
-
-            }
-
-
-
-            if (!passwordInput) {
-
-                console.warn(
-                    "AKU BISA: Input password (#password) tidak ditemukan."
-                );
-
-            }
-
-
-
-            if (!togglePassword) {
-
-                console.warn(
-                    "AKU BISA: Tombol toggle password (#togglePassword) tidak ditemukan."
-                );
-
-            }
-
-
-
-            if (!usernameError) {
-
-                console.warn(
-                    "AKU BISA: Element username error (#usernameError) tidak ditemukan."
-                );
-
-            }
-
-
-
-            if (!passwordError) {
-
-                console.warn(
-                    "AKU BISA: Element password error (#passwordError) tidak ditemukan."
-                );
-
-            }
-
-
-
-            /* =================================================
-               15. STATUS LOGIN SYSTEM
-               ================================================== */
-
-
-            console.log(
-                "AKU BISA: Login JavaScript berhasil dimuat."
-            );
-
-
-        }
-    );
-
-</script>
-
-
+            return;
+          }
+
+          // Simulasi Kredensial Pengujian
+          if (username === "admin" && password === "admin123") {
+            showSuccessMessage("Login Admin berhasil! Mengalihkan...");
+            
+            // Simpan status session simulasi di localStorage
+            localStorage.setItem("userRole", "admin");
+            localStorage.setItem("isLoggedIn", "true");
+
+            // Redirect ke Dashboard Admin
+            setTimeout(function () {
+              window.location.href = "admin/dasboard_adm.html";
+            }, 1000);
+
+          } else if (username === "user" && password === "user123") {
+            showSuccessMessage("Login User berhasil! Mengalihkan...");
+            
+            // Simpan status session simulasi di localStorage
+            localStorage.setItem("userRole", "user");
+            localStorage.setItem("isLoggedIn", "true");
+
+            // Redirect ke Dashboard User
+            setTimeout(function () {
+              window.location.href = "user/dasboard_user.html";
+            }, 1000);
+
+          } else {
+            // Jika kredensial salah
+            formMessage.textContent = "Username atau password salah! (Gunakan: admin/admin123 atau user/user123)";
+            formMessage.className = "form-message";
+            formMessage.style.color = "var(--error)";
+          }
+        });
+      }
+
+      // 07. LUPA PASSWORD
+      if (forgotPassword) {
+        forgotPassword.addEventListener("click", function () {
+          clearMessages();
+          showInfoMessage("Fitur reset password belum terhubung.");
+        });
+      }
+
+      // 08. LOGIN GOOGLE
+      if (googleLogin) {
+        googleLogin.addEventListener("click", function () {
+          clearMessages();
+          showInfoMessage("Login dengan Google belum terhubung.");
+        });
+      }
+
+      // 09. LOGIN FACEBOOK
+      if (facebookLogin) {
+        facebookLogin.addEventListener("click", function () {
+          clearMessages();
+          showInfoMessage("Login dengan Facebook belum terhubung.");
+        });
+      }
+
+      // 10. DAFTAR SEKARANG
+      if (registerButton) {
+        registerButton.addEventListener("click", function () {
+          clearMessages();
+          showInfoMessage("Halaman pendaftaran belum terhubung.");
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>
