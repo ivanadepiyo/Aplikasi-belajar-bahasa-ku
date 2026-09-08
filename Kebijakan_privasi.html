@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AKU BISA - Kebijakan Privasi"
+    >
+
+    <meta
+        name="theme-color"
+        content="#1769e8"
+    >
+
+    <title>AKU BISA | Kebijakan Privasi</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            margin: 0;
+
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            color: #263b55;
+
+            background: #f4f8fd;
+
+            line-height: 1.75;
+
+            -webkit-font-smoothing: antialiased;
+
+            transition:
+                background .25s ease,
+                color .25s ease;
+        }
+
+        body.dark {
+
+            color: #dce7f5;
+
+            background: #0d1726;
+        }
+
+        :root {
+
+            --primary: #1769e8;
+            --primary-dark: #0d50b8;
+            --primary-soft: #eaf2ff;
+
+            --navy: #10233f;
+
+            --text: #263b55;
+            --muted: #7d8da2;
+
+            --line: #dfe7f2;
+
+            --card: #ffffff;
+
+            --bg: #f4f8fd;
+        }
+
+        body.dark {
+
+            --navy: #f0f6ff;
+            --text: #dce7f5;
+            --muted: #92a4bb;
+            --line: #263951;
+            --card: #142237;
+            --bg: #0d1726;
+            --primary-soft: #19385f;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           PROGRESS
+        ====================================================== */
+
+        .reading-progress {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 0%;
+
+            height: 3px;
+
+            z-index: 300;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #1769e8,
+                    #56a2ff
+                );
+        }
+
+
+        /* =====================================================
+           HEADER
+        ====================================================== */
+
+        .topbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            border-bottom:
+                1px solid var(--line);
+
+            background:
+                rgba(255,255,255,.92);
+
+            backdrop-filter:
+                blur(16px);
+        }
+
+        body.dark .topbar {
+
+            background:
+                rgba(13,23,38,.92);
+        }
+
+        .topbar-inner {
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            min-height: 70px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+
+        /* =====================================================
+           BRAND
+        ====================================================== */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: inherit;
+        }
+
+        .brand-logo {
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            color: #fff;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #2382f5,
+                    #1261d7
+                );
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 9px 22px
+                rgba(23,105,232,.20);
+        }
+
+        .brand-name strong {
+
+            display: block;
+
+            color: #1766da;
+
+            font-size: 18px;
+
+            line-height: 1;
+        }
+
+        .brand-name small {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           ACTIONS
+        ====================================================== */
+
+        .actions {
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+        .action {
+
+            min-height: 38px;
+
+            padding:
+                0 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                9px;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            transition:
+                .2s ease;
+        }
+
+        .action:hover {
+
+            color:
+                var(--primary);
+
+            border-color:
+                #9fc2ef;
+
+            transform:
+                translateY(-1px);
+        }
+
+        .action.primary {
+
+            color:
+                #fff;
+
+            border-color:
+                transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2180f0,
+                    #1767dc
+                );
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid var(--line);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #edf6ff,
+                    #dceeff
+                );
+        }
+
+        body.dark .hero {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #10233f,
+                    #142e4d
+                );
+        }
+
+        .hero-inner {
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            margin: auto;
+
+            padding:
+                55px 0 45px;
+        }
+
+        .hero-label {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap: 7px;
+
+            padding:
+                7px 11px;
+
+            border:
+                1px solid rgba(23,105,232,.15);
+
+            border-radius:
+                999px;
+
+            color:
+                #3975bd;
+
+            background:
+                rgba(255,255,255,.65);
+
+            font-size:
+                8px;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                1px;
+        }
+
+        .hero-dot {
+
+            width:
+                6px;
+
+            height:
+                6px;
+
+            border-radius:
+                50%;
+
+            background:
+                #2c8cf0;
+        }
+
+        .hero h1 {
+
+            margin:
+                15px 0 9px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                clamp(31px,5vw,50px);
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -2px;
+        }
+
+        .hero p {
+
+            max-width:
+                800px;
+
+            margin: 0;
+
+            color:
+                #70839a;
+
+            font-size:
+                12px;
+        }
+
+        .updated {
+
+            margin-top:
+                12px;
+
+            color:
+                #8b9aae;
+
+            font-size:
+                9px;
+        }
+
+
+        /* =====================================================
+           LAYOUT
+        ====================================================== */
+
+        .layout {
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            margin:
+                27px auto 60px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                240px 1fr;
+
+            gap:
+                22px;
+
+            align-items:
+                start;
+        }
+
+
+        /* =====================================================
+           SIDEBAR
+        ====================================================== */
+
+        .sidebar {
+
+            position:
+                sticky;
+
+            top:
+                90px;
+
+            padding:
+                14px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                16px;
+
+            background:
+                var(--card);
+
+            box-shadow:
+                0 18px 50px
+                rgba(28,65,110,.10);
+        }
+
+        .sidebar-title {
+
+            margin:
+                3px 8px 10px;
+
+            color:
+                #9aa8b8;
+
+            font-size:
+                8px;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                1px;
+        }
+
+        .toc {
+
+            display:
+                grid;
+
+            gap:
+                2px;
+        }
+
+        .toc a {
+
+            padding:
+                8px 9px;
+
+            border-radius:
+                8px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                9px;
+
+            font-weight:
+                700;
+
+            transition:
+                .18s ease;
+        }
+
+        .toc a:hover,
+        .toc a.active {
+
+            color:
+                var(--primary);
+
+            background:
+                var(--primary-soft);
+        }
+
+        .sidebar-tools {
+
+            margin-top:
+                12px;
+
+            padding-top:
+                12px;
+
+            border-top:
+                1px solid var(--line);
+
+            display:
+                grid;
+
+            gap:
+                7px;
+        }
+
+        .tool {
+
+            width:
+                100%;
+
+            min-height:
+                34px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                8px;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                8px;
+
+            font-weight:
+                800;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        .search {
+
+            width:
+                100%;
+
+            height:
+                45px;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                11px;
+
+            outline:
+                none;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                10px;
+        }
+
+        .search:focus {
+
+            border-color:
+                #6da4ec;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(23,105,232,.10);
+        }
+
+
+        /* =====================================================
+           NOTICE
+        ====================================================== */
+
+        .notice {
+
+            margin-bottom:
+                15px;
+
+            padding:
+                14px 16px;
+
+            border:
+                1px solid #d7e7f8;
+
+            border-left:
+                4px solid var(--primary);
+
+            border-radius:
+                12px;
+
+            background:
+                var(--card);
+
+            color:
+                var(--text);
+
+            font-size:
+                10px;
+        }
+
+        .notice strong {
+
+            color:
+                var(--navy);
+        }
+
+
+        /* =====================================================
+           CARDS
+        ====================================================== */
+
+        .section {
+
+            scroll-margin-top:
+                95px;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                16px;
+
+            background:
+                var(--card);
+
+            box-shadow:
+                0 8px 25px
+                rgba(31,67,112,.06);
+
+            opacity:
+                0;
+
+            transform:
+                translateY(12px);
+
+            transition:
+                .5s ease;
+        }
+
+        .section.visible {
+
+            opacity:
+                1;
+
+            transform:
+                translateY(0);
+        }
+
+        .section h2 {
+
+            margin:
+                0 0 9px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                19px;
+
+            line-height:
+                1.3;
+        }
+
+        .section h3 {
+
+            margin:
+                19px 0 7px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                12px;
+        }
+
+        .section p,
+        .section li {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+        }
+
+        .section ul {
+
+            padding-left:
+                20px;
+        }
+
+
+        /* =====================================================
+           DATA BADGES
+        ====================================================== */
+
+        .data-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap:
+                9px;
+
+            margin-top:
+                14px;
+        }
+
+        .data-card {
+
+            padding:
+                13px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                11px;
+
+            background:
+                var(--card);
+        }
+
+        .data-card-icon {
+
+            width:
+                30px;
+
+            height:
+                30px;
+
+            display:
+                grid;
+
+            place-items:
+                center;
+
+            margin-bottom:
+                8px;
+
+            border-radius:
+                9px;
+
+            color:
+                var(--primary);
+
+            background:
+                var(--primary-soft);
+
+            font-size:
+                13px;
+        }
+
+        .data-card strong {
+
+            display:
+                block;
+
+            color:
+                var(--navy);
+
+            font-size:
+                9px;
+        }
+
+        .data-card span {
+
+            display:
+                block;
+
+            margin-top:
+                3px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                8px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ====================================================== */
+
+        footer {
+
+            padding:
+                28px 15px;
+
+            color:
+                #aebed0;
+
+            background:
+                #10233f;
+        }
+
+        .footer-inner {
+
+            width:
+                min(1180px,100%);
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+        }
+
+        .footer strong {
+
+            color:
+                #fff;
+
+            font-size:
+                12px;
+        }
+
+        .footer span {
+
+            font-size:
+                8px;
+        }
+
+
+        /* =====================================================
+           BACK TOP
+        ====================================================== */
+
+        .back-top {
+
+            position:
+                fixed;
+
+            right:
+                20px;
+
+            bottom:
+                20px;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                0;
+
+            border-radius:
+                50%;
+
+            color:
+                #fff;
+
+            background:
+                var(--primary);
+
+            opacity:
+                0;
+
+            visibility:
+                hidden;
+
+            transform:
+                translateY(10px);
+
+            transition:
+                .2s ease;
+
+            z-index:
+                90;
+        }
+
+        .back-top.show {
+
+            opacity:
+                1;
+
+            visibility:
+                visible;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width:850px) {
+
+            .layout {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sidebar {
+
+                position:
+                    relative;
+
+                top:
+                    0;
+            }
+
+            .toc {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .data-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+        @media (max-width:600px) {
+
+            .brand-name small {
+
+                display:
+                    none;
+            }
+
+            .action.print {
+
+                display:
+                    none;
+            }
+
+            .hero-inner {
+
+                padding:
+                    40px 0;
+            }
+
+            .layout {
+
+                width:
+                    calc(100% - 18px);
+
+                margin-top:
+                    15px;
+            }
+
+            .section {
+
+                padding:
+                    19px;
+            }
+
+            .toc {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .data-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+            }
+        }
+
+
+        /* =====================================================
+           PRINT
+        ====================================================== */
+
+        @media print {
+
+            .topbar,
+            .sidebar,
+            .search,
+            .back-top,
+            .reading-progress {
+
+                display:
+                    none !important;
+            }
+
+            .layout {
+
+                display:
+                    block;
+
+                width:
+                    100%;
+
+                margin:
+                    0;
+            }
+
+            .section {
+
+                opacity:
+                    1;
+
+                transform:
+                    none;
+
+                box-shadow:
+                    none;
+
+                break-inside:
+                    avoid;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div
+        id="readingProgress"
+        class="reading-progress"
+    ></div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <a
+                href="register.html"
+                class="brand"
+            >
+
+                <div class="brand-logo">
+                    AB
+                </div>
+
+                <div class="brand-name">
+
+                    <strong>
+                        AKU BISA
+                    </strong>
+
+                    <small>
+                        Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <div class="actions">
+
+                <a
+                    href="register.html"
+                    class="action"
+                >
+                    ← Kembali ke Register
+                </a>
+
+                <button
+                    id="darkMode"
+                    class="action"
+                    type="button"
+                >
+                    ◐ Mode
+                </button>
+
+                <button
+                    id="print"
+                    class="action primary print"
+                    type="button"
+                >
+                    ⎙ Cetak
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <span class="hero-label">
+
+                <span class="hero-dot"></span>
+
+                PRIVASI & PERLINDUNGAN DATA
+
+            </span>
+
+
+            <h1>
+                Kebijakan Privasi
+            </h1>
+
+
+            <p>
+                Penjelasan mengenai informasi yang dapat diproses
+                AKU BISA, tujuan penggunaannya, keamanan,
+                penyimpanan, pembagian data, dan hak pengguna.
+            </p>
+
+
+            <div class="updated">
+
+                Versi 1.0 · Diperbarui 8 September 2026
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <div class="layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                DAFTAR ISI
+            </div>
+
+
+            <nav class="toc">
+
+                <a href="#ruang-lingkup">
+                    Ruang Lingkup
+                </a>
+
+                <a href="#data">
+                    Data yang Dikumpulkan
+                </a>
+
+                <a href="#tujuan">
+                    Tujuan Pemrosesan
+                </a>
+
+                <a href="#penyimpanan">
+                    Penyimpanan Data
+                </a>
+
+                <a href="#keamanan">
+                    Keamanan Data
+                </a>
+
+                <a href="#pembagian">
+                    Pembagian Data
+                </a>
+
+                <a href="#pihak-ketiga">
+                    Pihak Ketiga
+                </a>
+
+                <a href="#hak">
+                    Hak Pengguna
+                </a>
+
+                <a href="#anak">
+                    Privasi Anak
+                </a>
+
+                <a href="#perubahan">
+                    Perubahan Kebijakan
+                </a>
+
+                <a href="#kontak">
+                    Kontak Privasi
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-tools">
+
+                <button
+                    id="openAll"
+                    class="tool"
+                    type="button"
+                >
+                    ＋ Buka Semua
+                </button>
+
+                <button
+                    id="closeAll"
+                    class="tool"
+                    type="button"
+                >
+                    − Tutup Semua
+                </button>
+
+                <a
+                    href="register.html"
+                    class="tool"
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                    "
+                >
+                    ← Kembali ke Register
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <main>
+
+
+            <!-- SEARCH -->
+
+            <input
+                id="search"
+                class="search"
+                type="search"
+                placeholder="Cari informasi dalam Kebijakan Privasi..."
+                autocomplete="off"
+            >
+
+
+            <!-- NOTICE -->
+
+            <div class="notice">
+
+                🔐
+
+                <strong>
+                    Privasi Anda penting.
+                </strong>
+
+                Halaman ini menjelaskan bagaimana informasi
+                pengguna dapat dikelola dalam ekosistem AKU BISA.
+
+            </div>
+
+
+            <!-- =================================================
+                 1
+            ================================================== -->
+
+            <section
+                id="ruang-lingkup"
+                class="section"
+            >
+
+                <h2>
+                    1. Ruang Lingkup
+                </h2>
+
+                <p>
+                    Kebijakan Privasi ini menjelaskan bagaimana
+                    AKU BISA menangani informasi yang berkaitan
+                    dengan penggunaan situs web, aplikasi,
+                    akun, fitur pembelajaran, dan layanan lainnya.
+                </p>
+
+                <p>
+                    Kebijakan ini berlaku terhadap informasi yang
+                    diproses melalui layanan yang secara langsung
+                    merujuk pada kebijakan ini.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 2
+            ================================================== -->
+
+            <section
+                id="data"
+                class="section"
+            >
+
+                <h2>
+                    2. Data yang Dapat Dikumpulkan
+                </h2>
+
+                <p>
+                    Jenis informasi yang diproses dapat berbeda
+                    bergantung pada fitur yang digunakan pengguna.
+                </p>
+
+
+                <div class="data-grid">
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            👤
+                        </div>
+
+                        <strong>
+                            Data Identitas
+                        </strong>
+
+                        <span>
+                            Nama atau nama tampilan.
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            ✉
+                        </div>
+
+                        <strong>
+                            Data Kontak
+                        </strong>
+
+                        <span>
+                            Email dan informasi komunikasi.
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            📚
+                        </div>
+
+                        <strong>
+                            Data Pembelajaran
+                        </strong>
+
+                        <span>
+                            Progres, latihan, dan hasil evaluasi.
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            ⚙
+                        </div>
+
+                        <strong>
+                            Data Teknis
+                        </strong>
+
+                        <span>
+                            Browser, perangkat, dan informasi teknis.
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            🔐
+                        </div>
+
+                        <strong>
+                            Data Autentikasi
+                        </strong>
+
+                        <span>
+                            Informasi yang diperlukan untuk login.
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-card">
+
+                        <div class="data-card-icon">
+                            💬
+                        </div>
+
+                        <strong>
+                            Data Komunikasi
+                        </strong>
+
+                        <span>
+                            Informasi yang dikirim melalui dukungan.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 3
+            ================================================== -->
+
+            <section
+                id="tujuan"
+                class="section"
+            >
+
+                <h2>
+                    3. Tujuan Pemrosesan Data
+                </h2>
+
+                <p>
+                    Informasi dapat digunakan untuk menjalankan
+                    dan meningkatkan layanan AKU BISA.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Membuat dan mengelola akun pengguna.
+                    </li>
+
+                    <li>
+                        Menyediakan fitur pembelajaran.
+                    </li>
+
+                    <li>
+                        Menyimpan progres pembelajaran.
+                    </li>
+
+                    <li>
+                        Menampilkan hasil latihan dan kuis.
+                    </li>
+
+                    <li>
+                        Menjaga keamanan dan mencegah penyalahgunaan.
+                    </li>
+
+                    <li>
+                        Mendeteksi kesalahan dan meningkatkan sistem.
+                    </li>
+
+                    <li>
+                        Memberikan informasi terkait layanan.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 4
+            ================================================== -->
+
+            <section
+                id="penyimpanan"
+                class="section"
+            >
+
+                <h2>
+                    4. Penyimpanan Data
+                </h2>
+
+                <p>
+                    Data dapat disimpan selama diperlukan untuk
+                    menyediakan layanan, memenuhi kewajiban yang
+                    berlaku, menyelesaikan sengketa, menjaga
+                    keamanan, atau memenuhi kebutuhan operasional
+                    yang sah.
+                </p>
+
+                <p>
+                    Jangka waktu penyimpanan dapat berbeda
+                    tergantung jenis informasi dan tujuan
+                    pemrosesannya.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 5
+            ================================================== -->
+
+            <section
+                id="keamanan"
+                class="section"
+            >
+
+                <h2>
+                    5. Keamanan Data
+                </h2>
+
+                <p>
+                    AKU BISA dapat menerapkan langkah teknis dan
+                    organisasi yang wajar untuk membantu melindungi
+                    informasi dari akses, perubahan, penggunaan,
+                    atau pengungkapan yang tidak sah.
+                </p>
+
+                <p>
+                    Meskipun demikian, tidak ada sistem yang
+                    terhubung ke internet yang dapat dijamin
+                    aman secara absolut.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 6
+            ================================================== -->
+
+            <section
+                id="pembagian"
+                class="section"
+            >
+
+                <h2>
+                    6. Pembagian Data
+                </h2>
+
+                <p>
+                    Informasi pengguna tidak dimaksudkan untuk
+                    dijual secara sembarangan.
+                </p>
+
+                <p>
+                    Data dapat diproses atau dibagikan apabila
+                    diperlukan untuk menjalankan layanan,
+                    memenuhi kewajiban hukum, menjaga keamanan,
+                    mencegah penipuan atau penyalahgunaan, atau
+                    berdasarkan persetujuan pengguna apabila
+                    diperlukan.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 7
+            ================================================== -->
+
+            <section
+                id="pihak-ketiga"
+                class="section"
+            >
+
+                <h2>
+                    7. Layanan Pihak Ketiga
+                </h2>
+
+                <p>
+                    AKU BISA dapat menggunakan penyedia pihak ketiga
+                    untuk kebutuhan tertentu seperti autentikasi,
+                    hosting, database, penyimpanan, analitik,
+                    komunikasi, atau layanan teknologi lainnya.
+                </p>
+
+                <p>
+                    Apabila layanan pihak ketiga digunakan,
+                    pemrosesan data dapat tunduk pada ketentuan
+                    dan kebijakan privasi penyedia tersebut.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 8
+            ================================================== -->
+
+            <section
+                id="hak"
+                class="section"
+            >
+
+                <h2>
+                    8. Hak Pengguna
+                </h2>
+
+                <p>
+                    Bergantung pada hukum yang berlaku, pengguna
+                    dapat memiliki hak tertentu atas data pribadi
+                    mereka.
+                </p>
+
+                <ul>
+
+                    <li>
+                        Meminta informasi mengenai pemrosesan data.
+                    </li>
+
+                    <li>
+                        Meminta akses terhadap data tertentu.
+                    </li>
+
+                    <li>
+                        Meminta koreksi data yang tidak akurat.
+                    </li>
+
+                    <li>
+                        Meminta penghapusan data dalam kondisi
+                        yang diperbolehkan.
+                    </li>
+
+                    <li>
+                        Menyampaikan pertanyaan atau keberatan
+                        terkait privasi.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 9
+            ================================================== -->
+
+            <section
+                id="anak"
+                class="section"
+            >
+
+                <h2>
+                    9. Privasi Anak
+                </h2>
+
+                <p>
+                    Penggunaan layanan oleh anak harus mengikuti
+                    persyaratan usia dan ketentuan hukum yang
+                    berlaku di wilayah pengguna.
+                </p>
+
+                <p>
+                    Apabila pengelola mengetahui adanya pemrosesan
+                    data anak yang dilakukan secara tidak semestinya,
+                    tindakan yang sesuai dapat dilakukan berdasarkan
+                    hukum dan kebijakan yang berlaku.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 10
+            ================================================== -->
+
+            <section
+                id="perubahan"
+                class="section"
+            >
+
+                <h2>
+                    10. Perubahan Kebijakan Privasi
+                </h2>
+
+                <p>
+                    Kebijakan Privasi dapat diperbarui dari waktu
+                    ke waktu untuk menyesuaikan perubahan fitur,
+                    teknologi, penyedia layanan, operasional,
+                    atau persyaratan hukum.
+                </p>
+
+                <p>
+                    Versi terbaru akan dipublikasikan pada halaman
+                    ini bersama tanggal pembaruannya.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 11
+            ================================================== -->
+
+            <section
+                id="kontak"
+                class="section"
+            >
+
+                <h2>
+                    11. Kontak Privasi
+                </h2>
+
+                <p>
+                    Apabila pengguna memiliki pertanyaan mengenai
+                    Kebijakan Privasi atau ingin mengajukan
+                    permintaan terkait data pribadi, pengguna dapat
+                    menggunakan kanal kontak resmi AKU BISA.
+                </p>
+
+                <div class="notice">
+
+                    ⚠️
+
+                    <strong>
+                        Catatan pengembangan:
+                    </strong>
+
+                    Sebelum dipublikasikan sebagai kebijakan resmi,
+                    tambahkan identitas pengelola, alamat/email
+                    kontak privasi, informasi penyedia pihak ketiga,
+                    periode retensi, dasar pemrosesan, dan mekanisme
+                    permintaan data sesuai hukum yang berlaku.
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div>
+
+                <strong>
+                    AKU BISA
+                </strong>
+
+                <br>
+
+                <span>
+                    Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                </span>
+
+            </div>
+
+            <span>
+                © 2026 AKU BISA.
+                Semua hak dilindungi.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backTop"
+        class="back-top"
+        type="button"
+        aria-label="Kembali ke atas"
+    >
+        ↑
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        "use strict";
+
+
+        /* =====================================================
+           DARK MODE
+        ====================================================== */
+
+        const darkMode =
+            document.getElementById("darkMode");
+
+        if (
+            localStorage.getItem(
+                "akuBisaDocumentTheme"
+            ) === "dark"
+        ) {
+
+            document.body.classList.add("dark");
+
+        }
+
+
+        darkMode.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark");
+
+                localStorage.setItem(
+                    "akuBisaDocumentTheme",
+                    document.body.classList.contains("dark")
+                        ? "dark"
+                        : "light"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           PRINT
+        ====================================================== */
+
+        document
+            .getElementById("print")
+            .addEventListener(
+                "click",
+                function () {
+
+                    window.print();
+
+                }
+            );
+
+
+        /* =====================================================
+           ACCORDION CONTROL
+        ====================================================== */
+
+        document
+            .getElementById("openAll")
+            .addEventListener(
+                "click",
+                function () {
+
+                    document
+                        .querySelectorAll("details")
+                        .forEach(
+                            function (item) {
+
+                                item.open = true;
+
+                            }
+                        );
+
+                }
+            );
+
+
+        document
+            .getElementById("closeAll")
+            .addEventListener(
+                "click",
+                function () {
+
+                    document
+                        .querySelectorAll("details")
+                        .forEach(
+                            function (item) {
+
+                                item.open = false;
+
+                            }
+                        );
+
+                }
+            );
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        const search =
+            document.getElementById("search");
+
+        const sections =
+            Array.from(
+                document.querySelectorAll(".section")
+            );
+
+
+        search.addEventListener(
+            "input",
+            function () {
+
+                const keyword =
+                    search.value
+                        .trim()
+                        .toLowerCase();
+
+
+                sections.forEach(
+                    function (section) {
+
+                        section.style.display =
+                            !keyword ||
+                            section.textContent
+                                .toLowerCase()
+                                .includes(keyword)
+                                ? ""
+                                : "none";
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           READING PROGRESS
+        ====================================================== */
+
+        const progress =
+            document.getElementById(
+                "readingProgress"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                const max =
+                    document.documentElement
+                        .scrollHeight -
+                    window.innerHeight;
+
+                const value =
+                    max > 0
+                        ? (
+                            window.scrollY /
+                            max
+                        ) * 100
+                        : 0;
+
+                progress.style.width =
+                    Math.min(value, 100) + "%";
+
+            }
+        );
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        const backTop =
+            document.getElementById("backTop");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                backTop.classList.toggle(
+                    "show",
+                    window.scrollY > 450
+                );
+
+            }
+        );
+
+
+        backTop.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =====================================================
+           ACTIVE TOC
+        ====================================================== */
+
+        const links =
+            document.querySelectorAll(".toc a");
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                links.forEach(
+                                    function (link) {
+
+                                        link.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                                const active =
+                                    document.querySelector(
+                                        '.toc a[href="#' +
+                                        entry.target.id +
+                                        '"]'
+                                    );
+
+
+                                if (active) {
+
+                                    active.classList.add(
+                                        "active"
+                                    );
+
+                                }
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    rootMargin:
+                        "-15% 0px -70% 0px"
+                }
+            );
+
+
+        sections.forEach(
+            function (section) {
+
+                observer.observe(section);
+
+            }
+        );
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ====================================================== */
+
+        const reveal =
+            new IntersectionObserver(
+                function (entries, observer) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .08
+                }
+            );
+
+
+        sections.forEach(
+            function (section) {
+
+                reveal.observe(section);
+
+            }
+        );
+
+
+        /* =====================================================
+           KEYBOARD SEARCH
+        ====================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    (event.ctrlKey ||
+                     event.metaKey) &&
+                    event.key.toLowerCase() === "k"
+                ) {
+
+                    event.preventDefault();
+
+                    search.focus();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>

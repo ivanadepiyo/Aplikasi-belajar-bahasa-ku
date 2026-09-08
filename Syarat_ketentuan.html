@@ -1,0 +1,2226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AKU BISA - Syarat dan Ketentuan"
+    >
+
+    <meta
+        name="theme-color"
+        content="#1769e8"
+    >
+
+    <title>AKU BISA | Syarat & Ketentuan</title>
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family:
+                Inter,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            color: #263b55;
+            background: #f4f8fd;
+
+            line-height: 1.75;
+
+            -webkit-font-smoothing: antialiased;
+
+            transition:
+                background .25s ease,
+                color .25s ease;
+        }
+
+        body.dark {
+            color: #dce7f5;
+            background: #0d1726;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --primary: #1769e8;
+            --primary-dark: #0d50b8;
+            --primary-soft: #eaf2ff;
+
+            --navy: #10233f;
+
+            --text: #263b55;
+            --muted: #7d8da2;
+
+            --line: #dfe7f2;
+
+            --white: #ffffff;
+
+            --bg: #f4f8fd;
+
+            --card: #ffffff;
+
+            --shadow:
+                0 18px 50px rgba(28, 65, 110, .10);
+        }
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        body.dark {
+
+            --navy: #f0f6ff;
+
+            --text: #dce7f5;
+
+            --muted: #92a4bb;
+
+            --line: #263951;
+
+            --white: #101b2b;
+
+            --bg: #0d1726;
+
+            --card: #142237;
+
+            --primary-soft: #19385f;
+        }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .topbar {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            border-bottom: 1px solid var(--line);
+
+            background:
+                rgba(255,255,255,.92);
+
+            backdrop-filter:
+                blur(16px);
+
+            transition:
+                background .25s ease;
+        }
+
+        body.dark .topbar {
+            background:
+                rgba(13,23,38,.92);
+        }
+
+        .topbar-inner {
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            min-height: 70px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            color: inherit;
+        }
+
+        .brand-logo {
+
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #2382f5,
+                    #1261d7
+                );
+
+            box-shadow:
+                0 9px 22px rgba(23,105,232,.20);
+
+            font-size: 12px;
+
+            font-weight: 900;
+        }
+
+        .brand-name strong {
+
+            display: block;
+
+            color: #1766da;
+
+            font-size: 18px;
+
+            line-height: 1;
+        }
+
+        .brand-name small {
+
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 8px;
+        }
+
+        /* =====================================================
+           HEADER ACTIONS
+        ===================================================== */
+
+        .header-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .header-button {
+
+            min-height: 38px;
+
+            padding:
+                0 13px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 9px;
+
+            color: var(--text);
+
+            background: var(--card);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            transition:
+                .2s ease;
+        }
+
+        .header-button:hover {
+
+            border-color:
+                #9fc2ef;
+
+            color:
+                var(--primary);
+
+            transform:
+                translateY(-1px);
+        }
+
+        .header-button.primary {
+
+            color: #ffffff;
+
+            border-color:
+                transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2180f0,
+                    #1767dc
+                );
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid var(--line);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #edf6ff,
+                    #dceeff
+                );
+        }
+
+        body.dark .hero {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #10233f,
+                    #142e4d
+                );
+        }
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            right: -150px;
+            top: -180px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(23,105,232,.12);
+        }
+
+        .hero-inner {
+
+            position: relative;
+
+            z-index: 2;
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            margin: auto;
+
+            padding:
+                55px 0 45px;
+        }
+
+        .hero-label {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                7px 11px;
+
+            border:
+                1px solid rgba(23,105,232,.15);
+
+            border-radius: 999px;
+
+            color:
+                #3975bd;
+
+            background:
+                rgba(255,255,255,.65);
+
+            font-size: 8px;
+
+            font-weight: 900;
+
+            letter-spacing:
+                1px;
+        }
+
+        .hero-dot {
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                #2c8cf0;
+
+            box-shadow:
+                0 0 0 4px rgba(44,140,240,.10);
+        }
+
+        .hero h1 {
+
+            max-width: 800px;
+
+            margin:
+                15px 0 9px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                clamp(31px, 5vw, 50px);
+
+            line-height:
+                1.08;
+
+            letter-spacing:
+                -2px;
+        }
+
+        .hero p {
+
+            max-width: 780px;
+
+            margin: 0;
+
+            color:
+                #70839a;
+
+            font-size: 12px;
+        }
+
+        .last-updated {
+
+            margin-top: 12px;
+
+            color:
+                #8b9aae;
+
+            font-size: 9px;
+        }
+
+        /* =====================================================
+           MAIN LAYOUT
+        ===================================================== */
+
+        .page-layout {
+
+            width:
+                min(1180px, calc(100% - 30px));
+
+            margin:
+                27px auto 60px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                240px 1fr;
+
+            gap: 22px;
+
+            align-items: start;
+        }
+
+        /* =====================================================
+           SIDEBAR
+        ===================================================== */
+
+        .sidebar {
+
+            position: sticky;
+
+            top: 90px;
+
+            background:
+                var(--card);
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                16px;
+
+            padding:
+                14px;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .sidebar-title {
+
+            margin:
+                3px 8px 10px;
+
+            color:
+                #9aa8b8;
+
+            font-size: 8px;
+
+            font-weight: 900;
+
+            letter-spacing:
+                1px;
+        }
+
+        .toc {
+
+            display:
+                grid;
+
+            gap: 2px;
+        }
+
+        .toc a {
+
+            padding:
+                8px 9px;
+
+            border-radius:
+                8px;
+
+            color:
+                var(--muted);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            transition:
+                .18s ease;
+        }
+
+        .toc a:hover,
+        .toc a.active {
+
+            color:
+                var(--primary);
+
+            background:
+                var(--primary-soft);
+        }
+
+        .sidebar-tools {
+
+            margin-top:
+                12px;
+
+            padding-top:
+                12px;
+
+            border-top:
+                1px solid var(--line);
+
+            display:
+                grid;
+
+            gap: 7px;
+        }
+
+        .tool-button {
+
+            width: 100%;
+
+            min-height: 34px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                8px;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            transition:
+                .18s ease;
+        }
+
+        .tool-button:hover {
+
+            color:
+                var(--primary);
+
+            border-color:
+                #a9c8ed;
+        }
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .content {
+
+            min-width: 0;
+        }
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .search-box {
+
+            position: relative;
+
+            margin-bottom:
+                15px;
+        }
+
+        .search-box input {
+
+            width: 100%;
+
+            height: 45px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                11px;
+
+            outline:
+                none;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                10px;
+
+            transition:
+                .2s ease;
+        }
+
+        .search-box input:focus {
+
+            border-color:
+                #6da4ec;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(23,105,232,.10);
+        }
+
+        /* =====================================================
+           INFO BOX
+        ===================================================== */
+
+        .info-box {
+
+            margin-bottom:
+                15px;
+
+            padding:
+                14px 16px;
+
+            border:
+                1px solid #d7e7f8;
+
+            border-left:
+                4px solid var(--primary);
+
+            border-radius:
+                12px;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                10px;
+        }
+
+        .info-box strong {
+
+            color:
+                var(--navy);
+        }
+
+        /* =====================================================
+           DOCUMENT CARD
+        ===================================================== */
+
+        .document-section {
+
+            scroll-margin-top:
+                95px;
+
+            margin-bottom:
+                15px;
+
+            padding:
+                25px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                16px;
+
+            background:
+                var(--card);
+
+            box-shadow:
+                0 8px 25px
+                rgba(31,67,112,.06);
+
+            opacity: 0;
+
+            transform:
+                translateY(12px);
+
+            transition:
+                opacity .5s ease,
+                transform .5s ease,
+                background .25s ease;
+        }
+
+        .document-section.visible {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .document-section h2 {
+
+            margin:
+                0 0 9px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                19px;
+
+            line-height:
+                1.3;
+        }
+
+        .document-section h3 {
+
+            margin:
+                19px 0 7px;
+
+            color:
+                var(--navy);
+
+            font-size:
+                12px;
+        }
+
+        .document-section p,
+        .document-section li {
+
+            color:
+                var(--muted);
+
+            font-size:
+                10px;
+        }
+
+        .document-section ul {
+
+            padding-left:
+                20px;
+        }
+
+        /* =====================================================
+           ACCORDION
+        ===================================================== */
+
+        .accordion {
+
+            margin-top:
+                13px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+        }
+
+        .accordion summary {
+
+            padding:
+                11px 13px;
+
+            cursor:
+                pointer;
+
+            color:
+                var(--text);
+
+            background:
+                var(--card);
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+        }
+
+        .accordion-content {
+
+            padding:
+                2px 13px 11px;
+
+            border-top:
+                1px solid var(--line);
+        }
+
+        /* =====================================================
+           HIGHLIGHT
+        ===================================================== */
+
+        mark {
+
+            padding:
+                1px 3px;
+
+            border-radius:
+                3px;
+
+            color:
+                #12345c;
+
+            background:
+                #ffe58a;
+        }
+
+        /* =====================================================
+           PROGRESS
+        ===================================================== */
+
+        .reading-progress {
+
+            position: fixed;
+
+            z-index: 200;
+
+            top: 0;
+            left: 0;
+
+            width: 0%;
+
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #1769e8,
+                    #56a2ff
+                );
+
+            transition:
+                width .08s linear;
+        }
+
+        /* =====================================================
+           BACK TO TOP
+        ===================================================== */
+
+        .back-top {
+
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            width: 42px;
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            color:
+                #ffffff;
+
+            background:
+                var(--primary);
+
+            box-shadow:
+                0 10px 25px
+                rgba(23,105,232,.25);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transform:
+                translateY(10px);
+
+            transition:
+                .2s ease;
+
+            z-index: 90;
+        }
+
+        .back-top.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            transform:
+                translateY(0);
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            padding:
+                28px 15px;
+
+            color:
+                #aebed0;
+
+            background:
+                #10233f;
+        }
+
+        .footer-inner {
+
+            width:
+                min(1180px, 100%);
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+        }
+
+        .footer-brand strong {
+
+            color:
+                #ffffff;
+
+            font-size:
+                12px;
+        }
+
+        .footer-brand span,
+        .footer-copy {
+
+            font-size:
+                8px;
+        }
+
+        /* =====================================================
+           PRINT
+        ===================================================== */
+
+        @media print {
+
+            .topbar,
+            .sidebar,
+            .search-box,
+            .back-top,
+            .reading-progress {
+
+                display:
+                    none !important;
+            }
+
+            .page-layout {
+
+                display:
+                    block;
+
+                width:
+                    100%;
+
+                margin:
+                    0;
+            }
+
+            .document-section {
+
+                box-shadow:
+                    none;
+
+                break-inside:
+                    avoid;
+
+                opacity:
+                    1;
+
+                transform:
+                    none;
+            }
+
+            footer {
+
+                color:
+                    #333;
+
+                background:
+                    #ffffff;
+
+                border-top:
+                    1px solid #ddd;
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .page-layout {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .sidebar {
+
+                position:
+                    relative;
+
+                top:
+                    0;
+            }
+
+            .toc {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .topbar-inner {
+
+                min-height:
+                    62px;
+            }
+
+            .brand-name small {
+
+                display:
+                    none;
+            }
+
+            .header-button.print {
+
+                display:
+                    none;
+            }
+
+            .hero-inner {
+
+                padding:
+                    40px 0;
+            }
+
+            .page-layout {
+
+                width:
+                    calc(100% - 18px);
+
+                margin-top:
+                    15px;
+            }
+
+            .document-section {
+
+                padding:
+                    19px;
+            }
+
+            .toc {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+            .footer-inner {
+
+                flex-direction:
+                    column;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         READING PROGRESS
+    ====================================================== -->
+
+    <div
+        id="readingProgress"
+        class="reading-progress"
+    ></div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="topbar-inner">
+
+            <a
+                href="register.html"
+                class="brand"
+            >
+
+                <div class="brand-logo">
+                    AB
+                </div>
+
+                <div class="brand-name">
+
+                    <strong>
+                        AKU BISA
+                    </strong>
+
+                    <small>
+                        Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="register.html"
+                    class="header-button"
+                >
+                    ← Kembali ke Register
+                </a>
+
+                <button
+                    id="darkModeButton"
+                    class="header-button"
+                    type="button"
+                >
+                    ◐ Mode
+                </button>
+
+                <button
+                    id="printButton"
+                    class="header-button primary print"
+                    type="button"
+                >
+                    ⎙ Cetak
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <span class="hero-label">
+
+                <span class="hero-dot"></span>
+
+                DOKUMEN RESMI PLATFORM
+
+            </span>
+
+
+            <h1>
+                Syarat & Ketentuan
+            </h1>
+
+
+            <p>
+                Ketentuan penggunaan AKU BISA yang mengatur
+                akun, layanan pembelajaran, keamanan, konten,
+                serta kewajiban pengguna.
+            </p>
+
+
+            <div class="last-updated">
+
+                Versi 1.0 · Diperbarui 8 September 2026
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <div class="page-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                DAFTAR ISI
+            </div>
+
+
+            <nav class="toc">
+
+                <a href="#pendahuluan">
+                    Pendahuluan
+                </a>
+
+                <a href="#akun">
+                    Akun & Keamanan
+                </a>
+
+                <a href="#penggunaan">
+                    Penggunaan Layanan
+                </a>
+
+                <a href="#hak">
+                    Hak & Kewajiban
+                </a>
+
+                <a href="#konten">
+                    Konten & Hak Kekayaan
+                </a>
+
+                <a href="#pembatasan">
+                    Pembatasan Penggunaan
+                </a>
+
+                <a href="#premium">
+                    Layanan Premium
+                </a>
+
+                <a href="#penghentian">
+                    Penghentian Akun
+                </a>
+
+                <a href="#perubahan">
+                    Perubahan Ketentuan
+                </a>
+
+                <a href="#kontak">
+                    Kontak
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-tools">
+
+                <button
+                    id="openAll"
+                    class="tool-button"
+                    type="button"
+                >
+                    ＋ Buka Semua
+                </button>
+
+                <button
+                    id="closeAll"
+                    class="tool-button"
+                    type="button"
+                >
+                    − Tutup Semua
+                </button>
+
+                <a
+                    href="register.html"
+                    class="tool-button"
+                    style="display:flex;align-items:center;justify-content:center;"
+                >
+                    ← Kembali ke Register
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <main class="content">
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Cari bagian atau kata dalam dokumen..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- INFO -->
+
+            <div class="info-box">
+
+                ℹ️
+
+                <strong>
+                    Penting sebelum mendaftar:
+                </strong>
+
+                Dengan membuat akun dan menggunakan AKU BISA,
+                pengguna dianggap telah membaca dan memahami
+                ketentuan penggunaan yang berlaku.
+
+            </div>
+
+
+            <!-- =================================================
+                 SECTION 1
+            ================================================== -->
+
+            <section
+                id="pendahuluan"
+                class="document-section"
+            >
+
+                <h2>
+                    1. Pendahuluan
+                </h2>
+
+                <p>
+                    Selamat datang di AKU BISA, Aplikasi Kreatif
+                    Untuk Bisa Semua Bahasa.
+                </p>
+
+                <p>
+                    Syarat dan Ketentuan ini mengatur penggunaan
+                    situs web, aplikasi, akun, materi pembelajaran,
+                    latihan, kuis, komunitas, serta layanan lain
+                    yang disediakan oleh AKU BISA.
+                </p>
+
+                <p>
+                    Dengan melakukan pendaftaran, login, atau
+                    menggunakan layanan AKU BISA, pengguna menyatakan
+                    bahwa pengguna telah membaca, memahami, dan
+                    menyetujui ketentuan ini.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 2
+            ================================================== -->
+
+            <section
+                id="akun"
+                class="document-section"
+            >
+
+                <h2>
+                    2. Akun dan Keamanan
+                </h2>
+
+                <h3>
+                    2.1 Informasi Akun
+                </h3>
+
+                <p>
+                    Pengguna wajib memberikan informasi yang benar,
+                    akurat, dan tidak menyesatkan pada saat membuat
+                    akun.
+                </p>
+
+                <h3>
+                    2.2 Keamanan Akun
+                </h3>
+
+                <p>
+                    Pengguna bertanggung jawab menjaga username,
+                    password, kode autentikasi, dan informasi
+                    keamanan lainnya.
+                </p>
+
+                <h3>
+                    2.3 Penyalahgunaan Akun
+                </h3>
+
+                <p>
+                    Apabila pengguna mengetahui adanya akses yang
+                    tidak sah terhadap akun, pengguna dianjurkan
+                    segera menghubungi pengelola AKU BISA.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 3
+            ================================================== -->
+
+            <section
+                id="penggunaan"
+                class="document-section"
+            >
+
+                <h2>
+                    3. Penggunaan Layanan
+                </h2>
+
+                <p>
+                    AKU BISA ditujukan untuk membantu pengguna
+                    mempelajari bahasa melalui materi, latihan,
+                    evaluasi, dan fitur pembelajaran digital.
+                </p>
+
+                <p>
+                    Pengguna wajib menggunakan layanan secara wajar,
+                    bertanggung jawab, dan sesuai dengan ketentuan
+                    yang berlaku.
+                </p>
+
+
+                <details class="accordion">
+
+                    <summary>
+                        Contoh penggunaan yang diperbolehkan
+                    </summary>
+
+                    <div class="accordion-content">
+
+                        <p>
+                            Mengakses materi, mengerjakan latihan,
+                            mengikuti kuis, memantau perkembangan,
+                            menggunakan fitur profil, serta
+                            berinteraksi melalui fitur komunitas
+                            sesuai aturan.
+                        </p>
+
+                    </div>
+
+                </details>
+
+
+                <details class="accordion">
+
+                    <summary>
+                        Contoh penggunaan yang dilarang
+                    </summary>
+
+                    <div class="accordion-content">
+
+                        <p>
+                            Mengakses akun pengguna lain tanpa izin,
+                            mencoba melewati sistem keamanan,
+                            mengganggu server, melakukan manipulasi
+                            data, atau menggunakan layanan untuk
+                            kegiatan yang melanggar hukum.
+                        </p>
+
+                    </div>
+
+                </details>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 4
+            ================================================== -->
+
+            <section
+                id="hak"
+                class="document-section"
+            >
+
+                <h2>
+                    4. Hak dan Kewajiban Pengguna
+                </h2>
+
+                <h3>
+                    Hak Pengguna
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Menggunakan layanan sesuai jenis akun.
+                    </li>
+
+                    <li>
+                        Mengakses fitur yang tersedia untuk akun.
+                    </li>
+
+                    <li>
+                        Mendapatkan informasi penting mengenai
+                        layanan.
+                    </li>
+
+                    <li>
+                        Menghubungi pengelola apabila mengalami
+                        kendala.
+                    </li>
+
+                </ul>
+
+
+                <h3>
+                    Kewajiban Pengguna
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Menjaga keamanan akun.
+                    </li>
+
+                    <li>
+                        Memberikan informasi yang benar.
+                    </li>
+
+                    <li>
+                        Menghormati pengguna lain.
+                    </li>
+
+                    <li>
+                        Tidak menyalahgunakan sistem.
+                    </li>
+
+                    <li>
+                        Tidak melanggar hak kekayaan intelektual.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 5
+            ================================================== -->
+
+            <section
+                id="konten"
+                class="document-section"
+            >
+
+                <h2>
+                    5. Konten dan Hak Kekayaan Intelektual
+                </h2>
+
+                <p>
+                    Nama AKU BISA, logo, desain antarmuka, kode
+                    program, struktur aplikasi, materi pembelajaran,
+                    ilustrasi, serta elemen lain yang menjadi bagian
+                    dari layanan dapat merupakan aset milik AKU BISA
+                    atau pihak yang memberikan hak penggunaannya.
+                </p>
+
+                <p>
+                    Pengguna tidak diperkenankan menyalin,
+                    memperbanyak, menjual kembali, mendistribusikan,
+                    atau menggunakan aset tersebut di luar tujuan
+                    layanan tanpa hak atau izin yang sesuai.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 6
+            ================================================== -->
+
+            <section
+                id="pembatasan"
+                class="document-section"
+            >
+
+                <h2>
+                    6. Pembatasan Penggunaan
+                </h2>
+
+                <p>
+                    Pengguna dilarang menggunakan AKU BISA untuk:
+                </p>
+
+                <ul>
+
+                    <li>
+                        Melakukan tindakan ilegal.
+                    </li>
+
+                    <li>
+                        Mengganggu keamanan atau operasional sistem.
+                    </li>
+
+                    <li>
+                        Mengakses data atau akun pihak lain tanpa izin.
+                    </li>
+
+                    <li>
+                        Mengirim malware atau kode berbahaya.
+                    </li>
+
+                    <li>
+                        Melakukan scraping atau otomatisasi berlebihan
+                        tanpa izin.
+                    </li>
+
+                    <li>
+                        Mengunggah konten yang melanggar hukum atau
+                        hak pihak lain.
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 7
+            ================================================== -->
+
+            <section
+                id="premium"
+                class="document-section"
+            >
+
+                <h2>
+                    7. Layanan Premium
+                </h2>
+
+                <p>
+                    AKU BISA dapat menyediakan fitur atau materi
+                    premium yang hanya tersedia bagi pengguna dengan
+                    status atau paket tertentu.
+                </p>
+
+                <p>
+                    Hak akses terhadap fitur premium dapat berbeda
+                    berdasarkan paket, periode akses, atau kebijakan
+                    layanan yang berlaku.
+                </p>
+
+                <p>
+                    Ketentuan pembayaran, harga, masa berlaku, dan
+                    pembatalan dapat dijelaskan lebih lanjut pada
+                    halaman atau layanan pembayaran terkait.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 8
+            ================================================== -->
+
+            <section
+                id="penghentian"
+                class="document-section"
+            >
+
+                <h2>
+                    8. Penghentian atau Pembatasan Akun
+                </h2>
+
+                <p>
+                    AKU BISA dapat membatasi, menangguhkan, atau
+                    menghentikan akses terhadap akun apabila terdapat
+                    indikasi pelanggaran terhadap ketentuan, keamanan,
+                    atau penyalahgunaan layanan.
+                </p>
+
+                <p>
+                    Pengguna juga dapat mengajukan permintaan
+                    penghapusan akun melalui mekanisme yang disediakan
+                    oleh pengelola.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 9
+            ================================================== -->
+
+            <section
+                id="perubahan"
+                class="document-section"
+            >
+
+                <h2>
+                    9. Perubahan Syarat dan Ketentuan
+                </h2>
+
+                <p>
+                    Ketentuan ini dapat diperbarui dari waktu ke waktu
+                    untuk menyesuaikan perubahan fitur, teknologi,
+                    operasional, keamanan, atau persyaratan hukum.
+                </p>
+
+                <p>
+                    Versi terbaru akan ditampilkan pada halaman ini.
+                    Pengguna dianjurkan memeriksa dokumen secara
+                    berkala.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SECTION 10
+            ================================================== -->
+
+            <section
+                id="kontak"
+                class="document-section"
+            >
+
+                <h2>
+                    10. Kontak
+                </h2>
+
+                <p>
+                    Apabila terdapat pertanyaan mengenai Syarat dan
+                    Ketentuan AKU BISA, pengguna dapat menghubungi
+                    pengelola melalui kanal kontak resmi yang
+                    disediakan pada platform.
+                </p>
+
+                <div class="info-box">
+
+                    ⚠️
+
+                    <strong>
+                        Catatan pengembangan:
+                    </strong>
+
+                    Sebelum dokumen ini digunakan sebagai dokumen
+                    hukum resmi, sesuaikan nama badan usaha/pengelola,
+                    alamat, email kontak, hukum yang berlaku, dan
+                    mekanisme penyelesaian sengketa.
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <strong>
+                    AKU BISA
+                </strong>
+
+                <br>
+
+                <span>
+                    Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                </span>
+
+            </div>
+
+            <div class="footer-copy">
+
+                © 2026 AKU BISA.
+                Semua hak dilindungi.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backTop"
+        class="back-top"
+        type="button"
+        aria-label="Kembali ke atas"
+    >
+        ↑
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        "use strict";
+
+
+        /* =====================================================
+           DARK MODE
+        ====================================================== */
+
+        const darkModeButton =
+            document.getElementById("darkModeButton");
+
+        const savedTheme =
+            localStorage.getItem("akuBisaDocumentTheme");
+
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark");
+        }
+
+
+        darkModeButton.addEventListener(
+            "click",
+            function () {
+
+                document.body.classList.toggle("dark");
+
+                localStorage.setItem(
+                    "akuBisaDocumentTheme",
+                    document.body.classList.contains("dark")
+                        ? "dark"
+                        : "light"
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           PRINT
+        ====================================================== */
+
+        document
+            .getElementById("printButton")
+            .addEventListener(
+                "click",
+                function () {
+
+                    window.print();
+
+                }
+            );
+
+
+        /* =====================================================
+           OPEN / CLOSE ACCORDION
+        ====================================================== */
+
+        document
+            .getElementById("openAll")
+            .addEventListener(
+                "click",
+                function () {
+
+                    document
+                        .querySelectorAll("details")
+                        .forEach(
+                            function (item) {
+
+                                item.open = true;
+
+                            }
+                        );
+
+                }
+            );
+
+
+        document
+            .getElementById("closeAll")
+            .addEventListener(
+                "click",
+                function () {
+
+                    document
+                        .querySelectorAll("details")
+                        .forEach(
+                            function (item) {
+
+                                item.open = false;
+
+                            }
+                        );
+
+                }
+            );
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        const sections =
+            Array.from(
+                document.querySelectorAll(".document-section")
+            );
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const keyword =
+                    searchInput.value
+                        .trim()
+                        .toLowerCase();
+
+                sections.forEach(
+                    function (section) {
+
+                        const content =
+                            section.textContent.toLowerCase();
+
+                        section.style.display =
+                            !keyword ||
+                            content.includes(keyword)
+                                ? ""
+                                : "none";
+
+                    }
+                );
+
+            }
+        );
+
+
+        /* =====================================================
+           SCROLL PROGRESS
+        ====================================================== */
+
+        const readingProgress =
+            document.getElementById(
+                "readingProgress"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                const documentHeight =
+                    document.documentElement.scrollHeight -
+                    window.innerHeight;
+
+                const scrollTop =
+                    window.scrollY;
+
+                const progress =
+                    documentHeight > 0
+                        ? (scrollTop / documentHeight) * 100
+                        : 0;
+
+                readingProgress.style.width =
+                    Math.min(progress, 100) + "%";
+
+            }
+        );
+
+
+        /* =====================================================
+           BACK TO TOP
+        ====================================================== */
+
+        const backTop =
+            document.getElementById("backTop");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (window.scrollY > 450) {
+
+                    backTop.classList.add("show");
+
+                } else {
+
+                    backTop.classList.remove("show");
+
+                }
+
+            }
+        );
+
+
+        backTop.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =====================================================
+           ACTIVE TABLE OF CONTENTS
+        ====================================================== */
+
+        const tocLinks =
+            document.querySelectorAll(".toc a");
+
+
+        const observer =
+            new IntersectionObserver(
+                function (entries) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                tocLinks.forEach(
+                                    function (link) {
+
+                                        link.classList.remove(
+                                            "active"
+                                        );
+
+                                    }
+                                );
+
+
+                                const active =
+                                    document.querySelector(
+                                        '.toc a[href="#' +
+                                        entry.target.id +
+                                        '"]'
+                                    );
+
+
+                                if (active) {
+
+                                    active.classList.add(
+                                        "active"
+                                    );
+
+                                }
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    rootMargin:
+                        "-15% 0px -70% 0px"
+                }
+            );
+
+
+        sections.forEach(
+            function (section) {
+
+                observer.observe(section);
+
+            }
+        );
+
+
+        /* =====================================================
+           SECTION REVEAL
+        ====================================================== */
+
+        const revealObserver =
+            new IntersectionObserver(
+                function (entries, observer) {
+
+                    entries.forEach(
+                        function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: .08
+                }
+            );
+
+
+        sections.forEach(
+            function (section) {
+
+                revealObserver.observe(section);
+
+            }
+        );
+
+
+        /* =====================================================
+           KEYBOARD SHORTCUT
+        ====================================================== */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    (event.ctrlKey ||
+                     event.metaKey) &&
+                    event.key.toLowerCase() === "k"
+                ) {
+
+                    event.preventDefault();
+
+                    searchInput.focus();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
