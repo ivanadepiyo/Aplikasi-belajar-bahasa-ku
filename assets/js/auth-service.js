@@ -1,3 +1,4 @@
+console.log("AKU BISA: auth-service.js BERHASIL DIMUAT");
 // =====================================================
 // AKU BISA - Authentication Service
 // Firebase Authentication
