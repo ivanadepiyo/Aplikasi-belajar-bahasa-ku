@@ -8,68 +8,101 @@
 
      <link rel="stylesheet" href="style.css">
 
-    <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
+
     "use strict";
 
     const SESSION_KEY = "akuBisaAuthSession";
 
+    const raw =
+        sessionStorage.getItem(SESSION_KEY) ||
+        localStorage.getItem(SESSION_KEY);
+
     let session = null;
 
-    try {
-        const raw =
-            sessionStorage.getItem(SESSION_KEY) ||
-            localStorage.getItem(SESSION_KEY);
-
-        if (raw) {
+    if (raw) {
+        try {
             session = JSON.parse(raw);
+        } catch (error) {
+
+            console.error(
+                "Session tidak valid:",
+                error
+            );
+
+            sessionStorage.removeItem(SESSION_KEY);
+            localStorage.removeItem(SESSION_KEY);
+
+            window.location.replace("Login.html");
+            return;
         }
-    } catch (error) {
-        console.error("Session rusak:", error);
-        session = null;
     }
 
     /*
-     * Tidak ada session → kembali ke Login
+     * Tidak ada session
      */
     if (!session) {
+
         window.location.replace("Login.html");
+
         return;
     }
 
     /*
-     * Session bukan user → arahkan ke dashboard
-     * sesuai role-nya.
+     * Session bukan user
      */
     if (session.role !== "user") {
 
         if (session.role === "admin") {
-            window.location.replace("dasboard_adm.html");
+
+            window.location.replace(
+                "dasboard_adm.html"
+            );
+
         } else {
-            sessionStorage.removeItem(SESSION_KEY);
-            localStorage.removeItem(SESSION_KEY);
-            window.location.replace("Login.html");
+
+            sessionStorage.removeItem(
+                SESSION_KEY
+            );
+
+            localStorage.removeItem(
+                SESSION_KEY
+            );
+
+            window.location.replace(
+                "Login.html"
+            );
         }
 
         return;
     }
 
     /*
-     * Pastikan session memang authenticated.
+     * Pastikan benar-benar authenticated
      */
     if (session.authenticated !== true) {
-        sessionStorage.removeItem(SESSION_KEY);
-        localStorage.removeItem(SESSION_KEY);
-        window.location.replace("Login.html");
+
+        sessionStorage.removeItem(
+            SESSION_KEY
+        );
+
+        localStorage.removeItem(
+            SESSION_KEY
+        );
+
+        window.location.replace(
+            "Login.html"
+        );
+
         return;
     }
 
-    console.log("USER LOGIN BERHASIL:", session.username);
+    console.log(
+        "USER LOGIN BERHASIL:",
+        session.username
+    );
 
-    /*
-     * Jalankan aplikasi dashboard
-     */
-    initializeApplication();
 });
 </script>
     
@@ -2862,15 +2895,15 @@ function navigate(page) {
         });
 
 
-    if (page === "dashboard") {
+  if (page === "dashboard") {
 
-        renderDashboard();
+    renderDashboard();
 
-    } else {
+} else {
 
-        renderGeneric(page);
+    renderGeneric(page);
 
-    }
+}
 
 
     window.scrollTo({
