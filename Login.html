@@ -748,84 +748,6 @@ input:focus-visible {
 }
 
 /* =========================================================
-   MODAL
-========================================================= */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-backdrop {
-    position: absolute;
-    inset: 0;
-    background: rgba(12, 28, 49, .48);
-    backdrop-filter: blur(5px);
-}
-
-.modal-card {
-    position: relative;
-    z-index: 2;
-    width: min(390px, 100%);
-    padding: 28px;
-    border: 1px solid rgba(255,255,255,.8);
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 30px 80px rgba(14, 42, 77, .25);
-}
-
-.modal-close {
-    position: absolute;
-    top: 11px;
-    right: 14px;
-    width: 30px;
-    height: 30px;
-    border: 0;
-    border-radius: 50%;
-    color: #77869a;
-    background: #f2f5f9;
-    font-size: 21px;
-}
-
-.modal-icon {
-    width: 38px;
-    height: 38px;
-    display: grid;
-    place-items: center;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    color: var(--primary);
-    background: var(--primary-soft);
-    font-weight: 900;
-}
-
-.modal-card h3 {
-    margin: 0 0 8px;
-    color: #1a2e48;
-    font-size: 19px;
-}
-
-.modal-card p {
-    margin: 0 0 20px;
-    color: #7b8797;
-    font-size: 11px;
-    line-height: 1.7;
-}
-
-.modal-button {
-    min-height: 43px;
-}
-
-/* =========================================================
    FOOTER
 ========================================================= */
 
@@ -1200,25 +1122,6 @@ input:focus-visible {
             © 2026 AKU BISA. Semua hak dilindungi.
         </footer>
     </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal" aria-hidden="true">
-        <div class="modal-backdrop"></div>
-
-        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button id="closeModal" type="button" class="modal-close" aria-label="Tutup">×</button>
-
-            <div class="modal-icon">i</div>
-
-            <h3 id="modalTitle">Informasi</h3>
-            <p id="modalText"></p>
-
-            <button id="modalOk" type="button" class="primary-button modal-button">
-                Mengerti
-            </button>
-        </div>
-    </div>
-
     <script>
 const AUTH_CONFIG = Object.freeze({
     mode: "demo",
@@ -1534,15 +1437,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = $("passwordError");
 
     const forgotPassword = $("forgotPassword");
-    const registerButton = $("registerButton");
     const googleLogin = $("googleLogin");
     const facebookLogin = $("facebookLogin");
-
-    const modal = $("modal");
-    const modalTitle = $("modalTitle");
-    const modalText = $("modalText");
-    const closeModal = $("closeModal");
-    const modalOk = $("modalOk");
 
     function showAlert(message, type) {
         alertBox.textContent = message;
@@ -1616,20 +1512,6 @@ document.addEventListener("DOMContentLoaded", function () {
             isLoading ? "none" : "block";
     }
 
-    function openModal(title, text) {
-        modalTitle.textContent = title;
-        modalText.textContent = text;
-
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-
-        setTimeout(() => closeModal.focus(), 0);
-    }
-
-    function hideModal() {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-    }
 
     function resetLoginButton() {
         setLoading(false);
@@ -1752,68 +1634,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-    /* =====================================================
-       FORGOT PASSWORD
-    ====================================================== */
-
-    forgotPassword.addEventListener("click", function () {
-        openModal(
-            "Lupa Password",
-            "Fitur reset password belum diaktifkan pada mode demo. Nanti bagian ini dapat dihubungkan ke Firebase Authentication untuk mengirim email reset password."
-        );
-    });
-
-    /* =====================================================
-       REGISTER
-    ====================================================== */
-
-    registerButton.addEventListener("click", function () {
-        openModal(
-            "Pendaftaran Akun",
-            "Halaman pendaftaran belum dibuat pada modul login ini. Tombol ini sudah disiapkan agar nantinya dapat diarahkan ke halaman register."
-        );
-    });
-
-    /* =====================================================
-       SOCIAL LOGIN
-    ====================================================== */
-
-    googleLogin.addEventListener("click", function () {
-        openModal(
-            "Google Login",
-            "Google Authentication belum diaktifkan pada mode demo. Fitur ini dapat dihubungkan ke Firebase Authentication."
-        );
-    });
-
-    facebookLogin.addEventListener("click", function () {
-        openModal(
-            "Facebook Login",
-            "Facebook Authentication belum diaktifkan pada mode demo. Fitur ini dapat dihubungkan ke Firebase Authentication."
-        );
-    });
-
-    /* =====================================================
-       MODAL EVENTS
-    ====================================================== */
-
-    closeModal.addEventListener("click", hideModal);
-    modalOk.addEventListener("click", hideModal);
-
-    modal.addEventListener("click", function (event) {
-        if (event.target.classList.contains("modal-backdrop")) {
-            hideModal();
-        }
-    });
-
-    document.addEventListener("keydown", function (event) {
-        if (
-            event.key === "Escape" &&
-            modal.classList.contains("show")
-        ) {
-            hideModal();
-        }
-    });
-
+  
     /* =====================================================
        LIVE INPUT CLEANUP
     ====================================================== */
