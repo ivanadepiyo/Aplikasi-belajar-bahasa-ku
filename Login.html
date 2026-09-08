@@ -1216,27 +1216,12 @@ input:focus-visible {
     </div>
 
     <script>
-/* =========================================================
-   AKU BISA — AUTH CONFIGURATION
-   =========================================================
-   Login saat ini menggunakan MODE DEMO untuk pengujian lokal.
-
-   PENTING:
-   Nama file dashboard di bawah mengikuti nama file yang
-   terdapat pada kode Ayah sebelumnya:
-       dasboard_user.html
-       dasboard_adm.html
-
-   Jika nama file Ayah sebenarnya berbeda, ubah hanya 2 baris
-   pada bagian redirect.
-========================================================= */
-
 const AUTH_CONFIG = Object.freeze({
     mode: "demo",
 
     redirect: Object.freeze({
- user: "dasboard_user.html",
-admin: "dasboard_adm.html"
+        user: "dasboard_user.html",
+        admin: "dasboard_adm.html"
     }),
 
     session: Object.freeze({
@@ -1245,7 +1230,7 @@ admin: "dasboard_adm.html"
     }),
 
     demoUsers: Object.freeze([
-        Object.freeze({
+        {
             id: "USR001",
             username: "ivan",
             email: "ivan@akubisa.com",
@@ -1253,9 +1238,8 @@ admin: "dasboard_adm.html"
             role: "user",
             status: "active",
             name: "Ivan Adepiyo"
-        }),
-
-        Object.freeze({
+        },
+        {
             id: "ADM001",
             username: "admin",
             email: "admin@akubisa.com",
@@ -1263,7 +1247,7 @@ admin: "dasboard_adm.html"
             role: "admin",
             status: "active",
             name: "Administrator"
-        })
+        }
     ])
 });
 
