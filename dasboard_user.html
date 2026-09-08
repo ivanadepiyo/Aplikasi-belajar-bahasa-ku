@@ -17,12 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     if (!session) {
-        window.location.replace("login.html");
+        window.location.replace("Login.html");
         return;
     }
 
     if (session.role !== "user") {
-        window.location.replace("login.html");
+        window.location.replace("Login.html");
         return;
     }
 
@@ -3732,7 +3732,7 @@ if (!savedUser) {
         window.location.href = "Login.html";
     }
 
-    console.log("User login:", user);
+    console.log("User Login:", user);
 }
 
   function logout() {
@@ -3740,7 +3740,7 @@ if (!savedUser) {
     sessionStorage.removeItem("akuBisaAuthSession");
     localStorage.removeItem("akuBisaAuthSession");
 
-    window.location.replace("login.html");
+    window.location.replace("Login.html");
 }
 
 </script>
