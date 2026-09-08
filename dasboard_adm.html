@@ -150,34 +150,26 @@ document.getElementById("notifyBtn").onclick=()=>toast("3 notifikasi baru");
 document.getElementById("dateText").textContent=new Intl.DateTimeFormat("id-ID",{dateStyle:"full"}).format(new Date());
 go("dashboard");
 
-   const savedUser =
-        sessionStorage.getItem("akuBisaUser") ||
-        localStorage.getItem("akuBisaUser");
+const savedUser =
+    sessionStorage.getItem("akuBisaUser") ||
+    localStorage.getItem("akuBisaUser");
 
-    if (!savedUser) {
-
+if (!savedUser) {
+    window.location.href = "Login.html";
+} else {
+    const user = JSON.parse(savedUser);
+    if (user.role !== "user") {
         window.location.href = "Login.html";
-
-    } else {
-
-        const user = JSON.parse(savedUser);
-
-        if (user.role !== "user") {
-
-            window.location.href = "Login.html";
-
-        }
-
-        console.log("User login:", user);
-
     }
-  function logout() {
-    // 1. Hapus semua data sesi di localStorage
-    localStorage.clear();
-    
-    // 2. Alihkan kembali ke halaman login
-    window.location.href = "../Login.html";
-  }
+    console.log("User login:", user);
+}
+  
+function logout() {
+    sessionStorage.removeItem("akuBisaAuthSession");
+    localStorage.removeItem("akuBisaAuthSession");
+
+    window.location.replace("login.html");
+}
 
 </script>
 </body>
