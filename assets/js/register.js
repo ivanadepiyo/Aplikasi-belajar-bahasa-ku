@@ -1,3 +1,4 @@
+console.log("AKU BISA: register.js BERHASIL DIMUAT");
 // =====================================================
 // AKU BISA - Register Page
 // Firebase Authentication
