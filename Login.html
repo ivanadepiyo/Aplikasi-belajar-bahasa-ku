@@ -1632,25 +1632,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* =====================================================
-       SESSION CHECK
-       Jika masih login, jangan tampilkan halaman login lagi.
-    ====================================================== */
-
-    const activeSession = AkuBisaAuth.readSession();
-
-    if (activeSession) {
-        const destination =
-            AUTH_CONFIG.redirect[activeSession.role];
-
-        if (destination) {
-            window.location.replace(destination);
-            return;
-        }
-
-        AkuBisaAuth.clearSession();
-    }
-
-    /* =====================================================
        SHOW / HIDE PASSWORD
     ====================================================== */
 
