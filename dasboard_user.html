@@ -7,6 +7,30 @@
     <title>AKU BISA - User Dashboard</title>
 
      <link rel="stylesheet" href="style.css">
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const session = JSON.parse(
+        sessionStorage.getItem("akuBisaAuthSession") ||
+        localStorage.getItem("akuBisaAuthSession")
+    );
+
+    if (!session) {
+        window.location.replace("login.html");
+        return;
+    }
+
+    if (session.role !== "user") {
+        window.location.replace("login.html");
+        return;
+    }
+
+    console.log("User berhasil masuk:", session.username);
+
+});
+</script>
+    
 <style>
 * {
     margin: 0;
@@ -3724,21 +3748,6 @@ initializeApplication();
     window.location.href = "../Login.html";
   }
 
-     document.addEventListener("DOMContentLoaded", function () {
-      const isLoggedIn = localStorage.getItem("isLoggedIn");
-      const userRole = localStorage.getItem("userRole");
-
-      if (isLoggedIn !== "true" || userRole !== "user") {
-        alert("Akses ditolak! Anda harus login terlebih dahulu.");
-        window.location.href = "Login.html";
-      }
-    });
-
-    function logout() {
-      localStorage.clear();
-      window.location.href = "Login.html";
-    }
-    
 </script>
 
 </body>
