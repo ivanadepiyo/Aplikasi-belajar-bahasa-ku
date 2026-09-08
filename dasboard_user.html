@@ -10,24 +10,66 @@
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
-    const session = JSON.parse(
-        sessionStorage.getItem("akuBisaAuthSession") ||
-        localStorage.getItem("akuBisaAuthSession")
-    );
+    const SESSION_KEY = "akuBisaAuthSession";
 
+    let session = null;
+
+    try {
+        const raw =
+            sessionStorage.getItem(SESSION_KEY) ||
+            localStorage.getItem(SESSION_KEY);
+
+        if (raw) {
+            session = JSON.parse(raw);
+        }
+    } catch (error) {
+        console.error("Session rusak:", error);
+        session = null;
+    }
+
+    /*
+     * Tidak ada session → kembali ke Login
+     */
     if (!session) {
         window.location.replace("Login.html");
         return;
     }
 
+    /*
+     * Session bukan user → arahkan ke dashboard
+     * sesuai role-nya.
+     */
     if (session.role !== "user") {
+
+        if (session.role === "admin") {
+            window.location.replace("dasboard_adm.html");
+        } else {
+            sessionStorage.removeItem(SESSION_KEY);
+            localStorage.removeItem(SESSION_KEY);
+            window.location.replace("Login.html");
+        }
+
+        return;
+    }
+
+    /*
+     * Pastikan session memang authenticated.
+     */
+    if (session.authenticated !== true) {
+        sessionStorage.removeItem(SESSION_KEY);
+        localStorage.removeItem(SESSION_KEY);
         window.location.replace("Login.html");
         return;
     }
 
-    console.log("User berhasil masuk:", session.username);
+    console.log("USER LOGIN BERHASIL:", session.username);
 
+    /*
+     * Jalankan aplikasi dashboard
+     */
+    initializeApplication();
 });
 </script>
     
@@ -3719,24 +3761,7 @@ function initializeApplication() {
 
 initializeApplication();
 
- const savedUser =
-    sessionStorage.getItem("akuBisaUser") ||
-    localStorage.getItem("akuBisaUser");
-
-if (!savedUser) {
-    window.location.href = "Login.html";
-} else {
-    const user = JSON.parse(savedUser);
-
-    if (user.role !== "user") {
-        window.location.href = "Login.html";
-    }
-
-    console.log("User Login:", user);
-}
-
-  function logout() {
-
+function logout() {
     sessionStorage.removeItem("akuBisaAuthSession");
     localStorage.removeItem("akuBisaAuthSession");
 
