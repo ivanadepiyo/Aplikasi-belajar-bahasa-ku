@@ -7,8 +7,6 @@
     <meta name="theme-color" content="#1769e8">
     <title>AKU BISA | Masuk</title>
 
-    <link rel="stylesheet" href="assets/css/Login.css">
-
 <style>
 /* =========================================================
    AKU BISA — PREMIUM LOGIN
@@ -1476,14 +1474,14 @@ window.AUTH_CONFIG = AUTH_CONFIG;
 
     function logout() {
         clearSession();
-        window.location.replace("login.html");
+        window.location.replace("Login.html");
     }
 
     function requireAuth(requiredRole) {
         const session = readSession();
 
         if (!session) {
-            window.location.replace("login.html");
+            window.location.replace("Login.html");
             return null;
         }
 
