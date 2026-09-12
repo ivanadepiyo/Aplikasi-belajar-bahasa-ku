@@ -1,490 +1,2556 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AKU BISA - aplikasi kreatif untuk belajar berbagai bahasa dengan mudah, interaktif, dan menyenangkan.">
-  <title>AKU BISA — Belajar Bahasa Tanpa Batas</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKU BISA — Aplikasi Kreatif Untuk Bisa Semua Bahasa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   1. VARIABEL WARNA UTAMA
+   - Semua warna utama website disimpan di sini
+   - Jika ingin mengganti tema warna, edit bagian ini
+   ========================================================= */
+
+:root {
+    --blue: #1764d8;
+    --dark: #123b70;
+    --light: #eef7ff;
+    --text: #173b70;
+    --muted: #6480a6;
+    --white: #fff;
+    --line: #dcecff;
+}
 
 
-    <style>
+/* =========================================================
+   2. RESET & PENGATURAN DASAR
+   - Mengatur box sizing
+   - Menghilangkan margin dan padding bawaan
+   ========================================================= */
 
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,sans-serif;color:#10213f;background:#fff;line-height:1.6}.container{width:min(1160px,92%);margin:auto}a{text-decoration:none;color:inherit}.navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(15px);border-bottom:1px solid #e8eef7}.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:9px;font-weight:900;font-size:23px;line-height:1}.brand b{color:#1769e8}.brand small{display:block;color:#738097;font-size:7px;font-weight:500;margin-top:6px;letter-spacing:.1px}.brand-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#1769e8,#65b2ff);font-size:21px;box-shadow:0 7px 18px #1769e833}.nav-links{display:flex;gap:27px;align-items:center;font-size:13px;font-weight:650;color:#4f5e76}.nav-links a{padding:29px 0 25px;border-bottom:2px solid transparent}.nav-links a:hover,.nav-links .active{color:#1769e8;border-color:#1769e8}.nav-actions{display:flex;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:11px;padding:12px 20px;font-weight:750;font-size:13px;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:#1769e8;color:#fff;box-shadow:0 10px 24px #1769e833}.btn-outline{border:1px solid #1769e8;color:#1769e8;background:#fff}.btn-white{background:#fff;color:#1769e8}.btn-large{padding:15px 22px}.menu-btn{display:none;border:0;background:transparent;font-size:25px;color:#1769e8}.hero{position:relative;overflow:hidden;padding:70px 0 0;background:radial-gradient(circle at 88% 20%,#cde8ff 0,transparent 27%),linear-gradient(180deg,#f3f8ff 0,#fff 100%)}.hero-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:515px;gap:30px}.eyebrow{display:inline-block;padding:7px 13px;background:#e7f2ff;color:#1769e8;border-radius:30px;font-size:12px;font-weight:800;margin-bottom:18px}.hero h1{font-size:clamp(43px,5.2vw,66px);line-height:1.05;letter-spacing:-3px;margin:0 0 19px}.hero h1 span{color:#1769e8}.hero-copy>p{max-width:560px;color:#596982;font-size:15px;margin-bottom:25px}.hero-buttons{display:flex;gap:12px;flex-wrap:wrap}.btn-video{background:#fff;color:#263b5d;box-shadow:0 8px 22px #244a7d12}.learners{display:flex;align-items:center;gap:14px;margin-top:28px}.avatars{display:flex}.avatars span{width:33px;height:33px;background:#eaf2ff;border:2px solid white;border-radius:50%;display:grid;place-items:center;margin-left:-7px;font-size:17px}.avatars span:first-child{margin-left:0}.learners p{font-size:11px;color:#6c7890;line-height:1.45}.learners strong{color:#233a61}.hero-visual{height:490px;position:relative;display:grid;place-items:center}.globe{position:absolute;top:45px;font-size:240px;opacity:.12;filter:grayscale(1)}.student-card{width:410px;height:400px;border-radius:48% 48% 25% 25%;background:linear-gradient(180deg,#dcefff,#edf7ff);display:flex;align-items:end;justify-content:center;overflow:hidden;position:relative;box-shadow:inset 0 0 80px #fff}.students{display:flex;align-items:end;gap:0}.student{font-size:105px;filter:drop-shadow(0 8px 5px #56789c30);margin-left:-17px}.speech{position:absolute;background:#fff;border:1px solid #e5edf7;border-radius:13px;padding:9px 15px;color:#1769e8;font-size:14px;font-weight:800;box-shadow:0 12px 30px #24538d18;z-index:3}.speech small{display:block;font-size:9px;text-align:center;font-weight:600}.speech-1{top:75px;left:12px}.speech-2{top:75px;right:4px}.speech-3{bottom:115px;left:0}.speech-4{bottom:125px;right:-10px}.plane{position:absolute;right:15px;top:190px;color:#5daaff;font-size:25px;transform:rotate(15deg)}.feature-strip{position:relative;z-index:5;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:#fff;border:1px solid #e7edf6;border-radius:20px;box-shadow:0 16px 40px #1c4d8818;margin-top:-15px;transform:translateY(35px);overflow:hidden}.mini-feature{display:flex;align-items:center;gap:13px;padding:22px 20px;border-right:1px solid #edf1f7}.mini-feature:last-child{border:0}.mini-feature b{font-size:12px}.mini-feature p{font-size:10px;color:#6b7890;margin:4px 0 0;line-height:1.4}.feature-icon{width:45px;height:45px;border-radius:11px;display:grid;place-items:center;font-size:21px;flex:none}.blue{background:#e5f0ff}.purple{background:#eee6ff}.green{background:#e1f8ef}.orange{background:#fff0d8}.section{padding:100px 0}.languages{padding-top:140px}.section-heading{text-align:center;max-width:690px;margin:0 auto 42px}.section-heading span{color:#1769e8;font-size:11px;font-weight:900;letter-spacing:1px}.section-heading h2{font-size:36px;line-height:1.15;margin:9px 0 12px;letter-spacing:-1.3px}.section-heading strong{color:#1769e8}.section-heading p{color:#718096;font-size:14px}.language-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.language-card{border:1px solid #e4ebf5;background:#fff;border-radius:17px;padding:22px 10px;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;transition:.2s;box-shadow:0 8px 25px #2a568c08;color:#182c4d}.language-card:hover{transform:translateY(-6px);border-color:#9bc8ff;box-shadow:0 15px 30px #1769e81c}.language-card span{font-size:34px}.language-card b{font-size:12px}.language-card small{color:#8a95a6}.why{background:#f7fbff}.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.benefit-card{border-radius:20px;padding:32px 24px;text-align:center;min-height:235px;border:1px solid #edf1f6}.card-blue{background:#eef6ff}.card-green{background:#f0fbf6}.card-purple{background:#f7f1ff}.card-orange{background:#fff8ec}.big-icon{font-size:34px;margin-bottom:15px}.benefit-card h3{font-size:15px;margin:0 0 8px}.benefit-card p{font-size:12px;color:#68758a}.stats{background:#1769e8;color:#fff;padding:45px 0}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}.stats strong{display:block;font-size:35px}.stats span{font-size:12px;opacity:.85}.testimonials{background:#fff}.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.testimonial{border:1px solid #e5ebf4;border-radius:19px;padding:25px;box-shadow:0 10px 30px #234c7d0a}.stars{color:#ffae28;letter-spacing:2px;font-size:14px}.testimonial>p{font-size:13px;color:#5c6b81;min-height:75px}.person{display:flex;align-items:center;gap:10px;font-size:27px;border-top:1px solid #edf1f6;padding-top:14px}.person span{font-size:12px}.person b,.person small{display:block}.person small{color:#8792a3;font-size:10px}.cta{padding:25px 0 95px}.cta-box{border-radius:25px;padding:45px 55px;background:linear-gradient(120deg,#1262df,#368cf1);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:25px;box-shadow:0 18px 40px #1769e830}.cta-box span{font-size:10px;font-weight:900;letter-spacing:1px}.cta-box h2{font-size:31px;margin:7px 0}.cta-box p{margin:0;opacity:.82;font-size:13px}.faq-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}.section-heading.left{text-align:left;margin:0}.faq-list{display:grid;gap:11px}.faq-list details{border:1px solid #e4ebf4;border-radius:13px;padding:17px 19px;background:#fff}.faq-list summary{font-size:13px;font-weight:750;cursor:pointer;list-style:none}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary:after{content:"+";float:right;color:#1769e8;font-size:18px}.faq-list details[open] summary:after{content:"−"}.faq-list p{font-size:12px;color:#68768b;margin:12px 0 0}footer{border-top:1px solid #e7edf5;padding:28px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center}.footer-inner p{font-size:10px;color:#8a94a4}.modal{position:fixed;inset:0;background:#07182dcc;display:none;place-items:center;z-index:200;padding:20px}.modal.show{display:grid}.modal-box{width:min(500px,100%);background:#fff;border-radius:25px;padding:45px;text-align:center;position:relative}.close-modal{position:absolute;right:17px;top:12px;border:0;background:none;font-size:27px;cursor:pointer}.play-circle{width:65px;height:65px;border-radius:50%;display:grid;place-items:center;background:#e7f2ff;color:#1769e8;margin:auto;font-size:22px}.modal-box h2{margin:18px 0 8px}.modal-box p{color:#718096;font-size:13px}.reveal{opacity:0;transform:translateY(22px);transition:.7s ease}.reveal.visible{opacity:1;transform:none}.hero-decoration{position:absolute;border:1px dashed #9dcbff;border-radius:50%}.decor-1{width:350px;height:350px;right:-190px;top:90px}.decor-2{width:170px;height:170px;left:-95px;bottom:120px}@media(max-width:1000px){.nav-links{gap:15px}.hero-grid{grid-template-columns:1fr}.hero-copy{text-align:center}.hero-copy>p{margin-left:auto;margin-right:auto}.hero-buttons,.learners{justify-content:center}.hero-visual{height:420px}.feature-strip{grid-template-columns:repeat(2,1fr)}.mini-feature:nth-child(2){border-right:0}.mini-feature:nth-child(-n+2){border-bottom:1px solid #edf1f7}.language-grid{grid-template-columns:repeat(3,1fr)}.benefit-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.nav-links,.nav-actions{display:none}.menu-btn{display:block}.nav-links.open{display:flex;position:absolute;top:78px;left:0;right:0;background:white;flex-direction:column;padding:20px;gap:0;border-bottom:1px solid #e5ebf4;box-shadow:0 15px 25px #153c6b15}.nav-links.open a{padding:12px}.hero{padding-top:45px}.hero h1{font-size:43px;letter-spacing:-2px}.hero-visual{height:350px}.student-card{width:310px;height:310px}.student{font-size:78px}.speech{font-size:11px}.feature-strip{grid-template-columns:1fr;transform:none;margin-top:15px}.mini-feature{border-right:0!important;border-bottom:1px solid #edf1f7!important}.mini-feature:last-child{border:0!important}.languages{padding-top:80px}.language-grid{grid-template-columns:repeat(2,1fr)}.benefit-grid,.testimonial-grid,.stats-grid{grid-template-columns:1fr 1fr}.faq-wrap{grid-template-columns:1fr;gap:30px}.cta-box{padding:32px;flex-direction:column;text-align:center}.footer-inner{flex-direction:column;gap:15px;text-align:center}}@media(max-width:480px){.hero h1{font-size:38px}.hero-visual{height:300px}.student-card{width:270px;height:270px}.student{font-size:66px}.speech-1{left:-5px}.speech-2{right:-8px}.speech-3{left:-8px;bottom:55px}.speech-4{right:-8px;bottom:65px}.benefit-grid,.testimonial-grid,.stats-grid{grid-template-columns:1fr}.section-heading h2{font-size:29px}}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    </style>
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    color: var(--text);
+    background: #f8fcff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border: 0;
+}
+
+
+/* =========================================================
+   3. CONTAINER
+   - Mengatur lebar maksimal isi website
+   ========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   4. HEADER & NAVIGASI
+   - Header sticky
+   - Logo
+   - Menu navigasi
+   - Tombol navigasi
+   ========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid #e8f2ff;
+}
+
+.nav {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 24px;
+    color: var(--dark);
+}
+
+.logo i {
+    font-size: 32px;
+    color: var(--blue);
+}
+
+.logo small {
+    display: block;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--muted);
+    line-height: 1.2;
+}
+
+
+/* MENU NAVIGASI */
+
+.navlinks {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navlinks a {
+    padding: 27px 0;
+    position: relative;
+}
+
+.navlinks a.active,
+.navlinks a:hover {
+    color: var(--blue);
+}
+
+.navlinks a.active:after {
+    content: "";
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--blue);
+    border-radius: 10px;
+}
+
+
+/* TOMBOL HEADER */
+
+.actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 10px 22px #1764d832;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background: #0f54bd;
+}
+
+.btn-outline {
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    background: #fff;
+}
+
+.btn-outline:hover {
+    background: #edf5ff;
+}
+
+
+/* TOMBOL MENU MOBILE */
+
+.menu {
+    display: none;
+    background: none;
+    color: var(--dark);
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   5. HERO / HALAMAN UTAMA
+   - Background hero
+   - Grid hero
+   - Badge
+   - Judul
+   - Tombol
+   - Informasi cepat
+   ========================================================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #f7fcff, #e9f5ff);
+    padding: 75px 0 55px;
+}
+
+.hero:before,
+.hero:after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: #d8ecff;
+    opacity: .55;
+    z-index: 0;
+}
+
+.hero:before {
+    width: 380px;
+    height: 380px;
+    right: -130px;
+    top: -120px;
+}
+
+.hero:after {
+    width: 230px;
+    height: 230px;
+    left: -100px;
+    bottom: -100px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* BADGE */
+
+.badge {
+    display: inline-flex;
+    gap: 8px;
+    background: #dceeff;
+    color: var(--blue);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+
+/* JUDUL HERO */
+
+h1 {
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--dark);
+}
+
+h1 span {
+    color: var(--blue);
+}
+
+.hero h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 12px 0 15px;
+}
+
+.hero p {
+    color: #58749b;
+    max-width: 550px;
+    font-size: 15px;
+}
+
+
+/* TOMBOL HERO */
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    margin: 28px 0 35px;
+    flex-wrap: wrap;
+}
+
+
+/* INFORMASI CEPAT */
+
+.quick-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.quick-info div {
+    border-right: 1px solid #c9e0f7;
+    padding-right: 12px;
+}
+
+.quick-info div:last-child {
+    border: 0;
+}
+
+.quick-info i {
+    color: var(--blue);
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.quick-info strong {
+    display: block;
+    font-size: 13px;
+}
+
+.quick-info small {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   6. HERO IMAGE / VISUAL
+   - Lingkaran background
+   - Gambar utama
+   - Label bahasa
+   ========================================================= */
+
+.hero-visual {
+    position: relative;
+    min-height: 480px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Lingkaran biru di belakang gambar */
+.hero-visual::before {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d9edff, #a8d3ff);
+    top: 35px;
+}
+
+/* Gambar utama */
+.hero-visual img {
+    position: relative;
+    z-index: 2;
+
+    width: min(78%, 438px);
+    aspect-ratio: 1 / 1;
+    height: auto;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+
+    box-shadow: 0 25px 50px #1c5da52b;
+}
+
+/* LABEL BAHASA */
+
+.language-tag {
+    position: absolute;
+    z-index: 3;
+    background: #fff;
+    padding: 10px 18px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px #1764d326;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.t1 {
+    top: 70px;
+    left: 5%;
+}
+
+.t2 {
+    top: 145px;
+    right: 0;
+}
+
+.t3 {
+    top: 230px;
+    left: 0;
+}
+
+.t4 {
+    top: 300px;
+    right: 2%;
+}
+
+.t5 {
+    bottom: 75px;
+    left: 8%;
+}
+/* =========================================================
+   LEARNERS / SOCIAL PROOF
+   - Avatar pelajar
+   - Jumlah pengguna
+   ========================================================= */
+
+.learners {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-top: 28px;
+}
+
+/* =========================================================
+   AVATAR
+   ========================================================= */
+
+.avatars {
+    display: flex;
+    align-items: center;
+}
+
+/* Lingkaran setiap avatar */
+.avatars span {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eef6ff;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+
+    font-size: 25px;
+    line-height: 1;
+
+    box-shadow: 0 4px 12px rgba(23, 100, 216, 0.10);
+
+    /* Membuat avatar sedikit bertumpuk */
+    margin-left: -8px;
+
+    position: relative;
+}
+
+/* Avatar pertama tidak bergeser */
+.avatars span:first-child {
+    margin-left: 0;
+}
+
+/* =========================================================
+   TEKS LEARNERS
+   ========================================================= */
+
+.learners p {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.3;
+}
+
+.learners p strong {
+    font-size: 17px;
+    font-weight: 700;
+    color: #153b63;
+}
+
+.learners p br {
+    display: none;
+}
+
+.learners p {
+    font-size: 15px;
+    color: #71839a;
+}
+
+.learners p strong {
+    margin-bottom: 3px;
+}
+
+/* =========================================================
+   7. SECTION UMUM
+   - Digunakan untuk berbagai section halaman
+   ========================================================= */
+
+.section {
+    padding: 85px 0;
+    position: relative;
+}
+
+.section.alt {
+    background: linear-gradient(180deg, #f0f8ff, #fff);
+}
+
+.section-head {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 42px;
+}
+
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    color: var(--blue);
+    font-weight: 700;
+}
+
+.section h2 {
+    font-size: 34px;
+    line-height: 1.25;
+    color: var(--dark);
+    margin: 8px 0 12px;
+}
+
+.section-head p,
+.about-text p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   8. FITUR UNGGULAN
+   - Layout bagian fitur
+   - Kartu fitur
+   - Icon fitur
+   ========================================================= */
+
+.feature-layout {
+    display: grid;
+    grid-template-columns: .8fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.feature-intro h2 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 10px 0 18px;
+}
+
+.feature-intro p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e3effc;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 25px #245b9510;
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px #245b9520;
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: #e4f1ff;
+    color: var(--blue);
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   9. PILIHAN BAHASA
+   ========================================================= */
+
+.languages {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.lang {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 10px;
+    text-align: center;
+    transition: .25s;
+}
+
+.lang:hover {
+    transform: translateY(-5px);
+    border-color: #8dbfff;
+}
+
+.flag {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.lang strong {
+    display: block;
+    font-size: 13px;
+}
+
+.lang small {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   10. CARA BELAJAR / STEPS
+   ========================================================= */
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    position: relative;
+}
+
+.step {
+    text-align: center;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 25px 18px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+
+.step h3 {
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.step p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   11. TESTIMONI
+   ========================================================= */
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.testimonial {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.stars {
+    color: #ffb400;
+    margin-bottom: 15px;
+}
+
+.testimonial p {
+    font-size: 13px;
+    color: #58749b;
+    font-style: italic;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user strong {
+    display: block;
+    font-size: 13px;
+}
+
+.user small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   12. TENTANG AKU BISA
+   ========================================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-image {
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: 0 20px 40px #1764d21c;
+}
+
+.about-text h2 {
+    font-size: 34px;
+    line-height: 1.25;
+    margin: 10px 0 15px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.value i {
+    color: var(--blue);
+    font-size: 24px;
+}
+
+.value strong {
+    display: block;
+    font-size: 13px;
+}
+
+.value small {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   13. ARTIKEL
+   ========================================================= */
+
+.articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.article {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 8px 25px #245b9510;
+}
+
+.article img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 20px;
+}
+
+.article-content small {
+    color: var(--blue);
+    font-size: 11px;
+}
+
+.article h3 {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.article p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   14. APP / MOBILE BANNER
+   ========================================================= */
+
+.app-banner {
+    background: linear-gradient(110deg, #1451aa, #2180ed);
+    color: #fff;
+    border-radius: 30px;
+    padding: 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.app-banner h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    margin: 10px 0;
+}
+
+.app-banner p {
+    font-size: 13px;
+    opacity: .85;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.store {
+    background: #fff;
+    color: var(--dark);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.app-image {
+    width: 230px;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(0 20px 20px #002b693d);
+}
+
+
+/* =========================================================
+   15. FAQ
+   - Pertanyaan
+   - Jawaban
+   - Animasi buka/tutup
+   ========================================================= */
+
+.faq {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background: #fff;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 22px 18px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+.faq-item.open .faq-question i {
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   16. FOOTER
+   - Background footer
+   - Kolom informasi
+   - Social media
+   - Copyright
+   ========================================================= */
+
+footer {
+    background: #0e3568;
+    color: #fff;
+    padding: 65px 0 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 35px;
+}
+
+/* =========================================================
+   PEMISAH ANTAR KOLOM FOOTER
+   ========================================================= */
+
+.footer-grid > div:not(:first-child) {
+    position: relative;
+    padding-left: 35px;
+}
+
+
+/* Garis vertikal antar kolom */
+
+.footer-grid > div:not(:first-child)::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.footer-brand p {
+    font-size: 12px;
+    color: #b8d0ee;
+    margin: 18px 0;
+}
+
+.footer-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.footer-links {
+    display: grid;
+    gap: 9px;
+}
+
+.footer-links a,
+.footer-contact li {
+    font-size: 12px;
+    color: #b8d0ee;
+
+}
+
+.footer-contact {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+/* =========================================================
+   FOOTER LINKS INTERACTION
+   - Efek kotak saat hover
+   ========================================================= */
+
+.footer-links a {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+
+    padding: 7px 12px;
+    margin-left: -12px;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Saat mouse diarahkan */
+.footer-links a:hover {
+    color: #ffffff;
+    background: rgba(61, 145, 255, 0.18);
+
+    transform: translateX(5px);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Saat link ditekan */
+.footer-links a:active {
+    transform: translateX(5px) scale(0.97);
+}
+
+/* SOCIAL MEDIA */
+
+.social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social a {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #6b94c4;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 13px;
+}
+
+/* =========================================================
+   SOCIAL MEDIA INTERACTION
+   - Efek saat hover
+   - Efek saat tombol ditekan
+   - Efek lingkaran pada icon
+   ========================================================= */
+
+.social a {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Saat mouse diarahkan ke icon */
+.social a:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: #1976e8;
+    border-color: #1976e8;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Saat icon ditekan */
+.social a:active {
+    transform: scale(0.90);
+}
+
+/* Efek fokus keyboard */
+.social a:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.35);
+    outline-offset: 3px;
+}
+
+/* COPYRIGHT */
+
+.copyright {
+    border-top: 1px solid #31598b;
+    margin-top: 40px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #9bb8da;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   17. ANIMASI REVEAL
+   - Elemen awalnya tidak terlihat
+   - Class "show" diberikan oleh JavaScript
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* =========================================================
+   18. RESPONSIVE TABLET
+   - Aktif ketika ukuran layar maksimal 950px
+   ========================================================= */
+
+@media(max-width:950px) {
+
+    .navlinks {
+        gap: 15px;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .app-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        text-align: center;
+    }
+
+    .hero p {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .quick-info {
+        text-align: left;
+    }
+
+    .hero-visual {
+        min-height: 420px;
+    }
+
+    .feature-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-intro {
+        text-align: center;
+    }
+
+    .feature-intro p {
+        max-width: 600px;
+        margin: 0 auto 25px;
+    }
+
+}
+
+
+/* =========================================================
+   19. RESPONSIVE MOBILE
+   - Aktif ketika ukuran layar maksimal 700px
+   - Mengatur tampilan HP
+   ========================================================= */
+
+@media(max-width:700px) {
+
+    .nav {
+        height: 68px;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .navlinks {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 15px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 15px 25px #123b7015;
+    }
+
+    .navlinks.open {
+        display: flex;
+    }
+
+    .navlinks a {
+        padding: 10px 0;
+    }
+
+    .navlinks a.active:after {
+        bottom: 0;
+    }
+
+    .actions .btn-outline {
+        display: none;
+    }
+
+
+    /* HERO MOBILE */
+
+    h1 {
+        font-size: 45px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .hero-visual {
+        min-height: 350px;
+    }
+
+    .hero-visual:before {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-visual img {
+        width: 75%;
+        max-height: 350px;
+    }
+
+
+    /* INFORMASI CEPAT MOBILE */
+
+    .quick-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-info div:nth-child(2) {
+        border: 0;
+    }
+
+
+    /* KARTU MOBILE */
+
+    .cards,
+    .testimonials,
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* BAHASA MOBILE */
+
+    .languages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* LANGKAH BELAJAR MOBILE */
+
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* SECTION MOBILE */
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2,
+    .feature-intro h2,
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+
+    /* APP BANNER MOBILE */
+
+    .app-banner {
+        padding: 30px 22px;
+    }
+
+    .app-banner h2 {
+        font-size: 26px;
+    }
+
+
+    /* FOOTER MOBILE */
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .copyright {
+        display: block;
+    }
+
+    .copyright span {
+        display: block;
+        margin-top: 8px;
+    }
+
+}
+
+</style>
 
 </head>
 
-
 <body>
 
-<header class="navbar" id="navbar">
-  <div class="container nav-inner">
-    <a class="brand" href="#beranda" aria-label="AKU BISA">
-      <span class="brand-icon">🎓</span>
-      <span>AKU <b>BISA</b><small>Aplikasi Kreatif Untuk Bisa Semua Bahasa</small></span>
-    </a>
+<!-- =========================================================
+     HEADER / NAVIGASI UTAMA
+     - Logo AKU BISA
+     - Menu navigasi
+     - Tombol Masuk, Daftar, dan menu mobile
+     ========================================================= -->
 
-    <nav class="nav-links" id="navLinks">
-      <a class="active" href="#beranda">Beranda</a>
-      <a href="#fitur">Fitur</a>
-      <a href="#bahasa">Bahasa</a>
-      <a href="#keunggulan">Keunggulan</a>
-      <a href="#testimoni">Testimoni</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+<header>
 
-    <div class="nav-actions">
-      <a class="btn btn-outline" href="Login.html">↪ Masuk</a>
-      <a class="btn btn-primary" href="register.html">Daftar Sekarang</a>
+    <div class="container nav">
+
+        <!-- LOGO -->
+        <a href="#home" class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>
+                AKU BISA
+                <small>Aplikasi Kreatif Untuk Bisa Semua Bahasa</small>
+            </span>
+        </a>
+
+        <!-- MENU NAVIGASI -->
+        <nav class="navlinks" id="navLinks">
+            <a class="active" href="#home">Beranda</a>
+            <a href="#fitur">Fitur</a>
+            <a href="#bahasa">Bahasa</a>
+            <a href="#cara">Cara Belajar</a>
+            <a href="#tentang">Tentang</a>
+            <a href="#testimoni">Testimoni</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+
+        <!-- TOMBOL AKSI -->
+        <div class="actions">
+            <button
+                class="btn btn-outline"
+                href="Login.html">
+		↪ Masuk
+                
+            </button>
+
+            <button
+                class="btn btn-primary"
+                href="register.html">
+                Daftar Sekarang
+            </button>
+
+            <button class="menu" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
     </div>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
-  </div>
 </header>
 
+
+<!-- =========================================================
+     MAIN CONTENT
+     Semua bagian utama halaman berada di dalam <main>
+     ========================================================= -->
+
 <main>
-  <section class="hero" id="beranda">
-    <div class="hero-decoration decor-1"></div>
-    <div class="hero-decoration decor-2"></div>
-    <div class="container hero-grid">
 
-      <div class="hero-copy reveal">
-        <div class="eyebrow">✨ Belajar Bahasa Jadi Lebih Mudah & Seru</div>
-        <h1>Belajar Bahasa<br>Tanpa Batas,<br><span>Raih Dunia!</span></h1>
-        <p>AKU BISA membantu kamu belajar berbagai bahasa dengan cara yang interaktif, efektif, dan menyenangkan.</p>
 
-        <div class="hero-buttons">
-          <a class="btn btn-primary btn-large" href="register.html">Mulai Belajar Sekarang <span>→</span></a>
-          <button class="btn btn-video btn-large" id="videoBtn">▶ &nbsp; Lihat Video</button>
+    <!-- =====================================================
+         1. HERO / HALAMAN UTAMA
+         - Judul utama
+         - Deskripsi
+         - Tombol aksi
+         - Informasi singkat
+         - Gambar utama
+         ===================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <!-- KONTEN HERO -->
+            <div class="reveal">
+
+                <div class="badge">
+                    <i class="fa-solid fa-sparkles"></i>
+                    Belajar Bahasa, Raih Masa Depan
+                </div>
+
+                <h1>
+                    AKU <span>BISA</span>
+                </h1>
+
+                <h2>
+                    Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                </h2>
+
+                <p>
+                    Tingkatkan kemampuan bahasa Anda dengan cara yang
+                    menyenangkan, interaktif, dan mudah diakses kapan saja
+                    dan di mana saja.
+                </p>
+
+                <!-- TOMBOL HERO -->
+                <div class="hero-buttons">
+
+                    <a class="btn btn-primary" href="#cara">
+                        Mulai Sekarang
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <button
+                        class="btn btn-outline"
+                        onclick="showMessage('Video pengenalan AKU BISA akan segera tersedia.')">
+                        <i class="fa-solid fa-play"></i>
+                        Tonton Video
+                    </button>
+
+
+<div class="learners">
+    <div class="avatars">
+        <span>👩🏻</span>
+        <span>👨🏻</span>
+        <span>👩🏼</span>
+        <span>👨🏽</span>
+        <span>👩🏾</span>
+    </div>
+
+    <p>
+        <strong>10.000+</strong><br>
+        pelajar dari seluruh Indonesia
+    </p>
+</div>
+
+                </div>
+
+                <!-- INFORMASI CEPAT -->
+                <div class="quick-info">
+
+                    <div>
+                        <i class="fa-solid fa-globe"></i>
+                        <strong>10+ Bahasa</strong>
+                        <small>Bahasa populer dunia</small>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-book-open"></i>
+                        <strong>Materi Lengkap</strong>
+                        <small>Dari dasar hingga mahir</small>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <strong>Akses Fleksibel</strong>
+                        <small>HP, tablet, komputer</small>
+                    </div>
+
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <strong>Metode Interaktif</strong>
+                        <small>Belajar lebih menyenangkan</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISUAL HERO -->
+            <div class="hero-visual reveal">
+
+                <!-- LABEL BAHASA -->
+                <span class="language-tag t1">🇬🇧 English</span>
+                <span class="language-tag t2">🇪🇸 Español</span>
+                <span class="language-tag t3">🇯🇵 日本語</span>
+                <span class="language-tag t4">🇩🇪 Deutsch</span>
+                <span class="language-tag t5">🇸🇦 العربية</span>
+
+                <!-- GAMBAR HERO -->
+                <img
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=85"
+                    alt="Pelajar AKU BISA">
+
+            </div>
+
         </div>
 
-        <div class="learners">
-          <div class="avatars">
-            <span>👩🏻</span><span>👨🏻</span><span>👩🏼</span><span>👨🏽</span><span>👩🏾</span>
-          </div>
-          <p><strong>10.000+</strong><br>pelajar dari seluruh Indonesia</p>
+    </section>
+
+
+    <!-- =====================================================
+         2. FITUR UNGGULAN
+         - Penjelasan fitur
+         - Kartu-kartu fitur
+         ===================================================== -->
+
+    <section class="section" id="fitur">
+
+        <div class="container">
+
+            <div class="feature-layout">
+
+                <!-- PENJELASAN FITUR -->
+                <div class="feature-intro reveal">
+
+                    <div class="kicker">
+                        Fitur Unggulan
+                    </div>
+
+                    <h2>
+                        Kenapa Memilih
+                        <span style="color:var(--blue)">AKU BISA?</span>
+                    </h2>
+
+                    <p>
+                        Kami menghadirkan pengalaman belajar bahasa yang
+                        modern, interaktif, dan disesuaikan dengan kebutuhan Anda.
+                    </p>
+
+                    <a class="btn btn-primary" href="#bahasa">
+                        Lihat Semua Fitur
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <!-- KARTU FITUR -->
+                <div class="cards reveal">
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <h3>Kursus Bahasa Lengkap</h3>
+                        <p>
+                            Materi terstruktur dari pemula hingga tingkat mahir.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3>Latihan Interaktif</h3>
+                        <p>
+                            Soal, kuis, dan simulasi percakapan nyata.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3>Akses Fleksibel</h3>
+                        <p>
+                            Belajar kapan saja melalui berbagai perangkat.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3>Tutor Profesional</h3>
+                        <p>
+                            Dibimbing oleh pengajar berpengalaman.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <h3>Progress Tracking</h3>
+                        <p>
+                            Pantau perkembangan belajar Anda.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+                        <h3>Sertifikat</h3>
+                        <p>
+                            Dapatkan sertifikat setelah menyelesaikan kursus.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
 
-      <div class="hero-visual reveal">
-        <div class="globe">🌎</div>
-        <div class="speech speech-1">Hello!<small>(Inggris)</small></div>
-        <div class="speech speech-2">こんにちは!<small>(Jepang)</small></div>
-        <div class="speech speech-3">안녕하세요!<small>(Korea)</small></div>
-        <div class="speech speech-4">¡Hola!<small>(Spanyol)</small></div>
+    </section>
 
-        <div class="student-card">
-          <div class="students">
-            <div class="student">👩🏻‍🎓</div>
-            <div class="student">👨🏻‍🎓</div>
-            <div class="student">👩🏻‍🏫</div>
-            <div class="student">👨🏽‍🎓</div>
-          </div>
+
+    <!-- =====================================================
+         3. PILIHAN BAHASA
+         - Daftar bahasa yang tersedia
+         ===================================================== -->
+
+    <section class="section alt" id="bahasa">
+
+        <div class="container">
+
+            <!-- JUDUL SECTION -->
+            <div class="section-head reveal">
+
+                <div class="kicker">
+                    Pilihan Bahasa
+                </div>
+
+                <h2>
+                    Bahasa yang Tersedia
+                </h2>
+
+                <p>
+                    Jelajahi berbagai bahasa dunia dan buka lebih banyak
+                    peluang untuk masa depan Anda.
+                </p>
+
+            </div>
+
+
+            <!-- DAFTAR BAHASA -->
+            <div class="languages reveal">
+
+                <div class="lang">
+                    <div class="flag">🇬🇧</div>
+                    <strong>Inggris</strong>
+                    <small>English</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇯🇵</div>
+                    <strong>Jepang</strong>
+                    <small>日本語</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇰🇷</div>
+                    <strong>Korea</strong>
+                    <small>한국어</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇸🇦</div>
+                    <strong>Arab</strong>
+                    <small>العربية</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇪🇸</div>
+                    <strong>Spanyol</strong>
+                    <small>Español</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇩🇪</div>
+                    <strong>Jerman</strong>
+                    <small>Deutsch</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇫🇷</div>
+                    <strong>Prancis</strong>
+                    <small>Français</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇨🇳</div>
+                    <strong>Mandarin</strong>
+                    <small>中文</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇷🇺</div>
+                    <strong>Rusia</strong>
+                    <small>Русский</small>
+                </div>
+
+                <div class="lang">
+                    <div class="flag">🇮🇹</div>
+                    <strong>Italia</strong>
+                    <small>Italiano</small>
+                </div>
+
+            </div>
+
         </div>
-        <div class="plane">✈</div>
-      </div>
-    </div>
 
-    <div class="container feature-strip" id="fitur">
-      <article class="mini-feature">
-        <div class="feature-icon blue">📖</div>
-        <div><b>Banyak Pilihan Bahasa</b><p>Belajar berbagai bahasa populer dunia</p></div>
-      </article>
-      <article class="mini-feature">
-        <div class="feature-icon purple">📈</div>
-        <div><b>Metode Interaktif</b><p>Video, kuis, latihan & praktik</p></div>
-      </article>
-      <article class="mini-feature">
-        <div class="feature-icon green">🏆</div>
-        <div><b>Pantau Progress</b><p>Lihat perkembangan belajarmu</p></div>
-      </article>
-      <article class="mini-feature">
-        <div class="feature-icon orange">⭐</div>
-        <div><b>Sertifikat</b><p>Apresiasi untuk setiap pencapaian</p></div>
-      </article>
-    </div>
-  </section>
+    </section>
 
-  <section class="languages section" id="bahasa">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span>🌍 PILIH BAHASAMU</span>
-        <h2>Satu Aplikasi, <strong>Banyak Bahasa</strong></h2>
-        <p>Mulai dari bahasa yang paling kamu butuhkan untuk sekolah, pekerjaan, perjalanan, atau masa depan.</p>
-      </div>
-      <div class="language-grid">
-        <button class="language-card reveal"><span>🇯🇵</span><b>Bahasa Jepang</b><small>日本語</small></button>
-        <button class="language-card reveal"><span>🇬🇧</span><b>Bahasa Inggris</b><small>English</small></button>
-        <button class="language-card reveal"><span>🇰🇷</span><b>Bahasa Korea</b><small>한국어</small></button>
-        <button class="language-card reveal"><span>🇪🇸</span><b>Bahasa Spanyol</b><small>Español</small></button>
-        <button class="language-card reveal"><span>🇩🇪</span><b>Bahasa Jerman</b><small>Deutsch</small></button>
-        <button class="language-card reveal"><span>🇨🇳</span><b>Bahasa Mandarin</b><small>中文</small></button>
-      </div>
-    </div>
-  </section>
 
-  <section class="why section" id="keunggulan">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span>💙 KENAPA AKU BISA?</span>
-        <h2>Belajar Lebih <strong>Terarah & Menyenangkan</strong></h2>
-        <p>Kami merancang pengalaman belajar yang sederhana untuk pemula sekaligus menarik untuk terus berkembang.</p>
-      </div>
-      <div class="benefit-grid">
-        <article class="benefit-card card-blue reveal"><div class="big-icon">🎯</div><h3>Fokus & Terstruktur</h3><p>Materi disusun secara sistematis dari dasar hingga mahir.</p></article>
-        <article class="benefit-card card-green reveal"><div class="big-icon">🎮</div><h3>Belajar Jadi Menyenangkan</h3><p>Gamifikasi, kuis, dan tantangan membuat belajar tidak membosankan.</p></article>
-        <article class="benefit-card card-purple reveal"><div class="big-icon">💬</div><h3>Praktik Langsung</h3><p>Latihan speaking, listening, dan percakapan sehari-hari.</p></article>
-        <article class="benefit-card card-orange reveal"><div class="big-icon">👥</div><h3>Komunitas Aktif</h3><p>Terhubung dengan sesama pelajar dan saling berkembang.</p></article>
-      </div>
-    </div>
-  </section>
+    <!-- =====================================================
+         4. CARA BELAJAR
+         - Langkah 1 sampai 4
+         ===================================================== -->
 
-  <section class="stats">
-    <div class="container stats-grid">
-      <div><strong data-count="10000">0</strong><span>Pelajar Aktif</span></div>
-      <div><strong data-count="6">0</strong><span>Bahasa Pilihan</span></div>
-      <div><strong data-count="500">0</strong><span>Materi Pembelajaran</span></div>
-      <div><strong data-count="98">0</strong><span>% Kepuasan</span></div>
-    </div>
-  </section>
+    <section class="section" id="cara">
 
-  <section class="testimonials section" id="testimoni">
-    <div class="container">
-      <div class="section-heading reveal">
-        <span>💬 CERITA MEREKA</span>
-        <h2>Apa Kata <strong>Para Pelajar?</strong></h2>
-      </div>
-      <div class="testimonial-grid">
-        <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Belajarnya terasa lebih ringan karena materinya bertahap dan banyak latihan.”</p><div class="person">👨🏻 <span><b>Rizky</b><small>Pelajar</small></span></div></article>
-        <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Saya suka bagian kuisnya. Bisa langsung tahu bagian mana yang harus dipelajari lagi.”</p><div class="person">👩🏻 <span><b>Putri</b><small>Mahasiswa</small></span></div></article>
-        <article class="testimonial reveal"><div class="stars">★★★★★</div><p>“Tampilan aplikasinya sederhana, jadi mudah digunakan bahkan saat baru mulai belajar.”</p><div class="person">👨🏽 <span><b>Andi</b><small>Pekerja</small></span></div></article>
-      </div>
-    </div>
-  </section>
+        <div class="container">
 
-  <section class="cta">
-    <div class="container cta-box reveal">
-      <div><span>🚀 WAKTUNYA MULAI</span><h2>Siap Menguasai Bahasa Baru?</h2><p>Mulai perjalanan belajarmu bersama AKU BISA hari ini.</p></div>
-      <a class="btn btn-white btn-large" href="register.html">Daftar Gratis <span>→</span></a>
-    </div>
-  </section>
+            <div class="section-head reveal">
 
-  <section class="faq section" id="faq">
-    <div class="container faq-wrap">
-      <div class="section-heading left reveal"><span>❓ FAQ</span><h2>Pertanyaan yang <strong>Sering Ditanyakan</strong></h2></div>
-      <div class="faq-list">
-        <details class="reveal"><summary>Apakah AKU BISA cocok untuk pemula?</summary><p>Ya. Materi dapat dimulai dari tingkat dasar dan berkembang secara bertahap.</p></details>
-        <details class="reveal"><summary>Apakah saya bisa belajar lewat HP?</summary><p>Ya. Tampilan dirancang responsif sehingga dapat digunakan di HP, tablet, maupun komputer.</p></details>
-        <details class="reveal"><summary>Apakah tersedia latihan dan kuis?</summary><p>Ya. Konsep halaman ini menyediakan latihan, kuis, progress belajar, dan fitur pencapaian.</p></details>
-      </div>
-    </div>
-  </section>
+                <div class="kicker">
+                    Mudah, Praktis, Menyenangkan
+                </div>
+
+                <h2>
+                    Cara Belajar di AKU BISA
+                </h2>
+
+                <p>
+                    Hanya dalam beberapa langkah, Anda sudah bisa mulai
+                    menguasai bahasa impian.
+                </p>
+
+            </div>
+
+
+            <!-- LANGKAH BELAJAR -->
+            <div class="steps reveal">
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Daftar Akun</h3>
+                    <p>Buat akun gratis dengan mudah.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Pilih Bahasa</h3>
+                    <p>Tentukan bahasa yang ingin dipelajari.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Mulai Belajar</h3>
+                    <p>Akses materi, latihan, dan kuis interaktif.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Raih Kemajuan</h3>
+                    <p>Dapatkan sertifikat dan tingkatkan kemampuan.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         5. TESTIMONI PENGGUNA
+         - Menampilkan pengalaman pengguna
+         ===================================================== -->
+
+    <section class="section alt" id="testimoni">
+
+        <div class="container">
+
+            <div class="section-head reveal">
+
+                <div class="kicker">
+                    Apa Kata Mereka?
+                </div>
+
+                <h2>
+                    Pengalaman Nyata Pengguna AKU BISA
+                </h2>
+
+                <p>
+                    Ribuan pengguna telah merasakan manfaat belajar bahasa
+                    bersama kami.
+                </p>
+
+            </div>
+
+
+            <!-- KARTU TESTIMONI -->
+            <div class="testimonials reveal">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “Materinya sangat lengkap dan mudah dipahami.
+                        Sekarang saya lebih percaya diri berbicara bahasa Inggris!”
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/100?img=47">
+
+                        <div>
+                            <strong>Aisyah Nurhaliza</strong>
+                            <small>Mahasiswa</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “Fitur interaktifnya keren banget! Belajar jadi
+                        tidak membosankan sama sekali.”
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/100?img=12">
+
+                        <div>
+                            <strong>Rizky Pratama</strong>
+                            <small>Pelajar</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “Aksesnya fleksibel, bisa belajar di mana saja.
+                        Sangat membantu untuk persiapan kerja.”
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            class="avatar"
+                            src="https://i.pravatar.cc/100?img=32">
+
+                        <div>
+                            <strong>Siti Rahmawati</strong>
+                            <small>Profesional</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         6. TENTANG AKU BISA
+         - Penjelasan platform
+         - Visi
+         - Misi
+         - Nilai
+         ===================================================== -->
+
+    <section class="section" id="tentang">
+
+        <div class="container about-grid">
+
+            <!-- GAMBAR TENTANG -->
+            <img
+                class="about-image reveal"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
+                alt="Tentang AKU BISA">
+
+
+            <!-- INFORMASI TENTANG -->
+            <div class="about-text reveal">
+
+                <div class="kicker">
+                    Tentang Kami
+                </div>
+
+                <h2>
+                    Kami Hadir untuk Mewujudkan Mimpi Anda
+                </h2>
+
+                <p>
+                    AKU BISA adalah platform pembelajaran bahasa yang dirancang
+                    untuk membantu setiap orang, dari pelajar, mahasiswa,
+                    hingga profesional, agar dapat menguasai bahasa asing
+                    dengan cara yang mudah, menyenangkan, dan efektif.
+                </p>
+
+
+                <!-- NILAI -->
+                <div class="values">
+
+                    <div class="value">
+                        <i class="fa-solid fa-bullseye"></i>
+                        <strong>Visi</strong>
+                        <small>
+                            Menjadi platform pembelajaran bahasa terdepan.
+                        </small>
+                    </div>
+
+                    <div class="value">
+                        <i class="fa-solid fa-heart"></i>
+                        <strong>Misi</strong>
+                        <small>
+                            Menyediakan akses belajar berkualitas.
+                        </small>
+                    </div>
+
+                    <div class="value">
+                        <i class="fa-solid fa-users"></i>
+                        <strong>Nilai</strong>
+                        <small>
+                            Inovasi, kolaborasi, integritas.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         7. ARTIKEL TERBARU
+         - Tips belajar
+         - Bahasa dunia
+         - Karier
+         ===================================================== -->
+
+    <section class="section alt" id="artikel">
+
+        <div class="container">
+
+            <div class="section-head reveal">
+
+                <div class="kicker">
+                    Artikel Terbaru
+                </div>
+
+                <h2>
+                    Tips, Berita, dan Inspirasi
+                </h2>
+
+                <p>
+                    Dapatkan informasi terbaru seputar belajar bahasa
+                    dan peluang karier internasional.
+                </p>
+
+            </div>
+
+
+            <!-- DAFTAR ARTIKEL -->
+            <div class="articles reveal">
+
+                <article class="article">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=700&q=80">
+
+                    <div class="article-content">
+
+                        <small>
+                            Tips Belajar
+                        </small>
+
+                        <h3>
+                            5 Tips Efektif Meningkatkan Kemampuan Speaking
+                        </h3>
+
+                        <p>
+                            Strategi sederhana untuk meningkatkan kepercayaan diri.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1521292270410-a8c4d716d518?auto=format&fit=crop&w=700&q=80">
+
+                    <div class="article-content">
+
+                        <small>
+                            Bahasa Dunia
+                        </small>
+
+                        <h3>
+                            Beberapa Bahasa yang Banyak Digunakan di Dunia
+                        </h3>
+
+                        <p>
+                            Kenali bahasa yang membuka peluang global.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="article">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=700&q=80">
+
+                    <div class="article-content">
+
+                        <small>
+                            Karier
+                        </small>
+
+                        <h3>
+                            Cara Menjadi Profesional dengan Kemampuan Bahasa Asing
+                        </h3>
+
+                        <p>
+                            Bahasa sebagai bekal masa depan.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         8. APLIKASI MOBILE
+         - Informasi aplikasi
+         - Tombol Google Play
+         - Tombol App Store
+         ===================================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="app-banner reveal">
+
+                <div>
+
+                    <div class="kicker" style="color:#bfe0ff">
+                        Akses Lebih Mudah
+                    </div>
+
+                    <h2>
+                        Belajar Kapan Saja Melalui Aplikasi Mobile
+                    </h2>
+
+                    <p>
+                        Nikmati pengalaman belajar yang lebih praktis
+                        melalui aplikasi mobile AKU BISA.
+                    </p>
+
+
+                    <!-- TOMBOL STORE -->
+                    <div class="store-buttons">
+
+                        <button class="store">
+                            <i class="fa-brands fa-google-play"></i>
+                            Google Play
+                        </button>
+
+                        <button class="store">
+                            <i class="fa-brands fa-apple"></i>
+                            App Store
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GAMBAR APLIKASI -->
+                <img
+                    class="app-image"
+                    src="https://dummyimage.com/260x500/ffffff/1764d8&text=AKU+BISA+APP"
+                    alt="Aplikasi mobile AKU BISA">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         9. FAQ / PERTANYAAN UMUM
+         - Pertanyaan
+         - Jawaban
+         ===================================================== -->
+
+    <section class="section alt" id="faq">
+
+        <div class="container">
+
+            <div class="section-head reveal">
+
+                <div class="kicker">
+                    Pertanyaan Umum
+                </div>
+
+                <h2>
+                    Pertanyaan yang Sering Diajukan
+                </h2>
+
+            </div>
+
+
+            <!-- DAFTAR FAQ -->
+            <div class="faq reveal">
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Apakah AKU BISA gratis?
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        AKU BISA menyediakan materi gratis dan pilihan kelas
+                        premium untuk pembelajaran lebih mendalam.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Bahasa apa saja yang tersedia?
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Tersedia lebih dari 10 bahasa, termasuk Inggris,
+                        Jepang, Korea, Arab, Spanyol, dan Jerman.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Apakah bisa belajar melalui HP?
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Bisa. Website dirancang responsif dan dapat diakses
+                        melalui HP, tablet, maupun komputer.
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+                        Apakah mendapatkan sertifikat?
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <div class="faq-answer">
+                        Pengguna dapat memperoleh sertifikat setelah
+                        menyelesaikan kelas yang memenuhi persyaratan.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
 
-<footer>
-  <div class="container footer-inner">
-    <div class="brand"><span class="brand-icon">🎓</span><span>AKU <b>BISA</b><small>Aplikasi Kreatif Untuk Bisa Semua Bahasa</small></span></div>
-    <p>© 2026 AKU BISA. Semua Hak Dilindungi.</p>
-  </div>
+
+<!-- =========================================================
+     FOOTER
+     - Informasi brand
+     - Sosial media
+     - Navigasi
+     - Bahasa
+     - Kontak
+     - Copyright
+     ========================================================= -->
+
+<footer id="kontak">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND FOOTER -->
+            <div class="footer-brand">
+
+                <a class="logo" href="#home" style="color:#fff">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <span>
+                        AKU BISA
+                        <small style="color:#b8d0ee">
+                            Aplikasi Kreatif Untuk Bisa Semua Bahasa
+                        </small>
+                    </span>
+
+                </a>
+
+                <p>
+                    Bersama AKU BISA, raih masa depanmu melalui
+                    kemampuan bahasa.
+                </p>
+
+
+                <!-- SOCIAL MEDIA -->
+                <div class="social">
+
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGASI FOOTER -->
+            <div>
+
+                <div class="footer-title">
+                    Navigasi
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#home">Beranda</a>
+                    <a href="#fitur">Fitur</a>
+                    <a href="#bahasa">Bahasa</a>
+                    <a href="#tentang">Tentang Kami</a>
+                    <a href="#testimoni">Testimoni</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- BAHASA FOOTER -->
+            <div>
+
+                <div class="footer-title">
+                    Bahasa Tersedia
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#bahasa">🇬🇧 Inggris</a>
+                    <a href="#bahasa">🇯🇵 Jepang</a>
+                    <a href="#bahasa">🇰🇷 Korea</a>
+                    <a href="#bahasa">🇸🇦 Arab</a>
+                    <a href="#bahasa">🇩🇪 Jerman</a>
+
+                </div>
+
+            </div>
+
+
+            <!-- KONTAK FOOTER -->
+            <div>
+
+                <div class="footer-title">
+                    Kontak Kami
+                </div>
+
+                <ul class="footer-contact">
+
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        support@akubisa.id
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        +62 812 3456 7890
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Jakarta, Indonesia
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+        <div class="copyright">
+
+            <span>
+                © 2026 AKU BISA. Semua hak dilindungi.
+            </span>
+
+            <span>
+                Kebijakan Privasi &nbsp; | &nbsp; Syarat & Ketentuan
+            </span>
+
+        </div>
+
+    </div>
+
 </footer>
 
-<div class="modal" id="videoModal" aria-hidden="true">
-  <div class="modal-box">
-    <button id="closeModal" class="close-modal">×</button>
-    <div class="play-circle">▶</div>
-    <h2>Belajar Bahasa Jadi Seru!</h2>
-    <p>Tempat video pengenalan aplikasi AKU BISA. Kamu bisa menggantinya dengan video YouTube atau video milikmu.</p>
-  </div>
-</div>
+
+<!-- =========================================================
+     TOAST / NOTIFIKASI
+     - Elemen ini digunakan oleh fungsi showMessage()
+     ========================================================= -->
+
+<div id="toast"></div>
+
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       01. MENU MOBILE
-    ===================================================== */
+/* =========================================================
+   1. MENU NAVIGASI MOBILE
+   - Mengambil tombol menu dan daftar navigasi
+   - Saat tombol diklik, class "open" akan ditambahkan/dihapus
+   ========================================================= */
 
-    const navLinks = document.getElementById("navLinks");
-    const menuBtn = document.getElementById("menuBtn");
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
 
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener("click", () => {
-            navLinks.classList.toggle("open");
-        });
-    }
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+});
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            if (navLinks) {
-                navLinks.classList.remove("open");
-            }
-        });
+
+/* =========================================================
+   2. MENU NAVIGASI SAAT LINK DIKLIK
+   - Setelah salah satu link navigasi diklik,
+     menu mobile akan ditutup
+   ========================================================= */
+
+document.querySelectorAll('.navlinks a').forEach(a => {
+    a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
     });
+});
 
 
-    /* =====================================================
-       02. MODAL VIDEO
-    ===================================================== */
+/* =========================================================
+   3. FAQ / PERTANYAAN UMUM
+   - Saat pertanyaan FAQ diklik,
+     class "open" akan ditambahkan/dihapus
+   ========================================================= */
 
-    const modal = document.getElementById("videoModal");
-    const videoBtn = document.getElementById("videoBtn");
-    const closeModalButton = document.getElementById("closeModal");
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.parentElement.classList.toggle('open');
+    });
+});
 
-    function openModal() {
-        if (!modal) return;
 
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
+/* =========================================================
+   4. ANIMASI REVEAL SAAT SCROLL
+   - Menggunakan IntersectionObserver
+   - Elemen dengan class "reveal" akan mendapatkan
+     class "show" ketika masuk ke area tampilan
+   ========================================================= */
+
+const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add('show');
+        }
+    }),
+    {
+        threshold: .12
     }
+);
 
-    function closeModal() {
-        if (!modal) return;
+document.querySelectorAll('.reveal').forEach(el => {
+    observer.observe(el);
+});
 
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-    }
 
-    if (videoBtn) {
-        videoBtn.addEventListener("click", openModal);
-    }
+/* =========================================================
+   5. NAVIGASI AKTIF BERDASARKAN POSISI SCROLL
+   - Menentukan section yang sedang terlihat
+   - Link navigasi yang sesuai akan mendapatkan class "active"
+   ========================================================= */
 
-    if (closeModalButton) {
-        closeModalButton.addEventListener("click", closeModal);
-    }
+const sections = document.querySelectorAll('main section[id]');
+const links = document.querySelectorAll('.navlinks a');
 
-    if (modal) {
-        modal.addEventListener("click", event => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-    }
+window.addEventListener('scroll', () => {
 
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            closeModal();
+    let current = 'home';
+
+    sections.forEach(s => {
+        if (scrollY >= s.offsetTop - 130) {
+            current = s.id;
         }
     });
 
-
-    /* =====================================================
-       03. ANIMASI REVEAL
-    ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-
-        const observer = new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        observer.unobserve(entry.target);
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
+    links.forEach(a => {
+        a.classList.toggle(
+            'active',
+            a.getAttribute('href') === '#' + current
         );
-
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
-
-    } else {
-
-        /* Fallback untuk browser lama */
-
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-
-    }
-
-
-    /* =====================================================
-       04. ANIMASI ANGKA STATISTIK
-    ===================================================== */
-
-    const counters =
-        document.querySelectorAll("[data-count]");
-
-    if ("IntersectionObserver" in window) {
-
-        const countObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (!entry.isIntersecting) {
-                            return;
-                        }
-
-                        const element = entry.target;
-
-                        const target =
-                            Number(element.dataset.count);
-
-                        const duration = 1200;
-
-                        const startTime =
-                            performance.now();
-
-                        function updateCounter(currentTime) {
-
-                            const progress =
-                                Math.min(
-                                    (currentTime - startTime) /
-                                    duration,
-                                    1
-                                );
-
-                            const eased =
-                                1 -
-                                Math.pow(
-                                    1 - progress,
-                                    3
-                                );
-
-                            const current =
-                                Math.floor(
-                                    target * eased
-                                );
-
-
-                            /* Format angka */
-
-                            if (target >= 1000) {
-
-                                element.textContent =
-                                    current.toLocaleString(
-                                        "id-ID"
-                                    ) + "+";
-
-                            } else if (target === 98) {
-
-                                element.textContent =
-                                    current + "%";
-
-                            } else {
-
-                                element.textContent =
-                                    current + "+";
-                            }
-
-
-                            if (progress < 1) {
-
-                                requestAnimationFrame(
-                                    updateCounter
-                                );
-
-                            }
-
-                        }
-
-                        requestAnimationFrame(
-                            updateCounter
-                        );
-
-                        countObserver.unobserve(element);
-
-                    });
-
-                },
-                {
-                    threshold: 0.7
-                }
-            );
-
-        counters.forEach(counter => {
-            countObserver.observe(counter);
-        });
-
-    } else {
-
-        /* Fallback browser lama */
-
-        counters.forEach(counter => {
-
-            const target =
-                Number(counter.dataset.count);
-
-            if (target >= 1000) {
-
-                counter.textContent =
-                    target.toLocaleString("id-ID") + "+";
-
-            } else if (target === 98) {
-
-                counter.textContent =
-                    target + "%";
-
-            } else {
-
-                counter.textContent =
-                    target + "+";
-            }
-
-        });
-
-    }
-
-
-    /* =====================================================
-       05. PILIHAN BAHASA
-    ===================================================== */
-
-    document
-        .querySelectorAll(".language-card")
-        .forEach(card => {
-
-            card.addEventListener("click", () => {
-
-                const languageElement =
-                    card.querySelector("b");
-
-                if (!languageElement) {
-                    return;
-                }
-
-                const language =
-                    languageElement.textContent.trim();
-
-
-                alert(
-                    `Pilihan kamu: ${language}\n\n` +
-                    `Halaman pembelajaran ${language} ` +
-                    `siap dikembangkan.`
-                );
-
-            });
-
-        });
-
-
-    /* =====================================================
-       06. SELESAI
-    ===================================================== */
-
-    console.log("AKU BISA berhasil dimuat.");
-
+    });
 });
+
+
+/* =========================================================
+   6. NOTIFIKASI / TOAST MESSAGE
+   - Menampilkan pesan sementara di bagian bawah layar
+   - Pesan akan hilang otomatis setelah 3 detik
+   ========================================================= */
+
+function showMessage(text) {
+
+    let toast = document.getElementById('toast');
+
+    toast.textContent = text;
+
+    Object.assign(toast.style, {
+        position: 'fixed',
+        bottom: '25px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        background: '#123b70',
+        color: '#fff',
+        padding: '14px 22px',
+        borderRadius: '12px',
+        zIndex: 9999,
+        boxShadow: '0 10px 30px #0003',
+        fontSize: '13px'
+    });
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer = setTimeout(
+        () => toast.removeAttribute('style'),
+        3000
+    );
+}
+
 </script>
-
-
 </body>
 </html>
