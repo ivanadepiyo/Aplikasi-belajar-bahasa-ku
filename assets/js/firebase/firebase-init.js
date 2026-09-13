@@ -1,3 +1,7 @@
+// =========================================================
+// AKU BISA - FIREBASE INITIALIZATION
+// =========================================================
+
 import { initializeApp } from
     "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
@@ -9,10 +13,13 @@ import { getFirestore } from
 
 import { firebaseConfig } from "./firebase-config.js";
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Firebase Authentication
 const auth = getAuth(app);
 
+// Firebase Firestore
 const db = getFirestore(app);
 
 export {
