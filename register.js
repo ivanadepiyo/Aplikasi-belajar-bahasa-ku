@@ -18,6 +18,14 @@ import {
     getAuthErrorMessage
 } from "./auth-service.js";
 
+// =====================================================
+// FIRESTORE SERVICE
+// =====================================================
+
+import {
+    createUserProfile,
+    updateUserProfile
+} from "./firestore-service.js";
 
 // =====================================================
 // ELEMENT
@@ -605,6 +613,24 @@ async function handleRegister(event) {
 
         registeredUser = user;
 
+        // =================================================
+// SIMPAN PROFILE KE FIRESTORE
+// =================================================
+
+await createUserProfile(
+    user.uid,
+    {
+        nama: name,
+        email: email,
+        username: usernameInput.value.trim(),
+        nomorTelepon: phoneInput.value.trim(),
+        tanggalLahir: birthInput.value,
+        jenisKelamin: genderInput.value,
+        bahasaDipilih: learningInput.value,
+        emailVerified: user.emailVerified
+    }
+);
+        
         // -------------------------------------------
         // SIMPAN DATA SEMENTARA
         // -------------------------------------------
