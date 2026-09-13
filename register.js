@@ -245,6 +245,51 @@ if (passwordInput) {
     );
 }
 
+// =====================================================
+// BAHASA ANTARMUKA
+// =====================================================
+
+const interfaceLanguageButton =
+    document.getElementById("lang");
+
+if (interfaceLanguageButton) {
+
+    interfaceLanguageButton.addEventListener(
+        "click",
+        () => {
+
+            showToast(
+                "Bahasa antarmuka: Indonesia 🇮🇩",
+                "info"
+            );
+
+        }
+    );
+}
+
+// =====================================================
+// PILIH BAHASA
+// =====================================================
+
+const languageButtons = document.querySelectorAll("#langs button");
+
+languageButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        languageButtons.forEach(item => {
+            item.classList.remove("selected");
+        });
+
+        button.classList.add("selected");
+
+        if (learningInput) {
+            learningInput.value =
+                button.dataset.v || "";
+        }
+    });
+
+});
 
 // =====================================================
 // VALIDASI EMAIL
@@ -473,24 +518,18 @@ function showStage(stageNumber) {
             ".stage-panel"
         );
 
-    panels.forEach(panel => {
-
-        panel.classList.add("hidden");
-
-        panel.style.display = "none";
-    });
+ panels.forEach(panel => {
+    panel.classList.add("hidden");
+});
 
     const target =
         document.querySelector(
             `.stage-panel[data-stage="${stageNumber}"]`
         );
 
-    if (target) {
-
-        target.classList.remove("hidden");
-
-        target.style.display = "block";
-    }
+   if (target) {
+    target.classList.remove("hidden");
+}
 
     // -----------------------------------------------
     // UPDATE STEPPER
@@ -646,8 +685,10 @@ async function handleCheckVerification() {
 
     try {
 
-        verificationStatus.textContent =
-            "Memeriksa status email...";
+       if (verificationStatus) {
+    verificationStatus.textContent =
+        "Memeriksa status email...";
+}
 
         const verified =
             await checkEmailVerified(
@@ -656,8 +697,11 @@ async function handleCheckVerification() {
 
         if (!verified) {
 
-            verificationStatus.textContent =
-                "Email belum terverifikasi. Silakan buka email dari Firebase dan klik tautan verifikasi.";
+           if (verificationStatus) {
+
+    verificationStatus.textContent =
+        "Email belum terverifikasi. Silakan buka email dari Firebase dan klik tautan verifikasi.";
+}
 
             showToast(
                 "Email belum terverifikasi.",
@@ -667,8 +711,11 @@ async function handleCheckVerification() {
             return;
         }
 
-        verificationStatus.textContent =
-            "Email berhasil diverifikasi.";
+     if (verificationStatus) {
+
+    verificationStatus.textContent =
+        "Email berhasil diverifikasi.";
+}
 
         showStage(3);
 
@@ -684,8 +731,11 @@ async function handleCheckVerification() {
             error
         );
 
-        verificationStatus.textContent =
-            "Terjadi kesalahan saat memeriksa verifikasi.";
+       if (verificationStatus) {
+
+    verificationStatus.textContent =
+        "Terjadi kesalahan saat memeriksa verifikasi.";
+}
 
         showToast(
             getAuthErrorMessage(error),
