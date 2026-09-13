@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKU BISA — Firebase Test</title>
+</head>
+
+<body>
+
+    <h1>AKU BISA</h1>
+
+    <p id="firebaseStatus">
+        Menghubungkan ke Firebase...
+    </p>
+
+    <script type="module">
+
+        import {
+            auth,
+            db
+        } from "./js/firebase/firebase-init.js";
+
+        const status =
+            document.getElementById("firebaseStatus");
+
+        if (auth && db) {
+
+            status.textContent =
+                "✅ Firebase berhasil terhubung.";
+
+            console.log(
+                "Firebase Authentication:",
+                auth
+            );
+
+            console.log(
+                "Firebase Firestore:",
+                db
+            );
+
+        } else {
+
+            status.textContent =
+                "❌ Firebase belum terhubung.";
+
+        }
+
+    </script>
+
+</body>
+</html>
