@@ -21,7 +21,121 @@
 </label>
 
 <em class="agree-error"></em>
-  <button class="submit" type="submit">Buat Akun <b>→</b></button></form><p class="login">Sudah punya akun? <a href="Login.html">Masuk di sini</a></p><div class="security"><div>🛡️ <b>Keamanan Terjamin</b><small>Data kamu aman</small></div><div>🔐 <b>Privasi Terjaga</b><small>Data terlindungi</small></div><div>⚡ <b>Verifikasi Mudah</b><small>Proses cepat</small></div></div></div></section></div><div id="toast"></div>
+  <button class="submit" type="submit">Buat Akun <b>→</b></button></form>
+    <!-- =====================================================
+     TAHAP 2 - VERIFIKASI EMAIL
+     ===================================================== -->
+<div id="verificationPanel" style="display:none;">
+
+    <div style="
+        text-align:center;
+        padding:20px 0;
+    ">
+
+        <div style="
+            font-size:42px;
+            margin-bottom:12px;
+        ">
+            📧
+        </div>
+
+        <h3 style="
+            margin:0 0 8px;
+            font-size:22px;
+        ">
+            Verifikasi Email
+        </h3>
+
+        <p style="
+            margin:0 auto 6px;
+            color:#718096;
+            font-size:11px;
+            line-height:1.6;
+            max-width:430px;
+        ">
+            Kami telah mengirimkan email verifikasi ke:
+        </p>
+
+        <strong
+            id="verificationEmail"
+            style="
+                display:block;
+                color:#1769e8;
+                font-size:12px;
+                margin-bottom:18px;
+                word-break:break-word;
+            "
+        ></strong>
+
+        <p style="
+            margin:0 auto 18px;
+            color:#8995a7;
+            font-size:9px;
+            line-height:1.6;
+            max-width:430px;
+        ">
+            Silakan buka email tersebut dan klik link verifikasi.
+            Setelah itu kembali ke halaman ini.
+        </p>
+
+        <button
+            type="button"
+            id="checkVerification"
+            class="submit"
+        >
+            Saya Sudah Verifikasi <b>✓</b>
+        </button>
+
+        <button
+            type="button"
+            id="resendVerification"
+            style="
+                width:100%;
+                height:42px;
+                margin-top:10px;
+                border:1px solid #dce6f1;
+                border-radius:10px;
+                background:#fff;
+                color:#1769e8;
+                font:700 11px Inter;
+                cursor:pointer;
+            "
+        >
+            Kirim Ulang Email
+        </button>
+
+        <p
+            id="verificationStatus"
+            style="
+                min-height:16px;
+                margin:12px 0 0;
+                color:#718096;
+                font-size:9px;
+            "
+        ></p>
+
+    </div>
+
+</div>
+    <div id="completionPanel" style="display:none;">
+  <div style="text-align:center;padding:20px 0;">
+    <div style="font-size:48px;margin-bottom:12px;">🎉</div>
+
+    <h3 style="margin:0 0 8px;font-size:22px;">
+      Pendaftaran Berhasil
+    </h3>
+
+    <p style="margin:0 auto 18px;color:#718096;font-size:11px;line-height:1.6;max-width:430px;">
+      Email Anda telah berhasil diverifikasi.
+      Akun AKU BISA sudah siap digunakan.
+    </p>
+
+    <button type="button" id="goToLogin" class="submit">
+      Masuk ke Aplikasi <b>→</b>
+    </button>
+  </div>
+</div>
+    <p class="login">Sudah punya akun? <a href="Login.html">Masuk di sini</a></p><div class="security"><div>🛡️ <b>Keamanan Terjamin</b><small>Data kamu aman</small></div><div>🔐 <b>Privasi Terjaga</b><small>Data terlindungi</small></div><div>⚡ <b>Verifikasi Mudah</b><small>Proses cepat</small></div></div></div></section></div><div id="toast"></div>
 
 <script type="module">
     console.log("AKU BISA: register.js BERHASIL DIMUAT");
@@ -490,15 +604,11 @@ document.addEventListener("DOMContentLoaded", () => {
             // =============================================
             // BUAT AKUN FIREBASE
             // =============================================
-
-            const user =
-                await registerWithEmail(
-                    email,
-                    password,
-                    name
-        // =====================================================
-// CEK USER HASIL REGISTRASI
-// =====================================================
+const user = await registerWithEmail(
+    email,
+    password,
+    name
+);
 
 if (!user) {
     throw new Error("AUTH_NO_USER");
@@ -547,10 +657,24 @@ if (!user) {
                 "Akun berhasil dibuat! Silakan cek email untuk verifikasi. 📧"
             );
 
-            // =============================================
-            // ARAHKAN KE LOGIN
-            // =============================================
+           // =============================================
+// TAMPILKAN PANEL VERIFIKASI
+// =============================================
 
+const verificationPanel = $("verificationPanel");
+const verificationEmail = $("verificationEmail");
+
+if (form) {
+    form.style.display = "none";
+}
+
+if (verificationPanel) {
+    verificationPanel.style.display = "block";
+}
+
+if (verificationEmail) {
+    verificationEmail.textContent = email;
+}
         } catch (error) {
 
             console.error(
@@ -575,53 +699,203 @@ if (!user) {
         }
 
     });
+        // =================================================
+    // VERIFIKASI EMAIL
+    // =================================================
+
+    const checkVerificationButton =
+        $("checkVerification");
+
+    const verificationPanel =
+        $("verificationPanel");
+
+    const completionPanel =
+        $("completionPanel");
+
+    const verificationStatus =
+        $("verificationStatus");
+
+    if (checkVerificationButton) {
+
+        checkVerificationButton.addEventListener(
+            "click",
+            async () => {
+
+                checkVerificationButton.disabled = true;
+                checkVerificationButton.style.opacity = "0.7";
+                checkVerificationButton.style.cursor = "wait";
+
+                if (verificationStatus) {
+                    verificationStatus.textContent =
+                        "Sedang memeriksa status verifikasi...";
+                }
+
+                try {
+
+                    const verified =
+                        await checkEmailVerified();
+
+                    if (!verified) {
+
+                        if (verificationStatus) {
+                            verificationStatus.textContent =
+                                "Email belum diverifikasi. Silakan klik link verifikasi di email.";
+                        }
+
+                        notify(
+                            "Email belum diverifikasi. 📧"
+                        );
+
+                        return;
+                    }
+
+                    // =================================
+                    // EMAIL SUDAH TERVERIFIKASI
+                    // =================================
+
+                    const steps =
+                        document.querySelectorAll(".step");
+
+                    steps.forEach((step) => {
+                        step.classList.remove("active");
+                    });
+
+                    if (steps[2]) {
+                        steps[2].classList.add("active");
+                    }
+
+                    if (verificationPanel) {
+                        verificationPanel.style.display =
+                            "none";
+                    }
+
+                    if (completionPanel) {
+                        completionPanel.style.display =
+                            "block";
+                    }
+
+                    notify(
+                        "Email berhasil diverifikasi! 🎉"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "AKU BISA - Verification Error:",
+                        error
+                    );
+
+                    if (verificationStatus) {
+                        verificationStatus.textContent =
+                            getAuthErrorMessage(error);
+                    }
+
+                    notify(
+                        getAuthErrorMessage(error)
+                    );
+
+                } finally {
+
+                    checkVerificationButton.disabled =
+                        false;
+
+                    checkVerificationButton.style.opacity =
+                        "";
+
+                    checkVerificationButton.style.cursor =
+                        "";
+
+                }
+
+            }
+        );
+
+    }
+
+        // =================================================
+    // KIRIM ULANG EMAIL VERIFIKASI
+    // =================================================
+
+    const resendVerificationButton =
+        $("resendVerification");
+
+    if (resendVerificationButton) {
+
+        resendVerificationButton.addEventListener(
+            "click",
+            async () => {
+
+                resendVerificationButton.disabled = true;
+                resendVerificationButton.style.opacity = "0.7";
+                resendVerificationButton.style.cursor = "wait";
+
+                if (verificationStatus) {
+                    verificationStatus.textContent =
+                        "Mengirim ulang email verifikasi...";
+                }
+
+                try {
+
+                    await sendVerificationEmail();
+
+                    if (verificationStatus) {
+                        verificationStatus.textContent =
+                            "Email verifikasi berhasil dikirim ulang. 📧";
+                    }
+
+                    notify(
+                        "Email verifikasi berhasil dikirim ulang. 📧"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "AKU BISA - Resend Verification Error:",
+                        error
+                    );
+
+                    const message =
+                        getAuthErrorMessage(error);
+
+                    if (verificationStatus) {
+                        verificationStatus.textContent =
+                            message;
+                    }
+
+                    notify(message);
+
+                } finally {
+
+                    resendVerificationButton.disabled =
+                        false;
+
+                    resendVerificationButton.style.opacity =
+                        "";
+
+                    resendVerificationButton.style.cursor =
+                        "";
+
+                }
+
+            }
+        );
+
+    }
+// TOMBOL MASUK KE LOGIN
+const goToLoginButton = $("goToLogin");
+
+if (goToLoginButton) {
+
+    goToLoginButton.addEventListener("click", () => {
+
+        window.location.href = "Login.html";
+
+    });
+
+}
 
 });
 
-    // =====================================================
-// CEK VERIFIKASI EMAIL
-// =====================================================
-
-async function checkVerificationStatus() {
-
-    try {
-
-        const verified = await checkEmailVerified();
-
-        if (verified) {
-
-            console.log(
-                "AKU BISA: Email berhasil diverifikasi."
-            );
-
-            // Tahap selesai
-            step2.classList.remove("active");
-            step3.classList.add("active");
-
-            toast(
-                "Email berhasil diverifikasi! 🎉"
-            );
-
-        } else {
-
-            toast(
-                "Email belum diverifikasi. Silakan cek inbox Anda. 📧"
-            );
-
-        }
-
-    } catch (error) {
-
-        console.error(
-            "Gagal mengecek verifikasi:",
-            error
-        );
-
-        toast(
-            getAuthErrorMessage(error)
-        );
-    }
-}
 </script>
 
 
