@@ -18,6 +18,7 @@ import {
     getAuthErrorMessage
 } from "./auth-service.js";
 
+
 // =====================================================
 // FIRESTORE SERVICE
 // =====================================================
@@ -27,26 +28,49 @@ import {
     updateUserProfile
 } from "./firestore-service.js";
 
+
 // =====================================================
 // ELEMENT
 // =====================================================
 
-const form = document.getElementById("form");
-const toast = document.getElementById("toast");
+const form =
+    document.getElementById("form");
 
-const nameInput = document.getElementById("name");
-const emailInput = document.getElementById("email");
-const phoneInput = document.getElementById("phone");
-const birthInput = document.getElementById("birth");
-const genderInput = document.getElementById("gender");
-const learningInput = document.getElementById("learning");
+const toast =
+    document.getElementById("toast");
 
-const usernameInput = document.getElementById("user");
-const passwordInput = document.getElementById("pass");
-const confirmInput = document.getElementById("confirm");
-const agreeInput = document.getElementById("agree");
+const nameInput =
+    document.getElementById("name");
 
-const strengthText = document.getElementById("strengthText");
+const emailInput =
+    document.getElementById("email");
+
+const phoneInput =
+    document.getElementById("phone");
+
+const birthInput =
+    document.getElementById("birth");
+
+const genderInput =
+    document.getElementById("gender");
+
+const learningInput =
+    document.getElementById("learning");
+
+const usernameInput =
+    document.getElementById("user");
+
+const passwordInput =
+    document.getElementById("pass");
+
+const confirmInput =
+    document.getElementById("confirm");
+
+const agreeInput =
+    document.getElementById("agree");
+
+const strengthText =
+    document.getElementById("strengthText");
 
 const verificationPanel =
     document.getElementById("verificationPanel");
@@ -99,6 +123,7 @@ const goToLogin =
 // =====================================================
 
 let registeredUser = null;
+
 let verificationCooldown = false;
 
 
@@ -106,10 +131,15 @@ let verificationCooldown = false;
 // TOAST
 // =====================================================
 
-function showToast(message, type = "info") {
+function showToast(
+    message,
+    type = "info"
+) {
 
     if (!toast) {
+
         console.log(message);
+
         return;
     }
 
@@ -118,22 +148,38 @@ function showToast(message, type = "info") {
     toast.className = "toast";
 
     if (type === "success") {
-        toast.classList.add("success");
+
+        toast.classList.add(
+            "success"
+        );
+
     }
 
     if (type === "error") {
-        toast.classList.add("error");
+
+        toast.classList.add(
+            "error"
+        );
+
     }
 
     if (type === "warning") {
-        toast.classList.add("warning");
+
+        toast.classList.add(
+            "warning"
+        );
+
     }
 
-    toast.classList.add("show");
+    toast.classList.add(
+        "show"
+    );
 
     setTimeout(() => {
 
-        toast.classList.remove("show");
+        toast.classList.remove(
+            "show"
+        );
 
     }, 4000);
 }
@@ -145,7 +191,11 @@ function showToast(message, type = "info") {
 
 function updatePasswordStrength() {
 
-    if (!passwordInput || !strengthText) {
+    if (
+        !passwordInput ||
+        !strengthText
+    ) {
+
         return;
     }
 
@@ -163,23 +213,35 @@ function updatePasswordStrength() {
     let score = 0;
 
     if (password.length >= 8) {
+
         score++;
+
     }
 
     if (/[A-Z]/.test(password)) {
+
         score++;
+
     }
 
     if (/[a-z]/.test(password)) {
+
         score++;
+
     }
 
     if (/[0-9]/.test(password)) {
+
         score++;
+
     }
 
-    if (/[^A-Za-z0-9]/.test(password)) {
+    if (
+        /[^A-Za-z0-9]/.test(password)
+    ) {
+
         score++;
+
     }
 
     if (score <= 2) {
@@ -196,6 +258,7 @@ function updatePasswordStrength() {
 
         strengthText.textContent =
             "Password sangat kuat.";
+
     }
 }
 
@@ -204,41 +267,53 @@ function updatePasswordStrength() {
 // TOGGLE PASSWORD
 // =====================================================
 
-document.querySelectorAll(".eye").forEach(button => {
+document
+    .querySelectorAll(".eye")
+    .forEach(button => {
 
-    button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-        const targetId =
-            button.dataset.id;
+                const targetId =
+                    button.dataset.id;
 
-        const target =
-            document.getElementById(targetId);
+                const target =
+                    document.getElementById(
+                        targetId
+                    );
 
-        if (!target) {
-            return;
-        }
+                if (!target) {
 
-        if (target.type === "password") {
+                    return;
+                }
 
-            target.type = "text";
+                if (
+                    target.type === "password"
+                ) {
 
-            button.setAttribute(
-                "aria-label",
-                "Sembunyikan password"
-            );
+                    target.type =
+                        "text";
 
-        } else {
+                    button.setAttribute(
+                        "aria-label",
+                        "Sembunyikan password"
+                    );
 
-            target.type = "password";
+                } else {
 
-            button.setAttribute(
-                "aria-label",
-                "Tampilkan password"
-            );
-        }
+                    target.type =
+                        "password";
+
+                    button.setAttribute(
+                        "aria-label",
+                        "Tampilkan password"
+                    );
+                }
+            }
+        );
+
     });
-
-});
 
 
 // =====================================================
@@ -251,7 +326,9 @@ if (passwordInput) {
         "input",
         updatePasswordStrength
     );
+
 }
+
 
 // =====================================================
 // BAHASA ANTARMUKA
@@ -273,31 +350,51 @@ if (interfaceLanguageButton) {
 
         }
     );
+
 }
+
 
 // =====================================================
 // PILIH BAHASA
 // =====================================================
 
-const languageButtons = document.querySelectorAll("#langs button");
+const languageButtons =
+    document.querySelectorAll(
+        "#langs button"
+    );
 
 languageButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        languageButtons.forEach(item => {
-            item.classList.remove("selected");
-        });
+            languageButtons.forEach(
+                item => {
 
-        button.classList.add("selected");
+                    item.classList.remove(
+                        "selected"
+                    );
 
-        if (learningInput) {
-            learningInput.value =
-                button.dataset.v || "";
+                }
+            );
+
+            button.classList.add(
+                "selected"
+            );
+
+            if (learningInput) {
+
+                learningInput.value =
+                    button.dataset.v || "";
+
+            }
+
         }
-    });
+    );
 
 });
+
 
 // =====================================================
 // VALIDASI EMAIL
@@ -308,6 +405,7 @@ function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
         email
     );
+
 }
 
 
@@ -329,6 +427,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     if (!emailInput?.value.trim()) {
 
         showToast(
@@ -340,6 +439,7 @@ function validateRegisterForm() {
 
         return false;
     }
+
 
     if (
         !isValidEmail(
@@ -357,6 +457,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     if (!phoneInput?.value.trim()) {
 
         showToast(
@@ -368,6 +469,7 @@ function validateRegisterForm() {
 
         return false;
     }
+
 
     if (!birthInput?.value) {
 
@@ -381,6 +483,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     if (!genderInput?.value) {
 
         showToast(
@@ -392,6 +495,7 @@ function validateRegisterForm() {
 
         return false;
     }
+
 
     if (!learningInput?.value) {
 
@@ -405,6 +509,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     if (!usernameInput?.value.trim()) {
 
         showToast(
@@ -416,6 +521,7 @@ function validateRegisterForm() {
 
         return false;
     }
+
 
     if (!passwordInput?.value) {
 
@@ -429,7 +535,10 @@ function validateRegisterForm() {
         return false;
     }
 
-    if (passwordInput.value.length < 8) {
+
+    if (
+        passwordInput.value.length < 8
+    ) {
 
         showToast(
             "Password minimal 8 karakter.",
@@ -440,6 +549,7 @@ function validateRegisterForm() {
 
         return false;
     }
+
 
     if (
         passwordInput.value !==
@@ -456,6 +566,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     if (!agreeInput?.checked) {
 
         showToast(
@@ -468,6 +579,7 @@ function validateRegisterForm() {
         return false;
     }
 
+
     return true;
 }
 
@@ -479,38 +591,58 @@ function validateRegisterForm() {
 function showVerificationData() {
 
     if (verificationName) {
+
         verificationName.textContent =
             nameInput.value.trim();
+
     }
+
 
     if (verificationEmail) {
+
         verificationEmail.textContent =
             emailInput.value.trim();
+
     }
+
 
     if (verificationUsername) {
+
         verificationUsername.textContent =
             usernameInput.value.trim();
+
     }
+
 
     if (verificationPhone) {
+
         verificationPhone.textContent =
             phoneInput.value.trim();
+
     }
+
 
     if (verificationBirth) {
+
         verificationBirth.textContent =
             birthInput.value;
+
     }
+
 
     if (verificationGender) {
+
         verificationGender.textContent =
             genderInput.value;
+
     }
 
+
     if (verificationLearning) {
+
         verificationLearning.textContent =
             learningInput.value;
+
     }
 }
 
@@ -526,18 +658,30 @@ function showStage(stageNumber) {
             ".stage-panel"
         );
 
- panels.forEach(panel => {
-    panel.classList.add("hidden");
-});
+
+    panels.forEach(panel => {
+
+        panel.classList.add(
+            "hidden"
+        );
+
+    });
+
 
     const target =
         document.querySelector(
             `.stage-panel[data-stage="${stageNumber}"]`
         );
 
-   if (target) {
-    target.classList.remove("hidden");
-}
+
+    if (target) {
+
+        target.classList.remove(
+            "hidden"
+        );
+
+    }
+
 
     // -----------------------------------------------
     // UPDATE STEPPER
@@ -548,15 +692,18 @@ function showStage(stageNumber) {
             ".step"
         );
 
+
     steps.forEach((step, index) => {
 
         const current =
             index + 1;
 
+
         step.classList.remove(
             "active",
             "completed"
         );
+
 
         if (current < stageNumber) {
 
@@ -571,8 +718,11 @@ function showStage(stageNumber) {
             step.classList.add(
                 "active"
             );
+
         }
+
     });
+
 }
 
 
@@ -584,9 +734,12 @@ async function handleRegister(event) {
 
     event.preventDefault();
 
+
     if (!validateRegisterForm()) {
+
         return;
     }
+
 
     const name =
         nameInput.value.trim();
@@ -597,12 +750,18 @@ async function handleRegister(event) {
     const password =
         passwordInput.value;
 
+
     try {
 
         showToast(
             "Membuat akun AKU BISA...",
             "info"
         );
+
+
+        // -------------------------------------------
+        // CREATE FIREBASE AUTH USER
+        // -------------------------------------------
 
         const user =
             await registerWithEmail(
@@ -611,59 +770,96 @@ async function handleRegister(event) {
                 name
             );
 
-        registeredUser = user;
 
-        // =================================================
-// SIMPAN PROFILE KE FIRESTORE
-// =================================================
+        registeredUser =
+            user;
 
-await createUserProfile(
-    user.uid,
-    {
-        nama: name,
-        email: email,
-        username: usernameInput.value.trim(),
-        nomorTelepon: phoneInput.value.trim(),
-        tanggalLahir: birthInput.value,
-        jenisKelamin: genderInput.value,
-        bahasaDipilih: learningInput.value,
-        emailVerified: user.emailVerified
-    }
-);
-        
+
+        // -------------------------------------------
+        // CREATE FIRESTORE PROFILE
+        // -------------------------------------------
+
+        await createUserProfile(
+            user.uid,
+            {
+                nama:
+                    name,
+
+                email:
+                    email,
+
+                username:
+                    usernameInput.value.trim(),
+
+                nomorTelepon:
+                    phoneInput.value.trim(),
+
+                tanggalLahir:
+                    birthInput.value,
+
+                jenisKelamin:
+                    genderInput.value,
+
+                bahasaDipilih:
+                    learningInput.value,
+
+                emailVerified:
+                    user.emailVerified
+            }
+        );
+
+
         // -------------------------------------------
         // SIMPAN DATA SEMENTARA
-        // -------------------------------------------
-        // Password TIDAK disimpan.
+        // PASSWORD TIDAK DISIMPAN
         // -------------------------------------------
 
         sessionStorage.setItem(
             "akuBisaPendingRegistration",
             JSON.stringify({
-                uid: user.uid,
-                nama: name,
-                email: email,
+
+                uid:
+                    user.uid,
+
+                nama:
+                    name,
+
+                email:
+                    email,
+
                 username:
                     usernameInput.value.trim(),
+
                 nomorTelepon:
                     phoneInput.value.trim(),
+
                 tanggalLahir:
                     birthInput.value,
+
                 jenisKelamin:
                     genderInput.value,
+
                 bahasaDipilih:
                     learningInput.value
+
             })
         );
+
+
+        // -------------------------------------------
+        // TAMPILKAN DATA VERIFIKASI
+        // -------------------------------------------
 
         showVerificationData();
 
         showStage(2);
 
+
         showToast(
             "Akun berhasil dibuat. Silakan periksa email untuk verifikasi.",
             "success"
         );
+
 
     } catch (error) {
 
@@ -672,11 +868,48 @@ await createUserProfile(
             error
         );
 
+        console.error(
+            "AKU BISA: Error code:",
+            error?.code
+        );
+
+        console.error(
+            "AKU BISA: Error message:",
+            error?.message
+        );
+
+
+        // -------------------------------------------
+        // FIRESTORE ERROR
+        // -------------------------------------------
+
+        if (
+            error?.code ===
+                "permission-denied" ||
+            error?.code ===
+                "PERMISSION_DENIED"
+        ) {
+
+            showToast(
+                "Akun Firebase berhasil dibuat, tetapi data profil ditolak Firestore. Periksa Firestore Rules.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // -------------------------------------------
+        // AUTH ERROR
+        // -------------------------------------------
+
         showToast(
             getAuthErrorMessage(error),
             "error"
         );
+
     }
+
 }
 
 
@@ -690,6 +923,7 @@ if (form) {
         "submit",
         handleRegister
     );
+
 }
 
 
@@ -709,25 +943,36 @@ async function handleCheckVerification() {
         return;
     }
 
+
     try {
 
-       if (verificationStatus) {
-    verificationStatus.textContent =
-        "Memeriksa status email...";
-}
+        if (verificationStatus) {
+
+            verificationStatus.textContent =
+                "Memeriksa status email...";
+
+        }
+
+
+        // -------------------------------------------
+        // CEK STATUS FIREBASE AUTH
+        // -------------------------------------------
 
         const verified =
             await checkEmailVerified(
                 registeredUser
             );
 
+
         if (!verified) {
 
-           if (verificationStatus) {
+            if (verificationStatus) {
 
-    verificationStatus.textContent =
-        "Email belum terverifikasi. Silakan buka email dari Firebase dan klik tautan verifikasi.";
-}
+                verificationStatus.textContent =
+                    "Email belum terverifikasi. Silakan buka email dari Firebase dan klik tautan verifikasi.";
+
+            }
+
 
             showToast(
                 "Email belum terverifikasi.",
@@ -737,18 +982,39 @@ async function handleCheckVerification() {
             return;
         }
 
-     if (verificationStatus) {
 
-    verificationStatus.textContent =
-        "Email berhasil diverifikasi.";
-}
+        // -------------------------------------------
+        // UPDATE STATUS FIRESTORE
+        // -------------------------------------------
+
+        await updateUserProfile(
+            registeredUser.uid,
+            {
+                emailVerified: true
+            }
+        );
+
+
+        // -------------------------------------------
+        // STATUS BERHASIL
+        // -------------------------------------------
+
+        if (verificationStatus) {
+
+            verificationStatus.textContent =
+                "Email berhasil diverifikasi.";
+
+        }
+
 
         showStage(3);
+
 
         showToast(
             "Email berhasil diverifikasi.",
             "success"
         );
+
 
     } catch (error) {
 
@@ -757,17 +1023,64 @@ async function handleCheckVerification() {
             error
         );
 
-       if (verificationStatus) {
+        console.error(
+            "AKU BISA: Error code:",
+            error?.code
+        );
 
-    verificationStatus.textContent =
-        "Terjadi kesalahan saat memeriksa verifikasi.";
-}
+        console.error(
+            "AKU BISA: Error message:",
+            error?.message
+        );
+
+
+        // -------------------------------------------
+        // FIRESTORE ERROR
+        // -------------------------------------------
+
+        if (
+            error?.code ===
+                "permission-denied" ||
+            error?.code ===
+                "PERMISSION_DENIED"
+        ) {
+
+            if (verificationStatus) {
+
+                verificationStatus.textContent =
+                    "Email sudah terverifikasi, tetapi status belum dapat diperbarui di Firestore.";
+
+            }
+
+
+            showToast(
+                "Email sudah terverifikasi, tetapi Firestore menolak pembaruan data. Periksa Firestore Rules.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        // -------------------------------------------
+        // AUTH ERROR
+        // -------------------------------------------
+
+        if (verificationStatus) {
+
+            verificationStatus.textContent =
+                "Terjadi kesalahan saat memeriksa verifikasi.";
+
+        }
+
 
         showToast(
             getAuthErrorMessage(error),
             "error"
         );
+
     }
+
 }
 
 
@@ -781,6 +1094,7 @@ if (checkVerification) {
         "click",
         handleCheckVerification
     );
+
 }
 
 
@@ -791,8 +1105,10 @@ if (checkVerification) {
 async function handleResendVerification() {
 
     if (verificationCooldown) {
+
         return;
     }
+
 
     if (!registeredUser) {
 
@@ -804,102 +1120,101 @@ async function handleResendVerification() {
         return;
     }
 
+
     try {
 
         await sendVerificationEmail(
             registeredUser
         );
 
+
         showToast(
             "Email verifikasi berhasil dikirim ulang.",
             "success"
         );
 
+
         // -------------------------------------------
         // COOLDOWN
         // -------------------------------------------
 
-        verificationCooldown = true;
+        verificationCooldown =
+            true;
+
 
         const originalText =
             resendVerification.textContent;
 
+
         let seconds = 60;
+
 
         resendVerification.disabled =
             true;
 
+
         resendVerification.textContent =
             `Kirim ulang (${seconds})`;
+
 
         const timer =
             setInterval(() => {
 
                 seconds--;
 
+
                 resendVerification.textContent =
                     `Kirim ulang (${seconds})`;
+
 
                 if (seconds <= 0) {
 
                     clearInterval(timer);
 
+
                     verificationCooldown =
                         false;
+
 
                     resendVerification.disabled =
                         false;
 
+
                     resendVerification.textContent =
                         originalText;
+
                 }
 
             }, 1000);
 
-   } catch (error) {
 
-    console.error(
-        "AKU BISA: Register error:",
-        error
-    );
+    } catch (error) {
 
-    console.error(
-        "AKU BISA: Error code:",
-        error?.code
-    );
+        console.error(
+            "AKU BISA: Resend verification error:",
+            error
+        );
 
-    console.error(
-        "AKU BISA: Error message:",
-        error?.message
-    );
+        console.error(
+            "AKU BISA: Error code:",
+            error?.code
+        );
 
-    // ---------------------------------------------
-    // FIRESTORE ERROR
-    // ---------------------------------------------
+        console.error(
+            "AKU BISA: Error message:",
+            error?.message
+        );
 
-    if (
-        error?.code === "permission-denied" ||
-        error?.code === "PERMISSION_DENIED"
-    ) {
 
         showToast(
-            "Akun berhasil dibuat, tetapi data belum dapat disimpan ke Firestore. Periksa Firestore Rules.",
+            getAuthErrorMessage(error),
             "error"
         );
 
-        return;
     }
 
-
-    // ---------------------------------------------
-    // AUTH ERROR
-    // ---------------------------------------------
-
-    showToast(
-        getAuthErrorMessage(error),
-        "error"
-    );
 }
+
 
 // =====================================================
 // TOMBOL KIRIM ULANG
@@ -911,36 +1226,40 @@ if (resendVerification) {
         "click",
         handleResendVerification
     );
+
 }
 
 
 // =====================================================
 // KODE VERIFIKASI 6 DIGIT
 // =====================================================
+//
 // Firebase Authentication TIDAK mengirim OTP 6 digit
 // melalui sendEmailVerification().
 //
-// Karena itu input OTP lokal tidak digunakan untuk
-// mengonfirmasi akun.
-//
-// Verifikasi dilakukan melalui email verification link
-// resmi dari Firebase.
+// Verifikasi dilakukan melalui tautan email resmi
+// dari Firebase.
 // =====================================================
 
 if (verificationCode) {
 
-    verificationCode.value = "";
+    verificationCode.value =
+        "";
 
-    verificationCode.disabled = true;
+    verificationCode.disabled =
+        true;
 
     verificationCode.placeholder =
         "Verifikasi melalui link email";
+
 }
+
 
 if (verificationCodeMessage) {
 
     verificationCodeMessage.textContent =
         "Firebase menggunakan tautan verifikasi email. Buka email dari Firebase lalu klik tautan verifikasi.";
+
 }
 
 
@@ -959,6 +1278,7 @@ if (goToLogin) {
 
         }
     );
+
 }
 
 
