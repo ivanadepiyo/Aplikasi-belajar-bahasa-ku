@@ -541,19 +541,19 @@
             font-weight: 500;
         }
 
-        .grid em,
-        .agree-error {
-            display: block;
+       .grid em,
+.agree-error {
+    display: block;
 
-            min-height: 0;
+    min-height: 12px;
 
-            margin-top: 3px;
+    margin-top: 3px;
 
-            color: #e24e4e;
+    color: #e24e4e;
 
-            font-size: 8px;
-            font-style: normal;
-        }
+    font-size: 8px;
+    font-style: normal;
+}
 
         .invalid .input {
             border-color: #e25c5c;
@@ -1988,19 +1988,27 @@
                             </div>
 
 
-                            <!-- KODE VERIFIKASI -->
+                            <!-- =====================================================
+     VERIFIKASI EMAIL
+     ===================================================== -->
 
-                            <div class="verification-code-box">
+<div class="verification-code-box">
 
+    <!-- JUDUL -->
     <div class="verification-code-title">
         Verifikasi Email
     </div>
 
+
+    <!-- DESKRIPSI -->
     <p class="verification-code-description">
         Kami telah mengirimkan email verifikasi ke alamat email Anda.
-        Silakan buka email tersebut, lalu klik tautan verifikasi.
+        Silakan buka email tersebut, lalu klik tautan verifikasi
+        untuk mengaktifkan akun Anda.
     </p>
 
+
+    <!-- STATUS EMAIL -->
     <input
         id="verificationCode"
         class="verification-code"
@@ -2011,6 +2019,8 @@
         disabled
     >
 
+
+    <!-- PESAN VERIFIKASI -->
     <p
         id="verificationCodeMessage"
         class="verification-code-message"
@@ -2020,7 +2030,6 @@
 
 
     <!-- KIRIM ULANG EMAIL -->
-
     <div class="resend-area">
 
         <p>
@@ -2040,59 +2049,34 @@
 </div>
 
 
-                                <p
-                                    id="verificationCodeMessage"
-                                    class="verification-code-message"
-                                ></p>
+<!-- =====================================================
+     KONFIRMASI VERIFIKASI
+     ===================================================== -->
+
+<div class="verification-actions">
+
+    <button
+        type="button"
+        id="checkVerification"
+        class="submit"
+    >
+        Saya Sudah Verifikasi
+        <b>✓</b>
+    </button>
+
+</div>
 
 
-                                <!-- KIRIM ULANG -->
+<!-- =====================================================
+     STATUS PROSES
+     ===================================================== -->
 
-                                <div class="resend-area">
-
-                                    <p>
-                                        Belum menerima kode?
-                                    </p>
-
-                                    <button
-                                        type="button"
-                                        id="resendVerification"
-                                        class="resend-button"
-                                    >
-                                        Kirim Ulang Kode
-                                    </button>
-
-                                </div>
-
+<p
+    id="verificationStatus"
+    class="verification-status"
+></p>
                             </div>
-
-
-                            <!-- KONFIRMASI -->
-
-                            <div class="verification-actions">
-
-                              <button
-    type="button"
-    id="checkVerification"
-    class="submit"
->
-    Saya Sudah Verifikasi
-    <b>✓</b>
-</button>
-
-                            </div>
-
-
-                            <p
-                                id="verificationStatus"
-                                class="verification-status"
-                            ></p>
-
-                        </div>
-
-                    </div>
-
-
+</div>
                     <!-- =========================================
                          TAHAP 3
                          SELESAI
