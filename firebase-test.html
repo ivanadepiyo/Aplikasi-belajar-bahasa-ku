@@ -3,46 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="AKU BISA - Pengujian koneksi Firebase">
+
     <title>AKU BISA — Firebase Test</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+            background: #f5f7ff;
+            color: #1f2937;
+        }
+
+        .test-container {
+            width: min(90%, 500px);
+            padding: 35px;
+
+            background: #ffffff;
+            border-radius: 20px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.10);
+
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+            color: #4f46e5;
+        }
+
+        .subtitle {
+            margin-bottom: 25px;
+            color: #6b7280;
+        }
+
+        #firebaseStatus {
+            padding: 18px;
+            border-radius: 12px;
+            background: #f3f4f6;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            word-break: break-word;
+        }
+
+        .success {
+            color: #166534;
+            background: #dcfce7 !important;
+        }
+
+        .error {
+            color: #991b1b;
+            background: #fee2e2 !important;
+        }
+
+        .loading {
+            color: #92400e;
+            background: #fef3c7 !important;
+        }
+
+        .info {
+            margin-top: 20px;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>AKU BISA</h1>
+    <main class="test-container">
 
-    <p id="firebaseStatus">
-        Menghubungkan ke Firebase...
-    </p>
+        <h1>AKU BISA</h1>
+
+        <p class="subtitle">
+            Firebase Connection Test
+        </p>
+
+        <div
+            id="firebaseStatus"
+            class="loading"
+        >
+            🔄 Menghubungkan ke Firebase...
+        </div>
+
+        <p class="info">
+            Halaman ini digunakan untuk memastikan
+            Firebase Authentication dan Firestore
+            berhasil terhubung ke aplikasi AKU BISA.
+        </p>
+
+    </main>
+
+
+    <!-- =====================================================
+         FIREBASE TEST
+         ===================================================== -->
 
     <script type="module">
 
-      import {
-    auth,
-    db
-} from "./js/firebase/firebase-init.js";
-        
+        import {
+            auth,
+            db
+        } from "./assets/js/firebase/firebase-init.js";
+
+
         const status =
             document.getElementById("firebaseStatus");
 
-        if (auth && db) {
 
-            status.textContent =
-                "✅ Firebase berhasil terhubung.";
+        try {
 
-            console.log(
-                "Firebase Authentication:",
-                auth
+            if (auth && db) {
+
+                status.textContent =
+                    "✅ Firebase berhasil terhubung.";
+
+                status.className = "success";
+
+
+                console.log(
+                    "===================================="
+                );
+
+                console.log(
+                    "AKU BISA - FIREBASE TEST"
+                );
+
+                console.log(
+                    "Firebase Authentication:",
+                    auth
+                );
+
+                console.log(
+                    "Firebase Firestore:",
+                    db
+                );
+
+                console.log(
+                    "Firebase berhasil diinisialisasi."
+                );
+
+                console.log(
+                    "===================================="
+                );
+
+            } else {
+
+                throw new Error(
+                    "Firebase Authentication atau Firestore tidak tersedia."
+                );
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Firebase Test Error:",
+                error
             );
 
-            console.log(
-                "Firebase Firestore:",
-                db
-            );
-
-        } else {
-
             status.textContent =
-                "❌ Firebase belum terhubung.";
+                "❌ Firebase gagal terhubung: " +
+                error.message;
+
+            status.className = "error";
 
         }
 
