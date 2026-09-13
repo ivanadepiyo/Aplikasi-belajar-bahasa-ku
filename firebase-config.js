@@ -1,12 +1,9 @@
 // =====================================================
 // AKU BISA - Firebase Configuration
 // =====================================================
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
-// -----------------------------------------------------
-// Firebase Configuration
-// -----------------------------------------------------
+// File ini hanya berisi konfigurasi project Firebase.
+// Tidak ada initializeApp() di file ini.
+// =====================================================
 
 const firebaseConfig = {
     apiKey: "AIzaSyCEB8IbCtIu36LmUILqM4oHuwP-3FPz-xk",
@@ -17,14 +14,4 @@ const firebaseConfig = {
     appId: "1:897998654509:web:0128e3a56a9b44084dfca4"
 };
 
-// -----------------------------------------------------
-// Initialize Firebase
-// -----------------------------------------------------
-
-const app = initializeApp(firebaseConfig);
-
-// -----------------------------------------------------
-// Export
-// -----------------------------------------------------
-
-export { app };
+export { firebaseConfig };
