@@ -1,14 +1,11 @@
 // =====================================================
 // AKU BISA - Firestore Service
-// Firebase Firestore Database
 // =====================================================
-// File ini bertugas menangani data pengguna di Firestore.
+// File ini menangani penyimpanan data pengguna
+// ke Cloud Firestore.
 //
 // Struktur:
 // users/{Firebase Auth UID}
-//
-// Password TIDAK disimpan di Firestore.
-// Password sepenuhnya dikelola oleh Firebase Authentication.
 // =====================================================
 
 console.log(
@@ -17,7 +14,7 @@ console.log(
 
 
 // =====================================================
-// FIREBASE FIRESTORE IMPORT
+// FIRESTORE IMPORT
 // =====================================================
 
 import {
@@ -25,7 +22,6 @@ import {
     doc,
     setDoc,
     updateDoc,
-    getDoc,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
@@ -47,45 +43,35 @@ const db = getFirestore(app);
 
 
 // =====================================================
-// MEMBUAT PROFILE USER
-// =====================================================
-// Data disimpan menggunakan UID Firebase Authentication.
-//
-// Lokasi:
-// users/{uid}
+// BUAT PROFILE USER
 // =====================================================
 
 async function createUserProfile(
     uid,
-    userData = {}
+    userData
 ) {
 
     if (!uid) {
 
         throw new Error(
-            "FIRESTORE_UID_REQUIRED"
+            "FIRESTORE_NO_UID"
         );
     }
 
 
-    // -------------------------------------------------
-    // REFERENSI DOKUMEN USER
-    // -------------------------------------------------
+    const userRef =
+        doc(
+            db,
+            "users",
+            uid
+        );
 
-    const userRef = doc(
-        db,
-        "users",
-        uid
-    );
-
-
-    // -------------------------------------------------
-    // DATA USER
-    // -------------------------------------------------
-    // Password sengaja TIDAK dimasukkan.
-    // -------------------------------------------------
 
     const profileData = {
+
+        // ---------------------------------------------
+        // DATA PENGGUNA
+        // ---------------------------------------------
 
         nama:
             userData.nama || "",
@@ -108,14 +94,29 @@ async function createUserProfile(
         bahasaDipilih:
             userData.bahasaDipilih || "",
 
+
+        // ---------------------------------------------
+        // STATUS EMAIL
+        // ---------------------------------------------
+
         emailVerified:
             userData.emailVerified === true,
+
+
+        // ---------------------------------------------
+        // ROLE & MEMBERSHIP
+        // ---------------------------------------------
 
         role:
             "user",
 
         membership:
             "Free",
+
+
+        // ---------------------------------------------
+        // WAKTU
+        // ---------------------------------------------
 
         createdAt:
             serverTimestamp(),
@@ -125,9 +126,9 @@ async function createUserProfile(
     };
 
 
-    // -------------------------------------------------
+    // -----------------------------------------------
     // SIMPAN KE FIRESTORE
-    // -------------------------------------------------
+    // -----------------------------------------------
 
     await setDoc(
         userRef,
@@ -136,7 +137,7 @@ async function createUserProfile(
 
 
     console.log(
-        "AKU BISA: Data pengguna berhasil disimpan ke Firestore.",
+        "AKU BISA: Profile berhasil disimpan ke Firestore.",
         uid
     );
 
@@ -148,32 +149,34 @@ async function createUserProfile(
 // =====================================================
 // UPDATE PROFILE USER
 // =====================================================
-// Digunakan misalnya setelah email berhasil diverifikasi.
-// =====================================================
 
 async function updateUserProfile(
     uid,
-    userData = {}
+    userData
 ) {
 
     if (!uid) {
 
         throw new Error(
-            "FIRESTORE_UID_REQUIRED"
+            "FIRESTORE_NO_UID"
         );
     }
 
 
-    const userRef = doc(
-        db,
-        "users",
-        uid
-    );
+    const userRef =
+        doc(
+            db,
+            "users",
+            uid
+        );
 
 
     const updateData = {
+
         ...userData,
-        updatedAt: serverTimestamp()
+
+        updatedAt:
+            serverTimestamp()
     };
 
 
@@ -184,80 +187,9 @@ async function updateUserProfile(
 
 
     console.log(
-        "AKU BISA: Data pengguna berhasil diperbarui.",
+        "AKU BISA: Profile berhasil diperbarui.",
         uid
     );
-}
-
-
-// =====================================================
-// MENGAMBIL DATA PROFILE USER
-// =====================================================
-
-async function getUserProfile(
-    uid
-) {
-
-    if (!uid) {
-
-        throw new Error(
-            "FIRESTORE_UID_REQUIRED"
-        );
-    }
-
-
-    const userRef = doc(
-        db,
-        "users",
-        uid
-    );
-
-
-    const snapshot = await getDoc(
-        userRef
-    );
-
-
-    if (!snapshot.exists()) {
-
-        return null;
-    }
-
-
-    return {
-        id: snapshot.id,
-        ...snapshot.data()
-    };
-}
-
-
-// =====================================================
-// CEK PROFILE USER
-// =====================================================
-
-async function userProfileExists(
-    uid
-) {
-
-    if (!uid) {
-
-        return false;
-    }
-
-
-    const userRef = doc(
-        db,
-        "users",
-        uid
-    );
-
-
-    const snapshot = await getDoc(
-        userRef
-    );
-
-
-    return snapshot.exists();
 }
 
 
@@ -267,18 +199,10 @@ async function userProfileExists(
 
 export {
 
-    // Firestore
     db,
 
-    // Create
     createUserProfile,
 
-    // Update
-    updateUserProfile,
+    updateUserProfile
 
-    // Read
-    getUserProfile,
-
-    // Check
-    userProfileExists
 };
