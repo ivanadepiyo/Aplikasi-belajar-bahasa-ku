@@ -496,7 +496,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     email,
                     password,
                     name
-                );
+        // =====================================================
+// CEK USER HASIL REGISTRASI
+// =====================================================
+
+if (!user) {
+    throw new Error("AUTH_NO_USER");
+}
 
             // =============================================
             // SIMPAN DATA NON-SENSITIF SEMENTARA
@@ -571,6 +577,51 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+    // =====================================================
+// CEK VERIFIKASI EMAIL
+// =====================================================
+
+async function checkVerificationStatus() {
+
+    try {
+
+        const verified = await checkEmailVerified();
+
+        if (verified) {
+
+            console.log(
+                "AKU BISA: Email berhasil diverifikasi."
+            );
+
+            // Tahap selesai
+            step2.classList.remove("active");
+            step3.classList.add("active");
+
+            toast(
+                "Email berhasil diverifikasi! 🎉"
+            );
+
+        } else {
+
+            toast(
+                "Email belum diverifikasi. Silakan cek inbox Anda. 📧"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Gagal mengecek verifikasi:",
+            error
+        );
+
+        toast(
+            getAuthErrorMessage(error)
+        );
+    }
+}
 </script>
 
 
