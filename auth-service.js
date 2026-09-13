@@ -1,8 +1,15 @@
-console.log("AKU BISA: auth-service.js BERHASIL DIMUAT");
-
 // =====================================================
 // AKU BISA - Authentication Service
 // Firebase Authentication
+// =====================================================
+
+console.log(
+    "AKU BISA: auth-service.js BERHASIL DIMUAT"
+);
+
+
+// =====================================================
+// FIREBASE AUTH IMPORT
 // =====================================================
 
 import {
@@ -20,11 +27,18 @@ import {
     browserSessionPersistence
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
-import { app } from "./firebase-init.js";
+
+// =====================================================
+// FIREBASE APP
+// =====================================================
+
+import {
+    app
+} from "./firebase-init.js";
 
 
 // =====================================================
-// FIREBASE AUTH
+// FIREBASE AUTH INSTANCE
 // =====================================================
 
 const auth = getAuth(app);
@@ -81,7 +95,7 @@ async function registerWithEmail(
 
 
     // -------------------------------------------------
-    // SIMPAN NAMA PENGGUNA
+    // SIMPAN NAMA KE FIREBASE AUTH PROFILE
     // -------------------------------------------------
 
     if (
@@ -99,35 +113,22 @@ async function registerWithEmail(
 
 
     // -------------------------------------------------
-    // KIRIM EMAIL VERIFIKASI
+    // KIRIM EMAIL VERIFIKASI FIREBASE
     // -------------------------------------------------
 
     await sendEmailVerification(user);
 
-
     console.log(
-        "AKU BISA: email verifikasi berhasil dikirim."
+        "AKU BISA: email verifikasi Firebase berhasil dikirim."
     );
+
 
     return user;
 }
 
 
 // =====================================================
-// RESET PASSWORD
-// =====================================================
-
-async function sendResetPassword(email) {
-
-    return await sendPasswordResetEmail(
-        auth,
-        email
-    );
-}
-
-
-// =====================================================
-// KIRIM ULANG EMAIL VERIFIKASI
+// KIRIM EMAIL VERIFIKASI
 // =====================================================
 
 async function sendVerificationEmail(
@@ -150,10 +151,7 @@ async function sendVerificationEmail(
 
 
 // =====================================================
-// CEK STATUS EMAIL TERBARU
-// =====================================================
-// Firebase perlu reload() agar status emailVerified
-// diperbarui setelah pengguna melakukan verifikasi.
+// CEK EMAIL SUDAH DIVERIFIKASI
 // =====================================================
 
 async function checkEmailVerified(
@@ -171,40 +169,7 @@ async function checkEmailVerified(
 
 
 // =====================================================
-// LOGOUT
-// =====================================================
-
-async function logout() {
-
-    return await signOut(auth);
-}
-
-
-// =====================================================
-// MENDAPATKAN USER YANG SEDANG LOGIN
-// =====================================================
-
-function getCurrentUser() {
-
-    return auth.currentUser;
-}
-
-
-// =====================================================
-// MEMANTAU STATUS LOGIN
-// =====================================================
-
-function observeAuthState(callback) {
-
-    return onAuthStateChanged(
-        auth,
-        callback
-    );
-}
-
-
-// =====================================================
-// CEK EMAIL SUDAH DIVERIFIKASI
+// CEK STATUS EMAIL
 // =====================================================
 
 function isEmailVerified(
@@ -220,6 +185,52 @@ function isEmailVerified(
 
 
 // =====================================================
+// RESET PASSWORD
+// =====================================================
+
+async function sendResetPassword(email) {
+
+    return await sendPasswordResetEmail(
+        auth,
+        email
+    );
+}
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+async function logout() {
+
+    return await signOut(auth);
+}
+
+
+// =====================================================
+// USER YANG SEDANG LOGIN
+// =====================================================
+
+function getCurrentUser() {
+
+    return auth.currentUser;
+}
+
+
+// =====================================================
+// MONITOR AUTH STATE
+// =====================================================
+
+function observeAuthState(callback) {
+
+    return onAuthStateChanged(
+        auth,
+        callback
+    );
+}
+
+
+// =====================================================
 // PESAN ERROR FIREBASE AUTH
 // =====================================================
 
@@ -228,13 +239,9 @@ function getAuthErrorMessage(error) {
     const code =
         error?.code || "";
 
-
     const messages = {
 
-        // -------------------------------------------------
         // LOGIN
-        // -------------------------------------------------
-
         "auth/invalid-email":
             "Format email tidak valid.",
 
@@ -251,10 +258,7 @@ function getAuthErrorMessage(error) {
             "Akun ini telah dinonaktifkan.",
 
 
-        // -------------------------------------------------
         // REGISTER
-        // -------------------------------------------------
-
         "auth/email-already-in-use":
             "Email tersebut sudah terdaftar.",
 
@@ -265,10 +269,7 @@ function getAuthErrorMessage(error) {
             "Password wajib diisi.",
 
 
-        // -------------------------------------------------
         // REQUEST
-        // -------------------------------------------------
-
         "auth/too-many-requests":
             "Terlalu banyak percobaan. Silakan coba lagi beberapa saat.",
 
@@ -276,10 +277,7 @@ function getAuthErrorMessage(error) {
             "Koneksi internet bermasalah. Periksa koneksi Anda.",
 
 
-        // -------------------------------------------------
-        // FIREBASE CONFIGURATION
-        // -------------------------------------------------
-
+        // CONFIG
         "auth/operation-not-allowed":
             "Metode autentikasi ini belum diaktifkan di Firebase.",
 
@@ -287,21 +285,16 @@ function getAuthErrorMessage(error) {
             "Konfigurasi Firebase Authentication belum tersedia.",
 
 
-        // -------------------------------------------------
         // SESSION
-        // -------------------------------------------------
-
         "auth/user-token-expired":
             "Sesi login telah berakhir. Silakan login kembali.",
 
         "auth/requires-recent-login":
             "Silakan login kembali untuk melakukan tindakan ini.",
 
-        "auth/network-request-failed":
-            "Koneksi internet bermasalah. Periksa koneksi Anda.",
-
-        "auth/too-many-requests":
-            "Terlalu banyak percobaan. Silakan coba lagi beberapa saat."
+        // USER
+        "AUTH_NO_USER":
+            "Pengguna Firebase tidak ditemukan."
     };
 
 
@@ -327,27 +320,19 @@ export {
     // Register
     registerWithEmail,
 
-    // Reset password
-    sendResetPassword,
-
-    // Email verification
-    sendVerificationEmail,
-
-    // Check verification
-    checkEmailVerified,
-
-    // Logout
-    logout,
-
-    // Current user
-    getCurrentUser,
-
-    // Auth state
-    observeAuthState,
-
     // Verification
+    sendVerificationEmail,
+    checkEmailVerified,
     isEmailVerified,
 
-    // Error handler
+    // Password
+    sendResetPassword,
+
+    // Session
+    logout,
+    getCurrentUser,
+    observeAuthState,
+
+    // Error
     getAuthErrorMessage
 };
