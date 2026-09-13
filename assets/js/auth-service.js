@@ -1,4 +1,5 @@
 console.log("AKU BISA: auth-service.js BERHASIL DIMUAT");
+
 // =====================================================
 // AKU BISA - Authentication Service
 // Firebase Authentication
@@ -13,12 +14,13 @@ import {
     signOut,
     onAuthStateChanged,
     updateProfile,
+    reload,
     setPersistence,
     browserLocalPersistence,
     browserSessionPersistence
-} from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
-import { app } from "./firebase-config.js";
+import { app } from "./assets/js/firebase/firebase-init.js";
 
 
 // =====================================================
@@ -79,10 +81,13 @@ async function registerWithEmail(
 
 
     // -------------------------------------------------
-    // Simpan nama pengguna
+    // SIMPAN NAMA PENGGUNA
     // -------------------------------------------------
 
-    if (displayName.trim() !== "") {
+    if (
+        typeof displayName === "string" &&
+        displayName.trim() !== ""
+    ) {
 
         await updateProfile(
             user,
@@ -94,10 +99,15 @@ async function registerWithEmail(
 
 
     // -------------------------------------------------
-    // Kirim email verifikasi
+    // KIRIM EMAIL VERIFIKASI
     // -------------------------------------------------
 
     await sendEmailVerification(user);
+
+
+    console.log(
+        "AKU BISA: email verifikasi berhasil dikirim."
+    );
 
     return user;
 }
@@ -131,7 +141,32 @@ async function sendVerificationEmail(
         );
     }
 
-    return await sendEmailVerification(user);
+    await sendEmailVerification(user);
+
+    console.log(
+        "AKU BISA: email verifikasi dikirim ulang."
+    );
+}
+
+
+// =====================================================
+// CEK STATUS EMAIL TERBARU
+// =====================================================
+// Firebase perlu reload() agar status emailVerified
+// diperbarui setelah pengguna melakukan verifikasi.
+// =====================================================
+
+async function checkEmailVerified(
+    user = auth.currentUser
+) {
+
+    if (!user) {
+        return false;
+    }
+
+    await reload(user);
+
+    return user.emailVerified === true;
 }
 
 
@@ -260,7 +295,13 @@ function getAuthErrorMessage(error) {
             "Sesi login telah berakhir. Silakan login kembali.",
 
         "auth/requires-recent-login":
-            "Silakan login kembali untuk melakukan tindakan ini."
+            "Silakan login kembali untuk melakukan tindakan ini.",
+
+        "auth/network-request-failed":
+            "Koneksi internet bermasalah. Periksa koneksi Anda.",
+
+        "auth/too-many-requests":
+            "Terlalu banyak percobaan. Silakan coba lagi beberapa saat."
     };
 
 
@@ -291,6 +332,9 @@ export {
 
     // Email verification
     sendVerificationEmail,
+
+    // Check verification
+    checkEmailVerified,
 
     // Logout
     logout,
