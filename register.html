@@ -1992,26 +1992,52 @@
 
                             <div class="verification-code-box">
 
-                                <div class="verification-code-title">
-                                    Kode Verifikasi Email
-                                </div>
+    <div class="verification-code-title">
+        Verifikasi Email
+    </div>
 
-                                <p class="verification-code-description">
-                                    Masukkan kode 6 digit yang dikirimkan
-                                    ke email Anda.
-                                </p>
+    <p class="verification-code-description">
+        Kami telah mengirimkan email verifikasi ke alamat email Anda.
+        Silakan buka email tersebut, lalu klik tautan verifikasi.
+    </p>
+
+    <input
+        id="verificationCode"
+        class="verification-code"
+        type="text"
+        autocomplete="off"
+        placeholder="Verifikasi melalui email"
+        aria-label="Status verifikasi email"
+        disabled
+    >
+
+    <p
+        id="verificationCodeMessage"
+        class="verification-code-message"
+    >
+        Buka email dari Firebase dan klik tautan verifikasi.
+    </p>
 
 
-                                <input
-                                    id="verificationCode"
-                                    class="verification-code"
-                                    type="text"
-                                    inputmode="numeric"
-                                    autocomplete="one-time-code"
-                                    maxlength="6"
-                                    placeholder="••••••"
-                                    aria-label="Kode verifikasi"
-                                >
+    <!-- KIRIM ULANG EMAIL -->
+
+    <div class="resend-area">
+
+        <p>
+            Belum menerima email verifikasi?
+        </p>
+
+        <button
+            type="button"
+            id="resendVerification"
+            class="resend-button"
+        >
+            Kirim Ulang Email Verifikasi
+        </button>
+
+    </div>
+
+</div>
 
 
                                 <p
@@ -2045,15 +2071,14 @@
 
                             <div class="verification-actions">
 
-                                <button
-                                    type="button"
-                                    id="checkVerification"
-                                    class="submit"
-                                    disabled
-                                >
-                                    Konfirmasi
-                                    <b>✓</b>
-                                </button>
+                              <button
+    type="button"
+    id="checkVerification"
+    class="submit"
+>
+    Saya Sudah Verifikasi
+    <b>✓</b>
+</button>
 
                             </div>
 
@@ -2092,11 +2117,10 @@
                             </h3>
 
 
-                            <p>
-                                Selamat! Akun AKU BISA Anda telah berhasil
-                                dibuat dan data Anda sudah tersimpan dengan
-                                aman.
-                            </p>
+                       <p>
+    Selamat! Akun AKU BISA Anda telah berhasil dibuat
+    dan alamat email Anda sudah berhasil diverifikasi.
+</p>
 
 
                             <div class="completion-note">
