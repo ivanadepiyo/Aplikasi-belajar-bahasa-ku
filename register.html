@@ -1,903 +1,2185 @@
-<!doctype html><html lang="id">
+<!doctype html>
+<html lang="id">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Daftar — AKU BISA</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:#12213d;background:#f5f9ff}.page{min-height:100vh;display:grid;grid-template-columns:1.04fr .96fr;background:#fff}.welcome{position:relative;min-height:100vh;overflow:hidden;background:#dceeff}.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(222,239,255,.62),rgba(240,248,255,.25) 55%,rgba(245,250,255,.95))}.brand{position:absolute;z-index:5;top:34px;left:52px;display:flex;gap:10px;align-items:center;color:#1769e8;font-size:25px}.brand b{display:block}.brand small{display:block;color:#66758a;font-size:8px}.copy{position:absolute;z-index:5;left:11%;top:17%;max-width:470px}.copy label{background:#fff;color:#1769e8;padding:7px 12px;border-radius:50px;font-size:10px;font-weight:800}.copy h1{font-size:clamp(38px,4vw,55px);line-height:1.08;letter-spacing:-2px;margin:19px 0 14px}.copy h1 span{color:#1769e8}.copy p{color:#52647d;font-size:14px;line-height:1.7}.copy p b{color:#1769e8}.art{position:absolute;z-index:2;inset:19% 0 0;background:url('register-illustration.jpg') center bottom/cover no-repeat;mix-blend-mode:multiply;opacity:.88}.benefits{position:absolute;z-index:7;left:7%;right:7%;bottom:42px;background:rgba(255,255,255,.96);border-radius:22px;box-shadow:0 18px 45px rgba(43,91,145,.15);padding:17px 10px;display:grid;grid-template-columns:repeat(4,1fr)}.benefits article{text-align:center;border-right:1px solid #e7eef7;padding:2px 8px;font-size:23px}.benefits article:last-child{border:0}.benefits b,.benefits small{display:block}.benefits b{font-size:10px;margin-top:4px}.benefits small{font-size:8px;color:#7d8999;margin-top:2px}.form-side{display:flex;align-items:center;justify-content:center;padding:42px 6%;background:linear-gradient(135deg,#f8fbff,#fff)}.form-wrap{width:min(610px,100%)}.head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:23px}.head h2{font-size:28px;letter-spacing:-1px;margin:0 0 3px}.head p{font-size:12px;color:#718096;margin:0}.head button{border:1px solid #dfe7f2;background:#fff;border-radius:11px;padding:10px 13px;font-weight:700;color:#34445d}.mobile-brand{display:none;color:#1769e8;font-weight:900;font-size:13px;margin-bottom:10px}.steps{display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:start;gap:8px;margin-bottom:24px}.steps i{height:2px;background:#dfe6ef;margin-top:14px}.step{text-align:center}.step span{display:grid;place-items:center;width:29px;height:29px;border:2px solid #dbe3ed;border-radius:50%;margin:auto;font-size:10px;font-weight:800;color:#748197}.step.active span{background:#1769e8;border-color:#1769e8;color:#fff}.step b{display:block;font-size:9px;color:#7b8799;margin-top:6px;white-space:nowrap}.step.active b{color:#1769e8}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 16px}.grid label{font-size:10px;font-weight:800}.grid .full{grid-column:1/-1}.input{height:42px;margin-top:5px;border:1px solid #dce6f1;border-radius:10px;display:flex;align-items:center;gap:8px;padding:0 10px;background:#fff;transition:.2s}.input:focus-within{border-color:#5d9cf1;box-shadow:0 0 0 3px #1769e812}.input input,.input select{border:0;outline:0;width:100%;background:transparent;font:500 11px Inter;color:#273954}.input input::placeholder{color:#a2adbb}.eye{border:0;background:none;color:#718096;cursor:pointer}.grid label>small{display:block;color:#8995a7;font-size:8px;font-weight:500;margin-top:3px}.grid em,.agree-error{display:block;color:#e24e4e;font-size:8px;font-style:normal;margin-top:3px;min-height:0}.invalid .input{border-color:#e25c5c}.langs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:5px}.langs button{border:1px solid #dfe7f2;background:#fff;border-radius:9px;padding:8px 3px;font:700 9px Inter;color:#51617a;cursor:pointer}.langs button.selected{border-color:#1769e8;background:#edf5ff;color:#1769e8}.strength{display:flex;gap:3px;align-items:center;margin-top:5px}.strength i{height:3px;flex:1;border-radius:5px;background:#e6ebf2}.strength small{font-size:7px;color:#8995a7;white-space:nowrap;margin-left:4px}.agree{display:flex;gap:7px;align-items:flex-start;margin:14px 0 4px;font-size:9px;color:#66748a;font-weight:500}.agree input{accent-color:#1769e8}.agree a,.login a{color:#1769e8;font-weight:800}.submit{width:100%;height:45px;border:0;border-radius:10px;background:linear-gradient(100deg,#125fe2,#287fee);color:#fff;font:800 12px Inter;cursor:pointer;box-shadow:0 11px 25px #1769e833}.submit:hover{transform:translateY(-2px)}.submit b{font-size:16px;margin-left:6px}.login{text-align:center;font-size:10px;color:#7b8799;margin:14px 0 20px}.security{border-top:1px solid #edf1f6;padding-top:15px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.security div{font-size:18px;display:grid;grid-template-columns:25px 1fr;column-gap:6px}.security b,.security small{font-size:8px}.security small{color:#8995a7}.security b,.security small{grid-column:2}.security div:first-letter{grid-row:span 2}#toast{position:fixed;right:22px;bottom:22px;background:#10213d;color:#fff;border-radius:10px;padding:12px 16px;font-size:11px;opacity:0;transform:translateY(20px);transition:.25s;z-index:20}#toast.show{opacity:1;transform:none}@media(max-width:1000px){.page{grid-template-columns:1fr}.welcome{min-height:440px;height:440px}.copy{top:22%}.art{inset:10% 0 0 25%}.form-side{padding:42px 8%}}@media(max-width:650px){.welcome{display:none}.form-side{min-height:100vh;padding:28px 20px;align-items:flex-start}.mobile-brand{display:block}.grid{grid-template-columns:1fr}.grid .full{grid-column:auto}.langs{grid-template-columns:repeat(2,1fr)}.security{grid-template-columns:1fr}.security div{grid-template-columns:28px 1fr}.head h2{font-size:25px}}
-</style>
-</head>
-<body><div class="page"><section class="welcome"><div class="shade"></div><div class="brand">🎓 <div><b>AKU BISA</b><small>Aplikasi Kreatif Untuk Bisa Semua Bahasa</small></div></div><div class="copy"><label>✨ WELCOME TO AKU BISA</label><h1>Bergabunglah bersama<br><span>AKU BISA</span></h1><p>Daftar sekarang dan mulai perjalanan belajarmu menuju <b>dunia tanpa batas.</b></p></div><div class="art"></div><div class="benefits"><article>🎓<b>Belajar Interaktif</b><small>Metode seru & efektif</small></article><article>🏆<b>Pantau Progress</b><small>Perkembangan setiap hari</small></article><article>📜<b>Sertifikat</b><small>Rayakan pencapaian</small></article><article>👥<b>Komunitas Aktif</b><small>Bersama pelajar lain</small></article></div></section><section class="form-side"><div class="form-wrap"><div class="head"><div><div class="mobile-brand">🎓 AKU BISA</div><h2>Buat Akun Baru</h2><p>Mulai perjalanan belajarmu sekarang!</p></div><button id="lang">🌐 ID⌄</button></div><div class="steps"><div class="step active"><span>1</span><b>Informasi Diri</b></div><i></i><div class="step"><span>2</span><b>Verifikasi</b></div><i></i><div class="step"><span>3</span><b>Selesai</b></div></div><form id="form" novalidate><div class="grid"><label class="full">Nama Lengkap<div class="input"><span>👤</span><input id="name" placeholder="Masukkan nama lengkapmu" autocomplete="name"></div><em></em></label><label>Email<div class="input"><span>✉</span><input id="email" type="email" placeholder="Masukkan email aktif" autocomplete="email"></div><em></em></label><label>Nomor Telepon<div class="input"><span>☎</span><input id="phone" type="tel" placeholder="Masukkan nomor telepon" autocomplete="tel"></div><em></em></label><label>Tanggal Lahir<div class="input"><span>📅</span><input id="birth" type="date"></div><em></em></label><label>Jenis Kelamin<div class="input"><span>👥</span><select id="gender"><option value="">Pilih jenis kelamin</option><option>Laki-laki</option><option>Perempuan</option><option>Tidak ingin menyebutkan</option></select></div><em></em></label><label class="full">Bahasa yang ingin dipelajari<div class="langs" id="langs"><button type="button" data-v="Jepang">🇯🇵 Jepang</button><button type="button" data-v="Inggris">🇬🇧 Inggris</button><button type="button" data-v="Korea">🇰🇷 Korea</button><button type="button" data-v="Jerman">🇩🇪 Jerman</button></div><input id="learning" type="hidden"><em></em></label><label class="full">Username<div class="input"><span>＠</span><input id="user" placeholder="Buat username" autocomplete="username"></div><small>Username akan digunakan untuk login</small><em></em></label><label>Password<div class="input"><span>🔒</span><input id="pass" type="password" placeholder="Buat password" autocomplete="new-password"><button type="button" class="eye" data-id="pass">◉</button></div><div class="strength"><i></i><i></i><i></i><i></i><small id="strengthText">Minimal 8 karakter</small></div><em></em></label><label>Konfirmasi Password<div class="input"><span>🔒</span><input id="confirm" type="password" placeholder="Konfirmasi password" autocomplete="new-password"><button type="button" class="eye" data-id="confirm">◉</button></div><em></em></label></div><label class="agree"><input id="agree" type="checkbox"><span class="checkmark"></span>
+    <meta name="description"
+        content="AKU BISA - Aplikasi Kreatif Untuk Bisa Semua Bahasa">
 
-    <span>
-        Saya setuju dengan
-        <a href="Syarat_ketentuan.html">
-            Syarat &amp; Ketentuan
-        </a>
-        dan
-        <a href="Kebijakan_privasi.html">
-            Kebijakan Privasi
-        </a>
-    </span>
-</label>
+    <meta name="theme-color" content="#1769e8">
 
-<em class="agree-error"></em>
-  <button class="submit" type="submit">Buat Akun <b>→</b></button></form>
+    <title>Daftar — AKU BISA</title>
+
     <!-- =====================================================
-     TAHAP 2 - VERIFIKASI EMAIL
-     ===================================================== -->
-<div id="verificationPanel" style="display:none;">
+         GOOGLE FONT
+         ===================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <div style="
-        text-align:center;
-        padding:20px 0;
-    ">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        <div style="
-            font-size:42px;
-            margin-bottom:12px;
-        ">
-            📧
-        </div>
 
-        <h3 style="
-            margin:0 0 8px;
-            font-size:22px;
-        ">
-            Verifikasi Email
-        </h3>
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+    <style>
 
-        <p style="
-            margin:0 auto 6px;
-            color:#718096;
-            font-size:11px;
-            line-height:1.6;
-            max-width:430px;
-        ">
-            Kami telah mengirimkan email verifikasi ke:
-        </p>
+        /* =====================================================
+           RESET & GLOBAL
+           ===================================================== */
 
-        <strong
-            id="verificationEmail"
-            style="
-                display:block;
-                color:#1769e8;
-                font-size:12px;
-                margin-bottom:18px;
-                word-break:break-word;
-            "
-        ></strong>
+        * {
+            box-sizing: border-box;
+        }
 
-        <p style="
-            margin:0 auto 18px;
-            color:#8995a7;
-            font-size:9px;
-            line-height:1.6;
-            max-width:430px;
-        ">
-            Silakan buka email tersebut dan klik link verifikasi.
-            Setelah itu kembali ke halaman ini.
-        </p>
+        html {
+            scroll-behavior: smooth;
+        }
 
-        <button
-            type="button"
-            id="checkVerification"
-            class="submit"
-        >
-            Saya Sudah Verifikasi <b>✓</b>
-        </button>
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, sans-serif;
+            color: #12213d;
+            background: #f5f9ff;
+        }
 
-        <button
-            type="button"
-            id="resendVerification"
-            style="
-                width:100%;
-                height:42px;
-                margin-top:10px;
-                border:1px solid #dce6f1;
-                border-radius:10px;
-                background:#fff;
-                color:#1769e8;
-                font:700 11px Inter;
-                cursor:pointer;
-            "
-        >
-            Kirim Ulang Email
-        </button>
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
 
-        <p
-            id="verificationStatus"
-            style="
-                min-height:16px;
-                margin:12px 0 0;
-                color:#718096;
-                font-size:9px;
-            "
-        ></p>
+        button {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+        /* =====================================================
+           MAIN PAGE
+           ===================================================== */
+
+        .page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.04fr .96fr;
+            background: #fff;
+        }
+
+
+        /* =====================================================
+           LEFT / WELCOME SECTION
+           ===================================================== */
+
+        .welcome {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: #dceeff;
+        }
+
+        .shade {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(222, 239, 255, .62),
+                    rgba(240, 248, 255, .25) 55%,
+                    rgba(245, 250, 255, .95)
+                );
+        }
+
+        .brand {
+            position: absolute;
+            z-index: 5;
+            top: 34px;
+            left: 52px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #1769e8;
+            font-size: 25px;
+        }
+
+        .brand b {
+            display: block;
+        }
+
+        .brand small {
+            display: block;
+            color: #66758a;
+            font-size: 8px;
+        }
+
+        .copy {
+            position: absolute;
+            z-index: 5;
+
+            left: 11%;
+            top: 17%;
+
+            max-width: 470px;
+        }
+
+        .copy label {
+            display: inline-block;
+
+            background: #fff;
+            color: #1769e8;
+
+            padding: 7px 12px;
+
+            border-radius: 50px;
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .copy h1 {
+            margin: 19px 0 14px;
+
+            font-size: clamp(38px, 4vw, 55px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+        }
+
+        .copy h1 span {
+            color: #1769e8;
+        }
+
+        .copy p {
+            color: #52647d;
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .copy p b {
+            color: #1769e8;
+        }
+
+        .art {
+            position: absolute;
+            z-index: 2;
+
+            inset: 19% 0 0;
+
+            /*
+             * Path gambar mengikuti struktur:
+             * assets/images/register-illustration.jpg
+             */
+            background:
+                url("assets/images/register-illustration.jpg")
+                center bottom / cover no-repeat;
+
+            mix-blend-mode: multiply;
+            opacity: .88;
+        }
+
+
+        /* =====================================================
+           BENEFITS
+           ===================================================== */
+
+        .benefits {
+            position: absolute;
+            z-index: 7;
+
+            left: 7%;
+            right: 7%;
+            bottom: 42px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            padding: 17px 10px;
+
+            background: rgba(255, 255, 255, .96);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 18px 45px rgba(43, 91, 145, .15);
+        }
+
+        .benefits article {
+            padding: 2px 8px;
+
+            text-align: center;
+
+            border-right: 1px solid #e7eef7;
+
+            font-size: 23px;
+        }
+
+        .benefits article:last-child {
+            border-right: 0;
+        }
+
+        .benefits b,
+        .benefits small {
+            display: block;
+        }
+
+        .benefits b {
+            margin-top: 4px;
+            font-size: 10px;
+        }
+
+        .benefits small {
+            margin-top: 2px;
+
+            color: #7d8999;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           RIGHT / FORM SECTION
+           ===================================================== */
+
+        .form-side {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 42px 6%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8fbff,
+                    #fff
+                );
+        }
+
+        .form-wrap {
+            width: min(610px, 100%);
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            margin-bottom: 23px;
+        }
+
+        .head h2 {
+            margin: 0 0 3px;
+
+            font-size: 28px;
+            letter-spacing: -1px;
+        }
+
+        .head p {
+            margin: 0;
+
+            color: #718096;
+
+            font-size: 12px;
+        }
+
+        .head button {
+            padding: 10px 13px;
+
+            border: 1px solid #dfe7f2;
+            border-radius: 11px;
+
+            background: #fff;
+            color: #34445d;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        .mobile-brand {
+            display: none;
+
+            margin-bottom: 10px;
+
+            color: #1769e8;
+
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+
+        /* =====================================================
+           STEP INDICATOR
+           ===================================================== */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns:
+                auto
+                minmax(20px, 1fr)
+                auto
+                minmax(20px, 1fr)
+                auto;
+
+            align-items: start;
+
+            gap: 8px;
+
+            margin-bottom: 24px;
+        }
+
+        .step {
+            min-width: 72px;
+
+            text-align: center;
+        }
+
+        .step span {
+            display: grid;
+            place-items: center;
+
+            width: 29px;
+            height: 29px;
+
+            margin: auto;
+
+            border: 2px solid #dbe3ed;
+            border-radius: 50%;
+
+            background: #fff;
+
+            color: #748197;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            transition: .25s ease;
+        }
+
+        .step b {
+            display: block;
+
+            margin-top: 6px;
+
+            color: #7b8799;
+
+            font-size: 9px;
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .step.active span {
+            background: #1769e8;
+            border-color: #1769e8;
+            color: #fff;
+        }
+
+        .step.active b {
+            color: #1769e8;
+        }
+
+        .step.completed span {
+            background: #1769e8;
+            border-color: #1769e8;
+            color: #fff;
+        }
+
+        .step.completed b {
+            color: #1769e8;
+        }
+
+        .steps > i {
+            height: 2px;
+
+            margin-top: 14px;
+
+            background: #dfe6ef;
+
+            transition: .25s ease;
+        }
+
+        .steps > i.completed {
+            background: #1769e8;
+        }
+
+
+        /* =====================================================
+           STAGE CONTAINER
+           ===================================================== */
+
+        /*
+         * Tempat ketiga tahap berada.
+         *
+         * JavaScript nantinya akan mengatur perpindahan
+         * antar tahap dengan efek slide ke kiri.
+         */
+
+        .stage-viewport {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+        }
+
+        .stage-panel {
+            width: 100%;
+
+            transition:
+                transform .45s ease,
+                opacity .35s ease;
+        }
+
+        .stage-panel.hidden {
+            display: none;
+        }
+
+
+        /* =====================================================
+           FORM GRID
+           ===================================================== */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 11px 16px;
+        }
+
+        .grid label {
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .grid .full {
+            grid-column: 1 / -1;
+        }
+
+
+        /* =====================================================
+           INPUT
+           ===================================================== */
+
+        .input {
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 5px;
+            padding: 0 10px;
+
+            border: 1px solid #dce6f1;
+            border-radius: 10px;
+
+            background: #fff;
+
+            transition: .2s;
+        }
+
+        .input:focus-within {
+            border-color: #5d9cf1;
+
+            box-shadow:
+                0 0 0 3px #1769e812;
+        }
+
+        .input input,
+        .input select {
+            width: 100%;
+
+            border: 0;
+            outline: 0;
+
+            background: transparent;
+
+            color: #273954;
+
+            font: 500 11px Inter;
+        }
+
+        .input input::placeholder {
+            color: #a2adbb;
+        }
+
+        .eye {
+            border: 0;
+            background: none;
+
+            color: #718096;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           FIELD HELP / ERROR
+           ===================================================== */
+
+        .grid label > small {
+            display: block;
+
+            margin-top: 3px;
+
+            color: #8995a7;
+
+            font-size: 8px;
+            font-weight: 500;
+        }
+
+        .grid em,
+        .agree-error {
+            display: block;
+
+            min-height: 0;
+
+            margin-top: 3px;
+
+            color: #e24e4e;
+
+            font-size: 8px;
+            font-style: normal;
+        }
+
+        .invalid .input {
+            border-color: #e25c5c;
+        }
+
+
+        /* =====================================================
+           LANGUAGE SELECTION
+           ===================================================== */
+
+        .langs {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 7px;
+
+            margin-top: 5px;
+        }
+
+        .langs button {
+            padding: 8px 3px;
+
+            border: 1px solid #dfe7f2;
+            border-radius: 9px;
+
+            background: #fff;
+            color: #51617a;
+
+            font: 700 9px Inter;
+
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+        .langs button:hover {
+            border-color: #8db8f4;
+        }
+
+        .langs button.selected {
+            border-color: #1769e8;
+
+            background: #edf5ff;
+
+            color: #1769e8;
+        }
+
+
+        /* =====================================================
+           PASSWORD STRENGTH
+           ===================================================== */
+
+        .strength {
+            display: flex;
+            align-items: center;
+
+            gap: 3px;
+
+            margin-top: 5px;
+        }
+
+        .strength i {
+            height: 3px;
+
+            flex: 1;
+
+            border-radius: 5px;
+
+            background: #e6ebf2;
+        }
+
+        .strength small {
+            margin-left: 4px;
+
+            color: #8995a7;
+
+            font-size: 7px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           AGREEMENT
+           ===================================================== */
+
+        .agree {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 7px;
+
+            margin: 14px 0 4px;
+
+            color: #66748a;
+
+            font-size: 9px;
+            font-weight: 500;
+        }
+
+        .agree input {
+            margin-top: 1px;
+
+            accent-color: #1769e8;
+        }
+
+        .agree a,
+        .login a {
+            color: #1769e8;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           PRIMARY BUTTON
+           ===================================================== */
+
+        .submit {
+            width: 100%;
+            height: 45px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    100deg,
+                    #125fe2,
+                    #287fee
+                );
+
+            color: #fff;
+
+            font: 800 12px Inter;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 11px 25px #1769e833;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease,
+                opacity .2s ease,
+                background .2s ease;
+        }
+
+        .submit:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 14px 30px #1769e840;
+        }
+
+        .submit:disabled {
+            background: #dfe5ed;
+
+            color: #8995a7;
+
+            cursor: not-allowed;
+
+            box-shadow: none;
+
+            transform: none;
+        }
+
+        .submit b {
+            margin-left: 6px;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           LOGIN LINK
+           ===================================================== */
+
+        .login {
+            margin: 14px 0 20px;
+
+            color: #7b8799;
+
+            text-align: center;
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           SECURITY
+           ===================================================== */
+
+        .security {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 10px;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #edf1f6;
+        }
+
+        .security div {
+            display: grid;
+
+            grid-template-columns: 25px 1fr;
+
+            column-gap: 6px;
+
+            align-items: center;
+
+            font-size: 18px;
+        }
+
+        .security b,
+        .security small {
+            grid-column: 2;
+        }
+
+        .security b {
+            font-size: 8px;
+        }
+
+        .security small {
+            color: #8995a7;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           STAGE 2 - VERIFICATION
+           ===================================================== */
+
+        .verification-panel {
+            width: 100%;
+        }
+
+        .verification-header {
+            text-align: center;
+
+            padding: 8px 0 18px;
+        }
+
+        .verification-icon {
+            display: grid;
+            place-items: center;
+
+            width: 66px;
+            height: 66px;
+
+            margin: 0 auto 12px;
+
+            border-radius: 50%;
+
+            background: #edf5ff;
+
+            font-size: 32px;
+        }
+
+        .verification-header h3 {
+            margin: 0 0 8px;
+
+            font-size: 22px;
+            letter-spacing: -.5px;
+        }
+
+        .verification-header p {
+            max-width: 430px;
+
+            margin: 0 auto;
+
+            color: #718096;
+
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           ACCOUNT SUMMARY
+           ===================================================== */
+
+        .account-summary {
+            margin: 0 0 18px;
+
+            padding: 14px;
+
+            border: 1px solid #e2ebf5;
+            border-radius: 14px;
+
+            background: #f8fbff;
+        }
+
+        .account-summary-title {
+            margin-bottom: 10px;
+
+            color: #273954;
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .account-summary-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 9px 14px;
+        }
+
+        .account-data {
+            min-width: 0;
+        }
+
+        .account-data.full {
+            grid-column: 1 / -1;
+        }
+
+        .account-data small {
+            display: block;
+
+            margin-bottom: 3px;
+
+            color: #8995a7;
+
+            font-size: 8px;
+            font-weight: 600;
+        }
+
+        .account-data strong {
+            display: block;
+
+            overflow: hidden;
+
+            color: #263852;
+
+            font-size: 10px;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .account-data.email strong {
+            color: #1769e8;
+        }
+
+
+        /* =====================================================
+           OTP / VERIFICATION CODE
+           ===================================================== */
+
+        .verification-code-box {
+            margin-top: 8px;
+
+            padding: 18px;
+
+            border: 1px solid #e3ebf5;
+            border-radius: 14px;
+
+            background: #fff;
+
+            text-align: center;
+        }
+
+        .verification-code-title {
+            margin-bottom: 6px;
+
+            color: #273954;
+
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .verification-code-description {
+            margin: 0 0 13px;
+
+            color: #8995a7;
+
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+        .verification-code {
+            width: 100%;
+
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #dce6f1;
+            border-radius: 10px;
+
+            outline: 0;
+
+            background: #fdfefe;
+
+            color: #12213d;
+
+            text-align: center;
+
+            font-size: 19px;
+            font-weight: 800;
+
+            letter-spacing: 8px;
+
+            transition: .2s ease;
+        }
+
+        .verification-code::placeholder {
+            color: #b5bfcb;
+
+            letter-spacing: 7px;
+        }
+
+        .verification-code:focus {
+            border-color: #5d9cf1;
+
+            box-shadow:
+                0 0 0 3px #1769e812;
+        }
+
+        .verification-code.invalid {
+            border-color: #e25c5c;
+
+            background: #fff8f8;
+        }
+
+        .verification-code.valid {
+            border-color: #2d9d64;
+
+            background: #f5fff9;
+        }
+
+        .verification-code-message {
+            min-height: 15px;
+
+            margin: 7px 0 0;
+
+            font-size: 9px;
+        }
+
+        .verification-code-message.error {
+            color: #e24e4e;
+        }
+
+        .verification-code-message.success {
+            color: #24905a;
+        }
+
+
+        /* =====================================================
+           RESEND CODE
+           ===================================================== */
+
+        .resend-area {
+            margin-top: 12px;
+
+            text-align: center;
+        }
+
+        .resend-area p {
+            margin: 0 0 5px;
+
+            color: #8995a7;
+
+            font-size: 9px;
+        }
+
+        .resend-button {
+            padding: 0;
+
+            border: 0;
+
+            background: transparent;
+
+            color: #1769e8;
+
+            font: 700 9px Inter;
+
+            cursor: pointer;
+        }
+
+        .resend-button:hover {
+            text-decoration: underline;
+        }
+
+        .resend-button:disabled {
+            color: #a5afbd;
+
+            cursor: not-allowed;
+
+            text-decoration: none;
+        }
+
+
+        /* =====================================================
+           VERIFICATION BUTTON AREA
+           ===================================================== */
+
+        .verification-actions {
+            margin-top: 17px;
+        }
+
+        .verification-status {
+            min-height: 16px;
+
+            margin: 10px 0 0;
+
+            color: #718096;
+
+            font-size: 9px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           STAGE 3 - COMPLETION
+           ===================================================== */
+
+        .completion-panel {
+            width: 100%;
+
+            text-align: center;
+
+            padding: 20px 0;
+        }
+
+        .completion-icon {
+            display: grid;
+            place-items: center;
+
+            width: 82px;
+            height: 82px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            background: #edf8f2;
+
+            font-size: 42px;
+
+            box-shadow:
+                0 10px 30px rgba(45, 157, 100, .10);
+        }
+
+        .completion-panel h3 {
+            margin: 0 0 9px;
+
+            font-size: 23px;
+
+            letter-spacing: -.6px;
+        }
+
+        .completion-panel p {
+            max-width: 430px;
+
+            margin: 0 auto 20px;
+
+            color: #718096;
+
+            font-size: 11px;
+            line-height: 1.7;
+        }
+
+        .completion-note {
+            margin: 0 auto 18px;
+
+            padding: 10px 13px;
+
+            border: 1px solid #e1edf8;
+            border-radius: 10px;
+
+            background: #f8fbff;
+
+            color: #52647d;
+
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           TOAST
+           ===================================================== */
+
+        #toast {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 20;
+
+            padding: 12px 16px;
+
+            border-radius: 10px;
+
+            background: #10213d;
+            color: #fff;
+
+            font-size: 11px;
+
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition: .25s;
+        }
+
+        #toast.show {
+            opacity: 1;
+
+            transform: none;
+        }
+
+
+        /* =====================================================
+           TABLET
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .page {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                min-height: 440px;
+                height: 440px;
+            }
+
+            .copy {
+                top: 22%;
+            }
+
+            .art {
+                inset: 10% 0 0 25%;
+            }
+
+            .form-side {
+                padding: 42px 8%;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 650px) {
+
+            .welcome {
+                display: none;
+            }
+
+            .form-side {
+                min-height: 100vh;
+
+                padding: 28px 20px;
+
+                align-items: flex-start;
+            }
+
+            .mobile-brand {
+                display: block;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .grid .full {
+                grid-column: auto;
+            }
+
+            .langs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .security {
+                grid-template-columns: 1fr;
+            }
+
+            .security div {
+                grid-template-columns: 28px 1fr;
+            }
+
+            .head h2 {
+                font-size: 25px;
+            }
+
+            .steps {
+                gap: 5px;
+            }
+
+            .step {
+                min-width: 65px;
+            }
+
+            .step b {
+                font-size: 8px;
+            }
+
+            .account-summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .account-data.full {
+                grid-column: auto;
+            }
+
+            .verification-code-box {
+                padding: 15px;
+            }
+
+            .verification-code {
+                letter-spacing: 6px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL MOBILE
+           ===================================================== */
+
+        @media (max-width: 390px) {
+
+            .form-side {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .head h2 {
+                font-size: 23px;
+            }
+
+            .steps {
+                margin-bottom: 19px;
+            }
+
+            .step span {
+                width: 26px;
+                height: 26px;
+            }
+
+            .steps > i {
+                margin-top: 13px;
+            }
+
+            .verification-code {
+                font-size: 17px;
+
+                letter-spacing: 5px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         MAIN PAGE
+         ===================================================== -->
+
+    <div class="page">
+
+
+        <!-- =================================================
+             LEFT / WELCOME
+             ================================================= -->
+
+        <section class="welcome">
+
+            <div class="shade"></div>
+
+            <div class="brand">
+                🎓
+
+                <div>
+                    <b>AKU BISA</b>
+                    <small>Aplikasi Kreatif Untuk Bisa Semua Bahasa</small>
+                </div>
+            </div>
+
+
+            <div class="copy">
+
+                <label>
+                    ✨ WELCOME TO AKU BISA
+                </label>
+
+                <h1>
+                    Bergabunglah bersama<br>
+                    <span>AKU BISA</span>
+                </h1>
+
+                <p>
+                    Daftar sekarang dan mulai perjalanan belajarmu menuju
+                    <b>dunia tanpa batas.</b>
+                </p>
+
+            </div>
+
+
+            <div class="art"></div>
+
+
+            <div class="benefits">
+
+                <article>
+                    🎓
+                    <b>Belajar Interaktif</b>
+                    <small>Metode seru &amp; efektif</small>
+                </article>
+
+                <article>
+                    🏆
+                    <b>Pantau Progress</b>
+                    <small>Perkembangan setiap hari</small>
+                </article>
+
+                <article>
+                    📜
+                    <b>Sertifikat</b>
+                    <small>Rayakan pencapaian</small>
+                </article>
+
+                <article>
+                    👥
+                    <b>Komunitas Aktif</b>
+                    <small>Bersama pelajar lain</small>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT / FORM
+             ================================================= -->
+
+        <section class="form-side">
+
+            <div class="form-wrap">
+
+
+                <!-- =============================================
+                     HEADER
+                     ============================================= -->
+
+                <div class="head">
+
+                    <div>
+
+                        <div class="mobile-brand">
+                            🎓 AKU BISA
+                        </div>
+
+                        <h2>
+                            Buat Akun Baru
+                        </h2>
+
+                        <p>
+                            Mulai perjalanan belajarmu sekarang!
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="lang"
+                        type="button"
+                        aria-label="Pilih bahasa"
+                    >
+                        🌐 ID⌄
+                    </button>
+
+                </div>
+
+
+                <!-- =============================================
+                     STEP INDICATOR
+                     ============================================= -->
+
+                <div class="steps" id="steps">
+
+                    <div class="step active" data-step="1">
+
+                        <span>1</span>
+
+                        <b>
+                            Informasi Diri
+                        </b>
+
+                    </div>
+
+
+                    <i data-line="1"></i>
+
+
+                    <div class="step" data-step="2">
+
+                        <span>2</span>
+
+                        <b>
+                            Verifikasi
+                        </b>
+
+                    </div>
+
+
+                    <i data-line="2"></i>
+
+
+                    <div class="step" data-step="3">
+
+                        <span>3</span>
+
+                        <b>
+                            Selesai
+                        </b>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =============================================
+                     STAGE VIEWPORT
+                     ============================================= -->
+
+                <div class="stage-viewport">
+
+
+                    <!-- =========================================
+                         TAHAP 1
+                         INFORMASI DIRI
+                         ========================================= -->
+
+                    <div
+                        class="stage-panel"
+                        id="stage1"
+                        data-stage="1"
+                    >
+
+                        <form
+                            id="form"
+                            novalidate
+                        >
+
+                            <div class="grid">
+
+
+                                <!-- NAMA -->
+                                <label class="full">
+
+                                    Nama Lengkap
+
+                                    <div class="input">
+
+                                        <span>👤</span>
+
+                                        <input
+                                            id="name"
+                                            type="text"
+                                            placeholder="Masukkan nama lengkapmu"
+                                            autocomplete="name"
+                                        >
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- EMAIL -->
+                                <label>
+
+                                    Email
+
+                                    <div class="input">
+
+                                        <span>✉</span>
+
+                                        <input
+                                            id="email"
+                                            type="email"
+                                            placeholder="Masukkan email aktif"
+                                            autocomplete="email"
+                                        >
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- TELEPON -->
+                                <label>
+
+                                    Nomor Telepon
+
+                                    <div class="input">
+
+                                        <span>☎</span>
+
+                                        <input
+                                            id="phone"
+                                            type="tel"
+                                            placeholder="Masukkan nomor telepon"
+                                            autocomplete="tel"
+                                        >
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- TANGGAL LAHIR -->
+                                <label>
+
+                                    Tanggal Lahir
+
+                                    <div class="input">
+
+                                        <span>📅</span>
+
+                                        <input
+                                            id="birth"
+                                            type="date"
+                                        >
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- JENIS KELAMIN -->
+                                <label>
+
+                                    Jenis Kelamin
+
+                                    <div class="input">
+
+                                        <span>👥</span>
+
+                                        <select id="gender">
+
+                                            <option value="">
+                                                Pilih jenis kelamin
+                                            </option>
+
+                                            <option value="Laki-laki">
+                                                Laki-laki
+                                            </option>
+
+                                            <option value="Perempuan">
+                                                Perempuan
+                                            </option>
+
+                                            <option value="Tidak ingin menyebutkan">
+                                                Tidak ingin menyebutkan
+                                            </option>
+
+                                        </select>
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- BAHASA -->
+                                <label class="full">
+
+                                    Bahasa yang ingin dipelajari
+
+                                    <div
+                                        class="langs"
+                                        id="langs"
+                                    >
+
+                                        <button
+                                            type="button"
+                                            data-v="Jepang"
+                                        >
+                                            🇯🇵 Jepang
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            data-v="Inggris"
+                                        >
+                                            🇬🇧 Inggris
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            data-v="Korea"
+                                        >
+                                            🇰🇷 Korea
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            data-v="Jerman"
+                                        >
+                                            🇩🇪 Jerman
+                                        </button>
+
+                                    </div>
+
+                                    <input
+                                        id="learning"
+                                        type="hidden"
+                                    >
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- USERNAME -->
+                                <label class="full">
+
+                                    Username
+
+                                    <div class="input">
+
+                                        <span>＠</span>
+
+                                        <input
+                                            id="user"
+                                            type="text"
+                                            placeholder="Buat username"
+                                            autocomplete="username"
+                                        >
+
+                                    </div>
+
+                                    <small>
+                                        Username akan digunakan untuk login
+                                    </small>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- PASSWORD -->
+                                <label>
+
+                                    Password
+
+                                    <div class="input">
+
+                                        <span>🔒</span>
+
+                                        <input
+                                            id="pass"
+                                            type="password"
+                                            placeholder="Buat password"
+                                            autocomplete="new-password"
+                                        >
+
+                                        <button
+                                            type="button"
+                                            class="eye"
+                                            data-id="pass"
+                                            aria-label="Tampilkan password"
+                                        >
+                                            ◉
+                                        </button>
+
+                                    </div>
+
+
+                                    <div class="strength">
+
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+
+                                        <small id="strengthText">
+                                            Minimal 8 karakter
+                                        </small>
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+
+                                <!-- KONFIRMASI PASSWORD -->
+                                <label>
+
+                                    Konfirmasi Password
+
+                                    <div class="input">
+
+                                        <span>🔒</span>
+
+                                        <input
+                                            id="confirm"
+                                            type="password"
+                                            placeholder="Konfirmasi password"
+                                            autocomplete="new-password"
+                                        >
+
+                                        <button
+                                            type="button"
+                                            class="eye"
+                                            data-id="confirm"
+                                            aria-label="Tampilkan konfirmasi password"
+                                        >
+                                            ◉
+                                        </button>
+
+                                    </div>
+
+                                    <em></em>
+
+                                </label>
+
+                            </div>
+
+
+                            <!-- PERSETUJUAN -->
+
+                            <label class="agree">
+
+                                <input
+                                    id="agree"
+                                    type="checkbox"
+                                >
+
+                                <span class="checkmark"></span>
+
+                                <span>
+
+                                    Saya setuju dengan
+
+                                    <a href="Syarat_ketentuan.html">
+                                        Syarat &amp; Ketentuan
+                                    </a>
+
+                                    dan
+
+                                    <a href="Kebijakan_privasi.html">
+                                        Kebijakan Privasi
+                                    </a>
+
+                                </span>
+
+                            </label>
+
+
+                            <em class="agree-error"></em>
+
+
+                            <!-- SUBMIT -->
+
+                            <button
+                                class="submit"
+                                type="submit"
+                            >
+                                Buat Akun
+                                <b>→</b>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         TAHAP 2
+                         VERIFIKASI
+                         ========================================= -->
+
+                    <div
+                        class="stage-panel hidden"
+                        id="verificationPanel"
+                        data-stage="2"
+                    >
+
+                        <div class="verification-panel">
+
+
+                            <!-- HEADER -->
+
+                            <div class="verification-header">
+
+                                <div class="verification-icon">
+                                    📧
+                                </div>
+
+                                <h3>
+                                    Verifikasi Akun
+                                </h3>
+
+                                <p>
+                                    Periksa kembali data akun Anda sebelum
+                                    melakukan konfirmasi.
+                                </p>
+
+                            </div>
+
+
+                            <!-- DATA AKUN -->
+
+                            <div class="account-summary">
+
+                                <div class="account-summary-title">
+                                    Data Akun
+                                </div>
+
+
+                                <div class="account-summary-grid">
+
+
+                                    <div class="account-data">
+
+                                        <small>
+                                            Nama Lengkap
+                                        </small>
+
+                                        <strong id="verificationName">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data">
+
+                                        <small>
+                                            Username
+                                        </small>
+
+                                        <strong id="verificationUsername">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data email">
+
+                                        <small>
+                                            Email
+                                        </small>
+
+                                        <strong id="verificationEmail">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data">
+
+                                        <small>
+                                            Nomor Telepon
+                                        </small>
+
+                                        <strong id="verificationPhone">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data">
+
+                                        <small>
+                                            Tanggal Lahir
+                                        </small>
+
+                                        <strong id="verificationBirth">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data">
+
+                                        <small>
+                                            Jenis Kelamin
+                                        </small>
+
+                                        <strong id="verificationGender">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div class="account-data full">
+
+                                        <small>
+                                            Bahasa yang Dipelajari
+                                        </small>
+
+                                        <strong id="verificationLearning">
+                                            —
+                                        </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- KODE VERIFIKASI -->
+
+                            <div class="verification-code-box">
+
+                                <div class="verification-code-title">
+                                    Kode Verifikasi Email
+                                </div>
+
+                                <p class="verification-code-description">
+                                    Masukkan kode 6 digit yang dikirimkan
+                                    ke email Anda.
+                                </p>
+
+
+                                <input
+                                    id="verificationCode"
+                                    class="verification-code"
+                                    type="text"
+                                    inputmode="numeric"
+                                    autocomplete="one-time-code"
+                                    maxlength="6"
+                                    placeholder="••••••"
+                                    aria-label="Kode verifikasi"
+                                >
+
+
+                                <p
+                                    id="verificationCodeMessage"
+                                    class="verification-code-message"
+                                ></p>
+
+
+                                <!-- KIRIM ULANG -->
+
+                                <div class="resend-area">
+
+                                    <p>
+                                        Belum menerima kode?
+                                    </p>
+
+                                    <button
+                                        type="button"
+                                        id="resendVerification"
+                                        class="resend-button"
+                                    >
+                                        Kirim Ulang Kode
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- KONFIRMASI -->
+
+                            <div class="verification-actions">
+
+                                <button
+                                    type="button"
+                                    id="checkVerification"
+                                    class="submit"
+                                    disabled
+                                >
+                                    Konfirmasi
+                                    <b>✓</b>
+                                </button>
+
+                            </div>
+
+
+                            <p
+                                id="verificationStatus"
+                                class="verification-status"
+                            ></p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         TAHAP 3
+                         SELESAI
+                         ========================================= -->
+
+                    <div
+                        class="stage-panel hidden"
+                        id="completionPanel"
+                        data-stage="3"
+                    >
+
+                        <div class="completion-panel">
+
+
+                            <div class="completion-icon">
+                                🎉
+                            </div>
+
+
+                            <h3>
+                                Akun Berhasil Dibuat
+                            </h3>
+
+
+                            <p>
+                                Selamat! Akun AKU BISA Anda telah berhasil
+                                dibuat dan data Anda sudah tersimpan dengan
+                                aman.
+                            </p>
+
+
+                            <div class="completion-note">
+
+                                Akun Anda siap digunakan.
+                                Silakan login untuk mulai belajar
+                                bersama AKU BISA.
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="goToLogin"
+                                class="submit"
+                            >
+                                Login Sekarang
+                                <b>→</b>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     LOGIN LINK
+                     ================================================= -->
+
+                <p
+                    class="login"
+                    id="loginLink"
+                >
+                    Sudah punya akun?
+
+                    <a href="Login.html">
+                        Masuk di sini
+                    </a>
+                </p>
+
+
+                <!-- =================================================
+                     SECURITY
+                     ================================================= -->
+
+                <div class="security">
+
+                    <div>
+                        🛡️
+                        <b>Keamanan Terjamin</b>
+                        <small>Data kamu aman</small>
+                    </div>
+
+                    <div>
+                        🔐
+                        <b>Privasi Terjaga</b>
+                        <small>Data terlindungi</small>
+                    </div>
+
+                    <div>
+                        ⚡
+                        <b>Verifikasi Mudah</b>
+                        <small>Proses cepat</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </div>
 
-</div>
-    <div id="completionPanel" style="display:none;">
-  <div style="text-align:center;padding:20px 0;">
-    <div style="font-size:48px;margin-bottom:12px;">🎉</div>
 
-    <h3 style="margin:0 0 8px;font-size:22px;">
-      Pendaftaran Berhasil
-    </h3>
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
 
-    <p style="margin:0 auto 18px;color:#718096;font-size:11px;line-height:1.6;max-width:430px;">
-      Email Anda telah berhasil diverifikasi.
-      Akun AKU BISA sudah siap digunakan.
-    </p>
-
-    <button type="button" id="goToLogin" class="submit">
-      Masuk ke Aplikasi <b>→</b>
-    </button>
-  </div>
-</div>
-    <p class="login">Sudah punya akun? <a href="Login.html">Masuk di sini</a></p><div class="security"><div>🛡️ <b>Keamanan Terjamin</b><small>Data kamu aman</small></div><div>🔐 <b>Privasi Terjaga</b><small>Data terlindungi</small></div><div>⚡ <b>Verifikasi Mudah</b><small>Proses cepat</small></div></div></div></section></div><div id="toast"></div>
-
-<script type="module">
-    console.log("AKU BISA: register.js BERHASIL DIMUAT");
-// =====================================================
-// AKU BISA - Register Page
-// Firebase Authentication
-// =====================================================
-
-import {
-    registerWithEmail,
-    sendVerificationEmail,
-    checkEmailVerified,
-    getCurrentUser,
-    getAuthErrorMessage
-} from "./auth-service.js";
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    "use strict";
-
-    // =================================================
-    // HELPER
-    // =================================================
-
-    const $ = (id) => document.getElementById(id);
-    const query = (selector) => document.querySelector(selector);
-
-    const form = $("form");
-    const toast = $("toast");
-
-    function notify(message) {
-        if (!toast) {
-            alert(message);
-            return;
-        }
-
-        toast.textContent = message;
-        toast.classList.add("show");
-
-        clearTimeout(window.akuBisaToastTimer);
-
-        window.akuBisaToastTimer = setTimeout(() => {
-            toast.classList.remove("show");
-        }, 2800);
-    }
-
-    function showFieldError(fieldId, message) {
-        const field = $(fieldId);
-
-        if (!field) {
-            return;
-        }
-
-        const label = field.closest("label");
-
-        if (!label) {
-            return;
-        }
-
-        label.classList.toggle("invalid", Boolean(message));
-
-        const errorElement = label.querySelector("em");
-
-        if (errorElement) {
-            errorElement.textContent = message || "";
-        }
-    }
-
-    function clearErrors() {
-        document.querySelectorAll("label.invalid").forEach((label) => {
-            label.classList.remove("invalid");
-        });
-
-        document.querySelectorAll("label em").forEach((element) => {
-            element.textContent = "";
-        });
-
-        const agreeError = query(".agree-error");
-
-        if (agreeError) {
-            agreeError.textContent = "";
-        }
-    }
-
-    function isValidEmail(value) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-    }
-
-    function isValidUsername(value) {
-        return /^[A-Za-z0-9_]{4,20}$/.test(value);
-    }
-
-    // =================================================
-    // PILIH BAHASA
-    // =================================================
-
-    const languageButtons =
-        document.querySelectorAll("#langs button");
-
-    languageButtons.forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-            languageButtons.forEach((item) => {
-                item.classList.remove("selected");
-            });
-
-            button.classList.add("selected");
-
-            $("learning").value =
-                button.dataset.v || "";
-        });
-
-    });
-
-    // =================================================
-    // TOGGLE PASSWORD
-    // =================================================
-
-    document.querySelectorAll(".eye").forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-            const targetId = button.dataset.id;
-            const input = $(targetId);
-
-            if (!input) {
-                return;
-            }
-
-            if (input.type === "password") {
-
-                input.type = "text";
-                button.textContent = "◌";
-
-            } else {
-
-                input.type = "password";
-                button.textContent = "◉";
-
-            }
-
-        });
-
-    });
-
-    // =================================================
-    // PASSWORD STRENGTH
-    // =================================================
-
-    const passwordInput = $("pass");
-    const strengthText = $("strengthText");
-    const strengthBars =
-        document.querySelectorAll(".strength i");
-
-    if (passwordInput) {
-
-        passwordInput.addEventListener("input", () => {
-
-            const value = passwordInput.value;
-
-            let score = 0;
-
-            if (value.length >= 8) {
-                score++;
-            }
-
-            if (/[A-Z]/.test(value)) {
-                score++;
-            }
-
-            if (/[0-9]/.test(value)) {
-                score++;
-            }
-
-            if (/\W/.test(value)) {
-                score++;
-            }
-
-            strengthBars.forEach((bar, index) => {
-
-                bar.style.background =
-                    index < score
-                        ? "#1769e8"
-                        : "#e6ebf2";
-
-            });
-
-            if (!value) {
-
-                strengthText.textContent =
-                    "Minimal 8 karakter";
-
-            } else if (score < 2) {
-
-                strengthText.textContent =
-                    "Password lemah";
-
-            } else if (score < 3) {
-
-                strengthText.textContent =
-                    "Password cukup";
-
-            } else if (score < 4) {
-
-                strengthText.textContent =
-                    "Password kuat";
-
-            } else {
-
-                strengthText.textContent =
-                    "Password sangat kuat";
-
-            }
-
-        });
-
-    }
-
-    // =================================================
-    // BAHASA ANTARMUKA
-    // =================================================
-
-    const languageButton = $("lang");
-
-    if (languageButton) {
-
-        languageButton.addEventListener("click", () => {
-            notify("Bahasa antarmuka: Indonesia 🇮🇩");
-        });
-
-    }
-
-    // =================================================
-    // FORM REGISTER
-    // =================================================
-
-    if (!form) {
-        console.error(
-            "AKU BISA: Form register tidak ditemukan."
-        );
-        return;
-    }
-
-    form.addEventListener("submit", async (event) => {
-
-        event.preventDefault();
-
-        clearErrors();
-
-        // ---------------------------------------------
-        // AMBIL DATA FORM
-        // ---------------------------------------------
-
-        const name =
-            $("name").value.trim();
-
-        const email =
-            $("email").value.trim();
-
-        const phone =
-            $("phone").value.trim();
-
-        const birth =
-            $("birth").value;
-
-        const gender =
-            $("gender").value;
-
-        const learning =
-            $("learning").value;
-
-        const username =
-            $("user").value.trim();
-
-        const password =
-            $("pass").value;
-
-        const confirmPassword =
-            $("confirm").value;
-
-        const agree =
-            $("agree").checked;
-
-        let valid = true;
-
-        // ---------------------------------------------
-        // VALIDASI NAMA
-        // ---------------------------------------------
-
-        if (name.length < 3) {
-
-            showFieldError(
-                "name",
-                "Nama minimal 3 karakter."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI EMAIL
-        // ---------------------------------------------
-
-        if (!isValidEmail(email)) {
-
-            showFieldError(
-                "email",
-                "Email belum valid."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI NOMOR TELEPON
-        // ---------------------------------------------
-
-        if (
-            phone.replace(/\D/g, "").length < 8
-        ) {
-
-            showFieldError(
-                "phone",
-                "Nomor telepon belum valid."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI TANGGAL LAHIR
-        // ---------------------------------------------
-
-        if (!birth) {
-
-            showFieldError(
-                "birth",
-                "Pilih tanggal lahir."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI JENIS KELAMIN
-        // ---------------------------------------------
-
-        if (!gender) {
-
-            showFieldError(
-                "gender",
-                "Pilih jenis kelamin."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI BAHASA
-        // ---------------------------------------------
-
-        if (!learning) {
-
-            const languageLabel =
-                $("learning").closest("label");
-
-            const errorElement =
-                languageLabel?.querySelector("em");
-
-            if (errorElement) {
-                errorElement.textContent =
-                    "Pilih bahasa yang ingin dipelajari.";
-            }
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI USERNAME
-        // ---------------------------------------------
-
-        if (!isValidUsername(username)) {
-
-            showFieldError(
-                "user",
-                "Username 4–20 karakter tanpa spasi."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI PASSWORD
-        // ---------------------------------------------
-
-        if (password.length < 8) {
-
-            showFieldError(
-                "pass",
-                "Password minimal 8 karakter."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI KONFIRMASI PASSWORD
-        // ---------------------------------------------
-
-        if (password !== confirmPassword) {
-
-            showFieldError(
-                "confirm",
-                "Password tidak sama."
-            );
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // VALIDASI PERSETUJUAN
-        // ---------------------------------------------
-
-        if (!agree) {
-
-            const agreeError =
-                query(".agree-error");
-
-            if (agreeError) {
-                agreeError.textContent =
-                    "Setujui syarat dan ketentuan.";
-            }
-
-            valid = false;
-        }
-
-        // ---------------------------------------------
-        // JIKA VALIDASI GAGAL
-        // ---------------------------------------------
-
-        if (!valid) {
-
-            notify(
-                "Periksa kembali data pendaftaran."
-            );
-
-            return;
-        }
-
-        // =================================================
-        // DISABLE BUTTON
-        // =================================================
-
-        const submitButton =
-            form.querySelector(".submit");
-
-        if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.style.opacity = "0.7";
-            submitButton.style.cursor = "wait";
-        }
-
-        try {
-
-            // =============================================
-            // BUAT AKUN FIREBASE
-            // =============================================
-const user = await registerWithEmail(
-    email,
-    password,
-    name
-);
-
-if (!user) {
-    throw new Error("AUTH_NO_USER");
-}
-
-            // =============================================
-            // SIMPAN DATA NON-SENSITIF SEMENTARA
-            // =============================================
-            //
-            // Password TIDAK disimpan.
-            //
-            // Data profil lengkap akan kita pindahkan
-            // ke Firestore pada tahap berikutnya.
-            //
-
-            localStorage.setItem(
-                "akuBisaRegisterPending",
-                JSON.stringify({
-                    uid: user.uid,
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    birth: birth,
-                    gender: gender,
-                    username: username,
-                    language: learning
-                })
-            );
-
-            // =============================================
-            // TAMPILKAN LANGKAH VERIFIKASI
-            // =============================================
-
-            const steps =
-                document.querySelectorAll(".step");
-
-            steps.forEach((step) => {
-                step.classList.remove("active");
-            });
-
-            if (steps[1]) {
-                steps[1].classList.add("active");
-            }
-
-            notify(
-                "Akun berhasil dibuat! Silakan cek email untuk verifikasi. 📧"
-            );
-
-           // =============================================
-// TAMPILKAN PANEL VERIFIKASI
-// =============================================
-
-const verificationPanel = $("verificationPanel");
-const verificationEmail = $("verificationEmail");
-
-if (form) {
-    form.style.display = "none";
-}
-
-if (verificationPanel) {
-    verificationPanel.style.display = "block";
-}
-
-if (verificationEmail) {
-    verificationEmail.textContent = email;
-}
-        } catch (error) {
-
-            console.error(
-                "AKU BISA - Register Error:",
-                error
-            );
-
-            notify(
-                getAuthErrorMessage(error)
-            );
-
-        } finally {
-
-            if (submitButton) {
-
-                submitButton.disabled = false;
-                submitButton.style.opacity = "";
-                submitButton.style.cursor = "";
-
-            }
-
-        }
-
-    });
-        // =================================================
-    // VERIFIKASI EMAIL
-    // =================================================
-
-    const checkVerificationButton =
-        $("checkVerification");
-
-    const verificationPanel =
-        $("verificationPanel");
-
-    const completionPanel =
-        $("completionPanel");
-
-    const verificationStatus =
-        $("verificationStatus");
-
-    if (checkVerificationButton) {
-
-        checkVerificationButton.addEventListener(
-            "click",
-            async () => {
-
-                checkVerificationButton.disabled = true;
-                checkVerificationButton.style.opacity = "0.7";
-                checkVerificationButton.style.cursor = "wait";
-
-                if (verificationStatus) {
-                    verificationStatus.textContent =
-                        "Sedang memeriksa status verifikasi...";
-                }
-
-                try {
-
-                    const verified =
-                        await checkEmailVerified();
-
-                    if (!verified) {
-
-                        if (verificationStatus) {
-                            verificationStatus.textContent =
-                                "Email belum diverifikasi. Silakan klik link verifikasi di email.";
-                        }
-
-                        notify(
-                            "Email belum diverifikasi. 📧"
-                        );
-
-                        return;
-                    }
-
-                    // =================================
-                    // EMAIL SUDAH TERVERIFIKASI
-                    // =================================
-
-                    const steps =
-                        document.querySelectorAll(".step");
-
-                    steps.forEach((step) => {
-                        step.classList.remove("active");
-                    });
-
-                    if (steps[2]) {
-                        steps[2].classList.add("active");
-                    }
-
-                    if (verificationPanel) {
-                        verificationPanel.style.display =
-                            "none";
-                    }
-
-                    if (completionPanel) {
-                        completionPanel.style.display =
-                            "block";
-                    }
-
-                    notify(
-                        "Email berhasil diverifikasi! 🎉"
-                    );
-
-                } catch (error) {
-
-                    console.error(
-                        "AKU BISA - Verification Error:",
-                        error
-                    );
-
-                    if (verificationStatus) {
-                        verificationStatus.textContent =
-                            getAuthErrorMessage(error);
-                    }
-
-                    notify(
-                        getAuthErrorMessage(error)
-                    );
-
-                } finally {
-
-                    checkVerificationButton.disabled =
-                        false;
-
-                    checkVerificationButton.style.opacity =
-                        "";
-
-                    checkVerificationButton.style.cursor =
-                        "";
-
-                }
-
-            }
-        );
-
-    }
-
-        // =================================================
-    // KIRIM ULANG EMAIL VERIFIKASI
-    // =================================================
-
-    const resendVerificationButton =
-        $("resendVerification");
-
-    if (resendVerificationButton) {
-
-        resendVerificationButton.addEventListener(
-            "click",
-            async () => {
-
-                resendVerificationButton.disabled = true;
-                resendVerificationButton.style.opacity = "0.7";
-                resendVerificationButton.style.cursor = "wait";
-
-                if (verificationStatus) {
-                    verificationStatus.textContent =
-                        "Mengirim ulang email verifikasi...";
-                }
-
-                try {
-
-                    await sendVerificationEmail();
-
-                    if (verificationStatus) {
-                        verificationStatus.textContent =
-                            "Email verifikasi berhasil dikirim ulang. 📧";
-                    }
-
-                    notify(
-                        "Email verifikasi berhasil dikirim ulang. 📧"
-                    );
-
-                } catch (error) {
-
-                    console.error(
-                        "AKU BISA - Resend Verification Error:",
-                        error
-                    );
-
-                    const message =
-                        getAuthErrorMessage(error);
-
-                    if (verificationStatus) {
-                        verificationStatus.textContent =
-                            message;
-                    }
-
-                    notify(message);
-
-                } finally {
-
-                    resendVerificationButton.disabled =
-                        false;
-
-                    resendVerificationButton.style.opacity =
-                        "";
-
-                    resendVerificationButton.style.cursor =
-                        "";
-
-                }
-
-            }
-        );
-
-    }
-// TOMBOL MASUK KE LOGIN
-const goToLoginButton = $("goToLogin");
-
-if (goToLoginButton) {
-
-    goToLoginButton.addEventListener("click", () => {
-
-        window.location.href = "Login.html";
-
-    });
-
-}
-
-});
-
-</script>
+    <div id="toast"></div>
 
 
 </body>
+
 </html>
