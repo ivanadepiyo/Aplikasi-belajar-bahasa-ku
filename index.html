@@ -2557,6 +2557,144 @@ function showMessage(text) {
     );
 }
 
+	const modal = document.getElementById("videoModal");
+const videoBtn = document.getElementById("videoBtn");
+const closeModalButton = document.getElementById("closeModal");
+
+function openModal() {
+    if (!modal) return;
+
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+}
+
+function closeModal() {
+    if (!modal) return;
+
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+}
+
+if (videoBtn) {
+    videoBtn.addEventListener("click", openModal);
+}
+
+if (closeModalButton) {
+    closeModalButton.addEventListener("click", closeModal);
+}
+
+if (modal) {
+    modal.addEventListener("click", event => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+
+
+
+	const counters = document.querySelectorAll("[data-count]");
+
+if ("IntersectionObserver" in window) {
+
+    const countObserver = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) return;
+
+                const element = entry.target;
+                const target = Number(element.dataset.count);
+                const duration = 1200;
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+
+                    const progress = Math.min(
+                        (currentTime - startTime) / duration,
+                        1
+                    );
+
+                    const eased =
+                        1 - Math.pow(1 - progress, 3);
+
+                    const current =
+                        Math.floor(target * eased);
+
+                    if (target >= 1000) {
+
+                        element.textContent =
+                            current.toLocaleString("id-ID") + "+";
+
+                    } else if (target === 98) {
+
+                        element.textContent =
+                            current + "%";
+
+                    } else {
+
+                        element.textContent =
+                            current + "+";
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+
+                countObserver.unobserve(element);
+            });
+
+        },
+        {
+            threshold: 0.7
+        }
+    );
+
+    counters.forEach(counter => {
+        countObserver.observe(counter);
+    });
+
+}
+
+
+
+	document
+    .querySelectorAll(".language-card")
+    .forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const languageElement =
+                card.querySelector("b");
+
+            if (!languageElement) return;
+
+            const language =
+                languageElement.textContent.trim();
+
+            alert(
+                `Pilihan kamu: ${language}\n\n` +
+                `Halaman pembelajaran ${language} ` +
+                `siap dikembangkan.`
+            );
+
+        });
+
+    });
+
+	
+	
+
 </script>
 </body>
 </html>
