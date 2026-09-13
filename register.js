@@ -856,20 +856,50 @@ async function handleResendVerification() {
 
             }, 1000);
 
-    } catch (error) {
+   } catch (error) {
 
-        console.error(
-            "AKU BISA: Resend verification error:",
-            error
-        );
+    console.error(
+        "AKU BISA: Register error:",
+        error
+    );
+
+    console.error(
+        "AKU BISA: Error code:",
+        error?.code
+    );
+
+    console.error(
+        "AKU BISA: Error message:",
+        error?.message
+    );
+
+    // ---------------------------------------------
+    // FIRESTORE ERROR
+    // ---------------------------------------------
+
+    if (
+        error?.code === "permission-denied" ||
+        error?.code === "PERMISSION_DENIED"
+    ) {
 
         showToast(
-            getAuthErrorMessage(error),
+            "Akun berhasil dibuat, tetapi data belum dapat disimpan ke Firestore. Periksa Firestore Rules.",
             "error"
         );
-    }
-}
 
+        return;
+    }
+
+
+    // ---------------------------------------------
+    // AUTH ERROR
+    // ---------------------------------------------
+
+    showToast(
+        getAuthErrorMessage(error),
+        "error"
+    );
+}
 
 // =====================================================
 // TOMBOL KIRIM ULANG
